@@ -22,7 +22,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var searchTextField: NSTextField!
     @IBAction func searchInJSON(sender: AnyObject) {
         if self.searchTextField.stringValue != "" {
-            print(JSON(data: self.msg!).found(self.searchTextField.stringValue))
+            print((JSON(data: self.msg!).getJSONArray("partnerResponseState")![0]).getBool(self.searchTextField.stringValue))
         }
     }
     @IBAction func returnPressed(sender: AnyObject) {

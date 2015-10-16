@@ -10,7 +10,11 @@ import Foundation
 
 class JSON{
     
-    let jsonObject : [String:AnyObject]
+    var jsonObject:[String:AnyObject]
+    
+    init(){
+        jsonObject = [String:AnyObject]()
+    }
     
     init(data:NSData){
         jsonObject = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) as! [String : AnyObject]
@@ -20,12 +24,19 @@ class JSON{
         self.jsonObject = data
     }
     
+    /**
+        method don t search in childObjects
+    */
     func found(key:String)->Bool{
         return (jsonObject[key] != nil)
     }
-    
+//  --------------------------------------------- search-methods
     func getInt(key:String)->Int?{
         return jsonObject[key] as? Int
+    }
+    
+    func getBool(key:String)->Bool?{
+        return jsonObject[key] as? Bool
     }
     
     func getString(key:String)->String?{
@@ -52,9 +63,34 @@ class JSON{
         }
         return list
     }
+//    ------------------------------------------- /search-methods
+//    ------------------------------------------- build-methods
     
     
+    func setKeyValuePair(key:String,value:AnyObject)->Bool{
+        jsonObject[key] = value
+        if jsonObject[key] != nil{
+            return true
+        }else{
+            return false
+        }
+    }
     
+//    ------------------------------------------- /build-methods
+//    ------------------------------------------- convert-methods
     
+    func convertToString()->String{
+        let data = convertToNSData()
+        if data == nil{
+            return "JSON is empty"
+        }else{
+            return String(data: data!, encoding: NSUTF8StringEncoding)!
+        }
+    }
+    
+    func convertToNSData()->NSData?{
+        let data = try? NSJSONSerialization.dataWithJSONObject(self.jsonObject as AnyObject, options: [NSJSONWritingOptions()])
+        return data
+    }
 }
 
