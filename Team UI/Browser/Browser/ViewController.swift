@@ -44,7 +44,7 @@ class ViewController: UIViewController {
     }
     
     @IBAction func homeBtn(sender: AnyObject) {
-        
+        print("hello")
     }
     
     
