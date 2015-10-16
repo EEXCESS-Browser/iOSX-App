@@ -22,7 +22,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var searchTextField: NSTextField!
     @IBAction func searchInJSON(sender: AnyObject) {
         if self.searchTextField.stringValue != "" {
-            print((JSON(data: self.msg!).getJSONArray(self.searchTextField.stringValue)!)[0].getString("systemID"))
+            print(JSON(data: self.msg!).found(self.searchTextField.stringValue))
         }
     }
     @IBAction func returnPressed(sender: AnyObject) {
