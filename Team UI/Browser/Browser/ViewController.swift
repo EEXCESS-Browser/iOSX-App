@@ -9,9 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
+    var myWebViewDelegate: UIWebViewDelegate!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        myWebViewDelegate = WebViewDelegate()
+        myWebView.delegate = myWebViewDelegate
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -25,7 +29,6 @@ class ViewController: UIViewController {
         let murl = sender.text
         let url = NSURL(string: murl!)
         let request = NSURLRequest(URL: url!)
-        
         myWebView.loadRequest(request)
         myWebView.scalesPageToFit = true
         
@@ -44,7 +47,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func homeBtn(sender: AnyObject) {
-        print("hello")
+        let homeUrl = "https://www.google.de"
+        let url = NSURL(string: homeUrl)
+        let request = NSURLRequest(URL: url!)
+        myWebView.loadRequest(request)
+        myWebView.scalesPageToFit = true
+        
     }
     
     
