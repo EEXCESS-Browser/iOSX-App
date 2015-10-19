@@ -91,6 +91,10 @@ class JSONObject{
         }
     }
     
+    func addJSONObject(key:String,jsonObject:JSONObject)->Bool{
+        return self.setKeyValuePair(key, value: jsonObject.jsonObject)
+    }
+    
     
 //    ------------------------------------------- /build-methods
 //    ------------------------------------------- convert-methods
