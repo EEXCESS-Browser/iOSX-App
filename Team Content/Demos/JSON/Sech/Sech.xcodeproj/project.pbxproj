@@ -12,6 +12,7 @@
 		0CB1A8801BA7190B0081B801 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0CB1A87F1BA7190B0081B801 /* ViewController.swift */; };
 		0CB1A8821BA7190B0081B801 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0CB1A8811BA7190B0081B801 /* Assets.xcassets */; };
 		0CB1A8851BA7190B0081B801 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0CB1A8831BA7190B0081B801 /* Main.storyboard */; };
+		1281342A1BD4FF150080880F /* 15047100.png in Resources */ = {isa = PBXBuildFile; fileRef = 128134291BD4FF150080880F /* 15047100.png */; settings = {ASSET_TAGS = (); }; };
 		12A019181BD0E55600E77F1F /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A019171BD0E55600E77F1F /* Json.swift */; settings = {ASSET_TAGS = (); }; };
 		12A0191A1BD1023700E77F1F /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A019191BD1023700E77F1F /* ConnectionManager.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 		0CB1A8811BA7190B0081B801 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0CB1A8841BA7190B0081B801 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		0CB1A8861BA7190B0081B801 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		128134291BD4FF150080880F /* 15047100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 15047100.png; path = ../15047100.png; sourceTree = "<group>"; };
 		12A019171BD0E55600E77F1F /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 		12A019191BD1023700E77F1F /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -60,6 +62,7 @@
 			children = (
 				0CB1A87D1BA7190B0081B801 /* AppDelegate.swift */,
 				0CB1A87F1BA7190B0081B801 /* ViewController.swift */,
+				128134291BD4FF150080880F /* 15047100.png */,
 				0CB1A8811BA7190B0081B801 /* Assets.xcassets */,
 				0CB1A8831BA7190B0081B801 /* Main.storyboard */,
 				0CB1A8861BA7190B0081B801 /* Info.plist */,
@@ -129,6 +132,7 @@
 			files = (
 				0CB1A8821BA7190B0081B801 /* Assets.xcassets in Resources */,
 				0CB1A8851BA7190B0081B801 /* Main.storyboard in Resources */,
+				1281342A1BD4FF150080880F /* 15047100.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
