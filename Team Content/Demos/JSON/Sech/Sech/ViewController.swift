@@ -56,8 +56,8 @@ class ViewController: NSViewController, NSTextFieldDelegate {
 //            }
 //        }
         
-        let json = JSON()
-        let childJSON = JSON();
+        let json = JSONObject()
+        let childJSON = JSONObject();
         
         childJSON.setKeyValuePair("clientType", value: "Swift-Test-Client");
         childJSON.setKeyValuePair("clientVersion", value: "0.21");
@@ -67,7 +67,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         json.setKeyValuePair("origin", value: childJSON.jsonObject)
         json.setKeyValuePair("numResults", value: 1)
         
-        let childJSON2 = JSON()
+        let childJSON2 = JSONObject()
         childJSON2.setKeyValuePair("text", value: "\(recommendation.stringValue)")
         json.setKeyValuePair("contextKeywords", value: [childJSON2.jsonObject])
         print(json.convertToString())

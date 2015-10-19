@@ -18,7 +18,7 @@ class ConnectionManager{
     let FOR_HTTP_HEADER_FIELD__CONTENT_TYPE = "Content-Type"
     let FOR_HTTP_HEADER_FIELD__ACCENT = "Accept"
     
-    func makeHTTP_Request(data:JSON,url:String,httpMethod:String,postCompleted : (succeeded: Bool, data: NSData) -> ()){
+    func makeHTTP_Request(data:JSONObject,url:String,httpMethod:String,postCompleted : (succeeded: Bool, data: NSData) -> ()){
         let request = addRequestContent(createRequest(url),httpMethod: httpMethod,data: data.convertToNSData()!)
         self.sendRequest(request, postCompleted: postCompleted)
     }

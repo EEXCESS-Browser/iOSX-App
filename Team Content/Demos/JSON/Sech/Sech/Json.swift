@@ -8,12 +8,16 @@
 
 import Foundation
 
-class JSON{
+class JSONObject{
     
     var jsonObject:[String:AnyObject]
     
     init(){
         jsonObject = [String:AnyObject]()
+    }
+    
+    init(keyValuePairs:[String:AnyObject]){
+        jsonObject = keyValuePairs
     }
     
     init(data:NSData){
@@ -43,22 +47,22 @@ class JSON{
         return jsonObject[key] as? String
     }
     
-    func getJSONObject(key:String)->JSON?{
+    func getJSONObject(key:String)->JSONObject?{
         let data = jsonObject[key] as? [String : AnyObject]
         if data != nil {
-            return JSON(data: data!)
+            return JSONObject(data: data!)
         }else{
             return nil
         }
         
     }
     
-    func getJSONArray(key:String)->[JSON]?{
-        var list = [JSON]()
+    func getJSONArray(key:String)->[JSONObject]?{
+        var list = [JSONObject]()
         let data = (jsonObject[key] as? [[String:AnyObject]])
         if data != nil{
             for single in data!{
-                list.append(JSON(data: single))
+                list.append(JSONObject(data: single))
             }
         }
         return list
@@ -75,6 +79,18 @@ class JSON{
             return false
         }
     }
+    func setKeyValuePairs(keysValues:[String:AnyObject])->Bool{
+        let oldLength = self.jsonObject.count
+        for keyValue in keysValues{
+            jsonObject[keyValue.0] = keyValue.1
+        }
+        if oldLength+keysValues.count == jsonObject.count{
+            return true
+        }else{
+            return false
+        }
+    }
+    
     
 //    ------------------------------------------- /build-methods
 //    ------------------------------------------- convert-methods
