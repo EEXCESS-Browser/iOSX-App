@@ -48,7 +48,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         print(self.detailRequestJSON.convertToString())
         print("\n")
         
-        self.connectionManager.makeHTTP_Request(self.detailRequestJSON, url: "https://eexcess-dev.joanneum.at/eexcess-privacy-proxy-1.0-SNAPSHOT/api/v1/recommend/getDetails", httpMethod: ConnectionManager.POST, postCompleted: { (succeeded: Bool, msg: NSData) -> () in
+        self.connectionManager.makeHTTP_Request(self.detailRequestJSON, url: "https://eexcess-dev.joanneum.at/eexcess-federated-recommender-web-service-1.0-SNAPSHOT/recommender/getDetails", httpMethod: ConnectionManager.POST, postCompleted: { (succeeded: Bool, msg: NSData) -> () in
             if(succeeded) {
                 dispatch_async(dispatch_get_main_queue(), {
                     self.response.string = String(data: msg, encoding: NSUTF8StringEncoding)!
