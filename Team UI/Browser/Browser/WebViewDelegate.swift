@@ -10,8 +10,10 @@ import UIKit
 
 
 class WebViewDelegate: NSObject, UIWebViewDelegate {
-    
+    var html: NSString = "HTML"
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
+        
+        
         return true
     }
     
@@ -20,7 +22,9 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        print("finish load")
+        html = webView .stringByEvaluatingJavaScriptFromString("document.body.innerHTML")!
+        print(html)
+        
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
