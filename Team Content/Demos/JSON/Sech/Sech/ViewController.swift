@@ -48,11 +48,12 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         print(self.detailRequestJSON.convertToString())
         print("\n")
         
-        self.connectionManager.makeHTTP_Request(self.detailRequestJSON, url: "https://eexcess-dev.joanneum.at/eexcess-federated-recommender-web-service-1.0-SNAPSHOT/recommender/getDetails", httpMethod: ConnectionManager.POST, postCompleted: { (succeeded: Bool, msg: NSData) -> () in
+        self.connectionManager.makeHTTP_Request(self.detailRequestJSON, url: PROJECT_URL.GETDETAILS, httpMethod: ConnectionManager.POST, postCompleted: { (succeeded: Bool, msg: NSData) -> () in
             if(succeeded) {
                 dispatch_async(dispatch_get_main_queue(), {
                     self.response.string = String(data: msg, encoding: NSUTF8StringEncoding)!
                     self.msg = msg
+                    
                 })
             }
             else {
@@ -95,7 +96,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
 
         print(json.convertToString())
         
-        self.connectionManager.makeHTTP_Request(json, url: "https://eexcess-dev.joanneum.at/eexcess-privacy-proxy-1.0-SNAPSHOT/api/v1/recommend", httpMethod: ConnectionManager.POST, postCompleted: { (succeeded: Bool, msg: NSData) -> () in
+        self.connectionManager.makeHTTP_Request(json, url: PROJECT_URL.RECOMMEND, httpMethod: ConnectionManager.POST, postCompleted: { (succeeded: Bool, msg: NSData) -> () in
                         if(succeeded) {
                             dispatch_async(dispatch_get_main_queue(), {
                                 self.response.string = String(data: msg, encoding: NSUTF8StringEncoding)!
