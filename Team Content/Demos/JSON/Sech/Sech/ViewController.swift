@@ -86,7 +86,11 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         
         let json = JSONObject()
         var attr:[String:AnyObject] = ["clientType":"Swift-Test-Client" as AnyObject,"clientVersion":"0.21" as AnyObject,"module":"OS X Prototype" as AnyObject,"userID":"PDPS-WS2015" as AnyObject]
-        let childJSON = JSONObject();childJSON.setKeyValuePairs(attr)
+        let childJSON = JSONObject()
+
+        
+        
+        childJSON.setKeyValuePairs(attr)
         
         let childJSON2 = JSONObject()
         childJSON2.setKeyValuePair("text", value: "\(recommendation.stringValue)")
@@ -118,7 +122,12 @@ class ViewController: NSViewController, NSTextFieldDelegate {
                 jsons.append(jsonObject.getJSONObject("documentBadge")!.jsonObject)
             
         }
+        let attr:[String:AnyObject] = ["clientType":"Swift-Test-Client" as AnyObject,"clientVersion":"0.21" as AnyObject,"module":"OS X Prototype" as AnyObject,"userID":"PDPS-WS2015" as AnyObject]
+        let childChild = JSONObject()
+        childChild.setKeyValuePairs(attr)
+        self.detailRequestJSON.addJSONObject("origin", jsonObject: childChild)
         self.detailRequestJSON.setKeyValuePair("documentBadge", value: jsons)
+        self.detailRequestJSON.setKeyValuePair("queryID",value: json.getString("queryID")!)
     }
     
      override func viewDidLoad() {
