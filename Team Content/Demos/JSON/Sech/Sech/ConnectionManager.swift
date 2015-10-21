@@ -48,9 +48,9 @@ class ConnectionManager{
 
 
 
-class URLs {
-    static let url1 = ""
-    static let url2 = ""
+class PROJECT_URL {
+    static let GETDETAILS = "https://eexcess-dev.joanneum.at/eexcess-federated-recommender-web-service-1.0-SNAPSHOT/recommender/getDetails"
+    static let RECOMMEND = "https://eexcess-dev.joanneum.at/eexcess-privacy-proxy-1.0-SNAPSHOT/api/v1/recommend"
     static let url3 = ""
     static let url4 = ""
 }
