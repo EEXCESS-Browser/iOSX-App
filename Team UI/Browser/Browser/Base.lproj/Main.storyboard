@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
-        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
         <!--View Controller-->
@@ -17,108 +17,49 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aq5-DT-Mlq">
-                                <rect key="frame" x="163" y="18" width="295" height="30"/>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fEm-7N-dur">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <animations/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                                <connections>
-                                    <action selector="loadLink:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="SaD-ci-HFl"/>
-                                </connections>
-                            </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bmr-rl-Ps1">
-                                <rect key="frame" x="0.0" y="18" width="30" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="x7d-uY-r1y"/>
-                                </constraints>
-                                <state key="normal" title="&lt;"/>
-                                <connections>
-                                    <action selector="backBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iCV-z1-prJ"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qC5-NZ-RpO">
-                                <rect key="frame" x="76" y="20" width="41" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="41" id="ds3-fh-MAK"/>
-                                </constraints>
-                                <state key="normal" title="Home"/>
-                                <connections>
-                                    <action selector="homeBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HQc-zV-Fjw"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0SY-8S-hha">
-                                <rect key="frame" x="512" y="18" width="54" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="54" id="Dcc-ch-gi0"/>
-                                </constraints>
-                                <state key="normal" title="Options"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FDU-0k-x4N">
-                                <rect key="frame" x="125" y="20" width="30" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="yYv-TD-MTL"/>
-                                </constraints>
-                                <state key="normal" title="Fav"/>
-                            </button>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yX6-OZ-Z82">
-                                <rect key="frame" x="0.0" y="57" width="600" height="543"/>
+                                <items>
+                                    <navigationItem id="s3j-WL-J5c">
+                                        <nil key="title"/>
+                                        <leftBarButtonItems>
+                                            <barButtonItem systemItem="rewind" id="5Yo-GX-MbL"/>
+                                            <barButtonItem systemItem="fastForward" id="hoU-Sr-Tzv"/>
+                                            <barButtonItem systemItem="bookmarks" id="ode-4e-rRf"/>
+                                        </leftBarButtonItems>
+                                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="aq5-DT-Mlq">
+                                            <rect key="frame" x="170" y="7" width="275" height="30"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <animations/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                            <connections>
+                                                <action selector="loadLink:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="SaD-ci-HFl"/>
+                                            </connections>
+                                        </textField>
+                                        <rightBarButtonItems>
+                                            <barButtonItem title="Item" id="1j9-bH-VaA"/>
+                                            <barButtonItem systemItem="add" id="QKM-Ym-WL8"/>
+                                            <barButtonItem systemItem="refresh" id="ELU-wd-HGf"/>
+                                        </rightBarButtonItems>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yX6-OZ-Z82">
+                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="i1L-lG-5F0" id="eWa-Wt-eaD"/>
                                 </connections>
                             </webView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h0P-Va-6Xt">
-                                <rect key="frame" x="474" y="18" width="30" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="DgW-P7-pbY"/>
-                                </constraints>
-                                <state key="normal" title="F5"/>
-                                <connections>
-                                    <action selector="reloadBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="QpR-FI-KUL"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="waW-qw-yaJ">
-                                <rect key="frame" x="38" y="18" width="30" height="30"/>
-                                <animations/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="30" id="BFt-ya-cjM"/>
-                                </constraints>
-                                <state key="normal" title="&gt;"/>
-                                <connections>
-                                    <action selector="forwardBtn:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4uB-U4-TjL"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="FDU-0k-x4N" firstAttribute="leading" secondItem="qC5-NZ-RpO" secondAttribute="trailing" constant="8" symbolic="YES" id="0Is-rA-pct"/>
-                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="FWb-dY-vjW"/>
-                            <constraint firstItem="h0P-Va-6Xt" firstAttribute="top" secondItem="aq5-DT-Mlq" secondAttribute="top" id="FZ7-4D-geY"/>
-                            <constraint firstItem="qC5-NZ-RpO" firstAttribute="baseline" secondItem="FDU-0k-x4N" secondAttribute="baseline" id="HJ6-Bj-BhL"/>
-                            <constraint firstItem="bmr-rl-Ps1" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="ILw-ti-Jxl"/>
-                            <constraint firstItem="qC5-NZ-RpO" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="LtF-tQ-xiP"/>
-                            <constraint firstItem="waW-qw-yaJ" firstAttribute="leading" secondItem="bmr-rl-Ps1" secondAttribute="trailing" constant="8" symbolic="YES" id="RVL-R8-gQp"/>
-                            <constraint firstAttribute="trailing" secondItem="yX6-OZ-Z82" secondAttribute="trailing" id="WYE-Lb-Gdz"/>
-                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="leading" secondItem="bmr-rl-Ps1" secondAttribute="leading" id="bgv-bu-5l0"/>
-                            <constraint firstItem="aq5-DT-Mlq" firstAttribute="leading" secondItem="FDU-0k-x4N" secondAttribute="trailing" constant="8" symbolic="YES" id="bqS-d2-AsW"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="0SY-8S-hha" secondAttribute="trailing" constant="14" id="cm1-BW-saU"/>
-                            <constraint firstItem="waW-qw-yaJ" firstAttribute="baseline" secondItem="bmr-rl-Ps1" secondAttribute="baseline" id="cwU-Bo-pVT"/>
-                            <constraint firstItem="h0P-Va-6Xt" firstAttribute="leading" secondItem="aq5-DT-Mlq" secondAttribute="trailing" constant="16" id="d0Q-pW-1mf"/>
-                            <constraint firstItem="qC5-NZ-RpO" firstAttribute="leading" secondItem="waW-qw-yaJ" secondAttribute="trailing" constant="8" symbolic="YES" id="dYG-Ws-U4o"/>
-                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="top" secondItem="qC5-NZ-RpO" secondAttribute="bottom" constant="7" id="fpy-kw-e9N"/>
-                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="top" secondItem="bmr-rl-Ps1" secondAttribute="bottom" constant="9" id="h3M-1w-JjJ"/>
-                            <constraint firstItem="h0P-Va-6Xt" firstAttribute="baseline" secondItem="0SY-8S-hha" secondAttribute="baseline" id="qmh-l5-7ji"/>
-                            <constraint firstItem="0SY-8S-hha" firstAttribute="leading" secondItem="h0P-Va-6Xt" secondAttribute="trailing" constant="8" symbolic="YES" id="wf7-kE-xvi"/>
-                            <constraint firstItem="waW-qw-yaJ" firstAttribute="baseline" secondItem="h0P-Va-6Xt" secondAttribute="baseline" id="xpQ-8a-6Rb"/>
-                        </constraints>
                     </view>
+                    <toolbarItems/>
+                    <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
                         <outlet property="myWebView" destination="yX6-OZ-Z82" id="iax-MG-RPM"/>
                     </connections>
