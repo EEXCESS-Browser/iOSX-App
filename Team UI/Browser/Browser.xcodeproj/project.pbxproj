@@ -15,6 +15,7 @@
 		8D43CB571BCE689E00EEBB7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D43CB551BCE689E00EEBB7B /* LaunchScreen.storyboard */; };
 		8D43CB621BCE689F00EEBB7B /* BrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB611BCE689F00EEBB7B /* BrowserTests.swift */; };
 		8D43CB6D1BCE689F00EEBB7B /* BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB6C1BCE689F00EEBB7B /* BrowserUITests.swift */; };
+		8DAA54D51BD79F7C00B817BF /* SechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAA54D41BD79F7C00B817BF /* SechModel.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		8D43CB681BCE689F00EEBB7B /* BrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrowserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D43CB6C1BCE689F00EEBB7B /* BrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserUITests.swift; sourceTree = "<group>"; };
 		8D43CB6E1BCE689F00EEBB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8DAA54D41BD79F7C00B817BF /* SechModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SechModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				8D43CB551BCE689E00EEBB7B /* LaunchScreen.storyboard */,
 				8D43CB581BCE689E00EEBB7B /* Info.plist */,
 				8D07B7931BD0F79A00031D8B /* WebViewDelegate.swift */,
+				8DAA54D41BD79F7C00B817BF /* SechModel.swift */,
 			);
 			path = Browser;
 			sourceTree = "<group>";
@@ -260,6 +263,7 @@
 			files = (
 				8D43CB4F1BCE689E00EEBB7B /* ViewController.swift in Sources */,
 				8D43CB4D1BCE689E00EEBB7B /* AppDelegate.swift in Sources */,
+				8DAA54D51BD79F7C00B817BF /* SechModel.swift in Sources */,
 				8D07B7941BD0F79A00031D8B /* WebViewDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -11,6 +11,7 @@ import UIKit
 
 class WebViewDelegate: NSObject, UIWebViewDelegate {
     var html: NSString = "HTML"
+    var tagList: NSString = "HTML"
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         return true
     }
@@ -20,13 +21,16 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        html = webView .stringByEvaluatingJavaScriptFromString("document.body.innerHTML")!
-        print(html)
         
+        // TODO: Funktion für Sechanalyse in Swift schreiben.
+        // Evtl -> warum funzt Javascript nicht?
+        html = webView .stringByEvaluatingJavaScriptFromString("document.getElemtsByTagName(\"b\").innerHTML")!
+        tagList = webView .stringByEvaluatingJavaScriptFromString("document.getElementsByTagName(\"b\")")!
+        
+        print(html)
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
         
     }
-    
 }
