@@ -8,7 +8,7 @@
 
 import Foundation
 
-class JSONManager{
+class JSONManager : JSONManager_P{
     let origin:JSONObject
     
     init(){
@@ -17,7 +17,7 @@ class JSONManager{
     
     //----------------------------Query-----------------------------------------------
     /*
-
+        create JSON for Request
     */
     func createRequestJSON(contextKeyWords:[JSONObject],numResults:Int)->JSONObject?{
         let json = JSONObject()
@@ -26,19 +26,23 @@ class JSONManager{
         json.addJSONArray("contextKeywords", jsonArray: contextKeyWords)
         return json
     }
-    
-    func createContextKeywords(keys:[String])->[JSONObject]?{
+    /*
+        only use in combination with the method: createRequestJSON
+    */
+    func createContextKeywords(keysWithKeysOfKeys:[String:String])->[JSONObject]?{
         var keyWords = [JSONObject]()
-        for key in keys {
+        for key in keysWithKeysOfKeys {
             let json = JSONObject()
-            json.setKeyValuePair("text", value: key)
+            json.setKeyValuePair(key.0, value: key.1)
             keyWords.append(json)
         }
         return keyWords
     }
     
     //----------------------------Query-Details-------------------------------------------------
-    
+    /*
+        create JSON for Detail-Request
+    */
     func createDetailRequest(queryID:String,documentBadge:[[String:AnyObject]])->JSONObject?{
         let json = JSONObject()
         json.addJSONObject("origin", jsonObject: self.origin)
@@ -46,4 +50,10 @@ class JSONManager{
         json.setKeyValuePair("documentBadge", value: documentBadge)
         return json
     }
+}
+
+protocol JSONManager_P{
+    func createRequestJSON(contextKeyWords:[JSONObject],numResults:Int)->JSONObject?
+    func createContextKeywords(keysWithKeysOfKeys:[String:String])->[JSONObject]?
+    func createDetailRequest(queryID:String,documentBadge:[[String:AnyObject]])->JSONObject?
 }

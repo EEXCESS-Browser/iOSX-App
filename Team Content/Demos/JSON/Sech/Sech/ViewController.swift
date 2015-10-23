@@ -29,6 +29,8 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     var detailRequestJSON = JSONObject()
     let JSON_MANAGER = JSONManager()
     
+    let MAINCONTROLLER = MainController()
+    
     
     @IBOutlet weak var searchTextField: NSTextField!
     
@@ -67,7 +69,10 @@ class ViewController: NSViewController, NSTextFieldDelegate {
 
     private func doStuff()
     {
-        let contextKeyWords = JSON_MANAGER.createContextKeywords(["\(recommendation.stringValue)"])
+        self.MAINCONTROLLER.setKeyWords([["text":"\(recommendation.stringValue)"]])
+        
+        
+        let contextKeyWords = JSON_MANAGER.createContextKeywords(["text":"\(recommendation.stringValue)"])
         let json = JSON_MANAGER.createRequestJSON(contextKeyWords!,numResults: 5)
 
         self.connectionManager.makeHTTP_Request(json!, url: PROJECT_URL.RECOMMEND, httpMethod: ConnectionManager.POST, postCompleted: { (succeeded: Bool, msg: NSData) -> () in
