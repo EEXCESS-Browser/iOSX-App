@@ -36,6 +36,7 @@ class ViewController: UIViewController {
         let murl = sender.text
         let url = NSURL(string: murl!)
         let request = NSURLRequest(URL: url!)
+        print(request)
         myWebView.loadRequest(request)
         myWebView.scalesPageToFit = true
         
@@ -60,6 +61,7 @@ class ViewController: UIViewController {
         let homeUrl = "https://www.google.de"
         let url = NSURL(string: homeUrl)
         let request = NSURLRequest(URL: url!)
+        print(request)
         myWebView.loadRequest(request)
         myWebView.scalesPageToFit = true
         
