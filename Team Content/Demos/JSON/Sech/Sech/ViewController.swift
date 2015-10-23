@@ -12,13 +12,16 @@ import Cocoa
 class ViewController: NSViewController, NSTextFieldDelegate {
 
     @IBOutlet weak var recommendation: NSTextField!
-
+    //
     @IBOutlet var response: NSTextView!
+    @IBOutlet var detailView: NSTextView!
     @IBOutlet weak var ComboBox: NSComboBox!
 
+    //Show select documentbag
     @IBAction func itemIsSelect(sender: NSComboBoxCell) {
         print("\n")
         print(sender.objectValue)
+        self.detailRequestJSON.setKeyValuePair("documentBadge", value: [sender.objectValue!])
     }
 
     var connectionManager:ConnectionManager!
@@ -28,6 +31,8 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     
     
     @IBOutlet weak var searchTextField: NSTextField!
+    
+    //searchfield button action
     @IBAction func searchInJSON(sender: AnyObject) {
         if self.searchTextField.stringValue != "" {
             print((JSONObject(data: self.msg!).getJSONArray("partnerResponseState")![0]).getBool(self.searchTextField.stringValue))
@@ -40,7 +45,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBAction func DoIt(sender: NSButtonCell) {
         doStuff()
     }
-    
+    // action click on detail search
     @IBAction func startSearchDetails(sender: AnyObject) {
         print("--> Send details \n")
         print(self.detailRequestJSON.convertToString())
@@ -49,7 +54,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         self.connectionManager.makeHTTP_Request(self.detailRequestJSON, url: PROJECT_URL.GETDETAILS, httpMethod: ConnectionManager.POST, postCompleted: { (succeeded: Bool, msg: NSData) -> () in
             if(succeeded) {
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.response.string = String(data: msg, encoding: NSUTF8StringEncoding)!
+                    self.detailView.string = String(data: msg, encoding: NSUTF8StringEncoding)!
                     self.msg = msg
                     
                 })

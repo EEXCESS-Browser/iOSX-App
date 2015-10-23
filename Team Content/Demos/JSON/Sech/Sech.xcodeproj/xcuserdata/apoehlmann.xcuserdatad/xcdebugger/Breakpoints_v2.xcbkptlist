@@ -10,11 +10,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Sech/ViewController.swift"
-            timestampString = "467281714.191547"
+            timestampString = "467284204.417762"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "68"
-            endingLineNumber = "68"
+            startingLineNumber = "73"
+            endingLineNumber = "73"
             landmarkName = "doStuff()"
             landmarkType = "5">
          </BreakpointContent>
