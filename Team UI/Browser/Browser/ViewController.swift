@@ -13,13 +13,9 @@ class ViewController: UIViewController {
     var myWebViewDelegate: UIWebViewDelegate!
     
     @IBOutlet weak var backButton: UIBarButtonItem!
-    
     @IBOutlet weak var forwardButton: UIBarButtonItem!
-    
     @IBOutlet weak var bookMarkButton: UIBarButtonItem!
-    
     @IBOutlet weak var addressBar: UITextField!
-    
     @IBOutlet weak var reloadButton: UIBarButtonItem!
     
 
