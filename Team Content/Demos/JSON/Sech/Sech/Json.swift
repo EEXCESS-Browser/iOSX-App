@@ -24,10 +24,6 @@ class JSONObject{
         jsonObject = try! NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions()) as! [String : AnyObject]
     }
     
-    init(data:[String:AnyObject]){
-        self.jsonObject = data
-    }
-    
     /**
         method don t search in childObjects
     */
@@ -50,7 +46,7 @@ class JSONObject{
     func getJSONObject(key:String)->JSONObject?{
         let data = jsonObject[key] as? [String : AnyObject]
         if data != nil {
-            return JSONObject(data: data!)
+            return JSONObject(keyValuePairs: data!)
         }else{
             return nil
         }
@@ -62,7 +58,7 @@ class JSONObject{
         let data = (jsonObject[key] as? [[String:AnyObject]])
         if data != nil{
             for single in data!{
-                list.append(JSONObject(data: single))
+                list.append(JSONObject(keyValuePairs: single))
             }
         }
         return list
@@ -93,6 +89,15 @@ class JSONObject{
     
     func addJSONObject(key:String,jsonObject:JSONObject)->Bool{
         return self.setKeyValuePair(key, value: jsonObject.jsonObject)
+    }
+    
+    func addJSONArray(key:String,jsonArray:[JSONObject])->Bool{
+        var jsonAsDict = [[String:AnyObject]]()
+        for json in jsonArray{
+            jsonAsDict.append(json.jsonObject)
+        }
+        self.jsonObject[key] = jsonAsDict
+        return true
     }
     
     

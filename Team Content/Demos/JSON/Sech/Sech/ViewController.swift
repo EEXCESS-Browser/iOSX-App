@@ -19,14 +19,12 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBAction func itemIsSelect(sender: NSComboBoxCell) {
         print("\n")
         print(sender.objectValue)
-        
-
     }
 
-//    var connection : Connection!
     var connectionManager:ConnectionManager!
     var msg:NSData? = nil
     var detailRequestJSON = JSONObject()
+    let JSON_MANAGER = JSONManager()
     
     
     @IBOutlet weak var searchTextField: NSTextField!
@@ -64,43 +62,10 @@ class ViewController: NSViewController, NSTextFieldDelegate {
 
     private func doStuff()
     {
-//        let jsonObject : [String:AnyObject] = [
-//            "origin":["clientType" : "Swift-Test-Client",
-//                "clientVersion" : "0.21",
-//                "module" : "OS X Prototype",
-//                "userID" : "PDPS-WS2015"],
-//            "numResults":4,
-//            "contextKeywords": [["text" : "\(recommendation.stringValue)"]]
-//        ]
-//        connection.post(json.jsonObject, url: "https://eexcess-dev.joanneum.at/eexcess-privacy-proxy-1.0-SNAPSHOT/api/v1/recommend"){ (succeeded: Bool, msg: NSData) -> () in
-//            if(succeeded) {
-//                dispatch_async(dispatch_get_main_queue(), {
-//                    self.response.string = String(data: msg, encoding: NSUTF8StringEncoding)!
-//                    self.msg = msg
-//                })
-//            }
-//            else {
-//                self.response.string = "Error"
-//            }
-//        }
-        
-        let json = JSONObject()
-        var attr:[String:AnyObject] = ["clientType":"Swift-Test-Client" as AnyObject,"clientVersion":"0.21" as AnyObject,"module":"OS X Prototype" as AnyObject,"userID":"PDPS-WS2015" as AnyObject]
-        let childJSON = JSONObject()
+        let contextKeyWords = JSON_MANAGER.createContextKeywords(["\(recommendation.stringValue)"])
+        let json = JSON_MANAGER.createRequestJSON(contextKeyWords!,numResults: 5)
 
-        
-        
-        childJSON.setKeyValuePairs(attr)
-        
-        let childJSON2 = JSONObject()
-        childJSON2.setKeyValuePair("text", value: "\(recommendation.stringValue)")
-        
-        attr.removeAll(); attr = ["origin":childJSON.jsonObject,"numResults":5,"contextKeywords":[childJSON2.jsonObject]]
-        json.setKeyValuePairs(attr)
-
-        print(json.convertToString())
-        
-        self.connectionManager.makeHTTP_Request(json, url: PROJECT_URL.RECOMMEND, httpMethod: ConnectionManager.POST, postCompleted: { (succeeded: Bool, msg: NSData) -> () in
+        self.connectionManager.makeHTTP_Request(json!, url: PROJECT_URL.RECOMMEND, httpMethod: ConnectionManager.POST, postCompleted: { (succeeded: Bool, msg: NSData) -> () in
                         if(succeeded) {
                             dispatch_async(dispatch_get_main_queue(), {
                                 self.response.string = String(data: msg, encoding: NSUTF8StringEncoding)!
@@ -122,12 +87,9 @@ class ViewController: NSViewController, NSTextFieldDelegate {
                 jsons.append(jsonObject.getJSONObject("documentBadge")!.jsonObject)
             
         }
-        let attr:[String:AnyObject] = ["clientType":"Swift-Test-Client" as AnyObject,"clientVersion":"0.21" as AnyObject,"module":"OS X Prototype" as AnyObject,"userID":"PDPS-WS2015" as AnyObject]
-        let childChild = JSONObject()
-        childChild.setKeyValuePairs(attr)
-        self.detailRequestJSON.addJSONObject("origin", jsonObject: childChild)
-        self.detailRequestJSON.setKeyValuePair("documentBadge", value: jsons)
-        self.detailRequestJSON.setKeyValuePair("queryID",value: json.getString("queryID")!)
+
+        let queryID:String = json.getString("queryID")!
+        self.detailRequestJSON = JSON_MANAGER.createDetailRequest(queryID, documentBadge: jsons)!
     }
     
      override func viewDidLoad() {
@@ -135,7 +97,6 @@ class ViewController: NSViewController, NSTextFieldDelegate {
 
         // Do any additional setup after loading the view.
         
-//        connection = Connection()
         self.connectionManager = ConnectionManager()
         recommendation.delegate = self
     }

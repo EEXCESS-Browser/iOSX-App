@@ -13,13 +13,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     var myWebViewDelegate: UIWebViewDelegate!
     
     @IBOutlet weak var backButton: UIBarButtonItem!
-    
     @IBOutlet weak var forwardButton: UIBarButtonItem!
-    
     @IBOutlet weak var bookMarkButton: UIBarButtonItem!
-    
     @IBOutlet weak var addressBar: UITextField!
-    
     @IBOutlet weak var reloadButton: UIBarButtonItem!
     
     @IBOutlet weak var tableView: UITableView!
@@ -49,6 +45,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let murl = sender.text
         let url = NSURL(string: murl!)
         let request = NSURLRequest(URL: url!)
+        print(request)
         myWebView.loadRequest(request)
         myWebView.scalesPageToFit = true
         
@@ -73,6 +70,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let homeUrl = "https://www.google.de"
         let url = NSURL(string: homeUrl)
         let request = NSURLRequest(URL: url!)
+        print(request)
         myWebView.loadRequest(request)
         myWebView.scalesPageToFit = true
         
