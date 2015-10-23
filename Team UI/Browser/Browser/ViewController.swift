@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     var myWebViewDelegate: UIWebViewDelegate!
     
@@ -22,12 +22,21 @@ class ViewController: UIViewController {
     
     @IBOutlet weak var reloadButton: UIBarButtonItem!
     
+    @IBOutlet weak var tableView: UITableView!
 
+    
+    let zechTags = ["Oktoberfest","München"]
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         myWebViewDelegate = WebViewDelegate()
         myWebView.delegate = myWebViewDelegate
         // Do any additional setup after loading the view, typically from a nib.
+        tableView.delegate = self
+        tableView.dataSource = self
+        
+        
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -53,7 +62,7 @@ class ViewController: UIViewController {
         myWebView.goForward()
     }
 
-   
+    
     
     @IBAction func backButton(sender: AnyObject) {
         myWebView.goBack()
@@ -68,7 +77,27 @@ class ViewController: UIViewController {
         myWebView.scalesPageToFit = true
         
     }
+    //Table View Methods:
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return zechTags.count
+    }
     
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("ZechCell", forIndexPath: indexPath) as UITableViewCell
+        
+        cell.textLabel!.text = zechTags[indexPath.row]
+        
+        return cell
+        
+        
+    }
+    //forward SechTag to other Group
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+        let row = indexPath.row
+        print("Zech Tag:   \(zechTags[row]) ")
+    }
     
 }
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8187.4" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="BYZ-38-t0r">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
     <scenes>
@@ -53,7 +53,7 @@
                                         </textField>
                                         <rightBarButtonItems>
                                             <barButtonItem title="Menü" id="1j9-bH-VaA"/>
-                                            <barButtonItem systemItem="add" id="QKM-Ym-WL8"/>
+                                            <barButtonItem title="Zech" id="QKM-Ym-WL8"/>
                                             <barButtonItem systemItem="refresh" id="ELU-wd-HGf">
                                                 <connections>
                                                     <action selector="reloadButton:" destination="BYZ-38-t0r" id="8wJ-mf-5AV"/>
@@ -64,24 +64,47 @@
                                 </items>
                             </navigationBar>
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yX6-OZ-Z82">
-                                <rect key="frame" x="0.0" y="44" width="600" height="556"/>
+                                <rect key="frame" x="0.0" y="44" width="439" height="512"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <outlet property="delegate" destination="i1L-lG-5F0" id="eWa-Wt-eaD"/>
                                 </connections>
                             </webView>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="SJJ-Tl-9qC">
+                                <rect key="frame" x="440" y="44" width="160" height="512"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="Yi7-XS-viX"/>
+                                </constraints>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ZechCell" id="ccN-Aw-kEi">
+                                        <rect key="frame" x="0.0" y="28" width="160" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ccN-Aw-kEi" id="wtJ-BP-OcX">
+                                            <rect key="frame" x="0.0" y="0.0" width="160" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="IVe-jy-YaM"/>
-                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="top" secondItem="fEm-7N-dur" secondAttribute="bottom" id="Mrb-6J-fE2"/>
-                            <constraint firstItem="fEm-7N-dur" firstAttribute="leading" secondItem="yX6-OZ-Z82" secondAttribute="leading" id="QbY-0n-d6y"/>
-                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="trailing" secondItem="fEm-7N-dur" secondAttribute="trailing" id="ZwS-Yx-cgH"/>
-                            <constraint firstAttribute="bottom" secondItem="yX6-OZ-Z82" secondAttribute="bottom" id="bCs-gc-0Nr"/>
-                            <constraint firstItem="fEm-7N-dur" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="e0w-CQ-FCN"/>
-                            <constraint firstAttribute="trailing" secondItem="fEm-7N-dur" secondAttribute="trailing" id="piP-mg-MB9"/>
+                            <constraint firstAttribute="trailing" secondItem="SJJ-Tl-9qC" secondAttribute="trailing" id="2iw-BH-mex"/>
+                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="98N-BL-eZw"/>
+                            <constraint firstItem="SJJ-Tl-9qC" firstAttribute="trailing" secondItem="fEm-7N-dur" secondAttribute="trailing" id="Lsd-Yr-2QQ"/>
+                            <constraint firstItem="SJJ-Tl-9qC" firstAttribute="top" secondItem="fEm-7N-dur" secondAttribute="bottom" id="MKB-Lc-xLX"/>
+                            <constraint firstItem="SJJ-Tl-9qC" firstAttribute="top" secondItem="yX6-OZ-Z82" secondAttribute="top" id="O1a-sD-fZh"/>
+                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="leading" secondItem="fEm-7N-dur" secondAttribute="leading" id="TRp-Fu-bKH"/>
+                            <constraint firstItem="SJJ-Tl-9qC" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="fD7-6O-eXo"/>
+                            <constraint firstItem="fEm-7N-dur" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="han-rU-oOn"/>
+                            <constraint firstItem="SJJ-Tl-9qC" firstAttribute="leading" secondItem="yX6-OZ-Z82" secondAttribute="trailing" constant="1" id="n4p-fe-LQo"/>
+                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="qtk-TH-hv9"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -92,7 +115,8 @@
                         <outlet property="bookMarkButton" destination="ode-4e-rRf" id="wDB-KX-O6T"/>
                         <outlet property="forwardButton" destination="Jt3-Ps-8LQ" id="gHd-51-hAm"/>
                         <outlet property="myWebView" destination="yX6-OZ-Z82" id="iax-MG-RPM"/>
-                        <outlet property="reloadButton" destination="ELU-wd-HGf" id="xvO-yA-WAU"/>
+                        <outlet property="reloadButton" destination="ELU-wd-HGf" id="o6q-PL-1q6"/>
+                        <outlet property="tableView" destination="SJJ-Tl-9qC" id="MKS-l0-H2X"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
