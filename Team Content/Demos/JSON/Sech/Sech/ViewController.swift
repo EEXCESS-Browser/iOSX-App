@@ -24,10 +24,8 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         self.detailRequestJSON.setKeyValuePair("documentBadge", value: [sender.objectValue!])
     }
 
-    var connectionManager:ConnectionManager!
     var msg:NSData? = nil
     var detailRequestJSON = JSONObject()
-    let JSON_MANAGER = JSONManager()
     
     let MAINCONTROLLER = MainController()
     
@@ -67,7 +65,6 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     
      override func viewDidLoad() {
         super.viewDidLoad()
-        self.connectionManager = ConnectionManager()
         
         self.MAINCONTROLLER.setMethodForResponse({ (succeeded: Bool, msg: NSData) -> () in
             if(succeeded) {
@@ -87,6 +84,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
                     dispatch_async(dispatch_get_main_queue(), {
                         self.detailView.string = String(data: msg, encoding: NSUTF8StringEncoding)!
                         self.msg = msg
+                        self.MAINCONTROLLER.mapOfJSONs["\(self.recommendation.stringValue)_DETAIL"] = JSONObject(data: msg)
                     })
             }
             else {
