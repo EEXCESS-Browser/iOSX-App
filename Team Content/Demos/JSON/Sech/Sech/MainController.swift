@@ -8,43 +8,58 @@
 
 import Foundation
 
-protocol MainController_P{
-    init()
-    func setKeyWords(keyWordsWithKeys:[String:[String:String]])->Bool;
-    func getResult()->[JSONObject]
-    func getDetailResult()->[JSONObject]
-    
-    func setMethodForResponse(postCompleted :(succeeded: Bool, data: NSData) -> ())->Bool
-    func setMethodForDetaileResponce(postCompleted :(succeeded: Bool, data: NSData) -> ())->Bool
-}
-
-class MainController:MainController_P{
+class MainController{
     let JSONMANAGER:JSONManager
     let CONNECTIONMANAGER:ConnectionManager
+    
+    var responseMethod:((succeeded: Bool, data: NSData) -> ())?
+    var detaileResponseMethod:((succeeded: Bool, data: NSData) -> ())?
+    //normal response have sech-tag name and detaile response have a prefix: "_DETAILE"
+    var mapOfJSONs = [String:JSONObject]()
     
     required init(){
         self.CONNECTIONMANAGER = ConnectionManager()
         self.JSONMANAGER = JSONManager()
     }
     
-    func setKeyWords(keyWordsWithKeys:[String:[String:String]])->Bool{
-        return false
-    }
-    func getResult()->[JSONObject]{
-        return [JSONObject]()
-    }
-    func getDetailResult()->[JSONObject]{
-        return [JSONObject]()
+    func createJSONForRequest(keyWordsWithKeys:[String:AnyObject],detail:Bool)->JSONObject?{
+        var json:JSONObject?
+        if detail {
+            let dataForDetailRequest = createDetailRequest(keyWordsWithKeys["json"] as! JSONObject!)
+            json = JSONMANAGER.createDetailRequest(dataForDetailRequest["queryID"] as! String, documentBadge: dataForDetailRequest["documentBadge"] as! [[String:AnyObject]])
+        }else{
+            json = JSONMANAGER.createRequestJSON(JSONMANAGER.createContextKeywords(keyWordsWithKeys["ContextKeywords"] as! [String:String])!, numResults: keyWordsWithKeys["numResults"] as! Int!)
+        }
+        return json
     }
     
     func setMethodForResponse(postCompleted :(succeeded: Bool, data: NSData) -> ())->Bool{
-        return false
+        self.responseMethod = postCompleted
+        return true
     }
     func setMethodForDetaileResponce(postCompleted :(succeeded: Bool, data: NSData) -> ())->Bool{
-        return false
+        self.detaileResponseMethod = postCompleted
+        return true
     }
     
-    private func makeRequest(json:JSONObject,url:String)->Bool{
-        return  false
+    func makeRequest(json:JSONObject,detail:Bool)->Bool{
+        if detail{
+            self.CONNECTIONMANAGER.makeHTTP_Request(json, url: PROJECT_URL.GETDETAILS, httpMethod: ConnectionManager.POST, postCompleted: self.detaileResponseMethod!)
+        }else{
+            self.CONNECTIONMANAGER.makeHTTP_Request(json, url: PROJECT_URL.RECOMMEND, httpMethod: ConnectionManager.POST, postCompleted: self.responseMethod!)
+        }
+        
+        return  true
+    }
+    
+    private func createDetailRequest(json:JSONObject)->[String:AnyObject]{
+        var jsons = [[String:AnyObject]]()
+        for jsonObject in json.getJSONArray("result")!{
+            jsons.append(jsonObject.getJSONObject("documentBadge")!.jsonObject)
+            
+        }
+        
+        let queryID:String = json.getString("queryID")!
+        return ["queryID":queryID,"documentBadge":jsons]
     }
 }

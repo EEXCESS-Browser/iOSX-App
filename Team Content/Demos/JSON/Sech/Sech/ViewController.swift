@@ -50,64 +50,52 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     // action click on detail search
     @IBAction func startSearchDetails(sender: AnyObject) {
         print("--> Send details \n")
-        print(self.detailRequestJSON.convertToString())
         print("\n")
         
-        self.connectionManager.makeHTTP_Request(self.detailRequestJSON, url: PROJECT_URL.GETDETAILS, httpMethod: ConnectionManager.POST, postCompleted: { (succeeded: Bool, msg: NSData) -> () in
+        if let json = self.MAINCONTROLLER.createJSONForRequest(["json":self.MAINCONTROLLER.mapOfJSONs["\(recommendation.stringValue)"]!], detail: true){
+            self.MAINCONTROLLER.makeRequest(json, detail: true)
+        }
+    }
+
+    private func doStuff()
+    {
+        if let jsonT = self.MAINCONTROLLER.createJSONForRequest(["numResults":5,"ContextKeywords":["text":"\(recommendation.stringValue)"]],detail: false){
+            self.MAINCONTROLLER.makeRequest(jsonT, detail: false)
+        }
+        
+    }
+    
+     override func viewDidLoad() {
+        super.viewDidLoad()
+        self.connectionManager = ConnectionManager()
+        
+        self.MAINCONTROLLER.setMethodForResponse({ (succeeded: Bool, msg: NSData) -> () in
             if(succeeded) {
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.detailView.string = String(data: msg, encoding: NSUTF8StringEncoding)!
+                    self.response.string = String(data: msg, encoding: NSUTF8StringEncoding)!
                     self.msg = msg
-                    
+                    self.MAINCONTROLLER.mapOfJSONs["\(self.recommendation.stringValue)"] = JSONObject(data: msg)
                 })
             }
             else {
                 self.response.string = "Error"
             }
         })
-    }
-
-    private func doStuff()
-    {
-        self.MAINCONTROLLER.setKeyWords([["text":"\(recommendation.stringValue)"]])
-        
-        
-        let contextKeyWords = JSON_MANAGER.createContextKeywords(["text":"\(recommendation.stringValue)"])
-        let json = JSON_MANAGER.createRequestJSON(contextKeyWords!,numResults: 5)
-
-        self.connectionManager.makeHTTP_Request(json!, url: PROJECT_URL.RECOMMEND, httpMethod: ConnectionManager.POST, postCompleted: { (succeeded: Bool, msg: NSData) -> () in
-                        if(succeeded) {
-                            dispatch_async(dispatch_get_main_queue(), {
-                                self.response.string = String(data: msg, encoding: NSUTF8StringEncoding)!
-                                self.msg = msg
-                                self.searchDocumentBags()
-                            })
-                        }
-                        else {
-                            self.response.string = "Error"
-                        }
+        self.MAINCONTROLLER.setMethodForDetaileResponce({(succeeded: Bool, msg: NSData) -> () in
+            if(succeeded)
+                {
+                    dispatch_async(dispatch_get_main_queue(), {
+                        self.detailView.string = String(data: msg, encoding: NSUTF8StringEncoding)!
+                        self.msg = msg
                     })
-    }
-    
-    func searchDocumentBags(){
-        let json = JSONObject(data: self.msg!)
-        var jsons = [[String:AnyObject]]()
-        for jsonObject in json.getJSONArray("result")!{
-            self.ComboBox.addItemWithObjectValue(jsonObject.getJSONObject("documentBadge")!.convertToString())
-                jsons.append(jsonObject.getJSONObject("documentBadge")!.jsonObject)
-            
-        }
-
-        let queryID:String = json.getString("queryID")!
-        self.detailRequestJSON = JSON_MANAGER.createDetailRequest(queryID, documentBadge: jsons)!
-    }
-    
-     override func viewDidLoad() {
-        super.viewDidLoad()
-
+            }
+            else {
+                self.response.string = "Error"
+            }
+        })
         // Do any additional setup after loading the view.
         
-        self.connectionManager = ConnectionManager()
+        
         recommendation.delegate = self
     }
 
@@ -116,7 +104,6 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         // Update the view, if already loaded.
         }
     }
-
-
+    
 }
 

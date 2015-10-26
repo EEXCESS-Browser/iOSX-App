@@ -8,7 +8,8 @@
 
 import Foundation
 
-class JSONManager : JSONManager_P{
+
+class JSONManager{
     let origin:JSONObject
     
     init(){
