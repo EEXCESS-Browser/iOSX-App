@@ -41,6 +41,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
                 dispatch_async(dispatch_get_main_queue(), {
                     self.response.string = String(data: msg, encoding: NSUTF8StringEncoding)!
                     self.msg = msg
+                    self.MAINCONTROLLER.mapOfJSONs.removeAll()
                     self.MAINCONTROLLER.mapOfJSONs["\(self.recommendation.stringValue)"] = JSONObject(data: msg)
                 })
             }
@@ -92,6 +93,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
             jsons.append(json.1)
         }
         if let jsonT = self.MAINCONTROLLER.createJSONForRequest(["numResults":5,"ContextKeywords":jsons],detail: false){
+            print("Request:\n\(jsonT)\n")
             self.MAINCONTROLLER.makeRequest(jsonT, detail: false)
         }
     }
@@ -140,6 +142,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         print("\n")
         
         if let json = self.MAINCONTROLLER.createJSONForRequest([:], detail: true){
+            print("Detail Request:\n\(json)\n")
             self.MAINCONTROLLER.makeRequest(json, detail: true)
         }
     }
