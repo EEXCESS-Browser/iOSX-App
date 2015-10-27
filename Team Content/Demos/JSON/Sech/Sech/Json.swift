@@ -8,7 +8,9 @@
 
 import Foundation
 
-class JSONObject{
+class JSONObject:CustomStringConvertible{
+    
+    var description: String { get {return self.convertToString()}}
     
     var jsonObject:[String:AnyObject]
     

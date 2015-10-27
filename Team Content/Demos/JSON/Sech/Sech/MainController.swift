@@ -28,7 +28,7 @@ class MainController{
             let dataForDetailRequest = createDetailRequest(keyWordsWithKeys["json"] as! JSONObject!)
             json = JSONMANAGER.createDetailRequest(dataForDetailRequest["queryID"] as! String, documentBadge: dataForDetailRequest["documentBadge"] as! [[String:AnyObject]])
         }else{
-            json = JSONMANAGER.createRequestJSON(JSONMANAGER.createContextKeywords(keyWordsWithKeys["ContextKeywords"] as! [String:String])!, numResults: keyWordsWithKeys["numResults"] as! Int!)
+            json = JSONMANAGER.createRequestJSON(keyWordsWithKeys["ContextKeywords"] as! [JSONObject], numResults: keyWordsWithKeys["numResults"] as! Int!)
         }
         return json
     }
@@ -58,8 +58,21 @@ class MainController{
             jsons.append(jsonObject.getJSONObject("documentBadge")!.jsonObject)
             
         }
-        
         let queryID:String = json.getString("queryID")!
         return ["queryID":queryID,"documentBadge":jsons]
     }
+    
+//    private func reStructurKeyContextForRequest(jsons:[JSONObject])->[AnyObject]{
+//        var newJsons = [[String:AnyObject]]()
+//        var z = 0
+//        for json in jsons{
+//            for keyVal in json.jsonObject{
+//                newJsons[z][keyVal.0] = keyVal.1
+//            }
+//            if newJsons[z].count == 2{
+//                z++
+//            }
+//        }
+//     return
+//    }
 }

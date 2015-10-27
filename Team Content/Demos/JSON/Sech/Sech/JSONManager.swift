@@ -10,10 +10,14 @@ import Foundation
 
 
 class JSONManager{
+    static let CONTEXT_KEYWORDS_MISC = "misc"
+    static let CONTEXT_KEYWORDS_PERSON = "person"
+    static let CONTEXT_KEYWORDS_LOCATION = "location"
+    
     let origin:JSONObject
     
     init(){
-        origin = JSONObject(keyValuePairs: ["clientType":"Swift-Test-Client" as AnyObject,"clientVersion":"0.21" as AnyObject,"module":"OS X Prototype" as AnyObject,"userID":"PDPS-WS2015" as AnyObject])
+        origin = JSONObject(keyValuePairs: ["clientType":"Swift-Test-Client" as AnyObject,"clientVersion":"0.50" as AnyObject,"module":"OS X Prototype Content" as AnyObject,"userID":"HAW-WS2015-MC5" as AnyObject])
     }
     
     //----------------------------Query-----------------------------------------------

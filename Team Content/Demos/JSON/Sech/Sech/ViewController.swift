@@ -11,60 +11,30 @@ import Cocoa
 
 class ViewController: NSViewController, NSTextFieldDelegate {
 
-    @IBOutlet weak var recommendation: NSTextField!
-    //
-    @IBOutlet var response: NSTextView!
     @IBOutlet var detailView: NSTextView!
-    @IBOutlet weak var ComboBox: NSComboBox!
+    @IBOutlet weak var ComboBox_Detail: NSComboBox!
+
 
     //Show select documentbag
     @IBAction func itemIsSelect(sender: NSComboBoxCell) {
         print("\n")
         print(sender.objectValue)
-        self.detailRequestJSON.setKeyValuePair("documentBadge", value: [sender.objectValue!])
+//        self.detailRequestJSON.setKeyValuePair("documentBadge", value: [sender.objectValue!])
     }
 
     var msg:NSData? = nil
-    var detailRequestJSON = JSONObject()
     
     let MAINCONTROLLER = MainController()
     
-    
-    @IBOutlet weak var searchTextField: NSTextField!
-    
-    //searchfield button action
-    @IBAction func searchInJSON(sender: AnyObject) {
-        if self.searchTextField.stringValue != "" {
-            print((JSONObject(data: self.msg!).getJSONArray("partnerResponseState")![0]).getBool(self.searchTextField.stringValue))
-        }
-    }
-    @IBAction func returnPressed(sender: AnyObject) {
-        doStuff()
-    }
-    
-    @IBAction func DoIt(sender: NSButtonCell) {
-        doStuff()
-    }
-    // action click on detail search
-    @IBAction func startSearchDetails(sender: AnyObject) {
-        print("--> Send details \n")
-        print("\n")
-        
-        if let json = self.MAINCONTROLLER.createJSONForRequest(["json":self.MAINCONTROLLER.mapOfJSONs["\(recommendation.stringValue)"]!], detail: true){
-            self.MAINCONTROLLER.makeRequest(json, detail: true)
-        }
-    }
-
-    private func doStuff()
-    {
-        if let jsonT = self.MAINCONTROLLER.createJSONForRequest(["numResults":5,"ContextKeywords":["text":"\(recommendation.stringValue)"]],detail: false){
-            self.MAINCONTROLLER.makeRequest(jsonT, detail: false)
-        }
-        
-    }
-    
      override func viewDidLoad() {
         super.viewDidLoad()
+        
+        //fill KeyWordType ComboBox
+        self.ComboBox_TypeOfKeyword.addItemWithObjectValue(JSONManager.CONTEXT_KEYWORDS_MISC)
+        self.ComboBox_TypeOfKeyword.addItemWithObjectValue(JSONManager.CONTEXT_KEYWORDS_PERSON)
+        self.ComboBox_TypeOfKeyword.addItemWithObjectValue(JSONManager.CONTEXT_KEYWORDS_LOCATION)
+        self.ComboBox_TypeOfKeyword.selectItemWithObjectValue(JSONManager.CONTEXT_KEYWORDS_MISC)
+//        --------------
         
         self.MAINCONTROLLER.setMethodForResponse({ (succeeded: Bool, msg: NSData) -> () in
             if(succeeded) {
@@ -100,6 +70,77 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     override var representedObject: AnyObject? {
         didSet {
         // Update the view, if already loaded.
+        }
+    }
+    
+//    -------------------------------------------------Request----------------------------------
+    @IBOutlet weak var ComboBox_RequestKeywords: NSComboBox!
+    @IBOutlet weak var ComboBox_TypeOfKeyword: NSComboBox!
+    @IBOutlet weak var recommendation: NSTextField!
+    @IBOutlet var response: NSTextView!
+    @IBOutlet weak var checkBoxIsMainTopic: NSButton!
+    
+    var jsonKeys = [String:JSONObject]()
+    
+    @IBAction func DoIt(sender: NSButtonCell) {
+        doSplit()
+    }
+    
+    @IBAction func sendRequest(sender: AnyObject) {
+        var jsons = [JSONObject]()
+        for json in jsonKeys{
+            jsons.append(json.1)
+        }
+        if let jsonT = self.MAINCONTROLLER.createJSONForRequest(["numResults":5,"ContextKeywords":jsons],detail: false){
+            self.MAINCONTROLLER.makeRequest(jsonT, detail: false)
+        }
+    }
+    
+    @IBAction func changeKeyContext(sender: NSButton) {
+        let isTopic:Bool?
+        if checkBoxIsMainTopic.state == NSOnState {
+            isTopic = true
+        }else{
+            isTopic = false
+        }
+        var keyValues:[String:AnyObject] = ["type":self.ComboBox_TypeOfKeyword.stringValue]
+        keyValues["isMainTopic"] = isTopic
+        jsonKeys[ComboBox_RequestKeywords.stringValue]!.setKeyValuePairs(keyValues)
+    }
+    
+    private func doSplit()
+    {
+        jsonKeys.removeAll()
+        var key = ""
+        recommendation.stringValue += ","
+        for c in recommendation.stringValue.characters{
+            if(c == ","){
+                jsonKeys[key] = JSONObject(keyValuePairs: ["text":key])
+                key = ""
+            }else{
+                key.append(c)
+            }
+        }
+        self.ComboBox_RequestKeywords.removeAllItems()
+        for key in jsonKeys{
+            print("\(key.1)\n")
+            self.ComboBox_RequestKeywords.addItemWithObjectValue(key.0)
+        }
+    }
+    
+    @IBAction func selectKeyWord(sender: NSComboBox) {
+        
+    }
+    
+//    ---------------------------------------------------Detail-Request--------------------------
+    
+    // action click on detail search
+    @IBAction func startSearchDetails(sender: AnyObject) {
+        print("--> Send details \n")
+        print("\n")
+        
+        if let json = self.MAINCONTROLLER.createJSONForRequest([:], detail: true){
+            self.MAINCONTROLLER.makeRequest(json, detail: true)
         }
     }
     
