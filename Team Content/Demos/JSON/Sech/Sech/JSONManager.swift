@@ -13,6 +13,7 @@ class JSONManager{
     static let CONTEXT_KEYWORDS_MISC = "misc"
     static let CONTEXT_KEYWORDS_PERSON = "person"
     static let CONTEXT_KEYWORDS_LOCATION = "location"
+    static let CONTEXT_KEYWORDS_ORGANIZATION = "organization"
     
     let origin:JSONObject
     
@@ -28,6 +29,20 @@ class JSONManager{
         let json = JSONObject()
         json.addJSONObject("origin", jsonObject: self.origin)
         json.setKeyValuePair("numResults", value: numResults)
+        json.addJSONArray("contextKeywords", jsonArray: contextKeyWords)
+        return json
+    }
+    
+    /*
+    create JSON for Request
+    */
+    func createRequestJSON(contextKeyWords:[JSONObject],numResults:Int,gender:String,ageRange:Int,languages:[JSONObject],address:JSONObject)->JSONObject?{
+        let json = JSONObject()
+        json.addJSONObject("origin", jsonObject: self.origin)
+        json.setKeyValuePair("numResults", value: numResults)
+//        json.setKeyValuePairs(["gender":gender,"ageRange":ageRange,"address":address.jsonObject])
+        json.addJSONArray("languages", jsonArray: languages)
+        json.addJSONObject("address", jsonObject: address)
         json.addJSONArray("contextKeywords", jsonArray: contextKeyWords)
         return json
     }

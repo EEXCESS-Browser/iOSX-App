@@ -29,7 +29,8 @@ class MainController{
             let dataForDetailRequest = createDetailRequest(getFirstItem())
             json = JSONMANAGER.createDetailRequest(dataForDetailRequest["queryID"] as! String, documentBadge: dataForDetailRequest["documentBadge"] as! [[String:AnyObject]])
         }else{
-            json = JSONMANAGER.createRequestJSON(keyWordsWithKeys["ContextKeywords"] as! [JSONObject], numResults: keyWordsWithKeys["numResults"] as! Int!)
+            let num = 0.1
+            json = JSONMANAGER.createRequestJSON(keyWordsWithKeys["ContextKeywords"] as! [JSONObject], numResults: keyWordsWithKeys["numResults"] as! Int!,gender: "female",ageRange: 2,languages: [JSONObject(keyValuePairs: ["iso2":"de","languageCompetenceLevel":num])],address: JSONObject(keyValuePairs: ["country":"Germany","city":"Hof"]))
         }
         return json
     }

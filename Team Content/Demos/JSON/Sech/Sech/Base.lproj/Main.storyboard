@@ -713,7 +713,7 @@
                                     <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <comboBox verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="5or-Si-eBg">
+                            <comboBox verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5or-Si-eBg">
                                 <rect key="frame" x="497" y="574" width="562" height="26"/>
                                 <comboBoxCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" drawsBackground="YES" completes="NO" numberOfVisibleItems="5" id="A6y-Av-Ft0">
                                     <font key="font" metaFont="system"/>
@@ -724,7 +724,7 @@
                                     </connections>
                                 </comboBoxCell>
                             </comboBox>
-                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="u56-au-LLp">
+                            <button verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="u56-au-LLp">
                                 <rect key="frame" x="1066" y="578" width="99" height="19"/>
                                 <buttonCell key="cell" type="recessed" title="Search Details" bezelStyle="recessed" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bY0-27-Ugu">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
@@ -754,10 +754,10 @@
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                             <size key="minSize" width="651" height="263"/>
-                                            <size key="maxSize" width="651" height="10000000"/>
+                                            <size key="maxSize" width="668" height="10000000"/>
                                             <color key="insertionPointColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                             <size key="minSize" width="651" height="263"/>
-                                            <size key="maxSize" width="651" height="10000000"/>
+                                            <size key="maxSize" width="668" height="10000000"/>
                                         </textView>
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -875,6 +875,13 @@
                                     <action selector="changeKeyContext:" target="XfG-lQ-9wD" id="PXI-OK-kCZ"/>
                                 </connections>
                             </button>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cNE-5H-oLb">
+                                <rect key="frame" x="149" y="294" width="43" height="19"/>
+                                <buttonCell key="cell" type="roundRect" title="reset" bezelStyle="roundedRect" alignment="center" state="on" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="bzA-rV-Ixa">
+                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                    <font key="font" metaFont="titleBar" size="12"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                         <constraints>
                             <constraint firstItem="2IU-jw-KNS" firstAttribute="leading" secondItem="VMT-Ri-ULd" secondAttribute="trailing" constant="49" id="09b-b6-t4h"/>
@@ -912,10 +919,12 @@
                             <constraint firstItem="F4l-ap-id3" firstAttribute="centerY" secondItem="MGU-yt-slQ" secondAttribute="centerY" id="eB0-Bh-aTH"/>
                             <constraint firstItem="u56-au-LLp" firstAttribute="centerY" secondItem="5or-Si-eBg" secondAttribute="centerY" id="eem-qh-9kR"/>
                             <constraint firstItem="u56-au-LLp" firstAttribute="leading" secondItem="5or-Si-eBg" secondAttribute="trailing" constant="10" id="fxo-10-V18"/>
+                            <constraint firstItem="vho-ME-QMn" firstAttribute="leading" secondItem="cNE-5H-oLb" secondAttribute="trailing" constant="25" id="hRp-2P-LES"/>
                             <constraint firstItem="F4l-ap-id3" firstAttribute="trailing" secondItem="n8m-fT-nC4" secondAttribute="trailing" id="hYf-nq-plC"/>
                             <constraint firstItem="5or-Si-eBg" firstAttribute="top" secondItem="F4l-ap-id3" secondAttribute="top" id="ijn-Th-6F6"/>
                             <constraint firstItem="F4l-ap-id3" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="10" id="ndd-Sh-yFS"/>
                             <constraint firstItem="sxI-df-1n6" firstAttribute="leading" secondItem="vho-ME-QMn" secondAttribute="trailing" constant="25" id="p6b-D3-sEg"/>
+                            <constraint firstItem="vho-ME-QMn" firstAttribute="centerY" secondItem="cNE-5H-oLb" secondAttribute="centerY" id="qHR-fG-Ra3"/>
                             <constraint firstItem="lK5-6D-KRP" firstAttribute="leading" secondItem="MGU-yt-slQ" secondAttribute="leading" id="slA-25-FVi"/>
                             <constraint firstItem="lK5-6D-KRP" firstAttribute="top" secondItem="YTa-LO-zZY" secondAttribute="bottom" constant="12" id="t7C-tk-SN7"/>
                             <constraint firstItem="V9e-hz-tsk" firstAttribute="leading" secondItem="l2v-Lz-WG5" secondAttribute="trailing" constant="53" id="tAf-ew-zaa"/>
