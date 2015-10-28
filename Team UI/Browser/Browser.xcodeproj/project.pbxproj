@@ -15,7 +15,6 @@
 		8D43CB571BCE689E00EEBB7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D43CB551BCE689E00EEBB7B /* LaunchScreen.storyboard */; };
 		8D43CB621BCE689F00EEBB7B /* BrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB611BCE689F00EEBB7B /* BrowserTests.swift */; };
 		8D43CB6D1BCE689F00EEBB7B /* BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB6C1BCE689F00EEBB7B /* BrowserUITests.swift */; };
-		8D916C3D1BDA2D5900AF9517 /* sech.css in Resources */ = {isa = PBXBuildFile; fileRef = 8D916C3C1BDA2D5900AF9517 /* sech.css */; settings = {ASSET_TAGS = (); }; };
 		8DAA54D51BD79F7C00B817BF /* SechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAA54D41BD79F7C00B817BF /* SechModel.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -51,7 +50,6 @@
 		8D43CB681BCE689F00EEBB7B /* BrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = BrowserUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D43CB6C1BCE689F00EEBB7B /* BrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserUITests.swift; sourceTree = "<group>"; };
 		8D43CB6E1BCE689F00EEBB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		8D916C3C1BDA2D5900AF9517 /* sech.css */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.css; path = sech.css; sourceTree = "<group>"; };
 		8DAA54D41BD79F7C00B817BF /* SechModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SechModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -105,7 +103,6 @@
 			children = (
 				8D43CB4C1BCE689E00EEBB7B /* AppDelegate.swift */,
 				8D43CB4E1BCE689E00EEBB7B /* ViewController.swift */,
-				8D916C3C1BDA2D5900AF9517 /* sech.css */,
 				8D43CB501BCE689E00EEBB7B /* Main.storyboard */,
 				8D43CB531BCE689E00EEBB7B /* Assets.xcassets */,
 				8D43CB551BCE689E00EEBB7B /* LaunchScreen.storyboard */,
@@ -239,7 +236,6 @@
 			files = (
 				8D43CB571BCE689E00EEBB7B /* LaunchScreen.storyboard in Resources */,
 				8D43CB541BCE689E00EEBB7B /* Assets.xcassets in Resources */,
-				8D916C3D1BDA2D5900AF9517 /* sech.css in Resources */,
 				8D43CB521BCE689E00EEBB7B /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
