@@ -14,7 +14,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
-    @IBOutlet weak var bookMarkButton: UIBarButtonItem!
     @IBOutlet weak var addressBar: UITextField!
     @IBOutlet weak var reloadButton: UIBarButtonItem!
     
@@ -22,6 +21,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     
     let zechTags = ["Oktoberfest","München"]
+    
+    var favourites = [""]
+    
     
     
     override func viewDidLoad() {
@@ -49,6 +51,40 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         myWebView.loadRequest(request)
         myWebView.scalesPageToFit = true
         
+    }
+    
+    @IBAction func favouriteButton(sender: AnyObject)
+    {
+        let alertSheetController = UIAlertController(title: "Favoriten hinzufügen", message: "Geben Sie den Titel ein", preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel)
+        {
+            action-> Void in
+            print("Cancel")
+                
+        }
+        
+        alertSheetController.addAction(cancelAction)
+        
+        let enterAction = UIAlertAction(title: "Enter", style: .Default)
+        {
+                action-> Void in
+            
+            let textfield : UITextField = alertSheetController.textFields![0]
+            self.favourites.append(textfield.text!)
+            
+            print(self.favourites)
+        }
+
+        alertSheetController.addAction(enterAction)
+        
+        alertSheetController.addTextFieldWithConfigurationHandler
+        {
+            textField -> Void in
+            textField.placeholder="Titel"
+        }
+        
+        self.presentViewController(alertSheetController, animated: true) {}
     }
     
     @IBAction func reloadButton(sender: AnyObject) {

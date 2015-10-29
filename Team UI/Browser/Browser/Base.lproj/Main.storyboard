@@ -34,7 +34,11 @@
                                                     <action selector="forwardButton:" destination="BYZ-38-t0r" id="9o9-ax-eSB"/>
                                                 </connections>
                                             </barButtonItem>
-                                            <barButtonItem systemItem="bookmarks" id="ode-4e-rRf"/>
+                                            <barButtonItem systemItem="bookmarks" id="ode-4e-rRf">
+                                                <connections>
+                                                    <action selector="favouriteButton:" destination="BYZ-38-t0r" id="86h-sm-u2S"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem title="Home" id="F2l-5d-8jr">
                                                 <connections>
                                                     <action selector="homeBtn:" destination="BYZ-38-t0r" id="yce-gz-rh7"/>
@@ -112,7 +116,6 @@
                     <connections>
                         <outlet property="addressBar" destination="aq5-DT-Mlq" id="DhY-wG-VW8"/>
                         <outlet property="backButton" destination="5Yo-GX-MbL" id="muK-VC-c7A"/>
-                        <outlet property="bookMarkButton" destination="ode-4e-rRf" id="wDB-KX-O6T"/>
                         <outlet property="forwardButton" destination="Jt3-Ps-8LQ" id="gHd-51-hAm"/>
                         <outlet property="myWebView" destination="yX6-OZ-Z82" id="iax-MG-RPM"/>
                         <outlet property="reloadButton" destination="ELU-wd-HGf" id="o6q-PL-1q6"/>
