@@ -13,6 +13,10 @@ class PreferencesViewController: NSViewController, NSTextFieldDelegate {
 
     
     @IBOutlet weak var ageTextField: NSTextField!
+    @IBOutlet weak var maleRadioButton: NSButton!
+    @IBOutlet weak var femaleRadioButton: NSButton!
+    
+    
     
     
     
@@ -28,10 +32,6 @@ class PreferencesViewController: NSViewController, NSTextFieldDelegate {
     
     func loadPreferences(){
     
-        let preferences = NSUserDefaults.standardUserDefaults()
-        
-        
-        
     
     }
     
