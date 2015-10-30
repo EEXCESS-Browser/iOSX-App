@@ -33,7 +33,6 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         self.ComboBox_TypeOfKeyword.addItemWithObjectValue(JSONManager.CONTEXT_KEYWORDS_MISC)
         self.ComboBox_TypeOfKeyword.addItemWithObjectValue(JSONManager.CONTEXT_KEYWORDS_PERSON)
         self.ComboBox_TypeOfKeyword.addItemWithObjectValue(JSONManager.CONTEXT_KEYWORDS_LOCATION)
-        self.ComboBox_TypeOfKeyword.selectItemWithObjectValue(JSONManager.CONTEXT_KEYWORDS_MISC)
         self.ComboBox_TypeOfKeyword.selectItemWithObjectValue(JSONManager.CONTEXT_KEYWORDS_ORGANIZATION)
 //        --------------
         
@@ -81,6 +80,12 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var recommendation: NSTextField!
     @IBOutlet var response: NSTextView!
     @IBOutlet weak var checkBoxIsMainTopic: NSButton!
+    
+    @IBOutlet weak var genderComboBox: NSComboBox!
+    
+    @IBOutlet weak var languageComboBox: NSComboBox!
+    @IBOutlet weak var cityTextField: NSTextField!
+    @IBOutlet weak var countryTextField: NSTextField!
     
     var jsonKeys = [String:JSONObject]()
     

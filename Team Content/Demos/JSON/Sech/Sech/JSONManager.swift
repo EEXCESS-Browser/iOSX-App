@@ -40,7 +40,7 @@ class JSONManager{
         let json = JSONObject()
         json.addJSONObject("origin", jsonObject: self.origin)
         json.setKeyValuePair("numResults", value: numResults)
-//        json.setKeyValuePairs(["gender":gender,"ageRange":ageRange,"address":address.jsonObject])
+        json.setKeyValuePairs(["gender":gender,"ageRange":ageRange])
         json.addJSONArray("languages", jsonArray: languages)
         json.addJSONObject("address", jsonObject: address)
         json.addJSONArray("contextKeywords", jsonArray: contextKeyWords)
