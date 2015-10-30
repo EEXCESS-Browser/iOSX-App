@@ -22,9 +22,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     let zechTags = ["Oktoberfest","München"]
     
-    var favourites = [""]
-    
-    
+    //var favourites = [""]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -71,9 +69,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 action-> Void in
             
             let textfield : UITextField = alertSheetController.textFields![0]
-            self.favourites.append(textfield.text!)
             
-            print(self.favourites)
+            
+            
+            
+            
         }
 
         alertSheetController.addAction(enterAction)
