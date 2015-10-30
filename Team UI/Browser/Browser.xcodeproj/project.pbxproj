@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1808A73F1BE3654100B7201A /* FavouritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1808A73E1BE3654100B7201A /* FavouritesModel.swift */; settings = {ASSET_TAGS = (); }; };
 		8D07B7941BD0F79A00031D8B /* WebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D07B7931BD0F79A00031D8B /* WebViewDelegate.swift */; settings = {ASSET_TAGS = (); }; };
 		8D43CB4D1BCE689E00EEBB7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB4C1BCE689E00EEBB7B /* AppDelegate.swift */; };
 		8D43CB4F1BCE689E00EEBB7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB4E1BCE689E00EEBB7B /* ViewController.swift */; };
@@ -37,7 +36,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1808A73E1BE3654100B7201A /* FavouritesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesModel.swift; sourceTree = "<group>"; };
 		8D07B7931BD0F79A00031D8B /* WebViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewDelegate.swift; sourceTree = "<group>"; };
 		8D43CB491BCE689E00EEBB7B /* Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Browser.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D43CB4C1BCE689E00EEBB7B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 				8D43CB581BCE689E00EEBB7B /* Info.plist */,
 				8D07B7931BD0F79A00031D8B /* WebViewDelegate.swift */,
 				8DAA54D41BD79F7C00B817BF /* SechModel.swift */,
-				1808A73E1BE3654100B7201A /* FavouritesModel.swift */,
 			);
 			path = Browser;
 			sourceTree = "<group>";
@@ -268,7 +265,6 @@
 				8D43CB4D1BCE689E00EEBB7B /* AppDelegate.swift in Sources */,
 				8DAA54D51BD79F7C00B817BF /* SechModel.swift in Sources */,
 				8D07B7941BD0F79A00031D8B /* WebViewDelegate.swift in Sources */,
-				1808A73F1BE3654100B7201A /* FavouritesModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
