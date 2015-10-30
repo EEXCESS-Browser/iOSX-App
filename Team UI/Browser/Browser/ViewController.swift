@@ -101,6 +101,9 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         myWebView.goBack()
     }
   
+    @IBAction func makePopOver(sender: AnyObject) {
+        print("hallo")
+    }
     
     @IBAction func homeBtn(sender: AnyObject) {
         let homeUrl = "https://www.google.de"
