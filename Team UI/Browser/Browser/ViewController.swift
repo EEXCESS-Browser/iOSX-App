@@ -16,16 +16,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var addressBar: UITextField!
     @IBOutlet weak var reloadButton: UIBarButtonItem!
-    
+    @IBOutlet weak var myWebView: UIWebView!
     @IBOutlet weak var tableView: UITableView!
 
     
     let zechTags = ["Oktoberfest","München"]
-    
     var favourites = [""]
-    
-    
-    
+ 
     override func viewDidLoad() {
         super.viewDidLoad()
         myWebViewDelegate = WebViewDelegate()
@@ -33,26 +30,38 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
         tableView.dataSource = self
-        
-        
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
 
-    @IBOutlet weak var myWebView: UIWebView!
-    
     @IBAction func loadLink(sender: UITextField) {
-        let murl = sender.text
+        var murl = sender.text
+        
+        if (!validateUrl(murl!)) {
+                murl = "https://www.google.de/webhp?hl=de&q=yxc#hl=de&q=" + murl!
+            }
         let url = NSURL(string: murl!)
         let request = NSURLRequest(URL: url!)
         print(request)
         myWebView.loadRequest(request)
         myWebView.scalesPageToFit = true
-        
     }
     
+    func validateUrl (stringURL : NSString) -> Bool {
+        let urlRegEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
+        let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
+        return predicate.evaluateWithObject(stringURL)
+    }
+    
+    func validateWWW (stringURL : NSString) -> Bool {
+        let urlRegEx = "(((\\w|-)+)(([.]|[/])((\\w|-)+))+"
+        let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
+        return predicate.evaluateWithObject(stringURL)
+    }
+
     @IBAction func favouriteButton(sender: AnyObject)
     {
         let alertSheetController = UIAlertController(title: "Favoriten hinzufügen", message: "Geben Sie den Titel ein", preferredStyle: .Alert)
@@ -95,8 +104,6 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         myWebView.goForward()
     }
 
-    
-    
     @IBAction func backButton(sender: AnyObject) {
         myWebView.goBack()
     }
@@ -106,11 +113,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let homeUrl = "https://www.google.de"
         let url = NSURL(string: homeUrl)
         let request = NSURLRequest(URL: url!)
-        print(request)
         myWebView.loadRequest(request)
         myWebView.scalesPageToFit = true
-        
     }
+    
     //Table View Methods:
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return zechTags.count

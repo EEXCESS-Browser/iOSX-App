@@ -52,7 +52,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>
-                                                <action selector="loadLink:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="SaD-ci-HFl"/>
+                                                <action selector="loadLink:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="7UJ-Ac-iT7"/>
                                             </connections>
                                         </textField>
                                         <rightBarButtonItems>
