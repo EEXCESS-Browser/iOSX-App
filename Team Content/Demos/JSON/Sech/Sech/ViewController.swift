@@ -33,7 +33,11 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         self.ComboBox_TypeOfKeyword.addItemWithObjectValue(JSONManager.CONTEXT_KEYWORDS_MISC)
         self.ComboBox_TypeOfKeyword.addItemWithObjectValue(JSONManager.CONTEXT_KEYWORDS_PERSON)
         self.ComboBox_TypeOfKeyword.addItemWithObjectValue(JSONManager.CONTEXT_KEYWORDS_LOCATION)
+        self.ComboBox_TypeOfKeyword.addItemWithObjectValue(JSONManager.CONTEXT_KEYWORDS_ORGANIZATION)
         self.ComboBox_TypeOfKeyword.selectItemWithObjectValue(JSONManager.CONTEXT_KEYWORDS_ORGANIZATION)
+        
+        self.ComboBox_Detail.addItemWithObjectValue("take all")
+        self.ComboBox_TypeOfKeyword.selectItemWithObjectValue("take all")
 //        --------------
         
         self.MAINCONTROLLER.setMethodForResponse({ (succeeded: Bool, msg: NSData) -> () in
@@ -43,6 +47,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
                     self.msg = msg
                     self.MAINCONTROLLER.mapOfJSONs.removeAll()
                     self.MAINCONTROLLER.mapOfJSONs["\(self.recommendation.stringValue)"] = JSONObject(data: msg)
+                    self.ComboBox_Detail.addItemsWithObjectValues(self.MAINCONTROLLER.seperateDocumentBages(self.MAINCONTROLLER.mapOfJSONs["\(self.recommendation.stringValue)"]!))
                 })
             }
             else {
@@ -146,11 +151,18 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBAction func startSearchDetails(sender: AnyObject) {
         print("--> Send details \n")
         print("\n")
-        
-        if let json = self.MAINCONTROLLER.createJSONForRequest([:], detail: true){
-            print("Detail Request:\n\(json)\n")
-            self.MAINCONTROLLER.makeRequest(json, detail: true)
+        if let docBags = self.ComboBox_Detail.objectValueOfSelectedItem as? [String:AnyObject]{
+            if let json = self.MAINCONTROLLER.createJSONForRequest(["json":JSONObject(keyValuePairs: docBags)], detail: true){
+                print("Detail Request:\n\(json)\n")
+                self.MAINCONTROLLER.makeRequest(json, detail: true)
+            }
+        }else{
+            if let json = self.MAINCONTROLLER.createJSONForRequest(["json":MAINCONTROLLER.seperateDocumentBages(MAINCONTROLLER.getFirstItem())], detail: true){
+                print("Detail Request:\n\(json)\n")
+                self.MAINCONTROLLER.makeRequest(json, detail: true)
+            }
         }
+
     }
     
 }

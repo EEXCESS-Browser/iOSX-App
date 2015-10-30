@@ -26,7 +26,13 @@ class MainController{
         var json:JSONObject?
         
         if detail {
-            let dataForDetailRequest = createDetailRequest(getFirstItem())
+            var dataForDetailRequest:[String:AnyObject]
+            if let data = (keyWordsWithKeys["json"] as? JSONObject) {
+                dataForDetailRequest = createDetailRequest(data)
+            }else{
+                dataForDetailRequest = createDetailRequest(keyWordsWithKeys["json"] as! [[String:AnyObject]])
+            }
+            
             json = JSONMANAGER.createDetailRequest(dataForDetailRequest["queryID"] as! String, documentBadge: dataForDetailRequest["documentBadge"] as! [[String:AnyObject]])
         }else{
             let num = 0.1
@@ -35,7 +41,7 @@ class MainController{
         return json
     }
     
-    private func getFirstItem()->JSONObject{
+    func getFirstItem()->JSONObject{
         for json in self.mapOfJSONs {
             return json.1
         }
@@ -60,14 +66,21 @@ class MainController{
         
         return  true
     }
-    
-    private func createDetailRequest(json:JSONObject)->[String:AnyObject]{
+    func seperateDocumentBages(json:JSONObject)->[[String:AnyObject]]{
         var jsons = [[String:AnyObject]]()
         for jsonObject in json.getJSONArray("result")!{
             jsons.append(jsonObject.getJSONObject("documentBadge")!.jsonObject)
             
         }
-        let queryID:String = json.getString("queryID")!
-        return ["queryID":queryID,"documentBadge":jsons]
+        return jsons
+    }
+    
+    private func createDetailRequest(json:JSONObject)->[String:AnyObject]{
+        let queryID:String = self.getFirstItem().getString("queryID")!
+        return ["queryID":queryID,"documentBadge":[json.jsonObject]]
+    }
+    private func createDetailRequest(json:[[String:AnyObject]])->[String:AnyObject]{
+        let queryID:String = self.getFirstItem().getString("queryID")!
+        return ["queryID":queryID,"documentBadge":json]
     }
 }
