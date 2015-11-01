@@ -8,8 +8,8 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-    
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
+{
     var myWebViewDelegate: UIWebViewDelegate!
     
     @IBOutlet weak var backButton: UIBarButtonItem!
@@ -19,12 +19,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var myWebView: UIWebView!
     @IBOutlet weak var tableView: UITableView!
 
-    
     let zechTags = ["Oktoberfest","München"]
-    var favourites = [""]
- 
-    override func viewDidLoad() {
+    var favourites = [FavouritesModel]()
+    
+    override func viewDidLoad()
+    {
         super.viewDidLoad()
+        
         myWebViewDelegate = WebViewDelegate()
         myWebView.delegate = myWebViewDelegate
         // Do any additional setup after loading the view, typically from a nib.
@@ -32,7 +33,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
     }
     
-    override func didReceiveMemoryWarning() {
+    override func didReceiveMemoryWarning()
+    {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
@@ -40,9 +42,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func loadLink(sender: UITextField) {
         var murl = sender.text
         
-        if (!validateUrl(murl!)) {
+        if (!validateUrl(murl!))
+        {
                 murl = "https://www.google.de/webhp?hl=de&q=yxc#hl=de&q=" + murl!
-            }
+        }
+        
         let url = NSURL(string: murl!)
         let request = NSURLRequest(URL: url!)
         print(request)
@@ -50,13 +54,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         myWebView.scalesPageToFit = true
     }
     
-    func validateUrl (stringURL : NSString) -> Bool {
+    func validateUrl (stringURL : NSString) -> Bool
+    {
         let urlRegEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
         let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
         return predicate.evaluateWithObject(stringURL)
     }
     
-    func validateWWW (stringURL : NSString) -> Bool {
+    func validateWWW (stringURL : NSString) -> Bool
+    {
         let urlRegEx = "(((\\w|-)+)(([.]|[/])((\\w|-)+))+"
         let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
         return predicate.evaluateWithObject(stringURL)
@@ -80,12 +86,27 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 action-> Void in
             
             let textfield : UITextField = alertSheetController.textFields![0]
-            self.favourites.append(textfield.text!)
+            let fav = FavouritesModel()
+
+            self.favourites.append(fav)
+
+            fav.title = textfield.text!
+            fav.url = self.addressBar.text!
             
-            print(self.favourites)
         }
 
         alertSheetController.addAction(enterAction)
+        
+        let editBookmarks = UIAlertAction(title: "Lesezeichen verwalten", style: .Default)
+        {
+                action-> Void in
+            
+            self.performSegueWithIdentifier("editBookmarks",sender:self)
+                
+                
+        }
+        
+        alertSheetController.addAction(editBookmarks)
         
         alertSheetController.addTextFieldWithConfigurationHandler
         {
@@ -93,23 +114,43 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             textField.placeholder="Titel"
         }
         
+        alertSheetController.addTextFieldWithConfigurationHandler
+        {
+                textField -> Void in
+                textField.placeholder="URL"
+                textField.text = self.addressBar.text
+        }
+
         self.presentViewController(alertSheetController, animated: true) {}
     }
     
-    @IBAction func reloadButton(sender: AnyObject) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
+    {
+        if segue.identifier == "editBookmarks"
+        {
+            let destVC = segue.destinationViewController as! FavouriteTableViewController
+            destVC.favourites = favourites
+        }
+    }
+    
+    @IBAction func reloadButton(sender: AnyObject)
+    {
          myWebView.reload()
     }
     
-    @IBAction func forwardButton(sender: AnyObject) {
+    @IBAction func forwardButton(sender: AnyObject)
+    {
         myWebView.goForward()
     }
 
-    @IBAction func backButton(sender: AnyObject) {
+    @IBAction func backButton(sender: AnyObject)
+    {
         myWebView.goBack()
     }
   
     
-    @IBAction func homeBtn(sender: AnyObject) {
+    @IBAction func homeBtn(sender: AnyObject)
+    {
         let homeUrl = "https://www.google.de"
         let url = NSURL(string: homeUrl)
         let request = NSURLRequest(URL: url!)
@@ -118,22 +159,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
     
     //Table View Methods:
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+    {
         return zechTags.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+    {
         let cell = tableView.dequeueReusableCellWithIdentifier("ZechCell", forIndexPath: indexPath) as UITableViewCell
         
         cell.textLabel!.text = zechTags[indexPath.row]
         
         return cell
-        
-        
     }
+    
     //forward SechTag to other Group
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let row = indexPath.row
         print("Zech Tag:   \(zechTags[row]) ")
