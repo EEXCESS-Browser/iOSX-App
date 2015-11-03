@@ -143,8 +143,8 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         jsonKeys.removeAll()
         var jsonArray = [String:JSONObject]()
         var key = ""
-        if !recommendation.stringValue.hasSuffix(",") && !recommendation.stringValue.isEmpty {
-            recommendation.stringValue += ","
+        if !recommendation.stringValue.hasSuffix(",") && !recommendation.stringValue.hasSuffix("|") && !recommendation.stringValue.isEmpty {
+            recommendation.stringValue += "|"
         }
         for c in recommendation.stringValue.characters{
             if(c == ","){

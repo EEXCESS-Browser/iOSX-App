@@ -16,7 +16,7 @@
 		1281342A1BD4FF150080880F /* 15047100.png in Resources */ = {isa = PBXBuildFile; fileRef = 128134291BD4FF150080880F /* 15047100.png */; settings = {ASSET_TAGS = (); }; };
 		12A019181BD0E55600E77F1F /* Json.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A019171BD0E55600E77F1F /* Json.swift */; settings = {ASSET_TAGS = (); }; };
 		12A0191A1BD1023700E77F1F /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12A019191BD1023700E77F1F /* ConnectionManager.swift */; settings = {ASSET_TAGS = (); }; };
-		146D0FCA1BDA1DF000A7D0F1 /* PreferencesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 146D0FC91BDA1DF000A7D0F1 /* PreferencesViewController.swift */; settings = {ASSET_TAGS = (); }; };
+		12B52B4F1BE90DB3003FFD4C /* MainModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12B52B4E1BE90DB3003FFD4C /* MainModel.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		128134291BD4FF150080880F /* 15047100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = 15047100.png; path = ../15047100.png; sourceTree = "<group>"; };
 		12A019171BD0E55600E77F1F /* Json.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Json.swift; sourceTree = "<group>"; };
 		12A019191BD1023700E77F1F /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
-		146D0FC91BDA1DF000A7D0F1 /* PreferencesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PreferencesViewController.swift; sourceTree = "<group>"; };
+		12B52B4E1BE90DB3003FFD4C /* MainModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,27 +64,15 @@
 		0CB1A87C1BA7190B0081B801 /* Sech */ = {
 			isa = PBXGroup;
 			children = (
-				1222FFB51BDA479200D2C73E /* Connection */,
-				1222FFB41BDA477F00D2C73E /* json */,
+				12B52B4C1BE90D4D003FFD4C /* View */,
+				12B52B491BE90CE9003FFD4C /* Controller */,
+				12B52B481BE90CD1003FFD4C /* Model */,
 				0CB1A87D1BA7190B0081B801 /* AppDelegate.swift */,
-				0CB1A87F1BA7190B0081B801 /* ViewController.swift */,
 				128134291BD4FF150080880F /* 15047100.png */,
 				0CB1A8811BA7190B0081B801 /* Assets.xcassets */,
-				0CB1A8831BA7190B0081B801 /* Main.storyboard */,
 				0CB1A8861BA7190B0081B801 /* Info.plist */,
-				146D0FC91BDA1DF000A7D0F1 /* PreferencesViewController.swift */,
-				1222FFB21BDA456D00D2C73E /* MainController.swift */,
 			);
 			path = Sech;
-			sourceTree = "<group>";
-		};
-		1222FFB41BDA477F00D2C73E /* json */ = {
-			isa = PBXGroup;
-			children = (
-				126CCCCB1BD798B000BCD78B /* JSONManager.swift */,
-				12A019171BD0E55600E77F1F /* Json.swift */,
-			);
-			name = json;
 			sourceTree = "<group>";
 		};
 		1222FFB51BDA479200D2C73E /* Connection */ = {
@@ -93,6 +81,50 @@
 				12A019191BD1023700E77F1F /* ConnectionManager.swift */,
 			);
 			name = Connection;
+			sourceTree = "<group>";
+		};
+		12B52B481BE90CD1003FFD4C /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				12B52B4E1BE90DB3003FFD4C /* MainModel.swift */,
+				12B52B4B1BE90D1C003FFD4C /* JSON */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		12B52B491BE90CE9003FFD4C /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				1222FFB51BDA479200D2C73E /* Connection */,
+				1222FFB21BDA456D00D2C73E /* MainController.swift */,
+				12B52B4A1BE90D0C003FFD4C /* JSON */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		12B52B4A1BE90D0C003FFD4C /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				126CCCCB1BD798B000BCD78B /* JSONManager.swift */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		12B52B4B1BE90D1C003FFD4C /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				12A019171BD0E55600E77F1F /* Json.swift */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		12B52B4C1BE90D4D003FFD4C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0CB1A8831BA7190B0081B801 /* Main.storyboard */,
+				0CB1A87F1BA7190B0081B801 /* ViewController.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,9 +200,9 @@
 				12A0191A1BD1023700E77F1F /* ConnectionManager.swift in Sources */,
 				1222FFB31BDA456D00D2C73E /* MainController.swift in Sources */,
 				126CCCCC1BD798B000BCD78B /* JSONManager.swift in Sources */,
+				12B52B4F1BE90DB3003FFD4C /* MainModel.swift in Sources */,
 				0CB1A8801BA7190B0081B801 /* ViewController.swift in Sources */,
 				0CB1A87E1BA7190B0081B801 /* AppDelegate.swift in Sources */,
-				146D0FCA1BDA1DF000A7D0F1 /* PreferencesViewController.swift in Sources */,
 				12A019181BD0E55600E77F1F /* Json.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
