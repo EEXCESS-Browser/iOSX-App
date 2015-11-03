@@ -25,27 +25,55 @@ class JSONManager{
     /*
         create JSON for Request
     */
-    func createRequestJSON(contextKeyWords:[JSONObject],numResults:Int)->JSONObject?{
+    func createRequestJSON(contextKeyWords:[[JSONObject]],numResults:Int)->JSONObject?{
         let json = JSONObject()
         json.addJSONObject("origin", jsonObject: self.origin)
         json.setKeyValuePair("numResults", value: numResults)
-        json.addJSONArray("contextKeywords", jsonArray: contextKeyWords)
+        json.setKeyValuePair("contextKeywords", value: convertJSONObjToDic(contextKeyWords))
+//        json.addJSONArray("contextKeywords", jsonArray: contextKeyWords)
         return json
     }
     
     /*
     create JSON for Request
     */
-    func createRequestJSON(contextKeyWords:[JSONObject],numResults:Int,gender:String,ageRange:Int,languages:[JSONObject],address:JSONObject)->JSONObject?{
+    func createRequestJSON(contextKeyWords:[[JSONObject]],numResults:Int,gender:String,ageRange:Int,languages:[JSONObject],address:JSONObject)->JSONObject?{
         let json = JSONObject()
         json.addJSONObject("origin", jsonObject: self.origin)
         json.setKeyValuePair("numResults", value: numResults)
         json.setKeyValuePairs(["gender":gender,"ageRange":ageRange])
         json.addJSONArray("languages", jsonArray: languages)
         json.addJSONObject("address", jsonObject: address)
-        json.addJSONArray("contextKeywords", jsonArray: contextKeyWords)
+        json.setKeyValuePair("contextKeywords", value: convertJSONObjToDic(contextKeyWords))
+//        json.addJSONArray("contextKeywords", jsonArray: contextKeyWords)
         return json
     }
+    
+    private func convertJSONObjToDic(contextKeyWords:[[JSONObject]])->AnyObject{
+        var obj = [[[String:AnyObject]]]()
+        if contextKeyWords.count == 1{
+            obj.append([contextKeyWords[0][0].jsonObject])
+        }else if contextKeyWords.count == 0 {
+            
+        }else{
+            for array in contextKeyWords{
+                var StrAny = [[String:AnyObject]]()
+                for json in array{
+                    StrAny.append(json.jsonObject)
+                }
+                obj.append(StrAny)
+                
+            }
+        }
+        for v in obj{
+            for c in v{
+                print("\(c)\n")
+            }
+        }
+        
+        return obj as AnyObject
+    }
+
     /*
         only use in combination with the method: createRequestJSON
     */

@@ -92,16 +92,20 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var cityTextField: NSTextField!
     @IBOutlet weak var countryTextField: NSTextField!
     
-    var jsonKeys = [String:JSONObject]()
+    var jsonKeys = [[String:JSONObject]]()
     
     @IBAction func DoIt(sender: NSButtonCell) {
         doSplit()
     }
     
     @IBAction func sendRequest(sender: AnyObject) {
-        var jsons = [JSONObject]()
+        var jsons = [[JSONObject]]()
         for json in jsonKeys{
-            jsons.append(json.1)
+            var jsonArray = [JSONObject]()
+            for jsonValue in json {
+                jsonArray.append(jsonValue.1)
+            }
+            jsons.append(jsonArray)
         }
         if let jsonT = self.MAINCONTROLLER.createJSONForRequest(["numResults":5,"ContextKeywords":jsons],detail: false){
             print("Request:\n\(jsonT)\n")
@@ -118,31 +122,69 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         }
         var keyValues:[String:AnyObject] = ["type":self.ComboBox_TypeOfKeyword.stringValue]
         keyValues["isMainTopic"] = isTopic
-        jsonKeys[ComboBox_RequestKeywords.stringValue]!.setKeyValuePairs(keyValues)
+        for key in jsonKeys{
+            for subKey in key {
+                print("\(subKey.1)\n")
+                if subKey.0 == ComboBox_RequestKeywords.stringValue {
+//                    jsonKeys[ComboBox_RequestKeywords.stringValue]!.setKeyValuePairs(keyValues)
+                    subKey.1.setKeyValuePairs(keyValues)
+                }
+            }
+        }
+        for key in jsonKeys{
+            for subKey in key {
+                print("\(subKey)\n")
+            }
+        }
     }
     
     private func doSplit()
     {
         jsonKeys.removeAll()
+        var jsonArray = [String:JSONObject]()
         var key = ""
-        recommendation.stringValue += ","
+        if !recommendation.stringValue.hasSuffix(",") && !recommendation.stringValue.isEmpty {
+            recommendation.stringValue += ","
+        }
         for c in recommendation.stringValue.characters{
             if(c == ","){
-                jsonKeys[key] = JSONObject(keyValuePairs: ["text":key])
+//                jsonKeys[key] = JSONObject(keyValuePairs: ["text":key])
+                jsonArray[key] = (JSONObject(keyValuePairs: ["text":key,"isMainTopic":false,"type":JSONManager.CONTEXT_KEYWORDS_MISC]))
                 key = ""
+            }else if c == "|" {
+                jsonArray[key] = (JSONObject(keyValuePairs: ["text":key,"isMainTopic":false,"type":JSONManager.CONTEXT_KEYWORDS_MISC]))
+                key = ""
+                self.jsonKeys.append(jsonArray)
+                jsonArray.removeAll()
             }else{
                 key.append(c)
             }
         }
+        self.jsonKeys.append(jsonArray)
         self.ComboBox_RequestKeywords.removeAllItems()
         for key in jsonKeys{
-            print("\(key.1)\n")
-            self.ComboBox_RequestKeywords.addItemWithObjectValue(key.0)
+            for subKey in key {
+                print("\(subKey.1)\n")
+                self.ComboBox_RequestKeywords.addItemWithObjectValue(subKey.0)
+            }
         }
     }
     
     @IBAction func selectKeyWord(sender: NSComboBox) {
-        
+        for key in jsonKeys{
+            for subKey in key {
+                print("\(subKey.1)\n")
+                if subKey.0 == ComboBox_RequestKeywords.stringValue {
+                    //                    jsonKeys[ComboBox_RequestKeywords.stringValue]!.setKeyValuePairs(keyValues)
+                    if (subKey.1.getBool("isMainTopic")!){
+                        self.checkBoxIsMainTopic.state = 1
+                    }else{
+                        self.checkBoxIsMainTopic.state = 0
+                    }
+                    ComboBox_TypeOfKeyword.selectItemWithObjectValue(subKey.1.getString("type"))
+                }
+            }
+        }
     }
     
 //    ---------------------------------------------------Detail-Request--------------------------
