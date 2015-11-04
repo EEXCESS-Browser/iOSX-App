@@ -160,7 +160,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
                 key.append(c)
             }
         }
-        self.jsonKeys.append(jsonArray)
+//        self.jsonKeys.append(jsonArray)
         self.ComboBox_RequestKeywords.removeAllItems()
         for key in jsonKeys{
             for subKey in key {
