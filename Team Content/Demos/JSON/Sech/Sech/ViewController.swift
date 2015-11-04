@@ -44,15 +44,17 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         
         self.languageComboBox.addItemWithObjectValue("de")
         self.languageComboBox.addItemWithObjectValue("en")
-        
+        self.languageComboBox.selectItemWithObjectValue("de")
+
 //        --------------
         
         self.MAINCONTROLLER.setMethodForResponse({ (succeeded: Bool, msg: NSData) -> () in
             if(succeeded) {
                 dispatch_async(dispatch_get_main_queue(), {
-                    self.response.string = String(data: msg, encoding: NSUTF8StringEncoding)!
+                    let str = String(data: msg, encoding: NSUTF8StringEncoding)!
+                    self.response.string = str
                     self.msg = msg
-                    self.MAINCONTROLLER.mapOfJSONs.removeAll()
+                   // self.MAINCONTROLLER.mapOfJSONs.removeAll()
                     self.MAINCONTROLLER.mapOfJSONs["\(self.recommendation.stringValue)"] = JSONObject(data: msg)
                     self.ComboBox_Detail.addItemsWithObjectValues(self.MAINCONTROLLER.seperateDocumentBages(self.MAINCONTROLLER.mapOfJSONs["\(self.recommendation.stringValue)"]!))
                 })

@@ -77,9 +77,10 @@ class MainController{
     }
     func seperateDocumentBages(json:JSONObject)->[[String:AnyObject]]{
         var jsons = [[String:AnyObject]]()
-        for jsonObject in json.getJSONArray("result")!{
-            jsons.append(jsonObject.getJSONObject("documentBadge")!.jsonObject)
-            
+        for jsonA in json.getJSONArray("results")! {
+            for jsonObject in jsonA.getJSONArray("result")!{
+                jsons.append(jsonObject.getJSONObject("documentBadge")!.jsonObject)
+            }
         }
         return jsons
     }
