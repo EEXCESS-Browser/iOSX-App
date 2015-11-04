@@ -3,7 +3,7 @@
 //  Browser
 //
 //  Created by Patrick Büttner on 01.11.15.
-//  Copyright © 2015 drui. All rights reserved.
+//  Copyright © 2015 SECH-Tag-EEXCESS-Browser. All rights reserved.
 //
 
 import UIKit

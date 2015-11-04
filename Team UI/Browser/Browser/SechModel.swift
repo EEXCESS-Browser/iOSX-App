@@ -3,7 +3,7 @@
 //  Browser
 //
 //  Created by Andreas Ziemer on 21.10.15.
-//  Copyright © 2015 drui. All rights reserved.
+//  Copyright © 2015 SECH-Tag-EEXCESS-Browser. All rights reserved.
 //
 
 import Foundation
