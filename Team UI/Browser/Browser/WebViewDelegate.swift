@@ -34,7 +34,7 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
         print(sechTags.count)
         
         for item in sechTags{
-            print(regex.isSechSection(inString: item))
+            var temp = regex.getAttributes(inString: item)
         }
         //Teststuff END
     }
