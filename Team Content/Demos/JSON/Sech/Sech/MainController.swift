@@ -36,16 +36,19 @@ class MainController{
             json = JSONMANAGER.createDetailRequest(dataForDetailRequest["queryID"] as! String, documentBadge: dataForDetailRequest["documentBadge"] as! [[String:AnyObject]])
         }else{
             
+            
             let num = 0.1
             let gender = pref["gender"]!
             let language = pref["language"]!
             let city = pref["city"]!
             let country = pref["country"]!
+            let age = pref["age"]!
+   
+            let ageRange = calculateAgeRange(Int (age)!)
             
-     
-
             
-            json = JSONMANAGER.createRequestJSON(keyWordsWithKeys["ContextKeywords"] as! [[JSONObject]], numResults: keyWordsWithKeys["numResults"] as! Int!,gender: gender,languages: [JSONObject(keyValuePairs: ["iso2":language,"languageCompetenceLevel":num])],address: JSONObject(keyValuePairs: ["country":country,"city":city]))
+            
+            json = JSONMANAGER.createRequestJSON(keyWordsWithKeys["ContextKeywords"] as! [[JSONObject]], numResults: keyWordsWithKeys["numResults"] as! Int!,gender: gender,ageRange:ageRange, languages: [JSONObject(keyValuePairs: ["iso2":language,"languageCompetenceLevel":num])],address: JSONObject(keyValuePairs: ["country":country,"city":city]))
         }
         return json
     }
@@ -104,6 +107,25 @@ class MainController{
         }
         
         return LicenceType.Other
+    }
+    
+    
+    private func calculateAgeRange(ageInYears:Int) -> Int{
+    
+    //child = 0 - 17
+    //young adult = 18 - 25
+    //adult > 25
+    
+        
+        if(ageInYears < 18){
+            return 0
+        }else if(ageInYears > 25){
+            return 2
+        }
+        
+        return 1
+        
+        
     }
     
     enum LicenceType{

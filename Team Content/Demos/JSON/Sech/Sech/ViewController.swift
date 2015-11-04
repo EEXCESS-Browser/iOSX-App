@@ -13,6 +13,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
 
     @IBOutlet var detailView: NSTextView!
     @IBOutlet weak var ComboBox_Detail: NSComboBox!
+     var dateFormatter = NSDateFormatter()
 
 
     //Show select documentbag
@@ -45,6 +46,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         self.languageComboBox.addItemWithObjectValue("de")
         self.languageComboBox.addItemWithObjectValue("en")
         self.languageComboBox.selectItemWithObjectValue("de")
+        
 
 //        --------------
         
@@ -101,8 +103,11 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var cityTextField: NSTextField!
     @IBOutlet weak var countryTextField: NSTextField!
     
+    @IBOutlet weak var agePicker: NSDatePicker!
+    
     var jsonKeys = [[String:JSONObject]]()
     var preferences = [String:String]()
+    
     
     @IBAction func DoIt(sender: NSButtonCell) {
         doSplit()
@@ -110,13 +115,18 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     
     @IBAction func sendRequest(sender: AnyObject) {
         
-
+            let now = NSDate()
+            let dateOfBirth = agePicker.dateValue
+        
             preferences["gender"] = genderComboBox.stringValue
             preferences["language"] = languageComboBox.stringValue
             preferences["city"] = cityTextField.stringValue
             preferences["country"] = countryTextField.stringValue
         
-
+            let ageInYears = NSCalendar.currentCalendar().components(NSCalendarUnit.Year, fromDate: dateOfBirth, toDate: now, options: NSCalendarOptions.WrapComponents).year
+            preferences["age"] = String (ageInYears)
+        
+        
         var jsons = [[JSONObject]]()
         for json in jsonKeys{
             var jsonArray = [JSONObject]()
