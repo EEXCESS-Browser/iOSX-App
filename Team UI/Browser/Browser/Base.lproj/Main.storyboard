@@ -125,7 +125,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="i1L-lG-5F0" customClass="WebViewDelegate" customModule="Browser" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="1117" y="429"/>
+            <point key="canvasLocation" x="1069" y="402"/>
         </scene>
         <!--Lesezeichen-->
         <scene sceneID="ieT-kA-Gso">
