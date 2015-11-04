@@ -19,6 +19,7 @@
 		8D43CB621BCE689F00EEBB7B /* BrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB611BCE689F00EEBB7B /* BrowserTests.swift */; };
 		8D43CB6D1BCE689F00EEBB7B /* BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB6C1BCE689F00EEBB7B /* BrowserUITests.swift */; };
 		8DAA54D51BD79F7C00B817BF /* SechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAA54D41BD79F7C00B817BF /* SechModel.swift */; settings = {ASSET_TAGS = (); }; };
+		FE14E3B21BE9F860008FC4ED /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE14E3B11BE9F860008FC4ED /* Regex.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,7 @@
 		8D43CB6C1BCE689F00EEBB7B /* BrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserUITests.swift; sourceTree = "<group>"; };
 		8D43CB6E1BCE689F00EEBB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DAA54D41BD79F7C00B817BF /* SechModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SechModel.swift; sourceTree = "<group>"; };
+		FE14E3B11BE9F860008FC4ED /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +109,7 @@
 		8D43CB4B1BCE689E00EEBB7B /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				FE14E3B01BE9F810008FC4ED /* SiteAnalysis */,
 				8D43CB4C1BCE689E00EEBB7B /* AppDelegate.swift */,
 				8D43CB4E1BCE689E00EEBB7B /* ViewController.swift */,
 				8D43CB531BCE689E00EEBB7B /* Assets.xcassets */,
@@ -138,6 +141,14 @@
 				8D43CB6E1BCE689F00EEBB7B /* Info.plist */,
 			);
 			path = BrowserUITests;
+			sourceTree = "<group>";
+		};
+		FE14E3B01BE9F810008FC4ED /* SiteAnalysis */ = {
+			isa = PBXGroup;
+			children = (
+				FE14E3B11BE9F860008FC4ED /* Regex.swift */,
+			);
+			name = SiteAnalysis;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -271,6 +282,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D43CB4F1BCE689E00EEBB7B /* ViewController.swift in Sources */,
+				FE14E3B21BE9F860008FC4ED /* Regex.swift in Sources */,
 				187387311BE61DE000EDDC31 /* FavouriteTableViewController.swift in Sources */,
 				187387531BE64CA400EDDC31 /* FavouriteCell.swift in Sources */,
 				8D43CB4D1BCE689E00EEBB7B /* AppDelegate.swift in Sources */,

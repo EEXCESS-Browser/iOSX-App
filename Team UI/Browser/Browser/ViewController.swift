@@ -151,7 +151,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBAction func homeBtn(sender: AnyObject)
     {
-        let homeUrl = "https://www.google.de"
+        let homeUrl = "http://grassandstones.bplaced.net/sech-test/"
         let url = NSURL(string: homeUrl)
         let request = NSURLRequest(URL: url!)
         myWebView.loadRequest(request)

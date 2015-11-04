@@ -10,6 +10,8 @@ import UIKit
 
 
 class WebViewDelegate: NSObject, UIWebViewDelegate {
+    
+    var regex = Regex()
     var html: NSString = "HTML"    
         
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
@@ -22,7 +24,16 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        html = webView .stringByEvaluatingJavaScriptFromString("document.html.innerHTML")!
+        html = webView .stringByEvaluatingJavaScriptFromString("document.body.innerHTML")!
+        let sechTags = regex.findSechTagsInBody(inString: html as String)
+        
+        //Teststuff START
+        print(sechTags.count)
+        
+        for item in sechTags{
+            print(regex.isSechSection(inString: item))
+        }
+        //Teststuff END
         print("done")
     }
     
