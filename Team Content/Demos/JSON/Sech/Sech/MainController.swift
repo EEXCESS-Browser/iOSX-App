@@ -22,7 +22,7 @@ class MainController{
         self.JSONMANAGER = JSONManager()
     }
     
-    func createJSONForRequest(keyWordsWithKeys:[String:AnyObject],detail:Bool)->JSONObject?{
+    func createJSONForRequest(keyWordsWithKeys:[String:AnyObject],detail:Bool, pref: [String:String])->JSONObject?{
         var json:JSONObject?
         
         if detail {
@@ -35,8 +35,17 @@ class MainController{
             
             json = JSONMANAGER.createDetailRequest(dataForDetailRequest["queryID"] as! String, documentBadge: dataForDetailRequest["documentBadge"] as! [[String:AnyObject]])
         }else{
+            
             let num = 0.1
-            json = JSONMANAGER.createRequestJSON(keyWordsWithKeys["ContextKeywords"] as! [[JSONObject]], numResults: keyWordsWithKeys["numResults"] as! Int!,gender: "female",ageRange: 2,languages: [JSONObject(keyValuePairs: ["iso2":"de","languageCompetenceLevel":num])],address: JSONObject(keyValuePairs: ["country":"Germany","city":"Hof"]))
+            let gender = pref["gender"]!
+            let language = pref["language"]!
+            let city = pref["city"]!
+            let country = pref["country"]!
+            
+     
+
+            
+            json = JSONMANAGER.createRequestJSON(keyWordsWithKeys["ContextKeywords"] as! [[JSONObject]], numResults: keyWordsWithKeys["numResults"] as! Int!,gender: gender,languages: [JSONObject(keyValuePairs: ["iso2":language,"languageCompetenceLevel":num])],address: JSONObject(keyValuePairs: ["country":country,"city":city]))
         }
         return json
     }

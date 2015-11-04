@@ -38,6 +38,13 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         
         self.ComboBox_Detail.addItemWithObjectValue("take all")
         self.ComboBox_TypeOfKeyword.selectItemWithObjectValue("take all")
+        
+        self.genderComboBox.addItemWithObjectValue("male")
+        self.genderComboBox.addItemWithObjectValue("female")
+        
+        self.languageComboBox.addItemWithObjectValue("de")
+        self.languageComboBox.addItemWithObjectValue("en")
+        
 //        --------------
         
         self.MAINCONTROLLER.setMethodForResponse({ (succeeded: Bool, msg: NSData) -> () in
@@ -93,12 +100,21 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     @IBOutlet weak var countryTextField: NSTextField!
     
     var jsonKeys = [[String:JSONObject]]()
+    var preferences = [String:String]()
     
     @IBAction func DoIt(sender: NSButtonCell) {
         doSplit()
     }
     
     @IBAction func sendRequest(sender: AnyObject) {
+        
+
+            preferences["gender"] = genderComboBox.stringValue
+            preferences["language"] = languageComboBox.stringValue
+            preferences["city"] = cityTextField.stringValue
+            preferences["country"] = countryTextField.stringValue
+        
+
         var jsons = [[JSONObject]]()
         for json in jsonKeys{
             var jsonArray = [JSONObject]()
@@ -107,7 +123,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
             }
             jsons.append(jsonArray)
         }
-        if let jsonT = self.MAINCONTROLLER.createJSONForRequest(["numResults":5,"ContextKeywords":jsons],detail: false){
+        if let jsonT = self.MAINCONTROLLER.createJSONForRequest(["numResults":5,"ContextKeywords":jsons],detail: false, pref: preferences){
             print("Request:\n\(jsonT)\n")
             self.MAINCONTROLLER.makeRequest(jsonT, detail: false)
         }
@@ -194,12 +210,12 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         print("--> Send details \n")
         print("\n")
         if let docBags = self.ComboBox_Detail.objectValueOfSelectedItem as? [String:AnyObject]{
-            if let json = self.MAINCONTROLLER.createJSONForRequest(["json":JSONObject(keyValuePairs: docBags)], detail: true){
+            if let json = self.MAINCONTROLLER.createJSONForRequest(["json":JSONObject(keyValuePairs: docBags)], detail: true, pref: preferences){
                 print("Detail Request:\n\(json)\n")
                 self.MAINCONTROLLER.makeRequest(json, detail: true)
             }
         }else{
-            if let json = self.MAINCONTROLLER.createJSONForRequest(["json":MAINCONTROLLER.seperateDocumentBages(MAINCONTROLLER.getFirstItem())], detail: true){
+            if let json = self.MAINCONTROLLER.createJSONForRequest(["json":MAINCONTROLLER.seperateDocumentBages(MAINCONTROLLER.getFirstItem())], detail: true, pref:preferences){
                 print("Detail Request:\n\(json)\n")
                 self.MAINCONTROLLER.makeRequest(json, detail: true)
             }

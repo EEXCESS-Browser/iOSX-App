@@ -37,11 +37,11 @@ class JSONManager{
     /*
     create JSON for Request
     */
-    func createRequestJSON(contextKeyWords:[[JSONObject]],numResults:Int,gender:String,ageRange:Int,languages:[JSONObject],address:JSONObject)->JSONObject?{
+    func createRequestJSON(contextKeyWords:[[JSONObject]],numResults:Int,gender:String,languages:[JSONObject],address:JSONObject)->JSONObject?{
         let json = JSONObject()
         json.addJSONObject("origin", jsonObject: self.origin)
         json.setKeyValuePair("numResults", value: numResults)
-        json.setKeyValuePairs(["gender":gender,"ageRange":ageRange])
+        json.setKeyValuePairs(["gender":gender])
         json.addJSONArray("languages", jsonArray: languages)
         json.addJSONObject("address", jsonObject: address)
         json.setKeyValuePair("contextKeywords", value: convertJSONObjToDic(contextKeyWords))
