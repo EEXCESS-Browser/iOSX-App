@@ -93,19 +93,19 @@ class MainController{
         return ["queryID":queryID,"documentBadge":json]
     }
     
-    private func getLicenceType(licenseURL: String) ->LicenseType{
+    private func getLicenceType(licenseURL: String) ->LicenceType{
         if (licenseURL.lowercaseString.rangeOfString("creative") != nil || licenseURL.lowercaseString.rangeOfString("common") != nil){
-            return LicenseType.CreativeCommon
+            return LicenceType.CreativeCommon
         }else if(licenseURL.lowercaseString.rangeOfString("restricted") != nil){
-            return LicenseType.Restricted
+            return LicenceType.Restricted
         }else if(licenseURL.lowercaseString.rangeOfString("europeana") != nil){
-            return LicenseType.Europeana
+            return LicenceType.Europeana
         }
         
-        return LicenseType.Other
+        return LicenceType.Other
     }
     
-    enum LicenseType{
+    enum LicenceType{
         case CreativeCommon
         case Restricted
         case Europeana
