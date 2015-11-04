@@ -10,7 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
 {
-    var myWebViewDelegate: UIWebViewDelegate!
+    var myWebViewDelegate: WebViewDelegate!
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
@@ -25,8 +25,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        
         myWebViewDelegate = WebViewDelegate()
+        myWebViewDelegate.viewCtrl = self
         myWebView.delegate = myWebViewDelegate
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
@@ -39,14 +39,17 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Dispose of any resources that can be recreated.
     }
 
+    //Adressbar
     @IBAction func loadLink(sender: UITextField) {
         var murl = sender.text
-        
-        if (!validateUrl(murl!))
-        {
-                murl = "https://www.google.de/webhp?hl=de&q=yxc#hl=de&q=" + murl!
+        if (!validateUrl(murl!)) {
+            if(validateWWW(murl!)){
+                murl = "https://" + murl!
+            }else{
+                let searchString = murl!.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil)
+                murl = "https://www.google.de/#q=" + searchString
+            }
         }
-        
         let url = NSURL(string: murl!)
         let request = NSURLRequest(URL: url!)
         print(request)
@@ -56,17 +59,18 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func validateUrl (stringURL : NSString) -> Bool
     {
-        let urlRegEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
+        let urlRegEx = "((https|http)://)"
         let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
         return predicate.evaluateWithObject(stringURL)
     }
     
     func validateWWW (stringURL : NSString) -> Bool
     {
-        let urlRegEx = "(((\\w|-)+)(([.]|[/])((\\w|-)+))+"
+        let urlRegEx = "((\\w|-)+)(([.]|[/])((\\w|-)+))+"
         let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
         return predicate.evaluateWithObject(stringURL)
     }
+    //Adressbar Ende
 
     @IBAction func favouriteButton(sender: AnyObject)
     {
