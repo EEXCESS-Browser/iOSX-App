@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Regex {
+class RegexForSech {
     
     func findSechTagsInBody(inString string : String) -> [String]{
         
         let pattern = "<sech([a-z0-9]*)\\b[^>]*>"
-        let regex = try! NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive)
+        let regex = makeRegEx(withPattern: pattern)
         let range = NSMakeRange(0, string.characters.count)
         let matches = regex.matchesInString(string, options: NSMatchingOptions(), range: range)
         
@@ -26,7 +26,7 @@ class Regex {
     func isSechSection(inString string : String) -> Bool {
         
         let pattern = "<sech-section"
-        let regex = try! NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive)
+        let regex = makeRegEx(withPattern: pattern)
         let range = NSMakeRange(0, string.characters.count)
         return regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil
     }
@@ -34,9 +34,33 @@ class Regex {
     func isSechLink(inString string : String) -> Bool {
         
         let pattern = "<sech-link"
-        let regex = try! NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive)
+        let regex = makeRegEx(withPattern: pattern)
         let range = NSMakeRange(0, string.characters.count)
         return regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil
     }
     
+    func getAttributes(inString string : String) -> [String: String]{
+        //TODO: Attribute auslesen und in Dictionary schreiben
+        
+        // Attributes: topic, type, mediaType, provider, licence
+        let attributeNames = ["topic", "type", "mediaType", "provider", "licence"]
+        // var attributes = [String: String]
+        
+        for attributeName in attributeNames {
+            let regex = makeRegEx(withPattern: attributeName)
+            let range = NSMakeRange(0, string.characters.count)
+            if regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil {
+                //TODO: finde die Attribute heraus
+            }
+        }
+        
+        return [:]
+    }
+    
+// Private Methods
+//#################################################################################################
+    private func makeRegEx(withPattern pattern : String) -> NSRegularExpression{
+        let regex = try! NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive)
+        return regex
+    }
 }

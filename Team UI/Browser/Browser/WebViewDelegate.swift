@@ -11,7 +11,7 @@ import UIKit
 
 class WebViewDelegate: NSObject, UIWebViewDelegate {
     
-    var regex = Regex()
+    var regex = RegexForSech()
     var html: NSString = "HTML"    
         
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
