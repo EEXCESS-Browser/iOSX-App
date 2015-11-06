@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,  UIPopoverPresentationControllerDelegate
 {
     var myWebViewDelegate: WebViewDelegate!
     
@@ -168,6 +168,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let homeUrl = "http://grassandstones.bplaced.net/sech-test/"
         loadURL(homeUrl)
     }
+    @IBAction func doPopover(sender: AnyObject) {
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
+        vc.modalPresentationStyle = UIModalPresentationStyle.Popover
+        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
+        popover.barButtonItem = sender as! UIBarButtonItem
+        popover.delegate = self
+        presentViewController(vc, animated: true, completion:nil)
+    }
+
     
     //Table View Methods:
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -181,6 +191,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         
         cell.textLabel!.text = zechTags[indexPath.row]
         
+        
+        
         return cell
     }
     
@@ -190,6 +202,10 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let row = indexPath.row
+
+
+       
+        
         print("Zech Tag:   \(zechTags[row]) ")
     }
     
