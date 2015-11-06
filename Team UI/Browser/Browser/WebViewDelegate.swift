@@ -34,7 +34,11 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
         print(sechTags.count)
         
         for item in sechTags{
-            var temp = regex.getAttributes(inString: item)
+            let temp = regex.getAttributes(inString: item)
+            for x in temp{
+                print(x)
+            }
+            print("------")
         }
         //Teststuff END
     }

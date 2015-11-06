@@ -43,31 +43,30 @@ class RegexForSech {
         //TODO: Attribute auslesen und in Dictionary schreiben
         
         // Attributes: topic, type, mediaType, provider, licence
-        let attributeNames = ["topic=\"", "type=\"", "mediaType=\"", "provider=\"", "licence=\""]
-//        var attributes = [String: String]
+        let attributeNames = ["topic", "type", "mediaType", "provider", "licence"]
+        var attributes = [String: String]()
         
         for attributeName in attributeNames {
             let regex = makeRegEx(withPattern: attributeName)
             let range = NSMakeRange(0, string.characters.count)
             
             if regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil {
-                //TODO: neue regex mit range von attributeName + attributAngabe
-                //TODO: schreibe dann aus diesem Ergebnis per subStringWithRange (schneide topic=" und " weg) die attributAngabe
                 
-                let regexAttribute = makeRegEx(withPattern: "\(attributeName)([a-z0-9]*)\"")
+                let regexAttribute = makeRegEx(withPattern: "\(attributeName)=\"(.*)\"")
                 let matches = regexAttribute.matchesInString(string, options: NSMatchingOptions(), range: range)
                 
-                //TODO: Warum gibt er mir hier nur die Objektbezeichnung aus im print?!?!?!?!?!?!?!?!?!?!?! WAAAAAAH >__<
+                
+                
                 for item in matches{
-                    print(item)
+                    let range = item.range
+                    let temp = (string as NSString).substringWithRange(range)
+                    attributes[attributeName] = temp
                 }
-
-                //let attributeRange = regexAttribute.rangeOfFirstMatchInString(string, options: NSMatchingOptions(), range: range)
                 
             }
+            
         }
-        
-        return [:]
+        return attributes
     }
     
 // Private Methods
