@@ -26,7 +26,7 @@
                                     <constraint firstAttribute="width" constant="160" id="Yi7-XS-viX"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ZechCell" id="ccN-Aw-kEi">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SechCell" id="ccN-Aw-kEi">
                                         <rect key="frame" x="0.0" y="28" width="160" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ccN-Aw-kEi" id="wtJ-BP-OcX">
@@ -78,7 +78,7 @@
                                         </textField>
                                         <rightBarButtonItems>
                                             <barButtonItem title="Menü" id="1j9-bH-VaA"/>
-                                            <barButtonItem title="Zech" id="QKM-Ym-WL8">
+                                            <barButtonItem title="Sech" id="QKM-Ym-WL8">
                                                 <connections>
                                                     <action selector="doPopover:" destination="BYZ-38-t0r" id="yV6-UQ-BOV"/>
                                                 </connections>
