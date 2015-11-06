@@ -48,7 +48,7 @@ class MainController{
             
             
             
-            json = JSONMANAGER.createRequestJSON(keyWordsWithKeys["ContextKeywords"] as! [[JSONObject]], numResults: keyWordsWithKeys["numResults"] as! Int!,gender: gender,ageRange:ageRange, languages: [JSONObject(keyValuePairs: ["iso2":language,"languageCompetenceLevel":num])],address: JSONObject(keyValuePairs: ["country":country,"city":city]))
+            json = JSONMANAGER.createRequestJSON(keyWordsWithKeys["ContextKeywords"] as! [[JSONObject]], numResults: keyWordsWithKeys["numResults"] as! Int!,gender: gender,ageRange:ageRange, languages: [JSONObject(keyValuePairs: ["iso2":language,"languageCompetenceLevel":num])],address: JSONObject(keyValuePairs: ["country":country,"city":city]),queryID: keyWordsWithKeys["queryID"] as! String)
         }
         return json
     }

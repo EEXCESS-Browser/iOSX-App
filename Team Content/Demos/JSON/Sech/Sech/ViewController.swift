@@ -135,10 +135,18 @@ class ViewController: NSViewController, NSTextFieldDelegate {
             }
             jsons.append(jsonArray)
         }
-        if let jsonT = self.MAINCONTROLLER.createJSONForRequest(["numResults":5,"ContextKeywords":jsons],detail: false, pref: preferences){
+        if let jsonT = self.MAINCONTROLLER.createJSONForRequest(["numResults":5,"ContextKeywords":jsons,"queryID":generateQueryID()],detail: false, pref: preferences){
             print("Request:\n\(jsonT)\n")
             self.MAINCONTROLLER.makeRequest(jsonT, detail: false)
         }
+    }
+    
+    private func generateQueryID()->String{
+        var queryID = ""
+        for char in recommendation.stringValue.utf8{
+            queryID += String(char)
+        }
+        return queryID
     }
     
     @IBAction func changeKeyContext(sender: NSButton) {
