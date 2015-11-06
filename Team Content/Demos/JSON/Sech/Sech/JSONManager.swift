@@ -54,7 +54,11 @@ class JSONManager{
     private func convertJSONObjToDic(contextKeyWords:[[JSONObject]])->AnyObject{
         var obj = [[[String:AnyObject]]]()
         if contextKeyWords.count == 1{
-            obj.append([contextKeyWords[0][0].jsonObject])
+            var jsons = [[String:AnyObject]]()
+            for json in contextKeyWords[0]{
+                jsons.append(json.jsonObject)
+            }
+            obj.append(jsons)
         }else if contextKeyWords.count == 0 {
             
         }else{
