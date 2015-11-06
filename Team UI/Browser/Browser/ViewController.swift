@@ -46,45 +46,36 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     func loadURL(requestURL : String){
         var checkedURL: String
-        if(validateHTTPWWW(requestURL)){
+        if(validateHTTPWWW(requestURL) || validateHTTP(requestURL)){
             checkedURL = requestURL
-            print("1")
+        }else if(validateWWW(requestURL)){
+            checkedURL = "https://" + requestURL
         }else{
-            print("2")
-            if(validateWWW(requestURL)){
-                print("3")
-                checkedURL = "https://" + requestURL
-            }else{
-                print("4")
-                let searchString = requestURL.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil)
-                checkedURL = "https://www.google.de/#q=" + searchString
-            }
+            let searchString = requestURL.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil)
+            checkedURL = "https://www.google.de/#q=" + searchString
         }
         
         let url = NSURL(string: checkedURL)
-        let request = NSURLRequest(URL: url!)
+        let request = NSURLRequest (URL: url!)
         myWebView.loadRequest(request)
         myWebView.scalesPageToFit = true
     }
 
     func validateHTTP (stringURL : NSString) -> Bool
     {
-        let urlRegEx = "((https|http)://)"
-        print("httpcheck")
+        let urlRegEx = "((https|http)://).*"
         let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
         return predicate.evaluateWithObject(stringURL)
     }
     func validateWWW (stringURL : NSString) -> Bool
     {
-        let urlRegEx = "((\\w|-)+)(([.]|[/])((\\w|-)+))+"
-        print("wwwcheck")
+        let urlRegEx = "((\\w|-)+)(([.]|[/])((\\w|-)+)).*"
         let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
         return predicate.evaluateWithObject(stringURL)
     }
     func validateHTTPWWW (stringURL : NSString) -> Bool
     {
-        let urlRegEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+))+"
-        print("httpwww")
+        let urlRegEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+)).*"
         let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
         return predicate.evaluateWithObject(stringURL)
     }
