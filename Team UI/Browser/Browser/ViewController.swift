@@ -33,6 +33,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.dataSource = self
     }
     
+    override func viewWillAppear(animated: Bool)
+    {
+        navigationController?.setNavigationBarHidden(true, animated: true)
+    }
+    
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
