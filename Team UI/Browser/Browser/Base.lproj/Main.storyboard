@@ -66,12 +66,12 @@
                                                 </connections>
                                             </barButtonItem>
                                         </leftBarButtonItems>
-                                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="aq5-DT-Mlq">
+                                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="aq5-DT-Mlq">
                                             <rect key="frame" x="224" y="7" width="212" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                            <textInputTraits key="textInputTraits"/>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL"/>
                                             <connections>
                                                 <action selector="loadLink:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="7UJ-Ac-iT7"/>
                                             </connections>
