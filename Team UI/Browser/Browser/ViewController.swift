@@ -19,7 +19,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBOutlet weak var myWebView: UIWebView!
     @IBOutlet weak var tableView: UITableView!
 
-    let zechTags = ["Oktoberfest","München"]
+    let sechTags = ["Oktoberfest","München"]
     var favourites = [FavouritesModel]()
     
     override func viewDidLoad()
@@ -182,14 +182,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     //Table View Methods:
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
-        return zechTags.count
+        return sechTags.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
     {
-        let cell = tableView.dequeueReusableCellWithIdentifier("ZechCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("SechCell", forIndexPath: indexPath) as UITableViewCell
         
-        cell.textLabel!.text = zechTags[indexPath.row]
+        cell.textLabel!.text = sechTags[indexPath.row]
         
         
         
@@ -206,7 +206,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
        
         
-        print("Zech Tag:   \(zechTags[row]) ")
+        print("Zech Tag:   \(sechTags[row]) ")
     }
     
 }
