@@ -1,0 +1,506 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		DFFF378A1BF12DDF006DC137 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF37891BF12DDF006DC137 /* AppDelegate.swift */; };
+		DFFF378C1BF12DDF006DC137 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF378B1BF12DDF006DC137 /* ViewController.swift */; };
+		DFFF378F1BF12DDF006DC137 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFFF378D1BF12DDF006DC137 /* Main.storyboard */; };
+		DFFF37911BF12DDF006DC137 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DFFF37901BF12DDF006DC137 /* Assets.xcassets */; };
+		DFFF37941BF12DDF006DC137 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFFF37921BF12DDF006DC137 /* LaunchScreen.storyboard */; };
+		DFFF379F1BF12DDF006DC137 /* SECH_BrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF379E1BF12DDF006DC137 /* SECH_BrowserTests.swift */; };
+		DFFF37AA1BF12DDF006DC137 /* SECH_BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF37A91BF12DDF006DC137 /* SECH_BrowserUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		DFFF379B1BF12DDF006DC137 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFFF377E1BF12DDF006DC137 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFFF37851BF12DDF006DC137;
+			remoteInfo = "SECH Browser";
+		};
+		DFFF37A61BF12DDF006DC137 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = DFFF377E1BF12DDF006DC137 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = DFFF37851BF12DDF006DC137;
+			remoteInfo = "SECH Browser";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		DFFF37861BF12DDF006DC137 /* SECH Browser.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SECH Browser.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFFF37891BF12DDF006DC137 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		DFFF378B1BF12DDF006DC137 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DFFF378E1BF12DDF006DC137 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		DFFF37901BF12DDF006DC137 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		DFFF37931BF12DDF006DC137 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		DFFF37951BF12DDF006DC137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFFF379A1BF12DDF006DC137 /* SECH BrowserTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SECH BrowserTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFFF379E1BF12DDF006DC137 /* SECH_BrowserTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SECH_BrowserTests.swift; sourceTree = "<group>"; };
+		DFFF37A01BF12DDF006DC137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		DFFF37A51BF12DDF006DC137 /* SECH BrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SECH BrowserUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		DFFF37A91BF12DDF006DC137 /* SECH_BrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SECH_BrowserUITests.swift; sourceTree = "<group>"; };
+		DFFF37AB1BF12DDF006DC137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DFFF37831BF12DDF006DC137 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFFF37971BF12DDF006DC137 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFFF37A21BF12DDF006DC137 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		DFFF377D1BF12DDF006DC137 = {
+			isa = PBXGroup;
+			children = (
+				DFFF37881BF12DDF006DC137 /* SECH Browser */,
+				DFFF379D1BF12DDF006DC137 /* SECH BrowserTests */,
+				DFFF37A81BF12DDF006DC137 /* SECH BrowserUITests */,
+				DFFF37871BF12DDF006DC137 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		DFFF37871BF12DDF006DC137 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				DFFF37861BF12DDF006DC137 /* SECH Browser.app */,
+				DFFF379A1BF12DDF006DC137 /* SECH BrowserTests.xctest */,
+				DFFF37A51BF12DDF006DC137 /* SECH BrowserUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		DFFF37881BF12DDF006DC137 /* SECH Browser */ = {
+			isa = PBXGroup;
+			children = (
+				DFFF37891BF12DDF006DC137 /* AppDelegate.swift */,
+				DFFF378B1BF12DDF006DC137 /* ViewController.swift */,
+				DFFF378D1BF12DDF006DC137 /* Main.storyboard */,
+				DFFF37901BF12DDF006DC137 /* Assets.xcassets */,
+				DFFF37921BF12DDF006DC137 /* LaunchScreen.storyboard */,
+				DFFF37951BF12DDF006DC137 /* Info.plist */,
+			);
+			path = "SECH Browser";
+			sourceTree = "<group>";
+		};
+		DFFF379D1BF12DDF006DC137 /* SECH BrowserTests */ = {
+			isa = PBXGroup;
+			children = (
+				DFFF379E1BF12DDF006DC137 /* SECH_BrowserTests.swift */,
+				DFFF37A01BF12DDF006DC137 /* Info.plist */,
+			);
+			path = "SECH BrowserTests";
+			sourceTree = "<group>";
+		};
+		DFFF37A81BF12DDF006DC137 /* SECH BrowserUITests */ = {
+			isa = PBXGroup;
+			children = (
+				DFFF37A91BF12DDF006DC137 /* SECH_BrowserUITests.swift */,
+				DFFF37AB1BF12DDF006DC137 /* Info.plist */,
+			);
+			path = "SECH BrowserUITests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		DFFF37851BF12DDF006DC137 /* SECH Browser */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFFF37AE1BF12DDF006DC137 /* Build configuration list for PBXNativeTarget "SECH Browser" */;
+			buildPhases = (
+				DFFF37821BF12DDF006DC137 /* Sources */,
+				DFFF37831BF12DDF006DC137 /* Frameworks */,
+				DFFF37841BF12DDF006DC137 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "SECH Browser";
+			productName = "SECH Browser";
+			productReference = DFFF37861BF12DDF006DC137 /* SECH Browser.app */;
+			productType = "com.apple.product-type.application";
+		};
+		DFFF37991BF12DDF006DC137 /* SECH BrowserTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFFF37B11BF12DDF006DC137 /* Build configuration list for PBXNativeTarget "SECH BrowserTests" */;
+			buildPhases = (
+				DFFF37961BF12DDF006DC137 /* Sources */,
+				DFFF37971BF12DDF006DC137 /* Frameworks */,
+				DFFF37981BF12DDF006DC137 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DFFF379C1BF12DDF006DC137 /* PBXTargetDependency */,
+			);
+			name = "SECH BrowserTests";
+			productName = "SECH BrowserTests";
+			productReference = DFFF379A1BF12DDF006DC137 /* SECH BrowserTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		DFFF37A41BF12DDF006DC137 /* SECH BrowserUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = DFFF37B41BF12DDF006DC137 /* Build configuration list for PBXNativeTarget "SECH BrowserUITests" */;
+			buildPhases = (
+				DFFF37A11BF12DDF006DC137 /* Sources */,
+				DFFF37A21BF12DDF006DC137 /* Frameworks */,
+				DFFF37A31BF12DDF006DC137 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				DFFF37A71BF12DDF006DC137 /* PBXTargetDependency */,
+			);
+			name = "SECH BrowserUITests";
+			productName = "SECH BrowserUITests";
+			productReference = DFFF37A51BF12DDF006DC137 /* SECH BrowserUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DFFF377E1BF12DDF006DC137 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0700;
+				ORGANIZATIONNAME = "Hof University";
+				TargetAttributes = {
+					DFFF37851BF12DDF006DC137 = {
+						CreatedOnToolsVersion = 7.0;
+					};
+					DFFF37991BF12DDF006DC137 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = DFFF37851BF12DDF006DC137;
+					};
+					DFFF37A41BF12DDF006DC137 = {
+						CreatedOnToolsVersion = 7.0;
+						TestTargetID = DFFF37851BF12DDF006DC137;
+					};
+				};
+			};
+			buildConfigurationList = DFFF37811BF12DDF006DC137 /* Build configuration list for PBXProject "SECH Browser" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = DFFF377D1BF12DDF006DC137;
+			productRefGroup = DFFF37871BF12DDF006DC137 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				DFFF37851BF12DDF006DC137 /* SECH Browser */,
+				DFFF37991BF12DDF006DC137 /* SECH BrowserTests */,
+				DFFF37A41BF12DDF006DC137 /* SECH BrowserUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DFFF37841BF12DDF006DC137 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFFF37941BF12DDF006DC137 /* LaunchScreen.storyboard in Resources */,
+				DFFF37911BF12DDF006DC137 /* Assets.xcassets in Resources */,
+				DFFF378F1BF12DDF006DC137 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFFF37981BF12DDF006DC137 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFFF37A31BF12DDF006DC137 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DFFF37821BF12DDF006DC137 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFFF378C1BF12DDF006DC137 /* ViewController.swift in Sources */,
+				DFFF378A1BF12DDF006DC137 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFFF37961BF12DDF006DC137 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFFF379F1BF12DDF006DC137 /* SECH_BrowserTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		DFFF37A11BF12DDF006DC137 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				DFFF37AA1BF12DDF006DC137 /* SECH_BrowserUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		DFFF379C1BF12DDF006DC137 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DFFF37851BF12DDF006DC137 /* SECH Browser */;
+			targetProxy = DFFF379B1BF12DDF006DC137 /* PBXContainerItemProxy */;
+		};
+		DFFF37A71BF12DDF006DC137 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = DFFF37851BF12DDF006DC137 /* SECH Browser */;
+			targetProxy = DFFF37A61BF12DDF006DC137 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		DFFF378D1BF12DDF006DC137 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DFFF378E1BF12DDF006DC137 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		DFFF37921BF12DDF006DC137 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				DFFF37931BF12DDF006DC137 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		DFFF37AC1BF12DDF006DC137 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		DFFF37AD1BF12DDF006DC137 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		DFFF37AF1BF12DDF006DC137 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "SECH Browser/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Hof-University.SECH-Browser";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		DFFF37B01BF12DDF006DC137 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "SECH Browser/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Hof-University.SECH-Browser";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		DFFF37B21BF12DDF006DC137 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "SECH BrowserTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Hof-University.SECH-BrowserTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SECH Browser.app/SECH Browser";
+			};
+			name = Debug;
+		};
+		DFFF37B31BF12DDF006DC137 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "SECH BrowserTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Hof-University.SECH-BrowserTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/SECH Browser.app/SECH Browser";
+			};
+			name = Release;
+		};
+		DFFF37B51BF12DDF006DC137 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "SECH BrowserUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Hof-University.SECH-BrowserUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "SECH Browser";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		DFFF37B61BF12DDF006DC137 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "SECH BrowserUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Hof-University.SECH-BrowserUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "SECH Browser";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		DFFF37811BF12DDF006DC137 /* Build configuration list for PBXProject "SECH Browser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFFF37AC1BF12DDF006DC137 /* Debug */,
+				DFFF37AD1BF12DDF006DC137 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		DFFF37AE1BF12DDF006DC137 /* Build configuration list for PBXNativeTarget "SECH Browser" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFFF37AF1BF12DDF006DC137 /* Debug */,
+				DFFF37B01BF12DDF006DC137 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DFFF37B11BF12DDF006DC137 /* Build configuration list for PBXNativeTarget "SECH BrowserTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFFF37B21BF12DDF006DC137 /* Debug */,
+				DFFF37B31BF12DDF006DC137 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		DFFF37B41BF12DDF006DC137 /* Build configuration list for PBXNativeTarget "SECH BrowserUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				DFFF37B51BF12DDF006DC137 /* Debug */,
+				DFFF37B61BF12DDF006DC137 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DFFF377E1BF12DDF006DC137 /* Project object */;
+}
