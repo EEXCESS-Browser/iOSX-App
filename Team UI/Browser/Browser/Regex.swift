@@ -14,13 +14,8 @@ class RegexForSech {
         
         let pattern = "<sech([a-z0-9]*)\\b[^>]*>"
         let regex = makeRegEx(withPattern: pattern)
-        let range = NSMakeRange(0, string.characters.count)
-        let matches = regex.matchesInString(string, options: NSMatchingOptions(), range: range)
-        
-        return matches.map {
-            let range = $0.range
-            return (string as NSString).substringWithRange(range)
-        }
+        return getStringArrayWithRegex(string, regex: regex)
+
     }
     
     func isSechSection(inString string : String) -> Bool {
@@ -40,7 +35,6 @@ class RegexForSech {
     }
     
     func getAttributes(inString string : String) -> [String: String]{
-        //TODO: Attribute auslesen und in Dictionary schreiben
         
         // Attributes: topic, type, mediaType, provider, licence
         let attributeNames = ["topic", "type", "mediaType", "provider", "licence"]
@@ -56,7 +50,7 @@ class RegexForSech {
                 let matches = regexAttribute.matchesInString(string, options: NSMatchingOptions(), range: range)
                 
                 
-                
+                // TODO: Changes for-loop with Method getStringArrayWithRegex
                 for item in matches{
                     let range = item.range
                     let temp = (string as NSString).substringWithRange(range)
@@ -74,5 +68,15 @@ class RegexForSech {
     private func makeRegEx(withPattern pattern : String) -> NSRegularExpression{
         let regex = try! NSRegularExpression(pattern: pattern, options: NSRegularExpressionOptions.CaseInsensitive)
         return regex
+    }
+    
+    private func getStringArrayWithRegex(string : String, regex : NSRegularExpression) -> [String]{
+        let range = NSMakeRange(0, string.characters.count)
+        let matches = regex.matchesInString(string, options: NSMatchingOptions(), range: range)
+        
+        return matches.map {
+            let range = $0.range
+            return (string as NSString).substringWithRange(range)
+        }
     }
 }
