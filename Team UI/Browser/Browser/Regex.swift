@@ -10,7 +10,7 @@ import Foundation
 
 class RegexForSech {
     
-    func findSechTagsInBody(inString string : String) -> [String]{
+    func findSechTags(inString string : String) -> [String]{
         
         let pattern = "<sech([a-z0-9]*)\\b[^>]*>"
         let regex = makeRegEx(withPattern: pattern)
@@ -46,15 +46,11 @@ class RegexForSech {
             
             if regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil {
                 
-                let regexAttribute = makeRegEx(withPattern: "\(attributeName)=\"(.*)\"")
-                let matches = regexAttribute.matchesInString(string, options: NSMatchingOptions(), range: range)
+                let regexAttribute = makeRegEx(withPattern: "(?<=\(attributeName)=\")([a-zA-Z0-9]*)(?=\")")
+                let match = getStringArrayWithRegex(string, regex: regexAttribute)
                 
-                
-                // TODO: Changes for-loop with Method getStringArrayWithRegex
-                for item in matches{
-                    let range = item.range
-                    let temp = (string as NSString).substringWithRange(range)
-                    attributes[attributeName] = temp
+                if (match[0].isEmpty != true){
+                    attributes[attributeName] = match[0]
                 }
                 
             }

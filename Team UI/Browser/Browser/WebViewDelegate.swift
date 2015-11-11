@@ -11,7 +11,6 @@ import UIKit
 class WebViewDelegate: NSObject, UIWebViewDelegate {
     
     var regex = RegexForSech()
-    var html: NSString = "HTML"
     var mURL : String = ""
     var viewCtrl: ViewController!
     
@@ -23,8 +22,10 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
-        html = webView .stringByEvaluatingJavaScriptFromString("document.body.innerHTML")!
-        let sechTags = regex.findSechTagsInBody(inString: html as String)
+        
+        // TODO: Analyse Head an Body and create Sechobjects biatches
+        let htmlBody = webView .stringByEvaluatingJavaScriptFromString("document.body.innerHTML")!
+        let sechTags = regex.findSechTags(inString: htmlBody as String)
         
         mURL = (webView.request?.URL?.absoluteString)!
         print(mURL)

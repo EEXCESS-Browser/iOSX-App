@@ -22,6 +22,7 @@
 		A9F615741BEA379A003A3878 /* PopView.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9F615731BEA379A003A3878 /* PopView.xib */; };
 		A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F615751BEA37CF003A3878 /* PopViewController.swift */; };
 		FE14E3B21BE9F860008FC4ED /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE14E3B11BE9F860008FC4ED /* Regex.swift */; };
+		FEBDB8221BF35BA300CCEB8C /* SechMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBDB8211BF35BA300CCEB8C /* SechMaker.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		A9F615731BEA379A003A3878 /* PopView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PopView.xib; sourceTree = "<group>"; };
 		A9F615751BEA37CF003A3878 /* PopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
 		FE14E3B11BE9F860008FC4ED /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		FEBDB8211BF35BA300CCEB8C /* SechMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SechMaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -153,6 +155,7 @@
 			isa = PBXGroup;
 			children = (
 				FE14E3B11BE9F860008FC4ED /* Regex.swift */,
+				FEBDB8211BF35BA300CCEB8C /* SechMaker.swift */,
 			);
 			name = SiteAnalysis;
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				187387531BE64CA400EDDC31 /* FavouriteCell.swift in Sources */,
 				8D43CB4D1BCE689E00EEBB7B /* AppDelegate.swift in Sources */,
 				8DAA54D51BD79F7C00B817BF /* SechModel.swift in Sources */,
+				FEBDB8221BF35BA300CCEB8C /* SechMaker.swift in Sources */,
 				8D07B7941BD0F79A00031D8B /* WebViewDelegate.swift in Sources */,
 				1875A0471BE4D58C00DD94CD /* FavouritesModel.swift in Sources */,
 			);
