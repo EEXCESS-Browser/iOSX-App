@@ -48,6 +48,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     @IBAction func adressBar(sender: UITextField) {
         loadURL(sender.text!)
          }
+    
     @IBAction func homeBtn(sender: AnyObject){
         let homeUrl = "http://grassandstones.at/sech-test/"
         loadURL(homeUrl)

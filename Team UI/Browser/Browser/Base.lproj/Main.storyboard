@@ -78,8 +78,7 @@
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL"/>
                                             <connections>
-                                                <action selector="adressBar:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="2VJ-U3-LuC"/>
-                                                <action selector="loadLink:" destination="BYZ-38-t0r" eventType="editingDidEndOnExit" id="7UJ-Ac-iT7"/>
+                                                <action selector="adressBar:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Ypb-4K-Lj6"/>
                                             </connections>
                                         </textField>
                                         <rightBarButtonItems>
@@ -118,7 +117,6 @@
                     <navigationItem key="navigationItem" id="Qex-x7-0XI"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
-                        <outlet property="addressBar" destination="aq5-DT-Mlq" id="DhY-wG-VW8"/>
                         <outlet property="backButton" destination="5Yo-GX-MbL" id="muK-VC-c7A"/>
                         <outlet property="forwardButton" destination="Jt3-Ps-8LQ" id="gHd-51-hAm"/>
                         <outlet property="myWebView" destination="yX6-OZ-Z82" id="iax-MG-RPM"/>
