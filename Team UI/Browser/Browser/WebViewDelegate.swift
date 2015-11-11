@@ -28,7 +28,8 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
         
         mURL = (webView.request?.URL?.absoluteString)!
         print(mURL)
-        viewCtrl.addressBar.text = mURL
+        viewCtrl.addressBarTxt.text = mURL
+        
     
         //Teststuff START
         print(sechTags.count)

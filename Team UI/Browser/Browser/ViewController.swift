@@ -14,7 +14,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
-    @IBOutlet weak var addressBar: UITextField!
+    @IBOutlet weak var addressBarTxt: UITextField!
     @IBOutlet weak var reloadButton: UIBarButtonItem!
     @IBOutlet weak var myWebView: UIWebView!
     @IBOutlet weak var tableView: UITableView!
@@ -45,7 +45,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     //Adressbar
-    @IBAction func adressBar(sender: UITextField) {
+    @IBAction func addressBar(sender: UITextField) {
         loadURL(sender.text!)
          }
     
@@ -116,7 +116,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             self.favourites.append(fav)
 
             fav.title = textfield.text!
-            fav.url = self.addressBar.text!
+            fav.url = self.addressBarTxt.text!
             
         }
 
@@ -143,7 +143,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         {
                 textField -> Void in
                 textField.placeholder="URL"
-                textField.text = self.addressBar.text
+                textField.text = self.addressBarTxt.text
         }
 
         self.presentViewController(alertSheetController, animated: true) {}
