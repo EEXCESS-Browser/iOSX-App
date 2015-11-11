@@ -45,9 +45,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     //Adressbar
-    @IBAction func loadLink(sender: UITextField) {
+    @IBAction func adressBar(sender: UITextField) {
         loadURL(sender.text!)
          }
+    @IBAction func homeBtn(sender: AnyObject){
+        let homeUrl = "http://grassandstones.at/sech-test/"
+        loadURL(homeUrl)
+    }
     
     func loadURL(requestURL : String){
         var checkedURL: String
@@ -169,10 +173,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
   
     
-    @IBAction func homeBtn(sender: AnyObject){
-        let homeUrl = "http://grassandstones.bplaced.net/sech-test/"
-        loadURL(homeUrl)
-    }
+ 
     @IBAction func doPopover(sender: AnyObject) {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
@@ -207,11 +208,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let row = indexPath.row
-
-
-       
         
-        print("Zech Tag:   \(sechTags[row]) ")
+        print("Sech Tag:   \(sechTags[row]) ")
     }
     
 }
