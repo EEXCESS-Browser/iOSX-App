@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,  UIPopoverPresentationControllerDelegate
 {
     var myWebViewDelegate: WebViewDelegate!
+    var myAdressBar: AddressBar!
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
@@ -28,6 +29,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         myWebViewDelegate = WebViewDelegate()
         myWebViewDelegate.viewCtrl = self
         myWebView.delegate = myWebViewDelegate
+        myAdressBar = AddressBar()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
         tableView.dataSource = self
@@ -46,50 +48,23 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
     //Adressbar
     @IBAction func addressBar(sender: UITextField) {
-        loadURL(sender.text!)
+        let url = myAdressBar.checkURL(sender.text!)
+        loadURL(url)
          }
     
     @IBAction func homeBtn(sender: AnyObject){
         let homeUrl = "http://grassandstones.at/sech-test/"
-        loadURL(homeUrl)
+        let url = myAdressBar.checkURL(homeUrl)
+        loadURL(url)
     }
     
     func loadURL(requestURL : String){
-        var checkedURL: String
-        if(validateHTTPWWW(requestURL) || validateHTTP(requestURL)){
-            checkedURL = requestURL
-        }else if(validateWWW(requestURL)){
-            checkedURL = "https://" + requestURL
-        }else{
-            let searchString = requestURL.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil)
-            checkedURL = "https://www.google.de/#q=" + searchString
-        }
-        
-        let url = NSURL(string: checkedURL)
+
+        let url = NSURL(string: requestURL)
         let request = NSURLRequest (URL: url!)
         myWebView.loadRequest(request)
         myWebView.scalesPageToFit = true
     }
-
-    func validateHTTP (stringURL : NSString) -> Bool
-    {
-        let urlRegEx = "((https|http)://).*"
-        let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
-        return predicate.evaluateWithObject(stringURL)
-    }
-    func validateWWW (stringURL : NSString) -> Bool
-    {
-        let urlRegEx = "((\\w|-)+)(([.]|[/])((\\w|-)+)).*"
-        let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
-        return predicate.evaluateWithObject(stringURL)
-    }
-    func validateHTTPWWW (stringURL : NSString) -> Bool
-    {
-        let urlRegEx = "((https|http)://)((\\w|-)+)(([.]|[/])((\\w|-)+)).*"
-        let predicate = NSPredicate(format:"SELF MATCHES %@", argumentArray:[urlRegEx])
-        return predicate.evaluateWithObject(stringURL)
-    }
-    
     
     //Adressbar Ende
 
@@ -127,8 +102,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
                 action-> Void in
             
             self.performSegueWithIdentifier("editBookmarks",sender:self)
-                
-                
+     
         }
         
         alertSheetController.addAction(editBookmarks)
@@ -149,6 +123,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         self.presentViewController(alertSheetController, animated: true) {}
     }
     
+    @IBAction func favBtn(sender: UIBarButtonItem) {
+        self.performSegueWithIdentifier("editBookmarks", sender: self)
+    }
+    
+    
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?)
     {
         if segue.identifier == "editBookmarks"
@@ -157,6 +136,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             destVC.favourites = favourites
         }
     }
+    
     
     @IBAction func reloadButton(sender: AnyObject)
     {
@@ -172,15 +152,25 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     {
         myWebView.goBack()
     }
-  
-    
- 
+
     @IBAction func doPopover(sender: AnyObject) {
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
         vc.modalPresentationStyle = UIModalPresentationStyle.Popover
         let popover: UIPopoverPresentationController = vc.popoverPresentationController!
         popover.barButtonItem = sender as! UIBarButtonItem
+        popover.delegate = self
+        presentViewController(vc, animated: true, completion:nil)
+    }
+    
+    
+    @IBAction func optionsMenu(sender: UIBarButtonItem) {
+        
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("OptionsMenu")
+        vc.modalPresentationStyle = UIModalPresentationStyle.Popover
+        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
+        popover.barButtonItem = sender
         popover.delegate = self
         presentViewController(vc, animated: true, completion:nil)
     }
@@ -197,9 +187,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         let cell = tableView.dequeueReusableCellWithIdentifier("SechCell", forIndexPath: indexPath) as UITableViewCell
         
         cell.textLabel!.text = sechTags[indexPath.row]
-        
-        
-        
+
         return cell
     }
     

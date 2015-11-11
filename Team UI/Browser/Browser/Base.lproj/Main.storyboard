@@ -38,11 +38,6 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
-                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yX6-OZ-Z82">
-                                <rect key="frame" x="0.0" y="44" width="439" height="512"/>
-                                <animations/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </webView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fEm-7N-dur">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
                                 <animations/>
@@ -62,7 +57,12 @@
                                             </barButtonItem>
                                             <barButtonItem systemItem="bookmarks" id="ode-4e-rRf">
                                                 <connections>
-                                                    <action selector="favouriteButton:" destination="BYZ-38-t0r" id="86h-sm-u2S"/>
+                                                    <action selector="favBtn:" destination="BYZ-38-t0r" id="vPZ-5U-8io"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem systemItem="add" id="Nlk-hE-dtD">
+                                                <connections>
+                                                    <action selector="favouriteButton:" destination="BYZ-38-t0r" id="PTg-wn-MNw"/>
                                                 </connections>
                                             </barButtonItem>
                                             <barButtonItem title="Home" id="F2l-5d-8jr">
@@ -72,7 +72,7 @@
                                             </barButtonItem>
                                         </leftBarButtonItems>
                                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="aq5-DT-Mlq">
-                                            <rect key="frame" x="224" y="7" width="212" height="30"/>
+                                            <rect key="frame" x="271" y="7" width="137" height="30"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -82,7 +82,11 @@
                                             </connections>
                                         </textField>
                                         <rightBarButtonItems>
-                                            <barButtonItem title="Menü" id="1j9-bH-VaA"/>
+                                            <barButtonItem title="Optionen" id="1j9-bH-VaA">
+                                                <connections>
+                                                    <action selector="optionsMenu:" destination="BYZ-38-t0r" id="AK8-x2-elA"/>
+                                                </connections>
+                                            </barButtonItem>
                                             <barButtonItem title="Sech" id="QKM-Ym-WL8">
                                                 <connections>
                                                     <action selector="doPopover:" destination="BYZ-38-t0r" id="yV6-UQ-BOV"/>
@@ -97,6 +101,11 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yX6-OZ-Z82">
+                                <rect key="frame" x="0.0" y="44" width="439" height="512"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </webView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -257,6 +266,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hMV-Gw-TwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2537" y="402"/>
+        </scene>
+        <!--Options Controller-->
+        <scene sceneID="6f6-DY-R4p">
+            <objects>
+                <tableViewController storyboardIdentifier="OptionsMenu" id="bV5-7f-o8Y" customClass="OptionsController" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="vTr-4c-wYG">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="KG1-GU-IiW">
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KG1-GU-IiW" id="BD8-hO-2VM">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="homeCell" textLabel="lGn-4b-6VJ" detailTextLabel="998-Uo-2KD" style="IBUITableViewCellStyleValue1" id="FBw-9e-aAa" customClass="homeCell" customModule="Browser" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="600" height="44"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="FBw-9e-aAa" id="qyH-LF-gz6">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Home" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="lGn-4b-6VJ">
+                                            <rect key="frame" x="15" y="12" width="44" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="998-Uo-2KD">
+                                            <rect key="frame" x="543" y="12" width="42" height="20"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                            <color key="textColor" red="0.55686274509803924" green="0.55686274509803924" blue="0.57647058823529407" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="homeDetail" destination="998-Uo-2KD" id="bLg-VQ-rBG"/>
+                                    <outlet property="homeTitel" destination="lGn-4b-6VJ" id="GB2-2x-NcC"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bV5-7f-o8Y" id="2t5-oY-ReB"/>
+                            <outlet property="delegate" destination="bV5-7f-o8Y" id="Iyk-dA-b4Z"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bod-Yt-Z7X" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2355" y="1070"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="1gS-Ag-HY2">
