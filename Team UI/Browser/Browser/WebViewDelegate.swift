@@ -11,6 +11,7 @@ import UIKit
 class WebViewDelegate: NSObject, UIWebViewDelegate {
     
     var regex = RegexForSech()
+    var sechMaker = SechMaker()
     var mURL : String = ""
     var viewCtrl: ViewController!
     
@@ -23,26 +24,13 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
     
     func webViewDidFinishLoad(webView: UIWebView) {
         
-        // TODO: Analyse Head an Body and create Sechobjects biatches
+        let htmlHead = webView .stringByEvaluatingJavaScriptFromString("document.head.innerHTML")!
+        
         let htmlBody = webView .stringByEvaluatingJavaScriptFromString("document.body.innerHTML")!
-        let sechTags = regex.findSechTags(inString: htmlBody as String)
         
-        mURL = (webView.request?.URL?.absoluteString)!
-        print(mURL)
-        viewCtrl.addressBarTxt.text = mURL
+        let sech = sechMaker.getSechObjects(htmlHead, htmlBody: htmlBody)
         
-    
-        //Teststuff START
-        print(sechTags.count)
-        
-        for item in sechTags{
-            let temp = regex.getAttributes(inString: item)
-            for x in temp{
-                print(x)
-            }
-            print("------")
-        }
-        //Teststuff END
+        print(sech)        
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {

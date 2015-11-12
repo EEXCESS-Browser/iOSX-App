@@ -52,7 +52,8 @@ class RegexForSech {
                 if (match[0].isEmpty != true){
                     attributes[attributeName] = match[0]
                 }
-                
+            }else{
+                attributes[attributeName] = ""
             }
             
         }

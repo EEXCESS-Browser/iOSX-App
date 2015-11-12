@@ -9,22 +9,22 @@
 import Foundation
 
 class Sech{
-    let id = String()
-    let response = String()
-    let detail = String()
-    let tags = [String : Tag]()
-    let filters = [String : Filter]()
+    var id = String()
+    var response = String()
+    var detail = String()
+    var tags = [String : Tag]()
+    var filters = Filter()
 }
 
 class Tag {
-    let topic = String()
-    let type = String()
-    let isMainTopic = false
+    var topic = String()
+    var type = String()
+    var isMainTopic = false
 }
 
 class Filter{
-    let mediaType = String()
-    let provider = String()
-    let licence = String()
+    var mediaType = String()
+    var provider = String()
+    var licence = String()
 }
 

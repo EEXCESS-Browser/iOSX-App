@@ -23,7 +23,7 @@
 		8D43CB6D1BCE689F00EEBB7B /* BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB6C1BCE689F00EEBB7B /* BrowserUITests.swift */; };
 		8DAA54D51BD79F7C00B817BF /* SechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAA54D41BD79F7C00B817BF /* SechModel.swift */; };
 		A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F615751BEA37CF003A3878 /* PopViewController.swift */; };
-		FE14E3B21BE9F860008FC4ED /* Regex.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE14E3B11BE9F860008FC4ED /* Regex.swift */; };
+		FE14E3B21BE9F860008FC4ED /* RegexForSech.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE14E3B11BE9F860008FC4ED /* RegexForSech.swift */; };
 		FEBDB8221BF35BA300CCEB8C /* SechMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBDB8211BF35BA300CCEB8C /* SechMaker.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
@@ -67,7 +67,7 @@
 		8D43CB6E1BCE689F00EEBB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DAA54D41BD79F7C00B817BF /* SechModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SechModel.swift; sourceTree = "<group>"; };
 		A9F615751BEA37CF003A3878 /* PopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
-		FE14E3B11BE9F860008FC4ED /* Regex.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Regex.swift; sourceTree = "<group>"; };
+		FE14E3B11BE9F860008FC4ED /* RegexForSech.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegexForSech.swift; sourceTree = "<group>"; };
 		FEBDB8211BF35BA300CCEB8C /* SechMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SechMaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -176,7 +176,7 @@
 		FE14E3B01BE9F810008FC4ED /* SiteAnalysis */ = {
 			isa = PBXGroup;
 			children = (
-				FE14E3B11BE9F860008FC4ED /* Regex.swift */,
+				FE14E3B11BE9F860008FC4ED /* RegexForSech.swift */,
 				FEBDB8211BF35BA300CCEB8C /* SechMaker.swift */,
 			);
 			name = SiteAnalysis;
@@ -313,7 +313,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D43CB4F1BCE689E00EEBB7B /* ViewController.swift in Sources */,
-				FE14E3B21BE9F860008FC4ED /* Regex.swift in Sources */,
+				FE14E3B21BE9F860008FC4ED /* RegexForSech.swift in Sources */,
 				8D1386001BF381C8009E5F46 /* OptionsCell.swift in Sources */,
 				A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */,
 				187387311BE61DE000EDDC31 /* FavouriteTableViewController.swift in Sources */,
