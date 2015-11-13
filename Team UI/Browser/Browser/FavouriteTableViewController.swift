@@ -18,7 +18,6 @@ class FavouriteTableViewController: UITableViewController
         super.viewDidLoad()
         
         navigationController?.setNavigationBarHidden(false, animated: true)
-        
     }
 
     override func didReceiveMemoryWarning()
