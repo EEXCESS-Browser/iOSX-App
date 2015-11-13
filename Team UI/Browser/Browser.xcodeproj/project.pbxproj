@@ -96,9 +96,20 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		18D5647F1BF5E19B00BD19DF /* Favourites */ = {
+			isa = PBXGroup;
+			children = (
+				1875A0461BE4D58C00DD94CD /* FavouritesModel.swift */,
+				187387301BE61DE000EDDC31 /* FavouriteTableViewController.swift */,
+				187387521BE64CA400EDDC31 /* FavouriteCell.swift */,
+			);
+			name = Favourites;
+			sourceTree = "<group>";
+		};
 		8D1385FB1BF36213009E5F46 /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
+				18D5647F1BF5E19B00BD19DF /* Favourites */,
 				8D1385FE1BF381B3009E5F46 /* OptionsMenu */,
 				8D1385FC1BF3623D009E5F46 /* AdressBar.swift */,
 			);
@@ -148,9 +159,6 @@
 				8D43CB581BCE689E00EEBB7B /* Info.plist */,
 				8D07B7931BD0F79A00031D8B /* WebViewDelegate.swift */,
 				8DAA54D41BD79F7C00B817BF /* SechModel.swift */,
-				1875A0461BE4D58C00DD94CD /* FavouritesModel.swift */,
-				187387301BE61DE000EDDC31 /* FavouriteTableViewController.swift */,
-				187387521BE64CA400EDDC31 /* FavouriteCell.swift */,
 			);
 			path = Browser;
 			sourceTree = "<group>";
