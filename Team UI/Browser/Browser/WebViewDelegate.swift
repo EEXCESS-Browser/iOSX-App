@@ -24,6 +24,9 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
     
     func webViewDidFinishLoad(webView: UIWebView) {
         
+        mURL = (webView.request?.URL?.absoluteString)!
+        viewCtrl.addressBarTxt.text = mURL
+        
         let htmlHead = webView .stringByEvaluatingJavaScriptFromString("document.head.innerHTML")!
         
         let htmlBody = webView .stringByEvaluatingJavaScriptFromString("document.body.innerHTML")!
@@ -34,6 +37,6 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
-        print("error")
+
     }
 }
