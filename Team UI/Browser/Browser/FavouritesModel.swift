@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FavouritesModel
+class FavouritesModel : NSObject, NSCoding
 {
     var title: String
     var url : String
@@ -19,14 +19,116 @@ class FavouritesModel
         self.url = url
     }
     
-    init()
+    
+    override init()
     {
         self.title = ""
         self.url = ""
     }
     
-    var description : String
+    required init(coder aCoder:NSCoder)
     {
-        return "Title:\(title) , URL:\(url)"
+        title = aCoder.decodeObjectForKey("title") as! String
+        url = aCoder.decodeObjectForKey("url") as! String
+    }
+    
+    func encodeWithCoder(aCoder:NSCoder)
+    {
+        aCoder.encodeObject(title, forKey:"title")
+        aCoder.encodeObject(url, forKey:"url")
     }
 }
+
+//Zugriffsschicht
+extension FavouritesModel
+{
+    var extTitle : String
+    {
+        get
+        {
+            return title
+        }
+            
+        set(newValue)
+        {
+            title = newValue
+        }
+        
+    }
+    
+    var extUrl : String
+    {
+        get
+        {
+            return url
+        }
+        
+        set(newValue)
+        {
+            url = newValue
+        }
+    }
+}
+    
+//Persistency Manager
+class DataObjectPersistency
+{
+    private let fileName = "data.plist"
+    private let dataKey = "DataObject"
+    
+    func loadDataObject()->[FavouritesModel]
+    {
+        var items : [FavouritesModel] = []
+        let file = dataFileForName(fileName)
+        
+        if(!NSFileManager.defaultManager().fileExistsAtPath(file))
+        {
+            return items
+        }
+        
+        if let data = NSData(contentsOfFile: file)
+        {
+            let unarchiver = NSKeyedUnarchiver(forReadingWithData: data)
+            items = unarchiver.decodeObjectForKey(dataKey) as! [FavouritesModel]
+            unarchiver.finishDecoding()
+        }
+        
+        return items
+    }
+    
+    func saveDataObject(items: [FavouritesModel])
+    {
+        let file = dataFileForName(fileName)
+        let data = NSMutableData()
+        
+        let archiver = NSKeyedArchiver(forWritingWithMutableData: data)
+        archiver.encodeObject(items, forKey: dataKey)
+        archiver.finishEncoding()
+        data.writeToFile(file, atomically: true)
+    }
+}
+
+private func documentPath()->String
+{
+    let allPaths = NSSearchPathForDirectoriesInDomains(.DocumentDirectory, .UserDomainMask, true) 
+    return allPaths[0]
+}
+
+private func tmpPath()->String
+{
+    return NSTemporaryDirectory()
+    
+}
+
+private func dataFileForName(fileName:String)->String
+{
+    return (documentPath() as NSString).stringByAppendingPathComponent(fileName)
+}
+
+private func tmpFileForName(fileName:String)->String
+{
+    return (tmpPath() as NSString).stringByAppendingPathComponent(fileName)
+}
+
+
+

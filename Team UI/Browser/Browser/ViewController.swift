@@ -12,6 +12,7 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 {
     var myWebViewDelegate: WebViewDelegate!
     var myAdressBar: AddressBar!
+    var p = DataObjectPersistency()
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
@@ -33,6 +34,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
         tableView.dataSource = self
+        
+        favourites = p.loadDataObject()
     }
     
     override func viewWillAppear(animated: Bool)
@@ -92,6 +95,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
 
             fav.title = textfield.text!
             fav.url = self.addressBarTxt.text!
+            
+            self.p.saveDataObject(self.favourites)
             
         }
 
