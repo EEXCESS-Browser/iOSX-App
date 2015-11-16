@@ -8,43 +8,47 @@
 import Foundation
 
 class PreferencesR {
-
+    let NR_ID = "numResults"
+    let GENDER_ID = "gender"
+    let AGE_ID = "age"
+    let URL_ID = "url"
+    
     let defaults = NSUserDefaults.standardUserDefaults()
 
     var numResults : Int {
         get {
-            let v = defaults.integerForKey("numResults")
+            let v = defaults.integerForKey(NR_ID)
             if (v < 10) {
                 return 10
             }
             return v
         }
         set (gIndex) {
-            defaults.setInteger(gIndex, forKey: "numResults")
+            defaults.setInteger(gIndex, forKey: NR_ID)
         }
     }
 
     var gender : Int {
         get {
-            return defaults.integerForKey("gender")
+            return defaults.integerForKey(GENDER_ID)
         }
         set (gIndex) {
-            defaults.setInteger(gIndex, forKey: "gender")
+            defaults.setInteger(gIndex, forKey: GENDER_ID)
         }
     }
     
     var age : Int {
         get {
-            return defaults.integerForKey("age")
+            return defaults.integerForKey(AGE_ID)
         }
         set (age) {
-            defaults.setInteger(age, forKey: "age")
+            defaults.setInteger(age, forKey: AGE_ID)
         }
     }
     
     var url : String {
         get {
-            let v = defaults.valueForKey("url")
+            let v = defaults.valueForKey(URL_ID)
             if (v == nil) {
                 return "https://eexcess-dev.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer"
             }
@@ -56,7 +60,7 @@ class PreferencesR {
                 cUrl.removeAtIndex(cUrl.endIndex.predecessor())
             }
             
-            defaults.setValue(cUrl, forKey: "url")
+            defaults.setValue(cUrl, forKey: URL_ID)
         }
         
     }
