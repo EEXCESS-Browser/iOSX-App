@@ -109,12 +109,12 @@
 		8D1385FB1BF36213009E5F46 /* Toolbar */ = {
 			isa = PBXGroup;
 			children = (
-<<<<<<< HEAD
+
 				8D1385FE1BF381B3009E5F46 /* SettingsMenu */,
-=======
+
 				18D5647F1BF5E19B00BD19DF /* Favourites */,
 				8D1385FE1BF381B3009E5F46 /* OptionsMenu */,
->>>>>>> origin/master
+
 				8D1385FC1BF3623D009E5F46 /* AdressBar.swift */,
 			);
 			name = Toolbar;
