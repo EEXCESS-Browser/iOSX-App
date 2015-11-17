@@ -1,12 +1,13 @@
 //
 //  SechMaker.swift
-//  Browser
+//  SECH Browser
 //
-//  Created by Brian Mairhörmann on 11.11.15.
-//  Copyright © 2015 SECH-Tag-EEXCESS-Browser. All rights reserved.
+//  Created by Brian Mairhörmann on 17.11.15.
+//  Copyright © 2015 Hof University. All rights reserved.
 //
 
 import Foundation
+
 
 class SechMaker {
     private var regex = RegexForSech()
@@ -27,8 +28,8 @@ class SechMaker {
         return tmpSechCollection
     }
     
-// Private Methods
-// #################################################################################################
+    // Private Methods
+    // #################################################################################################
     private func getSechHead(htmlHead : String) -> Tag{
         
         // Get Head-Sech-Tag
@@ -142,28 +143,3 @@ class SechMaker {
         sechCollection[sechObject.id] = sechObject
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

@@ -1,17 +1,17 @@
 //
 //  SechModel.swift
-//  Browser
+//  SECH Browser
 //
-//  Created by Brian Mairhörmann on 21.10.15.
-//  Copyright © 2015 SECH-Tag-EEXCESS-Browser. All rights reserved.
+//  Created by Brian Mairhörmann on 17.11.15.
+//  Copyright © 2015 Hof University. All rights reserved.
 //
 
 import Foundation
 
 class Sech{
     var id = String()
-    var response = String() //Tbd
-    var detail = String() // Tbd
+    var response = String() // TODO: Tbd
+    var detail = String() // TODO: Tbd
     var tags = [String : Tag]() // String is id (link, section, head) and Tag is Tag-Object
     var filters = Filter()
 }

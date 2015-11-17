@@ -14,6 +14,9 @@
 		DFFF37941BF12DDF006DC137 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DFFF37921BF12DDF006DC137 /* LaunchScreen.storyboard */; };
 		DFFF379F1BF12DDF006DC137 /* SECH_BrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF379E1BF12DDF006DC137 /* SECH_BrowserTests.swift */; };
 		DFFF37AA1BF12DDF006DC137 /* SECH_BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DFFF37A91BF12DDF006DC137 /* SECH_BrowserUITests.swift */; };
+		FE92422B1BFB9D7A00C50B6B /* SechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE92422A1BFB9D7A00C50B6B /* SechModel.swift */; settings = {ASSET_TAGS = (); }; };
+		FE92422D1BFB9E2400C50B6B /* HtmlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE92422C1BFB9E2400C50B6B /* HtmlManager.swift */; settings = {ASSET_TAGS = (); }; };
+		FE92422F1BFB9E4100C50B6B /* SechMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE92422E1BFB9E4100C50B6B /* SechMaker.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,9 @@
 		DFFF37A51BF12DDF006DC137 /* SECH BrowserUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "SECH BrowserUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		DFFF37A91BF12DDF006DC137 /* SECH_BrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SECH_BrowserUITests.swift; sourceTree = "<group>"; };
 		DFFF37AB1BF12DDF006DC137 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FE92422A1BFB9D7A00C50B6B /* SechModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SechModel.swift; sourceTree = "<group>"; };
+		FE92422C1BFB9E2400C50B6B /* HtmlManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlManager.swift; sourceTree = "<group>"; };
+		FE92422E1BFB9E4100C50B6B /* SechMaker.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SechMaker.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,8 +103,9 @@
 		DFFF37881BF12DDF006DC137 /* SECH Browser */ = {
 			isa = PBXGroup;
 			children = (
-				DFFF37891BF12DDF006DC137 /* AppDelegate.swift */,
-				DFFF378B1BF12DDF006DC137 /* ViewController.swift */,
+				FE9242221BFB9BB600C50B6B /* View */,
+				FE9242231BFB9BC500C50B6B /* Controller */,
+				FE9242241BFB9BCD00C50B6B /* Model */,
 				DFFF378D1BF12DDF006DC137 /* Main.storyboard */,
 				DFFF37901BF12DDF006DC137 /* Assets.xcassets */,
 				DFFF37921BF12DDF006DC137 /* LaunchScreen.storyboard */,
@@ -123,6 +130,72 @@
 				DFFF37AB1BF12DDF006DC137 /* Info.plist */,
 			);
 			path = "SECH BrowserUITests";
+			sourceTree = "<group>";
+		};
+		FE9242221BFB9BB600C50B6B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FE9242261BFB9C0300C50B6B /* ViewController */,
+				FE9242251BFB9BFC00C50B6B /* Delegates */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		FE9242231BFB9BC500C50B6B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FE9242301BFB9EAE00C50B6B /* Manager */,
+				FE9242291BFB9CCD00C50B6B /* SechMaker */,
+				FE9242281BFB9C8E00C50B6B /* Toolbar */,
+			);
+			name = Controller;
+			sourceTree = "<group>";
+		};
+		FE9242241BFB9BCD00C50B6B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FE92422A1BFB9D7A00C50B6B /* SechModel.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		FE9242251BFB9BFC00C50B6B /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				DFFF37891BF12DDF006DC137 /* AppDelegate.swift */,
+			);
+			name = Delegates;
+			sourceTree = "<group>";
+		};
+		FE9242261BFB9C0300C50B6B /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				DFFF378B1BF12DDF006DC137 /* ViewController.swift */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
+		FE9242281BFB9C8E00C50B6B /* Toolbar */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Toolbar;
+			sourceTree = "<group>";
+		};
+		FE9242291BFB9CCD00C50B6B /* SechMaker */ = {
+			isa = PBXGroup;
+			children = (
+				FE92422E1BFB9E4100C50B6B /* SechMaker.swift */,
+			);
+			name = SechMaker;
+			sourceTree = "<group>";
+		};
+		FE9242301BFB9EAE00C50B6B /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				FE92422C1BFB9E2400C50B6B /* HtmlManager.swift */,
+			);
+			name = Manager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -255,8 +328,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE92422D1BFB9E2400C50B6B /* HtmlManager.swift in Sources */,
 				DFFF378C1BF12DDF006DC137 /* ViewController.swift in Sources */,
+				FE92422F1BFB9E4100C50B6B /* SechMaker.swift in Sources */,
 				DFFF378A1BF12DDF006DC137 /* AppDelegate.swift in Sources */,
+				FE92422B1BFB9D7A00C50B6B /* SechModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -483,6 +559,7 @@
 				DFFF37B01BF12DDF006DC137 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DFFF37B11BF12DDF006DC137 /* Build configuration list for PBXNativeTarget "SECH BrowserTests" */ = {
 			isa = XCConfigurationList;
@@ -491,6 +568,7 @@
 				DFFF37B31BF12DDF006DC137 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		DFFF37B41BF12DDF006DC137 /* Build configuration list for PBXNativeTarget "SECH BrowserUITests" */ = {
 			isa = XCConfigurationList;
@@ -499,6 +577,7 @@
 				DFFF37B61BF12DDF006DC137 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

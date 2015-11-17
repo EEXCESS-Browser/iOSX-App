@@ -33,7 +33,9 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
         
         let sech = sechMaker.getSechObjects(htmlHead, htmlBody: htmlBody)
         
-        print(sech)        
+        for item in sech{
+            print(item.1.tags)
+        }
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {
