@@ -8,7 +8,7 @@
 
 import Foundation
 
-class SechMaker {
+class SechManager {
     private var regex = RegexForSech()
     private var headFilter = Filter()
     private var sechCollection = [String : Sech]()

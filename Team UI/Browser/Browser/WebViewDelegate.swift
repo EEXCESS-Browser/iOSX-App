@@ -11,7 +11,7 @@ import UIKit
 class WebViewDelegate: NSObject, UIWebViewDelegate {
     
     var regex = RegexForSech()
-    var sechMaker = SechMaker()
+    var sechManager = SechManager()
     var mURL : String = ""
     var viewCtrl: ViewController!
     
@@ -31,7 +31,7 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
         
         let htmlBody = webView .stringByEvaluatingJavaScriptFromString("document.body.innerHTML")!
         
-        let sech = sechMaker.getSechObjects(htmlHead, htmlBody: htmlBody)
+        let sech = sechManager.getSechObjects(htmlHead, htmlBody: htmlBody)
         
         for item in sech{
             print(item.1.tags)

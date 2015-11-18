@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,  UIPopoverPresentationControllerDelegate, BackDelegate
+class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate, UITableViewDataSource, UITableViewDelegate, BackDelegate
 {
     var myWebViewDelegate: WebViewDelegate!
     var myAdressBar: AddressBar!
@@ -33,6 +33,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         myAdressBar = AddressBar()
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
+        
+        // TODO: DataSource auslagern!
         tableView.dataSource = self
         
         favourites = p.loadDataObject()
