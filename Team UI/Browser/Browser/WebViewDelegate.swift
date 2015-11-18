@@ -20,12 +20,17 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
     }
     
     func webViewDidStartLoad(webView: UIWebView) {
+        viewCtrl.activityIndicator.hidden = false
+        viewCtrl.activityIndicator.startAnimating()
     }
     
     func webViewDidFinishLoad(webView: UIWebView) {
         
         mURL = (webView.request?.URL?.absoluteString)!
         viewCtrl.addressBarTxt.text = mURL
+        
+        viewCtrl.activityIndicator.stopAnimating()
+        viewCtrl.activityIndicator.hidden = true
         
         let htmlHead = webView .stringByEvaluatingJavaScriptFromString("document.head.innerHTML")!
         

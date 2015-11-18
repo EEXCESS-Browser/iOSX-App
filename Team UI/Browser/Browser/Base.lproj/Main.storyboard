@@ -106,6 +106,9 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="v8s-Hh-AmL">
+                                <rect key="frame" x="384" y="12" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -116,16 +119,19 @@
                             <constraint firstItem="SJJ-Tl-9qC" firstAttribute="top" secondItem="fEm-7N-dur" secondAttribute="bottom" id="MKB-Lc-xLX"/>
                             <constraint firstItem="SJJ-Tl-9qC" firstAttribute="top" secondItem="yX6-OZ-Z82" secondAttribute="top" id="O1a-sD-fZh"/>
                             <constraint firstItem="yX6-OZ-Z82" firstAttribute="leading" secondItem="fEm-7N-dur" secondAttribute="leading" id="TRp-Fu-bKH"/>
+                            <constraint firstItem="v8s-Hh-AmL" firstAttribute="centerY" secondItem="fEm-7N-dur" secondAttribute="centerY" id="VGQ-KW-hYv"/>
                             <constraint firstItem="SJJ-Tl-9qC" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="fD7-6O-eXo"/>
                             <constraint firstItem="fEm-7N-dur" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="han-rU-oOn"/>
                             <constraint firstItem="SJJ-Tl-9qC" firstAttribute="leading" secondItem="yX6-OZ-Z82" secondAttribute="trailing" constant="1" id="n4p-fe-LQo"/>
                             <constraint firstItem="yX6-OZ-Z82" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="qtk-TH-hv9"/>
+                            <constraint firstAttribute="trailing" secondItem="v8s-Hh-AmL" secondAttribute="trailing" constant="196" id="wr7-zA-Cej"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="Qex-x7-0XI"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="v8s-Hh-AmL" id="b4k-FM-Lod"/>
                         <outlet property="addressBarTxt" destination="aq5-DT-Mlq" id="G0T-Gq-wr6"/>
                         <outlet property="backButton" destination="5Yo-GX-MbL" id="muK-VC-c7A"/>
                         <outlet property="forwardButton" destination="Jt3-Ps-8LQ" id="gHd-51-hAm"/>
@@ -138,7 +144,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="i1L-lG-5F0" customClass="WebViewDelegate" customModule="Browser" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="1881" y="402"/>
+            <point key="canvasLocation" x="1865" y="383"/>
         </scene>
         <!--Lesezeichen-->
         <scene sceneID="ieT-kA-Gso">
@@ -411,6 +417,7 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="ageSetting" destination="yUe-g5-dAP" id="aCW-et-s5h"/>
                         <outlet property="homeSetting" destination="KG1-GU-IiW" id="ej9-V6-1MI"/>
                     </connections>
                 </tableViewController>

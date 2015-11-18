@@ -20,6 +20,8 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     @IBOutlet weak var reloadButton: UIBarButtonItem!
     @IBOutlet weak var myWebView: UIWebView!
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
 
     let sechTags = ["Oktoberfest","München"]
     var favourites = [FavouritesModel]()
@@ -31,6 +33,7 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
         myWebViewDelegate.viewCtrl = self
         myWebView.delegate = myWebViewDelegate
         myAdressBar = AddressBar()
+        activityIndicator.hidden = true
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
         

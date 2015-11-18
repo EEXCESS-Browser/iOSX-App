@@ -11,6 +11,9 @@ import UIKit
 class SettingsController: UITableViewController{
     
     @IBOutlet weak var homeSetting: UITableViewCell!
+    @IBOutlet weak var ageSetting: UITableViewCell!
+    
+    
     var settingsModel = SettingsModel()
  
     
@@ -18,6 +21,7 @@ class SettingsController: UITableViewController{
     {
         super.viewDidLoad()
         homeSetting.detailTextLabel?.text = settingsModel.homeURL
+        ageSetting.detailTextLabel?.text = String(settingsModel.age)
     
     }
     
