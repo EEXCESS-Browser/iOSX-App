@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12BB70F11BFC907A0073A55D /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB70F01BFC907A0073A55D /* JSONManager.swift */; settings = {ASSET_TAGS = (); }; };
+		12BB70F31BFC90830073A55D /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB70F21BFC90830073A55D /* ConnectionManager.swift */; settings = {ASSET_TAGS = (); }; };
+		12BB70F51BFC90DB0073A55D /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB70F41BFC90DB0073A55D /* MainController.swift */; settings = {ASSET_TAGS = (); }; };
+		12BB70F71BFC91540073A55D /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB70F61BFC91540073A55D /* JSONObject.swift */; settings = {ASSET_TAGS = (); }; };
 		187387311BE61DE000EDDC31 /* FavouriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187387301BE61DE000EDDC31 /* FavouriteTableViewController.swift */; };
 		187387531BE64CA400EDDC31 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187387521BE64CA400EDDC31 /* FavouriteCell.swift */; };
 		1875A0471BE4D58C00DD94CD /* FavouritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875A0461BE4D58C00DD94CD /* FavouritesModel.swift */; };
@@ -45,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		12BB70F01BFC907A0073A55D /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
+		12BB70F21BFC90830073A55D /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
+		12BB70F41BFC90DB0073A55D /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
+		12BB70F61BFC91540073A55D /* JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
 		187387301BE61DE000EDDC31 /* FavouriteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewController.swift; sourceTree = "<group>"; };
 		187387521BE64CA400EDDC31 /* FavouriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
 		1875A0461BE4D58C00DD94CD /* FavouritesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesModel.swift; sourceTree = "<group>"; };
@@ -161,6 +169,7 @@
 		FEB9DC411BFC8D0D00EB1729 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				12BB70F41BFC90DB0073A55D /* MainController.swift */,
 				FEB9DC471BFC8E8100EB1729 /* Toolbar */,
 				FEB9DC461BFC8E1A00EB1729 /* Manager */,
 			);
@@ -170,6 +179,7 @@
 		FEB9DC421BFC8D1900EB1729 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				12BB70F61BFC91540073A55D /* JSONObject.swift */,
 				1875A0461BE4D58C00DD94CD /* FavouritesModel.swift */,
 				8DAA54D41BD79F7C00B817BF /* SechModel.swift */,
 				8DA1FB551BF5E44700732F5E /* SettingsModel.swift */,
@@ -208,6 +218,8 @@
 		FEB9DC461BFC8E1A00EB1729 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
+				12BB70F21BFC90830073A55D /* ConnectionManager.swift */,
+				12BB70F01BFC907A0073A55D /* JSONManager.swift */,
 				FE14E3B11BE9F860008FC4ED /* HtmlManager.swift */,
 				FEBDB8211BF35BA300CCEB8C /* SechManager.swift */,
 			);
@@ -353,17 +365,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				8D43CB4F1BCE689E00EEBB7B /* ViewController.swift in Sources */,
+				12BB70F11BFC907A0073A55D /* JSONManager.swift in Sources */,
 				FE14E3B21BE9F860008FC4ED /* HtmlManager.swift in Sources */,
 				A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */,
 				187387311BE61DE000EDDC31 /* FavouriteTableViewController.swift in Sources */,
 				187387531BE64CA400EDDC31 /* FavouriteCell.swift in Sources */,
 				8D43CB4D1BCE689E00EEBB7B /* AppDelegate.swift in Sources */,
 				8DAA54D51BD79F7C00B817BF /* SechModel.swift in Sources */,
+				12BB70F51BFC90DB0073A55D /* MainController.swift in Sources */,
 				FEBDB8221BF35BA300CCEB8C /* SechManager.swift in Sources */,
 				8D07B7941BD0F79A00031D8B /* WebViewDelegate.swift in Sources */,
+				12BB70F31BFC90830073A55D /* ConnectionManager.swift in Sources */,
 				1875A0471BE4D58C00DD94CD /* FavouritesModel.swift in Sources */,
 				8D1386021BF381DE009E5F46 /* SettingsController.swift in Sources */,
 				8D1385FD1BF3623D009E5F46 /* AdressBar.swift in Sources */,
+				12BB70F71BFC91540073A55D /* JSONObject.swift in Sources */,
 				8DA1FB561BF5E44700732F5E /* SettingsModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

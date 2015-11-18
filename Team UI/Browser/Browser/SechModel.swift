@@ -10,8 +10,8 @@ import Foundation
 
 class Sech{
     var id = String()
-    var response = String() //Tbd
-    var detail = String() // Tbd
+    var response = JSONObject() //Tbd
+    var detail = JSONObject() // Tbd
     var tags = [String : Tag]() // String is id (link, section, head) and Tag is Tag-Object
     var filters = Filter()
 }

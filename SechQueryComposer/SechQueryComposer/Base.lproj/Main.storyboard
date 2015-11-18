@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="15B42" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="8187.4" systemVersion="14F27" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="B8D-0N-5wS">
     <dependencies>
         <deployment identifier="macosx"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8191"/>
-        <plugIn identifier="com.apple.WebKitIBPlugin" version="8191"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="8187.4"/>
+        <plugIn identifier="com.apple.WebKitIBPlugin" version="8187.4"/>
     </dependencies>
     <scenes>
         <!--Application-->
@@ -852,7 +852,7 @@
                 </viewController>
                 <customObject id="gyp-aC-Vy3" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="936" y="804"/>
+            <point key="canvasLocation" x="1061" y="695"/>
         </scene>
         <!--SECH Query-Composer-->
         <scene sceneID="hIz-AP-VOD">
@@ -862,7 +862,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="902" height="218"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="I7N-Bi-6He">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="I7N-Bi-6He">
                                 <rect key="frame" x="18" y="181" width="63" height="17"/>
                                 <animations/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Keywords" id="VIW-sw-YZy">
@@ -912,7 +912,7 @@
                                 </constraints>
                                 <animations/>
                             </progressIndicator>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="cPY-Gc-VHl">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cPY-Gc-VHl">
                                 <rect key="frame" x="449" y="181" width="49" height="17"/>
                                 <animations/>
                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Results" id="4LM-Hi-RGt">
@@ -971,7 +971,7 @@
                             <scrollView ambiguous="YES" misplaced="YES" autohidesScrollers="YES" horizontalLineScroll="19" horizontalPageScroll="10" verticalLineScroll="19" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QrS-8x-ehv">
                                 <rect key="frame" x="451" y="25" width="431" height="148"/>
                                 <clipView key="contentView" ambiguous="YES" id="2bS-ie-qgf">
-                                    <rect key="frame" x="1" y="0.0" width="429" height="147"/>
+                                    <rect key="frame" x="1" y="23" width="429" height="124"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <tableView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" rowSizeStyle="automatic" headerView="dcr-50-plz" viewBased="YES" floatsGroupRows="NO" id="67W-S9-aCT">
