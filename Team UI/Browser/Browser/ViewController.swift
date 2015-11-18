@@ -212,6 +212,16 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
         let row = indexPath.row
         
+        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
+        vc.modalPresentationStyle = UIModalPresentationStyle.Popover
+        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
+        popover.sourceView = tableView.cellForRowAtIndexPath(indexPath)
+        popover.sourceRect = (tableView.cellForRowAtIndexPath(indexPath)?.bounds)!
+        popover.delegate = self
+        presentViewController(vc, animated: true, completion:nil)
+
+        
         print("Sech Tag:   \(sechTags[row]) ")
     }
     
