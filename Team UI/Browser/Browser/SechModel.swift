@@ -8,6 +8,10 @@
 
 import Foundation
 
+class SechModel{
+    static let instance = SechModel()
+}
+
 class Sech{
     var id = String()
     var response = JSONObject() //Tbd

@@ -26,6 +26,7 @@ class ConnectionManager{
     //only create a request
     private func createRequest(url:String)->NSMutableURLRequest{
         return NSMutableURLRequest(URL: NSURL(string: url)!)
+
     }
     // config the request
     private func addRequestContent(request:NSMutableURLRequest,httpMethod:String,data:NSData)->NSMutableURLRequest{
