@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate, UITableViewDataSource, UITableViewDelegate, BackDelegate
+class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate, UITableViewDelegate, BackDelegate
 {
     var myWebViewDelegate: WebViewDelegate!
     var myAdressBar: AddressBar!
@@ -23,7 +23,7 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
 
-    let sechTags = ["Oktoberfest","München"]
+    // let sechTags = ["Oktoberfest","München"]
     var favourites = [FavouritesModel]()
     
     override func viewDidLoad()
@@ -36,9 +36,7 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
         activityIndicator.hidden = true
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
-        
-        // TODO: DataSource auslagern!
-        tableView.dataSource = self
+        tableView.dataSource = SechTableDataSource()
         
         favourites = p.loadDataObject()
     }
@@ -195,20 +193,20 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     }
 
     
-    //Table View Methods:
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-    {
-        return sechTags.count
-    }
-    
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-    {
-        let cell = tableView.dequeueReusableCellWithIdentifier("SechCell", forIndexPath: indexPath) as UITableViewCell
-        
-        cell.textLabel!.text = sechTags[indexPath.row]
-
-        return cell
-    }
+//    //Table View Methods:
+//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
+//    {
+//        return sechTags.count
+//    }
+//    
+//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
+//    {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("SechCell", forIndexPath: indexPath) as UITableViewCell
+//        
+//        cell.textLabel!.text = sechTags[indexPath.row]
+//
+//        return cell
+//    }
     
     //forward SechTag to other Group
     
@@ -227,7 +225,7 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
         presentViewController(vc, animated: true, completion:nil)
 
         
-        print("Sech Tag:   \(sechTags[row]) ")
+        //print("Sech Tag:   \(sechTags[row]) ")
     }
     
 }

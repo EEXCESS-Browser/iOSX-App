@@ -30,6 +30,7 @@
 		A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F615751BEA37CF003A3878 /* PopViewController.swift */; };
 		FE14E3B21BE9F860008FC4ED /* HtmlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE14E3B11BE9F860008FC4ED /* HtmlManager.swift */; };
 		FEBDB8221BF35BA300CCEB8C /* SechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEBDB8211BF35BA300CCEB8C /* SechManager.swift */; settings = {ASSET_TAGS = (); }; };
+		FEFDD4EF1BFCE6FE005C95EC /* SechTableDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = FEFDD4EE1BFCE6FE005C95EC /* SechTableDataSource.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +80,7 @@
 		A9F615751BEA37CF003A3878 /* PopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
 		FE14E3B11BE9F860008FC4ED /* HtmlManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlManager.swift; sourceTree = "<group>"; };
 		FEBDB8211BF35BA300CCEB8C /* SechManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SechManager.swift; sourceTree = "<group>"; };
+		FEFDD4EE1BFCE6FE005C95EC /* SechTableDataSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SechTableDataSource.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +165,7 @@
 			children = (
 				FEB9DC441BFC8D5500EB1729 /* ViewController */,
 				FEB9DC431BFC8D4E00EB1729 /* Delegate */,
+				FEFDD4F01BFCE706005C95EC /* Datasource */,
 				FEB9DC451BFC8DB500EB1729 /* Cell */,
 			);
 			name = View;
@@ -235,6 +238,14 @@
 				8D1385FC1BF3623D009E5F46 /* AdressBar.swift */,
 			);
 			name = Toolbar;
+			sourceTree = "<group>";
+		};
+		FEFDD4F01BFCE706005C95EC /* Datasource */ = {
+			isa = PBXGroup;
+			children = (
+				FEFDD4EE1BFCE6FE005C95EC /* SechTableDataSource.swift */,
+			);
+			name = Datasource;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -367,6 +378,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FEFDD4EF1BFCE6FE005C95EC /* SechTableDataSource.swift in Sources */,
 				8D43CB4F1BCE689E00EEBB7B /* ViewController.swift in Sources */,
 				12BB70F11BFC907A0073A55D /* JSONManager.swift in Sources */,
 				FE14E3B21BE9F860008FC4ED /* HtmlManager.swift in Sources */,

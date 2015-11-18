@@ -38,8 +38,12 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
         
         let sech = sechManager.getSechObjects(htmlHead, htmlBody: htmlBody)
         
+        
+        print("Sechlinks found: \(sech.count)")
+        print("SechlinkIDs:")
+        
         for item in sech{
-            print(item.1.tags)
+            print(item.0)
         }
     }
     
