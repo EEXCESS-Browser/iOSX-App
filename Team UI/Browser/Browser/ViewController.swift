@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,  UIPopoverPresentationControllerDelegate
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate,  UIPopoverPresentationControllerDelegate, BackDelegate
 {
     var myWebViewDelegate: WebViewDelegate!
     var myAdressBar: AddressBar!
@@ -48,6 +48,13 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    func receiveInfo(ctrl: FavouriteTableViewController, info: FavouritesModel)
+    {
+        loadURL(info.url)
+        ctrl.navigationController?.popToRootViewControllerAnimated(true)
+    }
+
 
     //Adressbar
     @IBAction func addressBar(sender: UITextField) {
@@ -139,6 +146,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         {
             let destVC = segue.destinationViewController as! FavouriteTableViewController
             destVC.favourites = favourites
+            destVC.delegate = self
+
         }
     }
     

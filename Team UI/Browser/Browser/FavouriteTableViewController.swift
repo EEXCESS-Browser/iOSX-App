@@ -8,10 +8,17 @@
 
 import UIKit
 
+protocol BackDelegate
+{
+    func receiveInfo(ctrl: FavouriteTableViewController, info: FavouritesModel)
+}
+
 class FavouriteTableViewController: UITableViewController
 {
     var favourites = [FavouritesModel]()
     var fav = FavouritesModel()
+    var delegate : BackDelegate? = nil
+    var p = DataObjectPersistency()
     
     override func viewDidLoad()
     {
@@ -46,7 +53,13 @@ class FavouriteTableViewController: UITableViewController
 
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
-       
+        if(delegate != nil)
+        {
+            fav.url = favourites[indexPath.row].url
+            favourites.append(fav)
+            
+            delegate!.receiveInfo(self, info: fav)
+        }       
     }
     
     // Override to support editing the table view.
@@ -56,6 +69,8 @@ class FavouriteTableViewController: UITableViewController
         {
             favourites.removeAtIndex(indexPath.row)
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+            p.saveDataObject(favourites)
+            
         }
 
     }
