@@ -14,12 +14,10 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     var myAdressBar: AddressBar!
     var p = DataObjectPersistency()
     var tableViewDataSource = SechTableDataSource()
-<<<<<<< Updated upstream
-=======
+
     
     var settingsPers = SettingsPersistency()
     var settings = SettingsModel()
->>>>>>> Stashed changes
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
