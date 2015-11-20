@@ -12,8 +12,8 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
 {
     var myWebViewDelegate: WebViewDelegate!
     var myAdressBar: AddressBar!
-    var p = DataObjectPersistency()
-    var tableViewDataSource = SechTableDataSource()
+    var p : DataObjectPersistency!
+    var tableViewDataSource : SechTableDataSource!
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
@@ -35,8 +35,10 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
         activityIndicator.hidden = true
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
+        tableViewDataSource = SechTableDataSource()
         tableView.dataSource = tableViewDataSource
         
+        p = DataObjectPersistency()
         favourites = p.loadDataObject()
     }
     
