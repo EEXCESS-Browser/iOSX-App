@@ -12,8 +12,17 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
 {
     var myWebViewDelegate: WebViewDelegate!
     var myAdressBar: AddressBar!
+<<<<<<< HEAD
     var p : DataObjectPersistency!
     var tableViewDataSource : SechTableDataSource!
+=======
+    var p = DataObjectPersistency()
+    var tableViewDataSource = SechTableDataSource()
+
+    
+    var settingsPers = SettingsPersistency()
+    var settings = SettingsModel()
+>>>>>>> origin/master
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
@@ -24,6 +33,7 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var favourites = [FavouritesModel]()
+    
     
     override func viewDidLoad()
     {
@@ -40,6 +50,7 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
         
         p = DataObjectPersistency()
         favourites = p.loadDataObject()
+        settings = settingsPers.loadDataObject()
     }
     
     override func viewWillAppear(animated: Bool)
@@ -200,7 +211,8 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let row = indexPath.row
+       // let row = indexPath.row
+        
         
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
