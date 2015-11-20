@@ -12,17 +12,14 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
 {
     var myWebViewDelegate: WebViewDelegate!
     var myAdressBar: AddressBar!
-<<<<<<< HEAD
+
     var p : DataObjectPersistency!
     var tableViewDataSource : SechTableDataSource!
-=======
-    var p = DataObjectPersistency()
-    var tableViewDataSource = SechTableDataSource()
 
     
     var settingsPers = SettingsPersistency()
     var settings = SettingsModel()
->>>>>>> origin/master
+
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
