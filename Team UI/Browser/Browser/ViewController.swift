@@ -198,7 +198,8 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-        let row = indexPath.row
+       // let row = indexPath.row
+        
         
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")

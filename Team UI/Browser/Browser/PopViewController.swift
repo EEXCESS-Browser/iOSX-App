@@ -8,5 +8,15 @@
 
 import UIKit
 class PopViewController : UIViewController{
+    @IBOutlet weak var sechText: UITextView!
     
+    @IBOutlet weak var sechHeadline: UILabel!
+    @IBOutlet weak var sechImage: UIImageView!
+    @IBOutlet weak var sechWebView: UIWebView!
+    
+    
+    
+    override func viewDidLoad() {
+        sechHeadline.text = "SechTest"
+    }
 }
