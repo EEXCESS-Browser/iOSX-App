@@ -14,6 +14,7 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
     var sechManager = SechManager()
     var mURL : String = ""
     var viewCtrl: ViewController!
+    var sechTableDataSource = SechTableDataSource()
     
     func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         return true
@@ -45,6 +46,9 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
         for item in sech{
             print(item.0)
         }
+        
+        // Put call for Request of EEXCESS here!
+        sechTableDataSource.makeLabels(sech)
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {

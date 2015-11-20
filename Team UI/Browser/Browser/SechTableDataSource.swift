@@ -11,6 +11,7 @@ import UIKit
 
 class SechTableDataSource : NSObject, UITableViewDataSource{
     
+    var viewCtrl = ViewController()
     var sechTags = ["Teststring"]
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
@@ -28,8 +29,14 @@ class SechTableDataSource : NSObject, UITableViewDataSource{
     }
     
     func makeLabels(sechs : [String : Sech]){
+        
+        sechTags = [String]()
+        
         for item in sechs{
             sechTags.append(item.0)
         }
+        
+        viewCtrl.tableView.reloadData()
+        
     }
 }

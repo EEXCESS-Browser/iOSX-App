@@ -13,6 +13,7 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     var myWebViewDelegate: WebViewDelegate!
     var myAdressBar: AddressBar!
     var p = DataObjectPersistency()
+    var tableViewDataSource = SechTableDataSource()
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
@@ -22,8 +23,6 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
-
-    // let sechTags = ["Oktoberfest","München"]
     var favourites = [FavouritesModel]()
     
     override func viewDidLoad()
@@ -36,7 +35,7 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
         activityIndicator.hidden = true
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
-        tableView.dataSource = SechTableDataSource()
+        tableView.dataSource = tableViewDataSource
         
         favourites = p.loadDataObject()
     }
@@ -175,7 +174,7 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
         let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
         vc.modalPresentationStyle = UIModalPresentationStyle.Popover
         let popover: UIPopoverPresentationController = vc.popoverPresentationController!
-        popover.barButtonItem = sender as! UIBarButtonItem
+        popover.barButtonItem = sender as? UIBarButtonItem
         popover.delegate = self
         presentViewController(vc, animated: true, completion:nil)
     }
@@ -191,24 +190,10 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
         popover.delegate = self
         presentViewController(vc, animated: true, completion:nil)
     }
-
     
-//    //Table View Methods:
-//    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
-//    {
-//        return sechTags.count
-//    }
-//    
-//    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell
-//    {
-//        let cell = tableView.dequeueReusableCellWithIdentifier("SechCell", forIndexPath: indexPath) as UITableViewCell
-//        
-//        cell.textLabel!.text = sechTags[indexPath.row]
-//
-//        return cell
-//    }
     
-    //forward SechTag to other Group
+    
+    //Load Sechtag that was clicked
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
     {
