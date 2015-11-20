@@ -23,7 +23,7 @@
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="Yi7-XS-viX"/>
+                                    <constraint firstAttribute="width" constant="160" id="eGv-Sz-1Od"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SechCell" id="ccN-Aw-kEi">
@@ -107,25 +107,32 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="v8s-Hh-AmL">
+<<<<<<< HEAD
+                                <rect key="frame" x="385" y="12" width="20" height="20"/>
+=======
                                 <rect key="frame" x="384" y="12" width="20" height="20"/>
                                 <animations/>
+<<<<<<< Updated upstream
+=======
+>>>>>>> origin/master
+>>>>>>> Stashed changes
                             </activityIndicatorView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="SJJ-Tl-9qC" secondAttribute="trailing" id="2iw-BH-mex"/>
-                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="98N-BL-eZw"/>
-                            <constraint firstItem="SJJ-Tl-9qC" firstAttribute="trailing" secondItem="fEm-7N-dur" secondAttribute="trailing" id="Lsd-Yr-2QQ"/>
-                            <constraint firstItem="SJJ-Tl-9qC" firstAttribute="top" secondItem="fEm-7N-dur" secondAttribute="bottom" id="MKB-Lc-xLX"/>
-                            <constraint firstItem="SJJ-Tl-9qC" firstAttribute="top" secondItem="yX6-OZ-Z82" secondAttribute="top" id="O1a-sD-fZh"/>
-                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="leading" secondItem="fEm-7N-dur" secondAttribute="leading" id="TRp-Fu-bKH"/>
-                            <constraint firstItem="v8s-Hh-AmL" firstAttribute="centerY" secondItem="fEm-7N-dur" secondAttribute="centerY" id="VGQ-KW-hYv"/>
-                            <constraint firstItem="SJJ-Tl-9qC" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="fD7-6O-eXo"/>
-                            <constraint firstItem="fEm-7N-dur" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="han-rU-oOn"/>
-                            <constraint firstItem="SJJ-Tl-9qC" firstAttribute="leading" secondItem="yX6-OZ-Z82" secondAttribute="trailing" constant="1" id="n4p-fe-LQo"/>
-                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="qtk-TH-hv9"/>
-                            <constraint firstAttribute="trailing" secondItem="v8s-Hh-AmL" secondAttribute="trailing" constant="196" id="wr7-zA-Cej"/>
+                            <constraint firstItem="fEm-7N-dur" firstAttribute="leading" secondItem="yX6-OZ-Z82" secondAttribute="leading" id="5Kh-g2-tgL"/>
+                            <constraint firstItem="fEm-7N-dur" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="80D-ME-Uwy"/>
+                            <constraint firstAttribute="trailing" secondItem="v8s-Hh-AmL" secondAttribute="trailing" constant="195" id="9yX-aX-sAg"/>
+                            <constraint firstItem="SJJ-Tl-9qC" firstAttribute="leading" secondItem="yX6-OZ-Z82" secondAttribute="trailing" constant="1" id="HF0-j7-SLA"/>
+                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="top" secondItem="SJJ-Tl-9qC" secondAttribute="top" id="JVR-rM-j9i"/>
+                            <constraint firstItem="fEm-7N-dur" firstAttribute="trailing" secondItem="SJJ-Tl-9qC" secondAttribute="trailing" id="O8n-cF-tfn"/>
+                            <constraint firstItem="fEm-7N-dur" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="PjB-6d-vOb"/>
+                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="top" secondItem="fEm-7N-dur" secondAttribute="bottom" id="Q6I-Iu-qvQ"/>
+                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="SGU-QX-Xe8"/>
+                            <constraint firstItem="SJJ-Tl-9qC" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Spl-Xo-NKC"/>
+                            <constraint firstAttribute="trailing" secondItem="fEm-7N-dur" secondAttribute="trailing" id="Zyp-jA-vu5"/>
+                            <constraint firstItem="v8s-Hh-AmL" firstAttribute="centerY" secondItem="fEm-7N-dur" secondAttribute="centerY" id="xU6-q8-6RJ"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -145,7 +152,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <customObject id="i1L-lG-5F0" customClass="WebViewDelegate" customModule="Browser" customModuleProvider="target"/>
             </objects>
-            <point key="canvasLocation" x="1865" y="383"/>
+            <point key="canvasLocation" x="1861" y="379"/>
         </scene>
         <!--Lesezeichen-->
         <scene sceneID="ieT-kA-Gso">
@@ -416,6 +423,35 @@
                                                     <rect key="frame" x="543" y="12" width="42" height="20"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <animations/>
+<<<<<<< Updated upstream
+=======
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                            <animations/>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="rhn-Bx-UpI" detailTextLabel="OPd-AX-J10" style="IBUITableViewCellStyleValue1" id="zkv-pr-vEE">
+                                        <rect key="frame" x="0.0" y="321" width="600" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zkv-pr-vEE" id="9mU-9T-eca">
+                                            <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Sprache" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="rhn-Bx-UpI">
+                                                    <rect key="frame" x="15" y="12" width="61" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="OPd-AX-J10">
+                                                    <rect key="frame" x="543" y="12" width="42" height="20"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+>>>>>>> Stashed changes
                                                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                     <color key="textColor" red="0.5568627451" green="0.5568627451" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -435,7 +471,11 @@
                     </tableView>
                     <connections>
                         <outlet property="ageSetting" destination="yUe-g5-dAP" id="aCW-et-s5h"/>
+                        <outlet property="citySetting" destination="SFy-Ee-79e" id="FQr-ds-u4a"/>
+                        <outlet property="countrySetting" destination="Eap-Z4-cGI" id="qP6-Ip-I15"/>
+                        <outlet property="genderSetting" destination="f1v-h6-bTu" id="fNU-0W-TMP"/>
                         <outlet property="homeSetting" destination="KG1-GU-IiW" id="ej9-V6-1MI"/>
+                        <outlet property="languageSetting" destination="zkv-pr-vEE" id="Akl-hq-dho"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bod-Yt-Z7X" userLabel="First Responder" sceneMemberID="firstResponder"/>

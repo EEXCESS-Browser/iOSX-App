@@ -14,6 +14,12 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     var myAdressBar: AddressBar!
     var p = DataObjectPersistency()
     var tableViewDataSource = SechTableDataSource()
+<<<<<<< Updated upstream
+=======
+    
+    var settingsPers = SettingsPersistency()
+    var settings = SettingsModel()
+>>>>>>> Stashed changes
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
@@ -24,6 +30,7 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var favourites = [FavouritesModel]()
+    
     
     override func viewDidLoad()
     {
@@ -38,6 +45,7 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
         tableView.dataSource = tableViewDataSource
         
         favourites = p.loadDataObject()
+        settings = settingsPers.loadDataObject()
     }
     
     override func viewWillAppear(animated: Bool)
