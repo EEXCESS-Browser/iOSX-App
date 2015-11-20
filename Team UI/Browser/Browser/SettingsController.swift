@@ -18,10 +18,8 @@ class SettingsController: UITableViewController{
     @IBOutlet weak var languageSetting: UITableViewCell!
     
     
-    
     var settingsModel = SettingsModel()
  
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -33,5 +31,10 @@ class SettingsController: UITableViewController{
         languageSetting.detailTextLabel?.text = settingsModel.language
     
     }
-    
+    override func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        let selected = self.tableView .cellForRowAtIndexPath(indexPath)
+        if(selected == homeSetting){
+            print(settingsModel.homeURL)
+        }
+    }
  }
