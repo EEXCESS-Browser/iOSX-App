@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1294087A1BFF1F7E004CEA15 /* QueryJSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 129408791BFF1F7E004CEA15 /* QueryJSONManager.swift */; settings = {ASSET_TAGS = (); }; };
+		1294087C1BFF1FC8004CEA15 /* ResponseJSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1294087B1BFF1FC8004CEA15 /* ResponseJSONManager.swift */; settings = {ASSET_TAGS = (); }; };
+		1294087E1BFF20A3004CEA15 /* JSONModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1294087D1BFF20A3004CEA15 /* JSONModel.swift */; settings = {ASSET_TAGS = (); }; };
 		12BB70F11BFC907A0073A55D /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB70F01BFC907A0073A55D /* JSONManager.swift */; settings = {ASSET_TAGS = (); }; };
 		12BB70F31BFC90830073A55D /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB70F21BFC90830073A55D /* ConnectionManager.swift */; settings = {ASSET_TAGS = (); }; };
 		12BB70F51BFC90DB0073A55D /* MainController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB70F41BFC90DB0073A55D /* MainController.swift */; settings = {ASSET_TAGS = (); }; };
@@ -51,6 +54,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		129408791BFF1F7E004CEA15 /* QueryJSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QueryJSONManager.swift; sourceTree = "<group>"; };
+		1294087B1BFF1FC8004CEA15 /* ResponseJSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseJSONManager.swift; sourceTree = "<group>"; };
+		1294087D1BFF20A3004CEA15 /* JSONModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONModel.swift; sourceTree = "<group>"; };
 		12BB70F01BFC907A0073A55D /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
 		12BB70F21BFC90830073A55D /* ConnectionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		12BB70F41BFC90DB0073A55D /* MainController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainController.swift; sourceTree = "<group>"; };
@@ -108,6 +114,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		129408771BFF1F3F004CEA15 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				12BB70F01BFC907A0073A55D /* JSONManager.swift */,
+				129408791BFF1F7E004CEA15 /* QueryJSONManager.swift */,
+				1294087B1BFF1FC8004CEA15 /* ResponseJSONManager.swift */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		129408781BFF1F4C004CEA15 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				12BB70F21BFC90830073A55D /* ConnectionManager.swift */,
+			);
+			name = Connection;
+			sourceTree = "<group>";
+		};
 		8D43CB401BCE689D00EEBB7B = {
 			isa = PBXGroup;
 			children = (
@@ -188,6 +212,7 @@
 				1875A0461BE4D58C00DD94CD /* FavouritesModel.swift */,
 				8DAA54D41BD79F7C00B817BF /* SechModel.swift */,
 				8DA1FB551BF5E44700732F5E /* SettingsModel.swift */,
+				1294087D1BFF20A3004CEA15 /* JSONModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -223,8 +248,8 @@
 		FEB9DC461BFC8E1A00EB1729 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				12BB70F21BFC90830073A55D /* ConnectionManager.swift */,
-				12BB70F01BFC907A0073A55D /* JSONManager.swift */,
+				129408781BFF1F4C004CEA15 /* Connection */,
+				129408771BFF1F3F004CEA15 /* JSON */,
 				FE14E3B11BE9F860008FC4ED /* HtmlManager.swift */,
 				FEBDB8211BF35BA300CCEB8C /* SechManager.swift */,
 				12BB70F81BFC9DA30073A55D /* SettingsManager.swift */,
@@ -386,12 +411,15 @@
 				12BB70F91BFC9DA30073A55D /* SettingsManager.swift in Sources */,
 				187387311BE61DE000EDDC31 /* FavouriteTableViewController.swift in Sources */,
 				187387531BE64CA400EDDC31 /* FavouriteCell.swift in Sources */,
+				1294087A1BFF1F7E004CEA15 /* QueryJSONManager.swift in Sources */,
+				1294087E1BFF20A3004CEA15 /* JSONModel.swift in Sources */,
 				8D43CB4D1BCE689E00EEBB7B /* AppDelegate.swift in Sources */,
 				8DAA54D51BD79F7C00B817BF /* SechModel.swift in Sources */,
 				12BB70F51BFC90DB0073A55D /* MainController.swift in Sources */,
 				FEBDB8221BF35BA300CCEB8C /* SechManager.swift in Sources */,
 				8D07B7941BD0F79A00031D8B /* WebViewDelegate.swift in Sources */,
 				12BB70F31BFC90830073A55D /* ConnectionManager.swift in Sources */,
+				1294087C1BFF1FC8004CEA15 /* ResponseJSONManager.swift in Sources */,
 				1875A0471BE4D58C00DD94CD /* FavouritesModel.swift in Sources */,
 				8D1386021BF381DE009E5F46 /* SettingsController.swift in Sources */,
 				8D1385FD1BF3623D009E5F46 /* AdressBar.swift in Sources */,
