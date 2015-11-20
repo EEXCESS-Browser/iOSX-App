@@ -77,7 +77,7 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
          }
     
     @IBAction func homeBtn(sender: AnyObject){
-        let homeUrl = "http://grassandstones.at/sech-test/"
+        let homeUrl = settings.homeURL
         let url = myAdressBar.checkURL(homeUrl)
         loadURL(url)
     }
