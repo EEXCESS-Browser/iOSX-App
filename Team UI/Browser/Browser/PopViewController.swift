@@ -8,6 +8,8 @@
 
 import UIKit
 class PopViewController : UIViewController{
+    
+    
     @IBOutlet weak var sechText: UITextView!
     
     @IBOutlet weak var sechHeadline: UILabel!
@@ -19,4 +21,8 @@ class PopViewController : UIViewController{
     override func viewDidLoad() {
         sechHeadline.text = "SechTest"
     }
+
+    @IBOutlet weak var SechTitle: UILabel!
+    
+
 }

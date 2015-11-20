@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<<<<<<< Updated upstream
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Mpt-TD-A4y">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+=======
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9060" systemVersion="15A284" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Mpt-TD-A4y">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
+>>>>>>> Stashed changes
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
@@ -282,10 +288,14 @@
                         </constraints>
                     </view>
                     <connections>
+<<<<<<< Updated upstream
                         <outlet property="sechHeadline" destination="uFX-md-2eB" id="Zch-4R-O6Y"/>
                         <outlet property="sechImage" destination="xYG-k9-xtV" id="7Vy-7C-lYQ"/>
                         <outlet property="sechText" destination="1e7-aK-Mki" id="cIG-wv-uTH"/>
                         <outlet property="sechWebView" destination="0cF-Uz-09O" id="Eky-Pv-wF8"/>
+=======
+                        <outlet property="SechTitle" destination="uFX-md-2eB" id="bNr-Nk-Vei"/>
+>>>>>>> Stashed changes
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hMV-Gw-TwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -300,7 +310,11 @@
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <animations/>
+<<<<<<< Updated upstream
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
+=======
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+>>>>>>> Stashed changes
                         <sections>
                             <tableViewSection headerTitle="Allgemein" id="0yg-gl-Yke">
                                 <cells>
@@ -447,6 +461,7 @@
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
+<<<<<<< Updated upstream
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="rhn-Bx-UpI" detailTextLabel="OPd-AX-J10" style="IBUITableViewCellStyleValue1" id="zkv-pr-vEE">
                                         <rect key="frame" x="0.0" y="321" width="600" height="44"/>
@@ -473,6 +488,8 @@
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
+=======
+>>>>>>> Stashed changes
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
