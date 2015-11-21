@@ -48,13 +48,14 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
         tableView.dataSource = tableViewDataSource
         
         p = DataObjectPersistency()
-        favourites = p.loadDataObject()
         settings = settingsPers.loadDataObject()
     }
     
     override func viewWillAppear(animated: Bool)
     {
         navigationController?.setNavigationBarHidden(true, animated: true)
+        favourites = p.loadDataObject()
+
     }
     
     override func didReceiveMemoryWarning()
@@ -122,16 +123,6 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
         }
 
         alertSheetController.addAction(enterAction)
-        
-        let editBookmarks = UIAlertAction(title: "Lesezeichen verwalten", style: .Default)
-        {
-                action-> Void in
-            
-            self.performSegueWithIdentifier("editBookmarks",sender:self)
-     
-        }
-        
-        alertSheetController.addAction(editBookmarks)
         
         alertSheetController.addTextFieldWithConfigurationHandler
         {

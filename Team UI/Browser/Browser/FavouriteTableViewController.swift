@@ -62,16 +62,71 @@ class FavouriteTableViewController: UITableViewController
         }       
     }
     
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath)
+    override func tableView(tableView: UITableView, editActionsForRowAtIndexPath indexPath: NSIndexPath) -> [UITableViewRowAction]?
     {
-        if editingStyle == UITableViewCellEditingStyle.Delete
-        {
-            favourites.removeAtIndex(indexPath.row)
-            tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
-            p.saveDataObject(favourites)
-            
+        let editAction = UITableViewRowAction(style: .Normal, title: "Bearbeiten")
+            { (action, indexPath)-> Void in
+                
+                //self.performSegueWithIdentifier("editFavouriteName", sender: self)
+                
+                let alertSheetController = UIAlertController(title: "Favoriten bearbeiten", message: "Geben Sie den Titel ein", preferredStyle: .Alert)
+                
+                let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel)
+                    {
+                        action-> Void in
+                        print("Cancel")
+                        
+                }
+                
+                alertSheetController.addAction(cancelAction)
+                
+                let enterAction = UIAlertAction(title: "Enter", style: .Default)
+                    {
+                        action-> Void in
+                        
+                        let textfield : UITextField = alertSheetController.textFields![0]
+                        
+                        var title = self.favourites[indexPath.row].title
+                        title = textfield.text!
+                        self.fav.title = title
+                        self.favourites[indexPath.row].title = title
+                        
+                        self.p.saveDataObject(self.favourites)
+                        
+                        tableView.reloadData()
+                }
+                
+                alertSheetController.addAction(enterAction)
+                
+                alertSheetController.addTextFieldWithConfigurationHandler
+                    {
+                        textField -> Void in
+                        textField.text = self.favourites[indexPath.row].title
+                }
+                
+                alertSheetController.addTextFieldWithConfigurationHandler
+                    {
+                        textField -> Void in
+                        textField.text = self.favourites[indexPath.row].url
+                }
+                
+                self.presentViewController(alertSheetController, animated: true) {}
         }
-
+        
+        editAction.backgroundColor = UIColor.greenColor()
+        
+        let deleteAction = UITableViewRowAction(style: .Normal, title: "Löschen")
+            { (action, indexPath)-> Void in
+                
+                self.favourites.removeAtIndex(indexPath.row)
+                tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: UITableViewRowAnimation.Automatic)
+                self.p.saveDataObject(self.favourites)
+        }
+        
+        deleteAction.backgroundColor = UIColor.redColor()
+        
+        return [editAction, deleteAction]
     }
+
+    
 }
