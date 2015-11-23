@@ -10,6 +10,8 @@ import Foundation
 
 class SechModel{
     static let instance = SechModel()
+    
+    var sechs = [String:Sech]()
 }
 
 class Sech{

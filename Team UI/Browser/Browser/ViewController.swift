@@ -33,7 +33,7 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     
     var favourites = [FavouritesModel]()
     
-    var mainController: MainController = MainController()
+    var mainController = MainController2()
     
     
     override func viewDidLoad()

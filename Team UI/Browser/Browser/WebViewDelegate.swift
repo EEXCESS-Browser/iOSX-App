@@ -46,13 +46,23 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
         for item in sech{
             print(item.0)
         }
-        
+        //-> !
         // Put call for Request of EEXCESS here!
         
-        var response = viewCtrl.mainController.createJSONForRequest(sech, detail: false, pref: [:])
+        viewCtrl.mainController.setFinishMethod({(msg:String) -> () in
+            print(msg)
+            // TODO: To be redesigned! 6
+            let ds = self.viewCtrl.tableViewDataSource
+            ds.makeLabels(sech)
+            
+            // TODO: To be redesigned! 8
+            self.viewCtrl.tableView.reloadData()
+        })
+        
+        //var response = viewCtrl.mainController.createJSONForRequest(sech, detail: false, pref: [:])
         
         
-        
+        viewCtrl.mainController.createJSONForRequest(sech, detail: false, pref: [:])
         
         
         // TODO: To be redesigned! 6

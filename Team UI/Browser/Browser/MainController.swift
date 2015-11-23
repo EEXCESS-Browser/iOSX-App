@@ -8,6 +8,79 @@
 
 import Foundation
 
+class MainController2{
+    
+    var finishMethod:((msg:String) -> ())?
+    let queryJSONManager = QueryJSONManager()
+    let CONNECTIONMANAGER = ConnectionManager()
+
+    
+    init(){
+        
+    }
+    
+    let responseMethod = ({(succeeded: Bool, msg: NSData) -> () in
+        if(succeeded)
+        {
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                print(String(data: msg, encoding: NSUTF8StringEncoding)!)
+//                self.detailView.string = String(data: msg, encoding: NSUTF8StringEncoding)!
+//                self.msg = msg
+//                self.MAINCONTROLLER.mapOfJSONs["\(self.recommendation.stringValue)_DETAIL"] = JSONObject(data: msg)
+            })
+        }else {
+//            self.response.string = "Error"
+        }
+    })
+    
+    let detaileResponseMethod = ({(succeeded: Bool, msg: NSData) -> () in
+        if(succeeded){
+                dispatch_async(dispatch_get_main_queue(), {
+//                    self.detailView.string = String(data: msg, encoding: NSUTF8StringEncoding)!
+//                    self.msg = msg
+//                    self.MAINCONTROLLER.mapOfJSONs["\(self.recommendation.stringValue)_DETAIL"] = JSONObject(data: msg)
+                })
+        }else {
+//            self.response.string = "Error"
+        }
+    })
+    
+    func setFinishMethod(listener:(msg:String)->()){
+        self.finishMethod = listener
+    }
+    
+    func createJSONForRequest(sechs:[String:Sech],detail:Bool, pref: [String:String]){
+        //var json = [JSONObject]()
+        
+        if detail {
+//            var dataForDetailRequest:[String:AnyObject]
+//            if let data = (keyWordsWithKeys["json"] as? JSONObject) {
+//                dataForDetailRequest = createDetailRequest(data)
+//            }else{
+//                dataForDetailRequest = createDetailRequest(keyWordsWithKeys["json"] as! [[String:AnyObject]])
+//            }
+//            
+//            json.append(JSONMANAGER.createDetailRequest(dataForDetailRequest["queryID"] as! String, documentBadge: dataForDetailRequest["documentBadge"] as! [[String:AnyObject]]))
+        }else{
+                makeRequest(queryJSONManager.createRequestJSON(sechs,preferences: pref),detail: detail)
+        }
+    }
+    
+    func makeRequest(json:JSONObject,detail:Bool)->Bool{
+        print("\(json.convertToString())/n")
+        if detail{
+            self.CONNECTIONMANAGER.makeHTTP_Request(json, url: PROJECT_URL.GETDETAILS, httpMethod: ConnectionManager.POST, postCompleted: self.detaileResponseMethod)
+        }else{
+            self.CONNECTIONMANAGER.makeHTTP_Request(json, url: PROJECT_URL.RECOMMEND, httpMethod: ConnectionManager.POST, postCompleted: self.responseMethod)
+        }
+        
+        return  true
+    }
+
+    
+}
+
 class MainController{
     let JSONMANAGER:JSONManager
     let CONNECTIONMANAGER:ConnectionManager
@@ -21,37 +94,37 @@ class MainController{
         self.CONNECTIONMANAGER = ConnectionManager()
         self.JSONMANAGER = JSONManager()
     }
-    
-    func createJSONForRequest(keyWordsWithKeys:[String:AnyObject],detail:Bool, pref: [String:String])->JSONObject?{
-        var json:JSONObject?
-        
-        if detail {
-            var dataForDetailRequest:[String:AnyObject]
-            if let data = (keyWordsWithKeys["json"] as? JSONObject) {
-                dataForDetailRequest = createDetailRequest(data)
-            }else{
-                dataForDetailRequest = createDetailRequest(keyWordsWithKeys["json"] as! [[String:AnyObject]])
-            }
-            
-            json = JSONMANAGER.createDetailRequest(dataForDetailRequest["queryID"] as! String, documentBadge: dataForDetailRequest["documentBadge"] as! [[String:AnyObject]])
-        }else{
-            
-            
-            let num = 0.1
-            let gender = pref["gender"]!
-            let language = pref["language"]!
-            let city = pref["city"]!
-            let country = pref["country"]!
-            let age = pref["age"]!
-   
-            let ageRange = calculateAgeRange(Int (age)!)
-            
-            
-            
-            json = JSONMANAGER.createRequestJSON(keyWordsWithKeys["ContextKeywords"] as! [[JSONObject]], numResults: keyWordsWithKeys["numResults"] as! Int!,gender: gender,ageRange:ageRange, languages: [JSONObject(keyValuePairs: ["iso2":language,"languageCompetenceLevel":num])],address: JSONObject(keyValuePairs: ["country":country,"city":city]),queryID: keyWordsWithKeys["queryID"] as! String)
-        }
-        return json
-    }
+//    
+//    func createJSONForRequest(keyWordsWithKeys:[String:AnyObject],detail:Bool, pref: [String:String])->JSONObject?{
+//        var json = [JSONObject]()
+//        
+//        if detail {
+//            var dataForDetailRequest:[String:AnyObject]
+//            if let data = (keyWordsWithKeys["json"] as? JSONObject) {
+//                dataForDetailRequest = createDetailRequest(data)
+//            }else{
+//                dataForDetailRequest = createDetailRequest(keyWordsWithKeys["json"] as! [[String:AnyObject]])
+//            }
+//            
+//            //json.append(JSONMANAGER.createDetailRequest(dataForDetailRequest["queryID"] as! String, documentBadge: dataForDetailRequest["documentBadge"] as! [[String:AnyObject]]))
+//        }else{
+//            
+//            
+//            let num = 0.1
+//            let gender = pref["gender"]!
+//            let language = pref["language"]!
+//            let city = pref["city"]!
+//            let country = pref["country"]!
+//            let age = pref["age"]!
+//   
+//            let ageRange = calculateAgeRange(Int (age)!)
+//            
+//            
+//            
+//           // json = JSONMANAGER.createRequestJSON(keyWordsWithKeys["ContextKeywords"] as! [[JSONObject]], numResults: keyWordsWithKeys["numResults"] as! Int!,gender: gender,ageRange:ageRange, languages: [JSONObject(keyValuePairs: ["iso2":language,"languageCompetenceLevel":num])],address: JSONObject(keyValuePairs: ["country":country,"city":city]),queryID: keyWordsWithKeys["queryID"] as! String)
+//        }
+//        return json
+//    }
     
     func getFirstItem()->JSONObject{
         for json in self.mapOfJSONs {
