@@ -53,8 +53,10 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
             print(msg)
             // TODO: To be redesigned! 6
             let ds = self.viewCtrl.tableViewDataSource
-            ds.makeLabels(sech)
-            
+            ds.makeLabels(SechModel.instance.sechs)
+            for sech in SechModel.instance.sechs{
+                //print(sech.1.response!.convertToString())
+            }
             // TODO: To be redesigned! 8
             self.viewCtrl.tableView.reloadData()
         })

@@ -13,25 +13,35 @@ class MainController2{
     var finishMethod:((msg:String) -> ())?
     let queryJSONManager = QueryJSONManager()
     let CONNECTIONMANAGER = ConnectionManager()
-
+    let RESPONSEJSONMANAGER = ResponseJSONManager()
+    var counterRecommend = 0
     
     init(){
-        
+        responseMethod = ({(succeeded: Bool, msg: NSData) -> () in
+            
+            if(succeeded)
+            {
+                dispatch_async(dispatch_get_main_queue(), {
+                    let json = JSONObject(data: msg)
+                    self.sortRecommend(json)
+                    print(String(data: msg, encoding: NSUTF8StringEncoding)!)
+                    self.counterRecommend--
+                    if self.counterRecommend <= 0{
+                        self.finishMethod!(msg: "DONE")
+                    }
+                })
+            }else {
+                //            self.response.string = "Error"
+            }
+            self.counterRecommend--
+            if self.counterRecommend == 0{
+                self.finishMethod!(msg: "DONE")
+            }
+        })
     }
     
-    let responseMethod = ({(succeeded: Bool, msg: NSData) -> () in
-        if(succeeded)
-        {
-            dispatch_async(dispatch_get_main_queue(), {
-                
-                print(String(data: msg, encoding: NSUTF8StringEncoding)!)
-//                self.detailView.string = String(data: msg, encoding: NSUTF8StringEncoding)!
-//                self.msg = msg
-//                self.MAINCONTROLLER.mapOfJSONs["\(self.recommendation.stringValue)_DETAIL"] = JSONObject(data: msg)
-            })
-        }else {
-//            self.response.string = "Error"
-        }
+    var responseMethod = ({(succeeded: Bool, msg: NSData) -> () in
+    
     })
     
     let detaileResponseMethod = ({(succeeded: Bool, msg: NSData) -> () in
@@ -45,6 +55,10 @@ class MainController2{
 //            self.response.string = "Error"
         }
     })
+    
+    func sortRecommend(json:JSONObject){
+        RESPONSEJSONMANAGER.sortRecommend(json)
+    }
     
     func setFinishMethod(listener:(msg:String)->()){
         self.finishMethod = listener
@@ -63,7 +77,9 @@ class MainController2{
 //            
 //            json.append(JSONMANAGER.createDetailRequest(dataForDetailRequest["queryID"] as! String, documentBadge: dataForDetailRequest["documentBadge"] as! [[String:AnyObject]]))
         }else{
-                makeRequest(queryJSONManager.createRequestJSON(sechs,preferences: pref),detail: detail)
+            SechModel.instance.sechs = sechs
+            counterRecommend++
+            makeRequest(queryJSONManager.createRequestJSON(SechModel.instance.sechs,preferences: pref),detail: detail)
         }
     }
     
