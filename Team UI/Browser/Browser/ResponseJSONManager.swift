@@ -16,6 +16,14 @@ class ResponseJSONManager {
     }
     
     func sortRecommend(json:JSONObject){
+        for sech in SechModel.instance.sechs{
+            for result in json.getJSONArray("results")! {
+                if let hasKey = result.getString("generatingQuery")?.rangeOfString(sech.1.id){
+                    
+                    
+                }
+            }
+        }
         for result in json.getJSONArray("results")! {
                 if  let str = findTextKeyWord(result.getJSONArray("result")![0].getString("generatingQuery")!) {
                     let ljson = JSONObject()

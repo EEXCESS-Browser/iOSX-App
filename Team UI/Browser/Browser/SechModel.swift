@@ -15,6 +15,10 @@ class SechModel{
 }
 
 class Sech{
+    static let LINK_TAG = "LINK"
+    static let SECTION_TAG = "SECTION"
+    static let HEAD_TAG = "HEAD"
+    
     var id = String()
     var response:JSONObject?//Tbd
     var detail = JSONObject() // Tbd
