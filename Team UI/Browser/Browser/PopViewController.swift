@@ -24,5 +24,9 @@ class PopViewController : UIViewController{
 
     @IBOutlet weak var SechTitle: UILabel!
     
+    func setDetailsInSechView(){
+        
+    }
+    
 
 }

@@ -156,6 +156,11 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
             destVC.delegate = self
 
         }
+        
+//        if segue.identifier == "PopoverViewController"{
+//            let destVC = segue.destinationViewController as! PopViewController
+//            destVC.title = "This is From Segue"
+//        }
     }
     
     
@@ -209,11 +214,16 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
         let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
         let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
         vc.modalPresentationStyle = UIModalPresentationStyle.Popover
+        
+        //vc.prepareForSegue(<#T##segue: UIStoryboardSegue##UIStoryboardSegue#>, sender: <#T##AnyObject?#>)
+        
         let popover: UIPopoverPresentationController = vc.popoverPresentationController!
         popover.sourceView = tableView.cellForRowAtIndexPath(indexPath)
         popover.sourceRect = (tableView.cellForRowAtIndexPath(indexPath)?.bounds)!
         popover.delegate = self
+        
         presentViewController(vc, animated: true, completion:nil)
+        
 
         
         //print("Sech Tag:   \(sechTags[row]) ")
