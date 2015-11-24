@@ -24,7 +24,6 @@ class MainController2{
                 dispatch_async(dispatch_get_main_queue(), {
                     let json = JSONObject(data: msg)
                     self.sortRecommend(json)
-                    print(String(data: msg, encoding: NSUTF8StringEncoding)!)
                     self.counterRecommend--
                     if self.counterRecommend <= 0{
                         self.finishMethod!(msg: "DONE")
