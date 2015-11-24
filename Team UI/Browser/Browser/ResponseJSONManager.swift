@@ -36,4 +36,8 @@ class ResponseJSONManager {
 
 class DetailResponseJSONManager{
     
+    func sortDetailRecommend(json:JSONObject){
+        
+    }
+    
 }

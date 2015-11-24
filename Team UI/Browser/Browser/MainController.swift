@@ -30,7 +30,7 @@ class MainController2{
                     }
                 })
             }else {
-                //            self.response.string = "Error"
+                self.finishMethod!(msg: "ERROR")
             }
         })
     }
@@ -47,7 +47,7 @@ class MainController2{
 //                    self.MAINCONTROLLER.mapOfJSONs["\(self.recommendation.stringValue)_DETAIL"] = JSONObject(data: msg)
                 })
         }else {
-//            self.response.string = "Error"
+//            self.finishMethod!(msg: "ERROR")
         }
     })
     
