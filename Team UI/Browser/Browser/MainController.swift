@@ -33,10 +33,6 @@ class MainController2{
             }else {
                 //            self.response.string = "Error"
             }
-            self.counterRecommend--
-            if self.counterRecommend == 0{
-                self.finishMethod!(msg: "DONE")
-            }
         })
     }
     

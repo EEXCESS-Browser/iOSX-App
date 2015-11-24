@@ -18,29 +18,21 @@ class ResponseJSONManager {
     func sortRecommend(json:JSONObject){
         for sech in SechModel.instance.sechs{
             for result in json.getJSONArray("results")! {
-                if let hasKey = result.getString("generatingQuery")?.rangeOfString(sech.1.id){
-                    
-                    
+                let ljson = JSONObject()
+                var array = [JSONObject]()
+                for singleResult in result.getJSONArray("result")!{
+                    let str = singleResult.getString("generatingQuery")
+                    let str2 = sech.1.tags["link"]!.topic
+                    print("/n\(str!)/n Tag\(str2)")
+                    if let hasKey = singleResult.getString("generatingQuery")?.rangeOfString((sech.1.tags["link"]!.topic)){
+                        array.append(singleResult)
+                        print("\nFound:\n\(singleResult.convertToString())")
+                    }
                 }
+                ljson.addJSONArray("result", jsonArray: array)
+                SechModel.instance.sechs[sech.0]?.response = ljson
             }
         }
-        for result in json.getJSONArray("results")! {
-                if  let str = findTextKeyWord(result.getJSONArray("result")![0].getString("generatingQuery")!) {
-                    let ljson = JSONObject()
-                    json.addJSONArray("result", jsonArray: result.getJSONArray("result")!)
-                    
-                    SechModel.instance.sechs[str]?.response = ljson
-                }
-        }
-    }
-    
-    private func findTextKeyWord(str:String)->String?{
-        for key in SechModel.instance.sechs.keys {
-            if let range = str.rangeOfString(key) {
-                return key
-            }
-        }
-        return nil
     }
 }
 

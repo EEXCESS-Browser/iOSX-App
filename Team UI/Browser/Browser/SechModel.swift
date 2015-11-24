@@ -20,7 +20,7 @@ class Sech{
     static let HEAD_TAG = "HEAD"
     
     var id = String()
-    var response:JSONObject?//Tbd
+    var response = JSONObject()//Tbd
     var detail = JSONObject() // Tbd
     var tags = [String : Tag]() // String is id (link, section, head) and Tag is Tag-Object
     var filters = Filter()
