@@ -4,7 +4,7 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>SECH Browser.xcscheme</key>
+		<key>SechQueryComposer.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
 			<integer>0</integer>
@@ -12,17 +12,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>DFFF37851BF12DDF006DC137</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DFFF37991BF12DDF006DC137</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>DFFF37A41BF12DDF006DC137</key>
+		<key>0C63CA0A1BF22E8C00E12411</key>
 		<dict>
 			<key>primary</key>
 			<true/>
