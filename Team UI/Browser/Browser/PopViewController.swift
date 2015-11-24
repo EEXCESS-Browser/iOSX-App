@@ -7,6 +7,10 @@
 //
 
 import UIKit
+
+
+
+
 class PopViewController : UIViewController{
     
     
@@ -17,13 +21,19 @@ class PopViewController : UIViewController{
     @IBOutlet weak var sechWebView: UIWebView!
     
     
+    var headLine : String!
+    var jasonText : String!
     
     override func viewDidLoad() {
-        sechHeadline.text = "SechTest"
+        
+        sechHeadline.text = headLine
+            sechText.text = jasonText
     }
-
+    
+    
     @IBOutlet weak var SechTitle: UILabel!
     
+
     func setDetailsInSechView(){
         
     }

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8187.4" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Mpt-TD-A4y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Mpt-TD-A4y">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
@@ -35,6 +35,11 @@
                                             <animations/>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <segue destination="uZZ-vY-Phs" kind="popoverPresentation" identifier="showPopView" popoverAnchorView="SJJ-Tl-9qC" id="5Q5-6E-SlY">
+                                                <popoverArrowDirection key="popoverArrowDirection" right="YES"/>
+                                            </segue>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -236,26 +241,26 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xYG-k9-xtV">
-                                <rect key="frame" x="16" y="267" width="240" height="128"/>
-                                <animations/>
-                            </imageView>
                             <webView contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0cF-Uz-09O">
-                                <rect key="frame" x="16" y="435" width="240" height="128"/>
+                                <rect key="frame" x="16" y="516" width="45" height="47"/>
                                 <animations/>
                                 <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="deviceRGB"/>
                             </webView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xYG-k9-xtV">
+                                <rect key="frame" x="16" y="458" width="45" height="43"/>
+                                <animations/>
+                            </imageView>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="uFX-md-2eB" firstAttribute="top" secondItem="B87-Ow-p0w" secondAttribute="bottom" constant="8" id="DhD-rt-xCo"/>
-                            <constraint firstItem="MUu-Kz-DLC" firstAttribute="top" secondItem="1e7-aK-Mki" secondAttribute="bottom" constant="8" id="EcT-FP-Prv"/>
                             <constraint firstItem="1e7-aK-Mki" firstAttribute="top" secondItem="uFX-md-2eB" secondAttribute="bottom" constant="66" id="T80-oZ-U8l"/>
                             <constraint firstItem="uFX-md-2eB" firstAttribute="trailing" secondItem="lb5-9J-iPy" secondAttribute="trailingMargin" id="Z9y-bp-biX"/>
                             <constraint firstItem="uFX-md-2eB" firstAttribute="leading" secondItem="lb5-9J-iPy" secondAttribute="leadingMargin" id="aML-yj-rgR"/>
+                            <constraint firstItem="uFX-md-2eB" firstAttribute="top" secondItem="B87-Ow-p0w" secondAttribute="bottom" constant="8" id="d57-tc-jf8"/>
                             <constraint firstItem="1e7-aK-Mki" firstAttribute="leading" secondItem="lb5-9J-iPy" secondAttribute="leadingMargin" id="m15-ZQ-bge"/>
                             <constraint firstItem="1e7-aK-Mki" firstAttribute="trailing" secondItem="lb5-9J-iPy" secondAttribute="trailingMargin" id="nKd-fY-fdX"/>
+                            <constraint firstItem="MUu-Kz-DLC" firstAttribute="top" secondItem="1e7-aK-Mki" secondAttribute="bottom" constant="8" id="tKg-Kh-aZy"/>
                         </constraints>
                     </view>
                     <connections>
@@ -267,7 +272,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hMV-Gw-TwT" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2537" y="402"/>
+            <point key="canvasLocation" x="2636" y="381"/>
         </scene>
         <!--Settings Controller-->
         <scene sceneID="6f6-DY-R4p">

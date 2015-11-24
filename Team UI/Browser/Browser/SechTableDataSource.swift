@@ -24,6 +24,7 @@ class SechTableDataSource : NSObject, UITableViewDataSource{
         
         cell.textLabel!.text = sechTags[indexPath.row]
         
+        
         return cell
     }
     

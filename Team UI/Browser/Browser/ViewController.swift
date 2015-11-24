@@ -21,7 +21,8 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     
     var settingsPers = SettingsPersistency()
     var settings = SettingsModel()
-
+    var headLine : String!
+    
     
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
@@ -156,11 +157,25 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
             destVC.delegate = self
 
         }
+
         
 //        if segue.identifier == "PopoverViewController"{
 //            let destVC = segue.destinationViewController as! PopViewController
 //            destVC.title = "This is From Segue"
 //        }
+
+        if segue.identifier == "showPopView"
+        {
+            let popViewController = segue.destinationViewController as! PopViewController
+            popViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
+            print("Segue"+self.headLine)
+            popViewController.headLine = self.headLine
+            popViewController.jasonText = SechModel.instance.sechs[self.headLine]?.response.convertToString() 
+            popViewController.popoverPresentationController?.delegate = self
+
+        }
+    
+
     }
     
     
@@ -180,13 +195,13 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     }
 
     @IBAction func doPopover(sender: AnyObject) {
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
-        vc.modalPresentationStyle = UIModalPresentationStyle.Popover
-        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
-        popover.barButtonItem = sender as? UIBarButtonItem
-        popover.delegate = self
-        presentViewController(vc, animated: true, completion:nil)
+//        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
+//        vc.modalPresentationStyle = UIModalPresentationStyle.Popover
+//        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
+//        popover.barButtonItem = sender as? UIBarButtonItem
+//        popover.delegate = self
+//        presentViewController(vc, animated: true, completion:nil)
     }
     
     
@@ -201,33 +216,82 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
         presentViewController(vc, animated: true, completion:nil)
     }
     
-    
-    
-    //Load Sechtag that was clicked
-    
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-    {
+    func tableView(tableView: UITableView, willSelectRowAtIndexPath indexPath: NSIndexPath) -> NSIndexPath? {
         tableView.deselectRowAtIndexPath(indexPath, animated: true)
-       // let row = indexPath.row
         
-        
-        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
-        vc.modalPresentationStyle = UIModalPresentationStyle.Popover
-        
-        //vc.prepareForSegue(<#T##segue: UIStoryboardSegue##UIStoryboardSegue#>, sender: <#T##AnyObject?#>)
-        
-        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
-        popover.sourceView = tableView.cellForRowAtIndexPath(indexPath)
-        popover.sourceRect = (tableView.cellForRowAtIndexPath(indexPath)?.bounds)!
-        popover.delegate = self
-        
-        presentViewController(vc, animated: true, completion:nil)
         
 
+//        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
+//        vc.modalPresentationStyle = UIModalPresentationStyle.Popover
+//        
+//        //vc.prepareForSegue(<#T##segue: UIStoryboardSegue##UIStoryboardSegue#>, sender: <#T##AnyObject?#>)
+//        
+//        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
+//        popover.sourceView = tableView.cellForRowAtIndexPath(indexPath)
+//        popover.sourceRect = (tableView.cellForRowAtIndexPath(indexPath)?.bounds)!
+//        popover.delegate = self
+//        
+//        presentViewController(vc, animated: true, completion:nil)
+//        
+//
+
+        let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
         
-        //print("Sech Tag:   \(sechTags[row]) ")
+        headLine = (currentCell.textLabel?.text!)! as String
+        print("\n\n\n\n\n\n\n")
+        print("selected: "+headLine)
+        
+//        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
+//        vc.modalPresentationStyle = UIModalPresentationStyle.Popover
+//        
+//        
+//        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
+//        popover.sourceView = tableView.cellForRowAtIndexPath(indexPath)
+//        popover.sourceRect = (tableView.cellForRowAtIndexPath(indexPath)?.bounds)!
+//        popover.delegate = self
+
+        
+        
+        
+        
+//        presentViewController(vc, animated: true, completion:nil)
+        
+        return indexPath
     }
+    
+    //Load Sechtag that was clicked
+//    
+//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+//    {
+//        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+//        
+//        
+//        let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
+//        
+//        headLine = (currentCell.textLabel?.text!)! as String
+//        print("\n\n\n\n\n\n\n")
+//        print(headLine)
+//        
+//        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
+//        vc.modalPresentationStyle = UIModalPresentationStyle.Popover
+//        
+//
+//        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
+//        popover.sourceView = tableView.cellForRowAtIndexPath(indexPath)
+//        popover.sourceRect = (tableView.cellForRowAtIndexPath(indexPath)?.bounds)!
+//        popover.delegate = self
+//        
+//        
+//        
+//        
+//        presentViewController(vc, animated: true, completion:nil)
+//
+//        
+//  //    print("Sech Tag:   \(sechTags[row]) ")
+//    }
     
 }
 
