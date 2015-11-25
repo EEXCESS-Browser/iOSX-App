@@ -23,11 +23,16 @@ class PopViewController : UIViewController{
     
     var headLine : String!
     var jasonText : String!
+    var url : String!
     
     override func viewDidLoad() {
         
+        let requesturl = NSURL(string: url)
+        let request = NSURLRequest(URL: requesturl!)
+
         sechHeadline.text = headLine
             sechText.text = jasonText
+        sechWebView.loadRequest(request)
     }
     
     

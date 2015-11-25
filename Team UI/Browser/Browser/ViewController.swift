@@ -170,7 +170,9 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
             popViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             print("Segue"+self.headLine)
             popViewController.headLine = self.headLine
-            popViewController.jasonText = SechModel.instance.sechs[self.headLine]?.response.convertToString() 
+            popViewController.jasonText = SechModel.instance.sechs[self.headLine]?.response.convertToString()
+            popViewController.url = SechModel.instance.sechs[self.headLine]?.responseObject.documentBadge.uri
+            
             popViewController.popoverPresentationController?.delegate = self
 
         }

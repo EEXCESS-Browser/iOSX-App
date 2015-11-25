@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "SechQueryComposer/getPrefs.swift"
-            timestampString = "469055167.819085"
+            timestampString = "469385207.223961"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "55"
-            endingLineNumber = "55"
+            startingLineNumber = "59"
+            endingLineNumber = "59"
             landmarkName = "PreferencesR"
             landmarkType = "3">
          </BreakpointContent>
