@@ -26,13 +26,28 @@ class ResponseJSONManager {
                     if let hasKey = singleResult.getString("generatingQuery")?.rangeOfString((sech.1.tags["link"]!.topic)){
                         array.append(singleResult)
                         print("\nFound:\n\(singleResult.convertToString())in \(str2)")
+                        /* create Response Object*/
+                        SechModel.instance.sechs[sech.0]!.responseObject = createResponseObject(singleResult)
+                        print("\nResponseObject:\n\(SechModel.instance.sechs[sech.0]!.responseObject.getString())")
                     }
                 }
             }
             SechModel.instance.sechs[sech.0]!.response.addJSONArray("result", jsonArray: array)
         }
     }
-}
+    
+    func createResponseObject(singleResult:JSONObject)->Response{
+        let singleResponse = Response()
+        let documentBadge : JSONObject!
+        
+        singleResponse.title = singleResult.getString("title")!
+        documentBadge = singleResult.getJSONObject("documentBadge")
+        singleResponse.id = documentBadge.getString("id")!
+        singleResponse.uri = NSURL(string: (documentBadge.getString("uri"))!)
+        singleResponse.generatingQuery = singleResult.getString("generatingQuery")!
+        return singleResponse
+        }
+    }
 
 class DetailResponseJSONManager{
     

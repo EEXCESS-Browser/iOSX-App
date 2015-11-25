@@ -14,13 +14,14 @@ class SechModel{
     var sechs = [String:Sech]()
 }
 
-class Sech{
+class Sech {
     static let LINK_TAG = "LINK"
     static let SECTION_TAG = "SECTION"
     static let HEAD_TAG = "HEAD"
     
     var id = String()
     var response = JSONObject()//Tbd
+    var responseObject : Response!
     var detail = JSONObject() // Tbd
     var tags = [String : Tag]() // String is id (link, section, head) and Tag is Tag-Object
     var filters = Filter()
@@ -32,8 +33,21 @@ class Tag {
     var isMainTopic = false
 }
 
-class Filter{
+class Filter {
     var mediaType = String()
     var provider = String()
     var licence = String()
+}
+
+class Response {
+    var id : String!
+    var title : String!
+    var uri : NSURL!
+    var generatingQuery : String!
+    
+    func getString()->String{
+        let string : String!
+        string = "id:\(id)\ntitle:\(title)\nuri:\(String(uri))\ngeneratingQuery:\(generatingQuery)"
+        return string
+    }
 }
