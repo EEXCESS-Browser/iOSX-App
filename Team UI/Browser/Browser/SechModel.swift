@@ -40,14 +40,57 @@ class Filter {
 }
 
 class Response {
-    var id : String!
-    var title : String!
-    var uri : NSURL!
-    var generatingQuery : String!
+    //var id : String!
+    let title:String
+    let description:String?
+    let preViewImage:String?
+    //var uri : NSURL!
+    let generatingQuery:String
+    let documentBadge:DocumentBadge
+    
+    
+    init(documentBadge:DocumentBadge,description:String?,title:String?,preViewImage:String?,generatingQuery:String){
+        self.title = title!
+        self.description = description
+        self.preViewImage = preViewImage
+        self.documentBadge = documentBadge
+        self.generatingQuery = generatingQuery
+    }
     
     func getString()->String{
-        let string : String!
-        string = "id:\(id)\ntitle:\(title)\nuri:\(String(uri))\ngeneratingQuery:\(generatingQuery)"
-        return string
+        return "documentBadge:\(documentBadge.createString())\n\ntitle:\(title)\n\ngeneratingQuery:\(generatingQuery)"
+
+        //return "id:\(id)\ntitle:\(title)\nuri:\(String(uri))\ngeneratingQuery:\(generatingQuery)"
     }
+}
+
+class DocumentBadge{
+    let provider:String
+    let id:String
+    let uri:String
+    
+    init(provider:String,id:String,uri:String){
+        self.provider = provider
+        self.id = id
+        self.uri = uri
+    }
+    
+    init(jsonDocumentBag:JSONObject){
+        self.provider = jsonDocumentBag.getString("provider")!
+        self.id = jsonDocumentBag.getString("id")!
+        self.uri = jsonDocumentBag.getString("uri")!
+    }
+    
+    private func createString()->String{
+        return "\(self.id)\n\(self.provider)\n\(self.uri)"
+    }
+}
+
+class ResultGroup{
+    //TODO: ...
+}
+
+enum SechMediaType {
+    case IMAGE
+    //TODO: ...
 }

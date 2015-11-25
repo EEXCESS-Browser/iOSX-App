@@ -37,14 +37,14 @@ class ResponseJSONManager {
     }
     
     func createResponseObject(singleResult:JSONObject)->Response{
-        let singleResponse = Response()
-        let documentBadge : JSONObject!
+        let singleResponse = Response(documentBadge: DocumentBadge(jsonDocumentBag: singleResult.getJSONObject("documentBadge")!), description: singleResult.getString("generatingQuery"), title: singleResult.getString("title"), preViewImage: singleResult.getString("previewImage"), generatingQuery: singleResult.getString("generatingQuery")!)
+        //let documentBadge : JSONObject
         
-        singleResponse.title = singleResult.getString("title")!
-        documentBadge = singleResult.getJSONObject("documentBadge")
-        singleResponse.id = documentBadge.getString("id")!
-        singleResponse.uri = NSURL(string: (documentBadge.getString("uri"))!)
-        singleResponse.generatingQuery = singleResult.getString("generatingQuery")!
+//        singleResponse.title = singleResult.getString("title")!
+//        documentBadge = singleResult.getJSONObject("documentBadge")!
+//        singleResponse.id = documentBadge.getString("id")!
+//        singleResponse.uri = NSURL(string: (documentBadge.getString("uri"))!)
+//        singleResponse.generatingQuery = singleResult.getString("generatingQuery")!
         return singleResponse
         }
     }
