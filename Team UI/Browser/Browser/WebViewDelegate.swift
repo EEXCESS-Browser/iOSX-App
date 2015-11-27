@@ -55,7 +55,7 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
             let ds = self.viewCtrl.tableViewDataSource
             ds.makeLabels(SechModel.instance.sechs)
             for sech in SechModel.instance.sechs{
-                print("\n\(sech.0)\n\(sech.1.response.convertToString())")
+                print("\n\(sech.0)\n\(sech.1.getFirstSingleResponseObject()?.getString())")
             }
             // TODO: To be redesigned! 8
             self.viewCtrl.tableView.reloadData()

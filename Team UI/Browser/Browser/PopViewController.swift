@@ -22,7 +22,7 @@ class PopViewController : UIViewController{
     
     
     var headLine : String!
-    var jasonText : String!
+    var jsonText : String!
     var url : String!
     
     override func viewDidLoad() {
@@ -31,7 +31,7 @@ class PopViewController : UIViewController{
         let request = NSURLRequest(URL: requesturl!)
 
         sechHeadline.text = headLine
-            sechText.text = jasonText
+            sechText.text = jsonText
         sechWebView.loadRequest(request)
     }
     

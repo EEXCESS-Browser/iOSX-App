@@ -170,8 +170,15 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
             popViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
             print("Segue"+self.headLine)
             popViewController.headLine = self.headLine
-            popViewController.jasonText = SechModel.instance.sechs[self.headLine]?.response.convertToString()
-            popViewController.url = SechModel.instance.sechs[self.headLine]?.responseObject.documentBadge.uri
+//            popViewController.jsonText = SechModel.instance.sechs[self.headLine]?.response.convertToString()
+//            popViewController.url = SechModel.instance.sechs[self.headLine]?.responseObject.documentBadge.uri
+            if let response = SechModel.instance.sechs[self.headLine]?.getFirstSingleResponseObject(){
+                popViewController.jsonText = response.getString()
+                popViewController.url = response.documentBadge.getURI()
+            }else{
+                popViewController.jsonText = "NO RESULTS"
+                popViewController.url = "https://www.google.de/"
+            }
             
             popViewController.popoverPresentationController?.delegate = self
 

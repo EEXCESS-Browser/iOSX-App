@@ -30,6 +30,7 @@ class JSONObject:CustomStringConvertible{
         method don t search in childObjects
     */
     func found(key:String)->Bool{
+        
         return (jsonObject[key] != nil)
     }
 //  --------------------------------------------- search-methods
