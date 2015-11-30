@@ -10,4 +10,27 @@ import Foundation
 
 class Ranking {
     
+    let sechArray: [String: Sech]
+    
+    init(sechArray: [String: Sech]){
+        self.sechArray = sechArray
+    }
+    
+    private func calculateValueOfEachRule(){
+        
+    }
+    
+    private func calculateResultOfSech(){
+        
+        //Ziel: für jedes Sech, jede Response durchgehen und diese ranken
+        
+        let t = sechArray["asdf"]
+        let r: [Response]? = t?.response
+        let title = r?.first?.title
+    }
+    
+    private func sortResponses(){
+        
+    }
+    
 }

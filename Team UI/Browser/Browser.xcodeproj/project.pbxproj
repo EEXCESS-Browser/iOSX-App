@@ -30,6 +30,7 @@
 		8D43CB6D1BCE689F00EEBB7B /* BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB6C1BCE689F00EEBB7B /* BrowserUITests.swift */; };
 		8DA1FB561BF5E44700732F5E /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA1FB551BF5E44700732F5E /* SettingsModel.swift */; settings = {ASSET_TAGS = (); }; };
 		8DAA54D51BD79F7C00B817BF /* SechModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAA54D41BD79F7C00B817BF /* SechModel.swift */; };
+		964CE9E81C0C553E006419D5 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CE9E71C0C553E006419D5 /* PersistenceController.swift */; settings = {ASSET_TAGS = (); }; };
 		96F405721C0335820013E66F /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F405711C0335820013E66F /* Ranking.swift */; settings = {ASSET_TAGS = (); }; };
 		96F405741C0335B50013E66F /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F405731C0335B50013E66F /* Rules.swift */; settings = {ASSET_TAGS = (); }; };
 		A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F615751BEA37CF003A3878 /* PopViewController.swift */; };
@@ -85,6 +86,7 @@
 		8D43CB6E1BCE689F00EEBB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DA1FB551BF5E44700732F5E /* SettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		8DAA54D41BD79F7C00B817BF /* SechModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SechModel.swift; sourceTree = "<group>"; };
+		964CE9E71C0C553E006419D5 /* PersistenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		96F405711C0335820013E66F /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		96F405731C0335B50013E66F /* Rules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rules.swift; sourceTree = "<group>"; };
 		A9F615751BEA37CF003A3878 /* PopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
@@ -188,6 +190,31 @@
 			path = BrowserUITests;
 			sourceTree = "<group>";
 		};
+		964CE9E21C0C53C6006419D5 /* JSON */ = {
+			isa = PBXGroup;
+			children = (
+				12BB70F61BFC91540073A55D /* JSONObject.swift */,
+				1294087D1BFF20A3004CEA15 /* JSONModel.swift */,
+			);
+			name = JSON;
+			sourceTree = "<group>";
+		};
+		964CE9E31C0C53DC006419D5 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				964CE9E71C0C553E006419D5 /* PersistenceController.swift */,
+			);
+			name = Persistence;
+			sourceTree = "<group>";
+		};
+		964CE9E41C0C5461006419D5 /* Persistence */ = {
+			isa = PBXGroup;
+			children = (
+				1875A0461BE4D58C00DD94CD /* FavouritesModel.swift */,
+			);
+			name = Persistence;
+			sourceTree = "<group>";
+		};
 		96F405701C03356A0013E66F /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
@@ -211,6 +238,7 @@
 		FEB9DC411BFC8D0D00EB1729 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				964CE9E31C0C53DC006419D5 /* Persistence */,
 				96F405701C03356A0013E66F /* Ranking */,
 				12BB70F41BFC90DB0073A55D /* MainController.swift */,
 				FEB9DC471BFC8E8100EB1729 /* Toolbar */,
@@ -222,11 +250,10 @@
 		FEB9DC421BFC8D1900EB1729 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				12BB70F61BFC91540073A55D /* JSONObject.swift */,
-				1875A0461BE4D58C00DD94CD /* FavouritesModel.swift */,
+				964CE9E41C0C5461006419D5 /* Persistence */,
+				964CE9E21C0C53C6006419D5 /* JSON */,
 				8DAA54D41BD79F7C00B817BF /* SechModel.swift */,
 				8DA1FB551BF5E44700732F5E /* SettingsModel.swift */,
-				1294087D1BFF20A3004CEA15 /* JSONModel.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -439,6 +466,7 @@
 				1875A0471BE4D58C00DD94CD /* FavouritesModel.swift in Sources */,
 				8D1386021BF381DE009E5F46 /* SettingsController.swift in Sources */,
 				8D1385FD1BF3623D009E5F46 /* AdressBar.swift in Sources */,
+				964CE9E81C0C553E006419D5 /* PersistenceController.swift in Sources */,
 				12BB70F71BFC91540073A55D /* JSONObject.swift in Sources */,
 				8DA1FB561BF5E44700732F5E /* SettingsModel.swift in Sources */,
 			);
