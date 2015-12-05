@@ -16,7 +16,7 @@ class ResponseJSONManager {
     }
     
     func sortRecommend(json:JSONObject){
-        for sech in SechModel.instance.sechs{
+        for sech in SechPage.instance.sechs{
             var array = [Response]()
             
             for result in json.getJSONArray("results")! {
@@ -28,7 +28,24 @@ class ResponseJSONManager {
                     }
                 }
             }
-            SechModel.instance.sechs[sech.0]!.response = array
+            SechPage.instance.sechs[sech.0]!.response = array
+        }
+    }
+    
+    func delegate(json:JSONObject,inout data:SechPage){
+        for sech in data.sechs{
+            var array = [Response]()
+            
+            for result in json.getJSONArray("results")! {
+                for singleResult in result.getJSONArray("result")!{
+                    let str2 = sech.1.tags["link"]!.topic
+                    if singleResult.getString("generatingQuery")?.rangeOfString((sech.1.tags["link"]!.topic)) != nil {
+                        array.append(Response(result: singleResult))
+                        print("\nFound:\n\(singleResult.convertToString())in \(str2)")
+                    }
+                }
+            }
+            data.sechs[sech.0]!.response = array
         }
     }
 }

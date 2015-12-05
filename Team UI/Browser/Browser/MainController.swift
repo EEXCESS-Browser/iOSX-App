@@ -72,9 +72,9 @@ class MainController2{
 //            
 //            json.append(JSONMANAGER.createDetailRequest(dataForDetailRequest["queryID"] as! String, documentBadge: dataForDetailRequest["documentBadge"] as! [[String:AnyObject]]))
         }else{
-            SechModel.instance.sechs = sechs
+            SechPage.instance.sechs = sechs
             counterRecommend++
-            makeRequest(queryJSONManager.createRequestJSON(SechModel.instance.sechs,preferences: pref),detail: detail)
+            makeRequest(queryJSONManager.createRequestJSON(SechPage.instance.sechs,preferences: pref),detail: detail)
         }
     }
     

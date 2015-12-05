@@ -10,17 +10,18 @@ import UIKit
 
 class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate, UITableViewDelegate, BackDelegate
 {
-    var myWebViewDelegate: WebViewDelegate!
-    var myAdressBar: AddressBar!
+    let myWebViewDelegate = WebViewDelegate()
+    let myAdressBar: AddressBar = AddressBar()
 
-    var p : DataObjectPersistency!
-    var tableViewDataSource : SechTableDataSource!
+    let p : DataObjectPersistency = DataObjectPersistency()
+    let tableViewDataSource = SechTableDataSource()
 //    var p = DataObjectPersistency()
 //    var tableViewDataSource = SechTableDataSource()
 
     
-    var settingsPers = SettingsPersistency()
+    let settingsPers = SettingsPersistency()
     var settings = SettingsModel()
+    let sechModel = SechModel()
     var headLine : String!
     
     
@@ -34,23 +35,17 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     
     var favourites = [FavouritesModel]()
     
-    var mainController = MainController2()
-    
-    
     override func viewDidLoad()
     {
         super.viewDidLoad()
-        myWebViewDelegate = WebViewDelegate()
         myWebViewDelegate.viewCtrl = self
         myWebView.delegate = myWebViewDelegate
-        myAdressBar = AddressBar()
         activityIndicator.hidden = true
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
-        tableViewDataSource = SechTableDataSource()
         tableView.dataSource = tableViewDataSource
         
-        p = DataObjectPersistency()
+        //p = DataObjectPersistency()
         settings = settingsPers.loadDataObject()
     }
     
@@ -172,12 +167,19 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
             popViewController.headLine = self.headLine
 //            popViewController.jsonText = SechModel.instance.sechs[self.headLine]?.response.convertToString()
 //            popViewController.url = SechModel.instance.sechs[self.headLine]?.responseObject.documentBadge.uri
-            if let response = SechModel.instance.sechs[self.headLine]?.getFirstSingleResponseObject(){
+//            if let response = SechPage.instance.sechs[self.headLine]?.getFirstSingleResponseObject(){
+//                popViewController.jsonText = response.getString()
+//                popViewController.url = response.documentBadge.getURI()
+//            }else{
+//                popViewController.jsonText = "NO RESULTS"
+//                popViewController.url = "https://www.google.de/"
+//            }
+            if let response = sechModel.sechpages[self.myWebViewDelegate.mURL]!.sechs[self.headLine]?.getFirstSingleResponseObject(){
                 popViewController.jsonText = response.getString()
                 popViewController.url = response.documentBadge.getURI()
             }else{
                 popViewController.jsonText = "NO RESULTS"
-                popViewController.url = "https://www.google.de/"
+                popViewController.url = "https://www.google.de/?gws_rd=ssl#q=Mein+Name+ist+Hase"
             }
             
             popViewController.popoverPresentationController?.delegate = self

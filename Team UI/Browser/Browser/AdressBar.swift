@@ -11,7 +11,7 @@ import Foundation
 class AddressBar{
     
     func checkURL(url : String) -> String{
-        var checkedURL: String
+        let checkedURL: String?
         
         if(validateHTTPWWW(url) || validateHTTP(url)){
             checkedURL = url
@@ -21,7 +21,7 @@ class AddressBar{
             let searchString = url.stringByReplacingOccurrencesOfString(" ", withString: "+", options: NSStringCompareOptions.LiteralSearch, range: nil)
             checkedURL = "https://www.google.de/#q=\(searchString)"
         }
-       return checkedURL
+       return checkedURL!
     }
     
     func validateHTTP (stringURL : NSString) -> Bool

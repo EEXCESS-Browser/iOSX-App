@@ -9,8 +9,8 @@
 import Foundation
 
 class SechManager {
-    private var regex = RegexForSech()
-    private var headFilter = Filter()
+    private let regex = RegexForSech()
+    private let headFilter = Filter()
     private var sechCollection = [String : Sech]()
     
     // TODO: Validation of Filterattributes

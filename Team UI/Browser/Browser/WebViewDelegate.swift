@@ -10,8 +10,8 @@ import UIKit
 
 class WebViewDelegate: NSObject, UIWebViewDelegate {
     
-    var regex = RegexForSech()
-    var sechManager = SechManager()
+    let regex = RegexForSech()
+    let sechManager = SechManager()
     var mURL : String = ""
     var viewCtrl: ViewController!
 
@@ -49,30 +49,23 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
         //-> !
         // Put call for Request of EEXCESS here!
         
-        viewCtrl.mainController.setFinishMethod({(msg:String) -> () in
+        let finishMethod = ({(msg:String,data:SechPage) -> () in
             print(msg)
             // TODO: To be redesigned! 6
             let ds = self.viewCtrl.tableViewDataSource
-            ds.makeLabels(SechModel.instance.sechs)
-            for sech in SechModel.instance.sechs{
+            ds.makeLabels(data.sechs)
+            for sech in data.sechs{
                 print("\n\(sech.0)\n\(sech.1.getFirstSingleResponseObject()?.getString())")
             }
             // TODO: To be redesigned! 8
             self.viewCtrl.tableView.reloadData()
+            self.viewCtrl.sechModel.sechpages[self.mURL] = data
         })
         
-        //var response = viewCtrl.mainController.createJSONForRequest(sech, detail: false, pref: [:])
-        
-        
-        viewCtrl.mainController.createJSONForRequest(sech, detail: false, pref: [:])
-        
-        
-        // TODO: To be redesigned! 6
-        let ds = viewCtrl.tableViewDataSource
-        ds.makeLabels(sech)
-        
-        // TODO: To be redesigned! 8
-        viewCtrl.tableView.reloadData()
+        let data = SechPage()
+        data.sechs = sech
+        let task = TaskManager(finishMethod: finishMethod, data: data)
+        task.delegate(isDetailRequest: false)
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {

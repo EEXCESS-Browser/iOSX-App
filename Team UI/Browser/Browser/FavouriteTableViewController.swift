@@ -16,9 +16,9 @@ protocol BackDelegate
 class FavouriteTableViewController: UITableViewController
 {
     var favourites = [FavouritesModel]()
-    var fav = FavouritesModel()
-    var delegate : BackDelegate? = nil
-    var p = DataObjectPersistency()
+    let fav = FavouritesModel()
+    var delegate : BackDelegate?//Wird nicht verwendet!
+    let p = DataObjectPersistency()
     
     override func viewDidLoad()
     {
@@ -86,8 +86,8 @@ class FavouriteTableViewController: UITableViewController
                         
                         let textfield : UITextField = alertSheetController.textFields![0]
                         
-                        var title = self.favourites[indexPath.row].title
-                        title = textfield.text!
+                        //var title = self.favourites[indexPath.row].title
+                        let title = textfield.text!
                         self.fav.title = title
                         self.favourites[indexPath.row].title = title
                         

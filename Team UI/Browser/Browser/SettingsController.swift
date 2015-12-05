@@ -17,7 +17,7 @@ class SettingsController: UITableViewController{
     @IBOutlet weak var citySetting: UITableViewCell!
     @IBOutlet weak var languageSetting: UITableViewCell!
     
-    var settingsModel = SettingsModel()
+    let settingsModel = SettingsModel()
  
     override func viewDidLoad(){
         super.viewDidLoad()
