@@ -15,18 +15,18 @@ class Sech {
     static let HEAD_TAG = "HEAD"
     
     var id = String()
-    var response = [Response]()
+    //var response = [Response]()
     var detail = JSONObject() // Tbd
     var tags = [String : Tag]() // String is id (link, section, head) and Tag is Tag-Object
     var filters = Filter()
     
-    func getFirstSingleResponseObject()->Response? {
-        if response.count == 0{
-            return nil
-        }else{
-            return self.response[0]
-        }
-    }
+//    func getFirstSingleResponseObject()->Response? {
+//        if response.count == 0{
+//            return nil
+//        }else{
+//            return self.response[0]
+//        }
+//    }
 }
 
 class Tag {

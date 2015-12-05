@@ -55,15 +55,14 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
             let ds = self.viewCtrl.tableViewDataSource
             ds.makeLabels(data.sechs)
             for sech in data.sechs{
-                print("\n\(sech.0)\n\(sech.1.getFirstSingleResponseObject()?.getString())")
+                print("\n\(sech.0)\n\(data.responses[sech.0])")/*sech.1.getFirstSingleResponseObject()?.getString()*/
             }
             // TODO: To be redesigned! 8
             self.viewCtrl.tableView.reloadData()
             self.viewCtrl.sechModel.sechpages[self.mURL] = data
         })
         
-        let data = SechPage()
-        data.sechs = sech
+        let data = SechPage(sechs: sech)
         let task = TaskManager(finishMethod: finishMethod, data: data)
         task.delegate(isDetailRequest: false)
     }

@@ -12,17 +12,30 @@ class ConnectionManager{
     //HTTP-Methods
     static let POST = "POST"
     static let GET = "GET"
+    
+    //---------------------------------------------------------
     //option for json
     let JSON_OPTION = "application/json"
     //for config the HTTP_Request
     let FOR_HTTP_HEADER_FIELD__CONTENT_TYPE = "Content-Type"
     let FOR_HTTP_HEADER_FIELD__ACCENT = "Accept"
+    //--------------------------------------------------------
+    let finishMethod:(succeeded: Bool, data: NSData) -> ()
+    let url:String
+    let httpMethod:String
+    
+    init(url:String,postCompleted : (succeeded: Bool, data: NSData) -> (),httpMethod:String){
+        self.finishMethod = postCompleted
+        self.url = url
+        self.httpMethod = httpMethod
+    }
     
     //make the request
-    func makeHTTP_Request(data:JSONObject,url:String,httpMethod:String,postCompleted : (succeeded: Bool, data: NSData) -> ()){
-        let request = addRequestContent(createRequest(url),httpMethod: httpMethod,data: data.convertToNSData()!)
-        self.sendRequest(request, postCompleted: postCompleted)
+    func delegate(data:NSData){
+        let request = addRequestContent(createRequest(self.url),httpMethod: httpMethod,data: data)
+        self.sendRequest(request, postCompleted: self.finishMethod)
     }
+
     //only create a request
     private func createRequest(url:String)->NSMutableURLRequest{
         return NSMutableURLRequest(URL: NSURL(string: url)!)

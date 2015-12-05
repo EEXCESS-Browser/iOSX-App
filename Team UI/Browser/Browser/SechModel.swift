@@ -18,10 +18,11 @@ class SechModel{
 
 
 class SechPage{
-    static let instance = SechPage()
-    var sechs:[String:Sech]
     
-    init(){
-        sechs = [String:Sech]()
+    let sechs:[String:Sech]
+    var responses = [String:[Response]]()
+    
+    init(sechs:[String:Sech]){
+        self.sechs = sechs
     }
 }

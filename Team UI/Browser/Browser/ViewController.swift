@@ -174,7 +174,7 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
 //                popViewController.jsonText = "NO RESULTS"
 //                popViewController.url = "https://www.google.de/"
 //            }
-            if let response = sechModel.sechpages[self.myWebViewDelegate.mURL]!.sechs[self.headLine]?.getFirstSingleResponseObject(){
+            if let response = (sechModel.sechpages[self.myWebViewDelegate.mURL]!.responses[self.headLine])?.first{
                 popViewController.jsonText = response.getString()
                 popViewController.url = response.documentBadge.getURI()
             }else{
