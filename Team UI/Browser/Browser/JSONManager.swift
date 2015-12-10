@@ -17,6 +17,8 @@ class JSONManager{
     
     let origin:JSONObject
     
+    //Next Test
+    
     init(){
         origin = JSONObject(keyValuePairs: ["clientType":"Swift-Test-Client" as AnyObject,"clientVersion":"0.50" as AnyObject,"module":"OS X Prototype Content" as AnyObject,"userID":"HAW-WS2015-MC5" as AnyObject])
     }
