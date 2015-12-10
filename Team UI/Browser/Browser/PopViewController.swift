@@ -31,7 +31,7 @@ class PopViewController : UIViewController{
         let request = NSURLRequest(URL: requesturl!)
 
         sechHeadline.text = headLine
-            sechText.text = jsonText
+            //sechText.text = jsonText
         sechWebView.loadRequest(request)
     }
     

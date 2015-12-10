@@ -12,10 +12,26 @@ class RegexForSech {
     
     func findSechTags(inString string : String) -> [String]{
         
-        let pattern = "<sech([a-z0-9]*)\\b[^>]*>"
+        let pattern = "</?sech([a-z0-9äöüÄÖÜ]*)\\b[^>]*>"
         let regex = makeRegEx(withPattern: pattern)
         return getStringArrayWithRegex(string, regex: regex)
 
+    }
+    
+    func isSechSectionClosing(inString string : String) -> Bool {
+        
+        let pattern = "</sech-section"
+        let regex = makeRegEx(withPattern: pattern)
+        let range = NSMakeRange(0, string.characters.count)
+        return regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil
+    }
+    
+    func isSechLinkClosing(inString string : String) -> Bool {
+        
+        let pattern = "</sech-link"
+        let regex = makeRegEx(withPattern: pattern)
+        let range = NSMakeRange(0, string.characters.count)
+        return regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil
     }
     
     func isSechSection(inString string : String) -> Bool {

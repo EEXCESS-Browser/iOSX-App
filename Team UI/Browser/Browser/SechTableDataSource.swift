@@ -28,12 +28,12 @@ class SechTableDataSource : NSObject, UITableViewDataSource{
         return cell
     }
     
-    func makeLabels(sechs : [String : Sech]){
+    func makeLabels(sechs : [SEACHModel]){
         
         sechTags = []
         
         for item in sechs{
-            sechTags.append(item.0)
+            sechTags.append(item.id)
         }
         
         

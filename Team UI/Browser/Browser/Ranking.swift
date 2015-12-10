@@ -10,11 +10,11 @@ import Foundation
 
 class Ranking {
     
-    let sechArray: [String: Sech]
+    //let sechArray: [String: Sech]
     
-    init(sechArray: [String: Sech]){
-        self.sechArray = sechArray
-    }
+//    init(sechArray: [String: Sech]){
+//        self.sechArray = sechArray
+//    }
     
     private func calculateValueOfEachRule(){
         

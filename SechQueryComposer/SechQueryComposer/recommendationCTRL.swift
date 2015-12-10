@@ -75,8 +75,14 @@ class RecommendationJSON {
             if (keywordInfo.kw.count > 2) {
                 newEntry["isMainTopic"] = (keywordInfo.mainTopicIndex! == i)
             }
+            
+            
+            
             allKWS.append(newEntry)
         }
+        
+        
+        
         jsonObject["contextKeywords"] = allKWS
     }
     

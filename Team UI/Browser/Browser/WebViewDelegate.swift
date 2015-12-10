@@ -44,27 +44,39 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
         print("SechlinkIDs:")
         
         for item in sech{
-            print(item.0)
+            print(item.id)
         }
         //-> !
         // Put call for Request of EEXCESS here!
         
-        let finishMethod = ({(msg:String,data:SechPage) -> () in
+        let setRecommendations = ({(msg:String,data:[EEXCESSAllResponses]) -> () in
             print(msg)
             // TODO: To be redesigned! 6
             let ds = self.viewCtrl.tableViewDataSource
-            ds.makeLabels(data.sechs)
-            for sech in data.sechs{
-                print("\n\(sech.0)\n\(data.responses[sech.0])")/*sech.1.getFirstSingleResponseObject()?.getString()*/
+            ds.makeLabels(sech)
+            for seach in data{
+                print("\n\(seach)\n\(seach.responses[0])")/*sech.1.getFirstSingleResponseObject()?.getString()*/
             }
             // TODO: To be redesigned! 8
             self.viewCtrl.tableView.reloadData()
-            self.viewCtrl.sechModel.sechpages[self.mURL] = data
+            //self.viewCtrl.sechModel.sechpages[self.mURL] = data
+            
+            for res in data{
+                let responses = res.responses
+                
+                for response in responses{
+                    print(response.uri)
+                }
+                
+            }
+            
+            self.viewCtrl.eexcessAllResponses = data
+            
         })
         
-        let data = SechPage(sechs: sech)
-        let task = TaskManager(finishMethod: finishMethod, data: data)
-        task.delegate(isDetailRequest: false)
+        //let data = SechPage(sechs: sech)
+        let task = TaskCtrl()
+        task.getRecommendations(sech, setRecommendations: setRecommendations)
     }
     
     func webView(webView: UIWebView, didFailLoadWithError error: NSError?) {

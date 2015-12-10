@@ -21,7 +21,7 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     
     let settingsPers = SettingsPersistency()
     var settings = SettingsModel()
-    let sechModel = SechModel()
+    var eexcessAllResponses: [EEXCESSAllResponses]!
     var headLine : String!
     
     
@@ -174,9 +174,9 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
 //                popViewController.jsonText = "NO RESULTS"
 //                popViewController.url = "https://www.google.de/"
 //            }
-            if let response = (sechModel.sechpages[self.myWebViewDelegate.mURL]!.responses[self.headLine])?.first{
-                popViewController.jsonText = response.getString()
-                popViewController.url = response.documentBadge.getURI()
+            if let response = eexcessAllResponses.first?.responses.first?.uri{
+                //popViewController.jsonText = response.getString()
+                popViewController.url = response
             }else{
                 popViewController.jsonText = "NO RESULTS"
                 popViewController.url = "https://www.google.de/?gws_rd=ssl#q=Mein+Name+ist+Hase"

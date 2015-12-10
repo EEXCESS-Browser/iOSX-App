@@ -1,8 +1,8 @@
 //
-//  SechMaker.swift
+//  SechManager.swift
 //  Browser
 //
-//  Created by Brian Mairhörmann on 11.11.15.
+//  Created by Burak Erol on 10.12.15.
 //  Copyright © 2015 SECH-Tag-EEXCESS-Browser. All rights reserved.
 //
 
@@ -11,24 +11,24 @@ import Foundation
 class SechManager {
     private let regex = RegexForSech()
     private let headFilter = Filter()
-    private var sechCollection = [String : Sech]()
+    private var sechCollection = [SEACHModel]()
     
     // TODO: Validation of Filterattributes
     private var validationFilterMediaType = []
     
-    func getSechObjects(htmlHead : String, htmlBody : String) -> [String : Sech] {
+    func getSechObjects(htmlHead : String, htmlBody : String) -> [SEACHModel] {
         
         let sechHead = getSechHead(htmlHead)
         makeSech(sechHead, htmlBody: htmlBody)
         
         let tmpSechCollection = sechCollection
-        sechCollection = [String : Sech]()
+        sechCollection = [SEACHModel]()
         
         return tmpSechCollection
     }
     
-// Private Methods
-// #################################################################################################
+    // Private Methods
+    // #################################################################################################
     private func getSechHead(htmlHead : String) -> Tag{
         
         // Get Head-Sech-Tag
@@ -53,51 +53,47 @@ class SechManager {
         return head
     }
     
-    private func makeSech(head : Tag, htmlBody : String){
+    private func makeSech(head: Tag, htmlBody : String){
         
         let sechBodyArray = regex.findSechTags(inString: htmlBody)
         var tmpSection = Tag()
         var tmpFilter = headFilter
+        var sectionIsAvailable = false
         
-        for(var i=0;i < sechBodyArray.count;i++){
+        for (var i = 0; i < sechBodyArray.count-1; i++){
             
-            //Startpoint for i-Iterator, then proceed to find Links
+            //Check for Closingtags
+            if regex.isSechSectionClosing(inString: sechBodyArray[i]){
+                tmpFilter = headFilter
+                sectionIsAvailable = false
+                continue
+            }
+            if regex.isSechLinkClosing(inString: sechBodyArray[i]){
+                continue
+            }
+            
+            //Check if Element is Section
             if regex.isSechSection(inString: sechBodyArray[i]){
                 tmpSection = makeTagObject(sechBodyArray[i], isMainTopic: false)
                 tmpFilter = setFilter(tmpFilter, newFilter: sechBodyArray[i])
-            }
-            //The Arrayelement is a Link and has no Section
-            if regex.isSechLink(inString: sechBodyArray[i]){
-                tmpFilter = setFilter(tmpFilter, newFilter: sechBodyArray[i])
-                let link = makeTagObject(sechBodyArray[i], isMainTopic: true)
-                makeSechObject(head, section: tmpSection, link: link, filter: tmpFilter)
-                tmpFilter = headFilter
-                tmpSection = Tag()
-            }
-            //Section is last Element in Array
-            if i == sechBodyArray.count-1{
-                tmpFilter = headFilter
-                tmpSection = Tag()
-                return
+                sectionIsAvailable = true
+                continue
             }
             
-            for (var j=i+1;j < sechBodyArray.count;j++){
-                
-                if regex.isSechLink(inString: sechBodyArray[j]){
-                    tmpFilter = setFilter(tmpFilter, newFilter: sechBodyArray[j])
-                    let link = makeTagObject(sechBodyArray[j], isMainTopic: true)
+            // Check if Element is Link
+            if regex.isSechLink(inString: sechBodyArray[i]){
+                if sectionIsAvailable == true{
+                    tmpFilter = setFilter(tmpFilter, newFilter: sechBodyArray[i])
+                    let link = makeTagObject(sechBodyArray[i], isMainTopic: true)
                     makeSechObject(head, section: tmpSection, link: link, filter: tmpFilter)
                 }
-                if regex.isSechSection(inString: sechBodyArray[j]){
-                    tmpFilter = headFilter
-                    tmpSection = Tag()
-                    i = j
-                    break
+                if sectionIsAvailable == false{
+                    tmpFilter = setFilter(headFilter, newFilter: sechBodyArray[i])
+                    let link = makeTagObject(sechBodyArray[i], isMainTopic: true)
+                    makeSechObject(head, section: Tag(), link: link, filter: tmpFilter)
                 }
             }
-            
         }
-        
     }
     
     private func makeTagObject(tagText : String, isMainTopic : Bool) -> Tag{
@@ -133,37 +129,12 @@ class SechManager {
     }
     
     private func makeSechObject(head : Tag, section : Tag, link : Tag, filter : Filter){
-        let sechObject = Sech()
+        let sechObject = SEACHModel()
         
         sechObject.tags = ["head" : head, "section" : section, "link" : link]
         sechObject.filters = filter
         sechObject.id = (sechObject.tags["link"]?.topic)!
         
-        sechCollection[sechObject.id] = sechObject
+        sechCollection.append(sechObject)
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
