@@ -7,10 +7,26 @@
 //
 
 import UIKit
+import WebKit
 
-class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate, UITableViewDelegate, BackDelegate
+class ViewController: UIViewController ,  UIPopoverPresentationControllerDelegate, UITableViewDelegate, BackDelegate
 {
-    let myWebViewDelegate = WebViewDelegate()
+    
+    var myWebView: WKWebView?
+    
+//    override func loadView() {
+//        super.loadView()
+//        
+//        self.myWebView = WKWebView(frame: containerView.bounds)
+//        containerView.addSubview(myWebView!)
+//        
+//
+//        
+//        
+//    }
+    
+    
+    var myWebViewDelegate : WebViewDelegate!
     let myAdressBar: AddressBar = AddressBar()
 
     let p : DataObjectPersistency = DataObjectPersistency()
@@ -29,25 +45,55 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var addressBarTxt: UITextField!
     @IBOutlet weak var reloadButton: UIBarButtonItem!
-    @IBOutlet weak var myWebView: UIWebView!
+//    @IBOutlet weak var myWebView: UIWebView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    
+    @IBOutlet weak var containerView: UIView! = nil
+    
     
     var favourites = [FavouritesModel]()
     
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        myWebViewDelegate = WebViewDelegate()
         myWebViewDelegate.viewCtrl = self
-        myWebView.delegate = myWebViewDelegate
+       
         activityIndicator.hidden = true
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
         tableView.dataSource = tableViewDataSource
         
+        
+        
         //p = DataObjectPersistency()
         settings = settingsPers.loadDataObject()
+        
+
+        
+      
+        
+        print(myWebView?.bounds)
+        
     }
+    
+    override func viewDidAppear(animated: Bool) {
+        
+        self.myWebView = WKWebView(frame: containerView.bounds)
+        containerView.addSubview(myWebView!)
+         myWebView?.navigationDelegate = myWebViewDelegate
+        
+        
+        
+//        let width = containerView.frame.width
+//        let height = containerView.frame.height
+//        myWebView?.bounds = containerView.bounds
+        
+    }
+    
+    
     
     override func viewWillAppear(animated: Bool)
     {
@@ -85,8 +131,8 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
 
         let url = NSURL(string: requestURL)
         let request = NSURLRequest (URL: url!)
-        myWebView.loadRequest(request)
-        myWebView.scalesPageToFit = true
+        myWebView?.loadRequest(request)
+
     }
     
     //Adressbar Ende
@@ -192,17 +238,17 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     
     @IBAction func reloadButton(sender: AnyObject)
     {
-         myWebView.reload()
+         myWebView!.reload()
     }
     
     @IBAction func forwardButton(sender: AnyObject)
     {
-        myWebView.goForward()
+        myWebView!.goForward()
     }
 
     @IBAction func backButton(sender: AnyObject)
     {
-        myWebView.goBack()
+        myWebView!.goBack()
     }
 
     @IBAction func doPopover(sender: AnyObject) {
