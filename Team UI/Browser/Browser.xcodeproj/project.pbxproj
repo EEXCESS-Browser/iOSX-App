@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12BB70F11BFC907A0073A55D /* JSONManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB70F01BFC907A0073A55D /* JSONManager.swift */; };
-		12BB70F71BFC91540073A55D /* JSONObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB70F61BFC91540073A55D /* JSONObject.swift */; };
 		12BB70F91BFC9DA30073A55D /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB70F81BFC9DA30073A55D /* SettingsManager.swift */; };
 		187387311BE61DE000EDDC31 /* FavouriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187387301BE61DE000EDDC31 /* FavouriteTableViewController.swift */; };
 		187387531BE64CA400EDDC31 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187387521BE64CA400EDDC31 /* FavouriteCell.swift */; };
@@ -61,8 +59,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		12BB70F01BFC907A0073A55D /* JSONManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONManager.swift; sourceTree = "<group>"; };
-		12BB70F61BFC91540073A55D /* JSONObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSONObject.swift; sourceTree = "<group>"; };
 		12BB70F81BFC9DA30073A55D /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		187387301BE61DE000EDDC31 /* FavouriteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewController.swift; sourceTree = "<group>"; };
 		187387521BE64CA400EDDC31 /* FavouriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
@@ -128,61 +124,11 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		1212A5951C133FCA00C4D642 /* Response */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Response;
-			sourceTree = "<group>";
-		};
-		1212A5961C133FFD00C4D642 /* Sech */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Sech;
-			sourceTree = "<group>";
-		};
-		1212A59B1C134D6900C4D642 /* Sech */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Sech;
-			sourceTree = "<group>";
-		};
 		129408771BFF1F3F004CEA15 /* Query */ = {
 			isa = PBXGroup;
 			children = (
 			);
 			name = Query;
-			sourceTree = "<group>";
-		};
-		129408781BFF1F4C004CEA15 /* Connection */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Connection;
-			sourceTree = "<group>";
-		};
-		50F080B11C19BA82009F9FEE /* New Model */ = {
-			isa = PBXGroup;
-			children = (
-				50F080B91C19BECC009F9FEE /* EexcessData */,
-				50F080B81C19BEAB009F9FEE /* SEACHData */,
-				50F080B71C19BE97009F9FEE /* JSONData */,
-			);
-			name = "New Model";
-			sourceTree = "<group>";
-		};
-		50F080B21C19BA98009F9FEE /* New Controller */ = {
-			isa = PBXGroup;
-			children = (
-				50F080BC1C19BF2E009F9FEE /* ConnectionCtrl.swift */,
-				50F080BE1C19BF4A009F9FEE /* EEXCESSQueryCtrl.swift */,
-				50F080C01C19BF6C009F9FEE /* EEXCESSRecommendationCtrl.swift */,
-				50F080C21C19BF87009F9FEE /* TaskCtrl.swift */,
-				50F080C61C19C6BE009F9FEE /* EEXCESSRecommendationJSONCtrl.swift */,
-			);
-			name = "New Controller";
 			sourceTree = "<group>";
 		};
 		50F080B71C19BE97009F9FEE /* JSONData */ = {
@@ -204,9 +150,11 @@
 		50F080B91C19BECC009F9FEE /* EexcessData */ = {
 			isa = PBXGroup;
 			children = (
+				50F080B81C19BEAB009F9FEE /* SEACHData */,
 				50F080BA1C19BEE5009F9FEE /* EEXCESSSingleResponse.swift */,
 				50F080C41C19C24D009F9FEE /* EEXCESSAllResponses.swift */,
 				50F080C81C19C909009F9FEE /* EEXCESSOrigin.swift */,
+				50F080B71C19BE97009F9FEE /* JSONData */,
 			);
 			name = EexcessData;
 			sourceTree = "<group>";
@@ -263,14 +211,6 @@
 			path = BrowserUITests;
 			sourceTree = "<group>";
 		};
-		964CE9E21C0C53C6006419D5 /* JSON */ = {
-			isa = PBXGroup;
-			children = (
-				12BB70F61BFC91540073A55D /* JSONObject.swift */,
-			);
-			name = JSON;
-			sourceTree = "<group>";
-		};
 		964CE9E31C0C53DC006419D5 /* Persistence */ = {
 			isa = PBXGroup;
 			children = (
@@ -311,8 +251,11 @@
 		FEB9DC411BFC8D0D00EB1729 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				50F080B21C19BA98009F9FEE /* New Controller */,
-				12BB70F01BFC907A0073A55D /* JSONManager.swift */,
+				50F080BC1C19BF2E009F9FEE /* ConnectionCtrl.swift */,
+				50F080BE1C19BF4A009F9FEE /* EEXCESSQueryCtrl.swift */,
+				50F080C01C19BF6C009F9FEE /* EEXCESSRecommendationCtrl.swift */,
+				50F080C21C19BF87009F9FEE /* TaskCtrl.swift */,
+				50F080C61C19C6BE009F9FEE /* EEXCESSRecommendationJSONCtrl.swift */,
 				964CE9E31C0C53DC006419D5 /* Persistence */,
 				96F405701C03356A0013E66F /* Ranking */,
 				FEB9DC471BFC8E8100EB1729 /* Toolbar */,
@@ -324,10 +267,8 @@
 		FEB9DC421BFC8D1900EB1729 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				50F080B11C19BA82009F9FEE /* New Model */,
-				1212A59B1C134D6900C4D642 /* Sech */,
+				50F080B91C19BECC009F9FEE /* EexcessData */,
 				964CE9E41C0C5461006419D5 /* Persistence */,
-				964CE9E21C0C53C6006419D5 /* JSON */,
 				8DA1FB551BF5E44700732F5E /* SettingsModel.swift */,
 			);
 			name = Model;
@@ -364,9 +305,6 @@
 		FEB9DC461BFC8E1A00EB1729 /* Manager */ = {
 			isa = PBXGroup;
 			children = (
-				1212A5961C133FFD00C4D642 /* Sech */,
-				1212A5951C133FCA00C4D642 /* Response */,
-				129408781BFF1F4C004CEA15 /* Connection */,
 				129408771BFF1F3F004CEA15 /* Query */,
 				FE14E3B11BE9F860008FC4ED /* HtmlManager.swift */,
 				12BB70F81BFC9DA30073A55D /* SettingsManager.swift */,
@@ -522,7 +460,6 @@
 			files = (
 				FEFDD4EF1BFCE6FE005C95EC /* SechTableDataSource.swift in Sources */,
 				8D43CB4F1BCE689E00EEBB7B /* ViewController.swift in Sources */,
-				12BB70F11BFC907A0073A55D /* JSONManager.swift in Sources */,
 				FE14E3B21BE9F860008FC4ED /* HtmlManager.swift in Sources */,
 				50F080C71C19C6BE009F9FEE /* EEXCESSRecommendationJSONCtrl.swift in Sources */,
 				A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */,
@@ -545,7 +482,6 @@
 				964CE9E81C0C553E006419D5 /* PersistenceController.swift in Sources */,
 				50F080BF1C19BF4A009F9FEE /* EEXCESSQueryCtrl.swift in Sources */,
 				50F080BD1C19BF2E009F9FEE /* ConnectionCtrl.swift in Sources */,
-				12BB70F71BFC91540073A55D /* JSONObject.swift in Sources */,
 				50F080C51C19C24D009F9FEE /* EEXCESSAllResponses.swift in Sources */,
 				8DA1FB561BF5E44700732F5E /* SettingsModel.swift in Sources */,
 				50F080C31C19BF87009F9FEE /* TaskCtrl.swift in Sources */,
