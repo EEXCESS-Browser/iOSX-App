@@ -51,8 +51,10 @@ class EEXCESSRecommendationCtrl {
                 let u = (res.object!["documentBadge"]?["uri"]?.string)!
                 let p = (res.object!["documentBadge"]?["provider"]?.string)!
                 let t = (res.object!["title"]?.string!)!
+                let l = (res.object!["language"]?.string)!
+                let m = (res.object!["mediaType"]?.string)!
                 
-                let newRecommendation = EEXCESSSingleResponse(title: t, provider: p, uri: u)
+                let newRecommendation = EEXCESSSingleResponse(title: t, provider: p, uri: u, language: l, mediaType: m)
                 allResponses.appendSingleResponse(newRecommendation)
             }
             

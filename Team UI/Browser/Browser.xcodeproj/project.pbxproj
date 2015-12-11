@@ -22,6 +22,8 @@
 		50F080C71C19C6BE009F9FEE /* EEXCESSRecommendationJSONCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F080C61C19C6BE009F9FEE /* EEXCESSRecommendationJSONCtrl.swift */; };
 		50F080C91C19C909009F9FEE /* EEXCESSOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F080C81C19C909009F9FEE /* EEXCESSOrigin.swift */; };
 		50F080CB1C19D8C7009F9FEE /* SechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F080CA1C19D8C7009F9FEE /* SechManager.swift */; };
+		50F080CD1C1AD5F0009F9FEE /* RankingDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F080CC1C1AD5F0009F9FEE /* RankingDataObject.swift */; };
+		50F080CF1C1AD618009F9FEE /* RankingDataObjectPersistency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50F080CE1C1AD618009F9FEE /* RankingDataObjectPersistency.swift */; };
 		8D07B7941BD0F79A00031D8B /* WebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D07B7931BD0F79A00031D8B /* WebViewDelegate.swift */; };
 		8D1385FD1BF3623D009E5F46 /* AdressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1385FC1BF3623D009E5F46 /* AdressBar.swift */; };
 		8D1386021BF381DE009E5F46 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1386011BF381DE009E5F46 /* SettingsController.swift */; };
@@ -34,7 +36,6 @@
 		8D43CB6D1BCE689F00EEBB7B /* BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB6C1BCE689F00EEBB7B /* BrowserUITests.swift */; };
 		8DA1FB561BF5E44700732F5E /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA1FB551BF5E44700732F5E /* SettingsModel.swift */; };
 		964CE9E81C0C553E006419D5 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CE9E71C0C553E006419D5 /* PersistenceController.swift */; };
-		96F405721C0335820013E66F /* Ranking.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F405711C0335820013E66F /* Ranking.swift */; };
 		96F405741C0335B50013E66F /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F405731C0335B50013E66F /* Rules.swift */; };
 		A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F615751BEA37CF003A3878 /* PopViewController.swift */; };
 		FE14E3B21BE9F860008FC4ED /* HtmlManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = FE14E3B11BE9F860008FC4ED /* HtmlManager.swift */; };
@@ -74,6 +75,8 @@
 		50F080C61C19C6BE009F9FEE /* EEXCESSRecommendationJSONCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EEXCESSRecommendationJSONCtrl.swift; sourceTree = "<group>"; };
 		50F080C81C19C909009F9FEE /* EEXCESSOrigin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EEXCESSOrigin.swift; sourceTree = "<group>"; };
 		50F080CA1C19D8C7009F9FEE /* SechManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SechManager.swift; sourceTree = "<group>"; };
+		50F080CC1C1AD5F0009F9FEE /* RankingDataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingDataObject.swift; sourceTree = "<group>"; };
+		50F080CE1C1AD618009F9FEE /* RankingDataObjectPersistency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingDataObjectPersistency.swift; sourceTree = "<group>"; };
 		8D07B7931BD0F79A00031D8B /* WebViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewDelegate.swift; sourceTree = "<group>"; };
 		8D1385FC1BF3623D009E5F46 /* AdressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdressBar.swift; sourceTree = "<group>"; };
 		8D1386011BF381DE009E5F46 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -92,7 +95,6 @@
 		8D43CB6E1BCE689F00EEBB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DA1FB551BF5E44700732F5E /* SettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
 		964CE9E71C0C553E006419D5 /* PersistenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
-		96F405711C0335820013E66F /* Ranking.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Ranking.swift; sourceTree = "<group>"; };
 		96F405731C0335B50013E66F /* Rules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rules.swift; sourceTree = "<group>"; };
 		A9F615751BEA37CF003A3878 /* PopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
 		FE14E3B11BE9F860008FC4ED /* HtmlManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HtmlManager.swift; sourceTree = "<group>"; };
@@ -211,12 +213,14 @@
 			path = BrowserUITests;
 			sourceTree = "<group>";
 		};
-		964CE9E31C0C53DC006419D5 /* Persistence */ = {
+		964CE9E31C0C53DC006419D5 /* RankingPersistence */ = {
 			isa = PBXGroup;
 			children = (
 				964CE9E71C0C553E006419D5 /* PersistenceController.swift */,
+				50F080CC1C1AD5F0009F9FEE /* RankingDataObject.swift */,
+				50F080CE1C1AD618009F9FEE /* RankingDataObjectPersistency.swift */,
 			);
-			name = Persistence;
+			name = RankingPersistence;
 			sourceTree = "<group>";
 		};
 		964CE9E41C0C5461006419D5 /* Persistence */ = {
@@ -230,7 +234,7 @@
 		96F405701C03356A0013E66F /* Ranking */ = {
 			isa = PBXGroup;
 			children = (
-				96F405711C0335820013E66F /* Ranking.swift */,
+				964CE9E31C0C53DC006419D5 /* RankingPersistence */,
 				96F405731C0335B50013E66F /* Rules.swift */,
 			);
 			name = Ranking;
@@ -256,7 +260,6 @@
 				50F080C01C19BF6C009F9FEE /* EEXCESSRecommendationCtrl.swift */,
 				50F080C21C19BF87009F9FEE /* TaskCtrl.swift */,
 				50F080C61C19C6BE009F9FEE /* EEXCESSRecommendationJSONCtrl.swift */,
-				964CE9E31C0C53DC006419D5 /* Persistence */,
 				96F405701C03356A0013E66F /* Ranking */,
 				FEB9DC471BFC8E8100EB1729 /* Toolbar */,
 				FEB9DC461BFC8E1A00EB1729 /* Manager */,
@@ -470,9 +473,10 @@
 				50F080CB1C19D8C7009F9FEE /* SechManager.swift in Sources */,
 				50F080B61C19BE11009F9FEE /* SEACHModel.swift in Sources */,
 				50F080BB1C19BEE5009F9FEE /* EEXCESSSingleResponse.swift in Sources */,
+				50F080CF1C1AD618009F9FEE /* RankingDataObjectPersistency.swift in Sources */,
 				50F080B41C19BAF7009F9FEE /* JSONData.swift in Sources */,
+				50F080CD1C1AD5F0009F9FEE /* RankingDataObject.swift in Sources */,
 				8D43CB4D1BCE689E00EEBB7B /* AppDelegate.swift in Sources */,
-				96F405721C0335820013E66F /* Ranking.swift in Sources */,
 				8D07B7941BD0F79A00031D8B /* WebViewDelegate.swift in Sources */,
 				96F405741C0335B50013E66F /* Rules.swift in Sources */,
 				1875A0471BE4D58C00DD94CD /* FavouritesModel.swift in Sources */,

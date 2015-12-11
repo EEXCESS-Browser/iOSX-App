@@ -47,6 +47,8 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
         
         //p = DataObjectPersistency()
         settings = settingsPers.loadDataObject()
+        
+        //Test()
     }
     
     override func viewWillAppear(animated: Bool)
