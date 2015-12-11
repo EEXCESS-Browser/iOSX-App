@@ -54,6 +54,9 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
                 
                 print("Sechlinks found: \(sech.count)")
                 print("SechlinkIDs:")
+                    
+                self.viewCtrl.countSechsLabel.hidden = false
+                self.viewCtrl.countSechsLabel.text = "\(sech.count)"
                 
                 for item in sech{
                     print(item.0)
