@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController ,  UIPopoverPresentationControllerDelegate, UITableViewDelegate, BackDelegate
+class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresentationControllerDelegate, UITableViewDelegate, BackDelegate
 {
     
     var myWebView: WKWebView?
@@ -70,8 +70,19 @@ class ViewController: UIViewController ,  UIPopoverPresentationControllerDelegat
         
         //p = DataObjectPersistency()
         settings = settingsPers.loadDataObject()
+        
+        
+        
+        let config = WKWebViewConfiguration()
+        let scriptURL = NSBundle.mainBundle().pathForResource("main", ofType: "js")
+        let scriptContent = try! String( contentsOfFile: scriptURL!, encoding:NSUTF8StringEncoding)
+        let script = WKUserScript(source: scriptContent, injectionTime: .AtDocumentStart, forMainFrameOnly: true)
+        config.userContentController.addUserScript(script)
+        
+        config.userContentController.addScriptMessageHandler(self, name: "onclick")
+        
         //Constrains erzeugen
-        self.myWebView = WKWebView(frame: containerView.bounds)
+        self.myWebView = WKWebView(frame: containerView.bounds , configuration: config)
         
         tableView.hidden = true
         sechWidthConstraint.constant = 0
@@ -333,6 +344,17 @@ class ViewController: UIViewController ,  UIPopoverPresentationControllerDelegat
         
         return indexPath
     }
+    
+    func userContentController(userContentController: WKUserContentController,
+        didReceiveScriptMessage message: WKScriptMessage) {
+            print("JavaScript is sending a message \(message.body)")
+            self.headLine = message.body as! String
+            performSegueWithIdentifier("showPopView", sender: self)
+            
+            
+            
+    }
+
     
 
 }
