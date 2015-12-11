@@ -28,6 +28,7 @@ class SettingsModel : NSObject, NSCoding{
     }
     
     override init(){
+//        self.homeURL = "http://sech.vonrecum.de"
         self.homeURL = "http://grassandstones.at/sech-test"
         self.age = 0
         self.gender = "Geschlecht"

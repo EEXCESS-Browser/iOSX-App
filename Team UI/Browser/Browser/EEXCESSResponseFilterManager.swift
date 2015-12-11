@@ -24,7 +24,7 @@ class EEXCESSResponseFilterManager:AbstractResponseFilterManager {
                     let str2 = sech.1.tags["link"]!.topic
                     if singleResult.getString("generatingQuery")?.rangeOfString((sech.1.tags["link"]!.topic)) != nil {
                         array.append(Response(result: singleResult))
-                        print("\nFound:\n\(singleResult.convertToString())in \(str2)")
+                      //  print("\nFound:\n\(singleResult.convertToString())in \(str2)")
                     }
                 }
             }

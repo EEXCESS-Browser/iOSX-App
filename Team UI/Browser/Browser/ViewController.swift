@@ -9,7 +9,7 @@
 import UIKit
 import WebKit
 
-class ViewController: UIViewController ,  UIPopoverPresentationControllerDelegate, UITableViewDelegate, BackDelegate
+class ViewController: UIViewController , WKScriptMessageHandler,  UIPopoverPresentationControllerDelegate, UITableViewDelegate, BackDelegate
 {
     
     var myWebView: WKWebView?
@@ -73,25 +73,42 @@ class ViewController: UIViewController ,  UIPopoverPresentationControllerDelegat
         
 
         
+        let config = WKWebViewConfiguration()
+        let scriptURL = NSBundle.mainBundle().pathForResource("main", ofType: "js")
+        let scriptContent = try! String( contentsOfFile: scriptURL!, encoding:NSUTF8StringEncoding)
+        let script = WKUserScript(source: scriptContent, injectionTime: .AtDocumentStart, forMainFrameOnly: true)
+        config.userContentController.addUserScript(script)
+
+        config.userContentController.addScriptMessageHandler(self, name: "onclick")
+
       
         
-        print(myWebView?.bounds)
+        self.myWebView = WKWebView(frame: containerView.bounds, configuration: config)
         
     }
     
+    
+    
     override func viewDidAppear(animated: Bool) {
-        
-        self.myWebView = WKWebView(frame: containerView.bounds)
+
         containerView.addSubview(myWebView!)
          myWebView?.navigationDelegate = myWebViewDelegate
-        
-        
-        
-//        let width = containerView.frame.width
-//        let height = containerView.frame.height
-//        myWebView?.bounds = containerView.bounds
+
         
     }
+    
+    func buttonClickEventTriggeredScriptToAddToDocument() ->String{
+
+        var script:String?
+        
+        if let filePath:String = NSBundle(forClass: ViewController.self).pathForResource("main", ofType:"js") {
+            
+            script = try? String (contentsOfFile: filePath, encoding: NSUTF8StringEncoding)
+        }
+        return script!;
+        
+    }
+
     
     
     
@@ -209,7 +226,7 @@ class ViewController: UIViewController ,  UIPopoverPresentationControllerDelegat
         {
             let popViewController = segue.destinationViewController as! PopViewController
             popViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
-            print("Segue"+self.headLine)
+            //print("Segue"+self.headLine)
             popViewController.headLine = self.headLine
 //            popViewController.jsonText = SechModel.instance.sechs[self.headLine]?.response.convertToString()
 //            popViewController.url = SechModel.instance.sechs[self.headLine]?.responseObject.documentBadge.uri
@@ -349,6 +366,18 @@ class ViewController: UIViewController ,  UIPopoverPresentationControllerDelegat
 //        
 //  //    print("Sech Tag:   \(sechTags[row]) ")
 //    }
+    
+   
+    func userContentController(userContentController: WKUserContentController,
+        didReceiveScriptMessage message: WKScriptMessage) {
+            print("JavaScript is sending a message \(message.body)")
+            self.headLine = message.body as! String
+            performSegueWithIdentifier("showPopView", sender: self)
+            
+          
+            
+    }
+
     
 }
 
