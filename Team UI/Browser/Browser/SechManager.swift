@@ -17,7 +17,7 @@ class SechManager {
     private var validationFilterMediaType = []
     
     func getSechObjects(htmlHead : String, htmlBody : String) -> [String : Sech] {
-//        print("Geht los: \(htmlBody)")
+        print("Geht los: \(htmlBody)")
         let sechHead = getSechHead(htmlHead)
         makeSech(sechHead, htmlBody: htmlBody)
         

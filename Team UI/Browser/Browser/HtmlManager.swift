@@ -49,7 +49,7 @@ class RegexForSech {
                 let regexAttribute = makeRegEx(withPattern: "(?<=\(attributeName)=\")([a-zA-Z0-9]*)(?=\")")
                 let match = getStringArrayWithRegex(string, regex: regexAttribute)
                 
-                if (match.isEmpty != true){
+                if (match[0].isEmpty != true){
                     attributes[attributeName] = match[0]
                 }
             }else{

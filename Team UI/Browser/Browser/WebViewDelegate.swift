@@ -48,14 +48,15 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
             webView .evaluateJavaScript("document.body.innerHTML", completionHandler: { (object, error) -> Void in
                  if error == nil && object != nil{
                 self.htmlBody = (object as? String)!
-                    
-                    print(self.htmlBody)
                 
                 let sech = self.sechManager.getSechObjects(self.htmlHead, htmlBody: self.htmlBody)
                 
                 
                 print("Sechlinks found: \(sech.count)")
                 print("SechlinkIDs:")
+                    
+                self.viewCtrl.countSechsLabel.hidden = false
+                self.viewCtrl.countSechsLabel.text = "\(sech.count)"
                 
                 for item in sech{
                     print(item.0)
@@ -68,7 +69,9 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
                     // TODO: To be redesigned! 6
                     let ds = self.viewCtrl.tableViewDataSource
                     ds.makeLabels(data.sechs)
-
+                    for sech in data.sechs{
+                        print("\n\(sech.0)\n\(data.responses[sech.0])")/*sech.1.getFirstSingleResponseObject()?.getString()*/
+                    }
                     // TODO: To be redesigned! 8
                     self.viewCtrl.tableView.reloadData()
                     self.viewCtrl.sechModel.sechpages[self.mURL] = data
