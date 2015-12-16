@@ -49,28 +49,26 @@ class WebViewDelegate: NSObject, UIWebViewDelegate {
         //-> !
         // Put call for Request of EEXCESS here!
         
-        let setRecommendations = ({(msg:String,data:[EEXCESSAllResponses]) -> () in
+        let setRecommendations = ({(msg:String, data:[EEXCESSAllResponses]?) -> () in
             print(msg)
             // TODO: To be redesigned! 6
             let ds = self.viewCtrl.tableViewDataSource
             ds.makeLabels(sech)
-            for seach in data{
-                print("\n\(seach)\n\(seach.responses[0])")/*sech.1.getFirstSingleResponseObject()?.getString()*/
+
+            if(data != nil){
+                self.viewCtrl.eexcessAllResponses = data
+            }else{
+                self.viewCtrl.eexcessAllResponses = []
             }
+            
+            
+            
             // TODO: To be redesigned! 8
             self.viewCtrl.tableView.reloadData()
             //self.viewCtrl.sechModel.sechpages[self.mURL] = data
+
+      
             
-            for res in data{
-                let responses = res.responses
-                
-                for response in responses{
-                    print(response.uri)
-                }
-                
-            }
-            
-            self.viewCtrl.eexcessAllResponses = data
             
         })
         

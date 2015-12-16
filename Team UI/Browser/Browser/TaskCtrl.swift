@@ -12,7 +12,7 @@ class TaskCtrl {
     
      let QUERY_URL: String = "https://eexcess-dev.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer/recommend"
     
-    func getRecommendations(seachData:[SEACHModel], setRecommendations: (message: String, recommendationData: [EEXCESSAllResponses]) -> Void)
+    func getRecommendations(seachData:[SEACHModel], setRecommendations: (message: String, recommendationData: [EEXCESSAllResponses]?) -> Void)
     {
         let c = JSONConnectionCtrl()
         let rec = EEXCESSRecommendationJSONCtrl(seachData: seachData)
@@ -25,14 +25,15 @@ class TaskCtrl {
                     print ("Versagen 1")
                     return
                 }
-                let recomms = recommJson.recommendations
+                let recomms: [EEXCESSAllResponses]? = recommJson.recommendations
                 
-                setRecommendations(message: "SUCCEDED", recommendationData: recomms!)
+                
+                setRecommendations(message: "SUCCEDED", recommendationData: recomms)
 
-                for i in recomms!
-                {
-                    print ("\(i)")
-                }
+//                for i in recomms
+//                {
+//                    print ("\(i)")
+//                }
             }
             else {
                 print("Versagen 2")

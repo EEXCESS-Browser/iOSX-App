@@ -9,7 +9,7 @@
 import Foundation
 
 protocol Rule{
-    var weighting: Double {get}
+    var weighting: Double {get set}
     var classId: String {get}
     func applyRule(parameters: String)->RuleMatch
 }
@@ -90,11 +90,7 @@ class Rules {
         }
     }
     
-    private func sortResponses(){
-        
-        
-        
-    }
+
 }
 
 
@@ -172,15 +168,22 @@ class Mendeley: Rule {
 
 }
 
-struct Other {
-    
-    //init later
-    var weigting: Double
-    
-    func isRuleFulfilled(title: String)->RuleMatch{
-        return RuleMatch.NoMatch
-    }
-}
+//class Image: Rule{
+//    var weighting: Double {
+//        get{
+//            return self.weighting
+//        }
+//        set (value){
+//            self.weighting = value
+//        }
+//    }
+//    
+//    var classId: String = "Image"
+//    func applyRule(parameters: String)->RuleMatch{
+//        return (
+//    }
+//    
+//}
 
 //<Special Parameters> ---------------------------------------------------------------------------------------------------
 
