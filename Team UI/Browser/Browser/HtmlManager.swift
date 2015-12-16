@@ -12,7 +12,7 @@ class RegexForSech {
     
     func findSechTags(inString string : String) -> [String]{
         
-        let pattern = "</?sech([a-z0-9äöüÄÖÜ]*)\\b[^>]*>"
+        let pattern = "</?search([a-z0-9äöüÄÖÜ]*)\\b[^>]*>"
         let regex = makeRegEx(withPattern: pattern)
         return getStringArrayWithRegex(string, regex: regex)
 
@@ -20,7 +20,7 @@ class RegexForSech {
     
     func isSechSectionClosing(inString string : String) -> Bool {
         
-        let pattern = "</sech-section"
+        let pattern = "</search-section"
         let regex = makeRegEx(withPattern: pattern)
         let range = NSMakeRange(0, string.characters.count)
         return regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil
@@ -28,7 +28,7 @@ class RegexForSech {
     
     func isSechLinkClosing(inString string : String) -> Bool {
         
-        let pattern = "</sech-link"
+        let pattern = "</search-link"
         let regex = makeRegEx(withPattern: pattern)
         let range = NSMakeRange(0, string.characters.count)
         return regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil
@@ -36,7 +36,7 @@ class RegexForSech {
     
     func isSechSection(inString string : String) -> Bool {
         
-        let pattern = "<sech-section"
+        let pattern = "<search-section"
         let regex = makeRegEx(withPattern: pattern)
         let range = NSMakeRange(0, string.characters.count)
         return regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil
@@ -44,7 +44,7 @@ class RegexForSech {
     
     func isSechLink(inString string : String) -> Bool {
         
-        let pattern = "<sech-link"
+        let pattern = "<search-link"
         let regex = makeRegEx(withPattern: pattern)
         let range = NSMakeRange(0, string.characters.count)
         return regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil
