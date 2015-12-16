@@ -14,7 +14,7 @@ class TaskCtrl {
     
     func getRecommendations(seachData:[SEACHModel], setRecommendations: (message: String, recommendationData: [EEXCESSAllResponses]) -> Void)
     {
-        let c = ConnectionCtrl()
+        let c = JSONConnectionCtrl()
         let rec = EEXCESSRecommendationJSONCtrl(seachData: seachData)
         //let url = Preferences().url + "/recommend"
         
