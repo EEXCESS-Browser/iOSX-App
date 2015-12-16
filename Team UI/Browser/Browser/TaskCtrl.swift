@@ -29,6 +29,9 @@ class TaskCtrl {
                 
                 
                 setRecommendations(message: "SUCCEDED", recommendationData: recomms)
+                
+                var sm = SettingsManager()
+                sm.getPreferencesValues()
 
 //                for i in recomms
 //                {

@@ -40,17 +40,18 @@ class EEXCESSRecommendationJSONCtrl {
         {
             var newEntry : [[String : AnyObject]] = [[:], [:], [:]]
             
+            
             newEntry[0]["text"] = seachData[i].tags["link"]?.topic
             newEntry[0]["isMainTopic"] = seachData[i].tags["link"]?.isMainTopic
             newEntry[0]["type"] = seachData[i].tags["link"]?.type
             
-            newEntry[1]["text"] = seachData[i].tags["link"]?.topic
-            newEntry[1]["isMainTopic"] = seachData[i].tags["link"]?.isMainTopic
-            newEntry[1]["type"] = seachData[i].tags["link"]?.type
+            newEntry[1]["text"] = seachData[i].tags["section"]?.topic
+            newEntry[1]["isMainTopic"] = seachData[i].tags["section"]?.isMainTopic
+            newEntry[1]["type"] = seachData[i].tags["section"]?.type
             
-            newEntry[2]["text"] = seachData[i].tags["link"]?.topic
-            newEntry[2]["isMainTopic"] = seachData[i].tags["link"]?.isMainTopic
-            newEntry[2]["type"] = seachData[i].tags["link"]?.type
+            newEntry[2]["text"] = seachData[i].tags["head"]?.topic
+            newEntry[2]["isMainTopic"] = seachData[i].tags["head"]?.isMainTopic
+            newEntry[2]["type"] = seachData[i].tags["head"]?.type
 
             allKWS.append(newEntry)
         }

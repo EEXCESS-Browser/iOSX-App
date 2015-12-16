@@ -35,6 +35,7 @@
 		8D43CB621BCE689F00EEBB7B /* BrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB611BCE689F00EEBB7B /* BrowserTests.swift */; };
 		8D43CB6D1BCE689F00EEBB7B /* BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB6C1BCE689F00EEBB7B /* BrowserUITests.swift */; };
 		8DA1FB561BF5E44700732F5E /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA1FB551BF5E44700732F5E /* SettingsModel.swift */; };
+		961531D61C21852A0013D3F1 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 961531D51C21852A0013D3F1 /* Settings.bundle */; settings = {ASSET_TAGS = (); }; };
 		964CE9E81C0C553E006419D5 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 964CE9E71C0C553E006419D5 /* PersistenceController.swift */; };
 		96F405741C0335B50013E66F /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F405731C0335B50013E66F /* Rules.swift */; };
 		A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F615751BEA37CF003A3878 /* PopViewController.swift */; };
@@ -94,6 +95,7 @@
 		8D43CB6C1BCE689F00EEBB7B /* BrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserUITests.swift; sourceTree = "<group>"; };
 		8D43CB6E1BCE689F00EEBB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DA1FB551BF5E44700732F5E /* SettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		961531D51C21852A0013D3F1 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		964CE9E71C0C553E006419D5 /* PersistenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		96F405731C0335B50013E66F /* Rules.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Rules.swift; sourceTree = "<group>"; };
 		A9F615751BEA37CF003A3878 /* PopViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PopViewController.swift; sourceTree = "<group>"; };
@@ -164,6 +166,7 @@
 		8D43CB401BCE689D00EEBB7B = {
 			isa = PBXGroup;
 			children = (
+				961531D51C21852A0013D3F1 /* Settings.bundle */,
 				8D43CB4B1BCE689E00EEBB7B /* Browser */,
 				8D43CB601BCE689F00EEBB7B /* BrowserTests */,
 				8D43CB6B1BCE689F00EEBB7B /* BrowserUITests */,
@@ -434,6 +437,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				961531D61C21852A0013D3F1 /* Settings.bundle in Resources */,
 				8D43CB571BCE689E00EEBB7B /* LaunchScreen.storyboard in Resources */,
 				8D43CB541BCE689E00EEBB7B /* Assets.xcassets in Resources */,
 				8D43CB521BCE689E00EEBB7B /* Main.storyboard in Resources */,

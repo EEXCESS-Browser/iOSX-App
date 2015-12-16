@@ -7,3 +7,11 @@
 //
 
 import Foundation
+
+class SettingsManager {
+    
+    func getPreferencesValues(){
+        let a = NSUserDefaults.standardUserDefaults().floatForKey("slider_preference")
+        print("slider_preference: \(a)")
+    }
+}
