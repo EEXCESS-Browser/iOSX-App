@@ -1,6 +1,6 @@
 
 window.onload = function() {    
-    var elements = document.getElementsByTagName("sech-link");
+    var elements = document.getElementsByTagName("search-link");
     for (var i=0; i<elements.length;i++){
         elements[i].style.color = "Red";
         elements[i].addEventListener("click", function(){
