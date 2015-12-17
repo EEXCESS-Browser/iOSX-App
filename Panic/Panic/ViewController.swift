@@ -13,9 +13,9 @@ class ViewController: UIViewController {
 
     var synthesizer : AVSpeechSynthesizer!
     var lastPanic = -1
-    let panicInfo = ["Panic begins in 3, 2, 1",
+    let panicInfo = ["Panic begins in 3, 2, 1, 0",
                      "Don't Panic!",
-                     "Please prepare yourself to panic in 3, 2, 1",
+                     "Please prepare yourself to panic in 3, 2, 1, 0",
                      "Now panic and freak out!",
                      "Abandon all hope",
                      "Chaos, panic and disorder – my work here is done",
