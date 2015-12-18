@@ -59,27 +59,31 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
                 self.viewCtrl.countSechsLabel.text = "\(sech.count)"
                 
                 for item in sech{
-                    print(item.0)
+                    print(item.id)
                 }
                 //-> !
                 // Put call for Request of EEXCESS here!
                 
-                let finishMethod = ({(msg:String,data:SechPage) -> () in
+                let setRecommendations = ({(msg:String,data:[EEXCESSAllResponses]?) -> () in
                     print(msg)
                     // TODO: To be redesigned! 6
                     let ds = self.viewCtrl.tableViewDataSource
-                    ds.makeLabels(data.sechs)
-                    for sech in data.sechs{
-                        print("\n\(sech.0)\n\(data.responses[sech.0])")/*sech.1.getFirstSingleResponseObject()?.getString()*/
+                    ds.makeLabels(sech)
+                    
+                    if(data != nil){
+                        self.viewCtrl.eexcessAllResponses = data
+                    }else{
+                        self.viewCtrl.eexcessAllResponses = []
                     }
+
                     // TODO: To be redesigned! 8
                     self.viewCtrl.tableView.reloadData()
-                    self.viewCtrl.sechModel.sechpages[self.mURL] = data
+            
                 })
                 
-                let data = SechPage(sechs: sech)
-                let task = TaskManager(finishMethod: finishMethod, data: data)
-                task.delegate(isDetailRequest: false)
+
+                    let task = TaskCtrl()
+                    task.getRecommendations(sech, setRecommendations: setRecommendations)
 
                 
                 }

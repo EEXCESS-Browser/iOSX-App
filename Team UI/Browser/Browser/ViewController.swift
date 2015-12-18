@@ -32,7 +32,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     
     let settingsPers = SettingsPersistency()
     var settings = SettingsModel()
-    let sechModel = SechModel()
+    var eexcessAllResponses: [EEXCESSAllResponses]!
     var headLine : String!
     
     @IBOutlet weak var sechWidthConstraint: NSLayoutConstraint!
@@ -230,9 +230,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
 //                popViewController.jsonText = "NO RESULTS"
 //                popViewController.url = "https://www.google.de/"
 //            }
-            if let response = (sechModel.sechpages[self.myWebViewDelegate.mURL]!.responses[self.headLine])?.first{
-                popViewController.jsonText = response.getString()
-                popViewController.url = response.documentBadge.getURI()
+            if let response = eexcessAllResponses.first?.responses.first?.uri{
+                popViewController.url = response
             }else{
                 popViewController.jsonText = "NO RESULTS"
                 popViewController.url = "https://www.google.de/?gws_rd=ssl#q=Mein+Name+ist+Hase"
