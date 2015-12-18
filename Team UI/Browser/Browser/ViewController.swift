@@ -48,11 +48,13 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     
     var webViewWidth: NSLayoutConstraint!
     var webViewHeight: NSLayoutConstraint!
+    var webViewYpos: NSLayoutConstraint!
+    
     var favourites = [FavouritesModel]()
     
 
     override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-        changeWebViewSize()
+//        changeWebViewSize()
     }
     override func viewDidLoad()
     {
@@ -82,7 +84,22 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         config.userContentController.addScriptMessageHandler(self, name: "onclick")
         
         //Constrains erzeugen
-        self.myWebView = WKWebView(frame: containerView.bounds , configuration: config)
+        self.myWebView = WKWebView(frame: containerView.bounds, configuration: config)
+        
+        // WebView mit Constrains erzeugen
+        //        self.myWebView = WKWebView(frame: CGRectZero)
+        self.containerView.addSubview(myWebView!)
+        myWebView!.translatesAutoresizingMaskIntoConstraints = false // Neu seit iOS 9
+        
+        webViewWidth = NSLayoutConstraint(item: myWebView!, attribute: .Width, relatedBy: .Equal, toItem: containerView, attribute: .Width, multiplier: 1.0, constant: 0.0)
+        
+        webViewHeight = NSLayoutConstraint(item: myWebView!, attribute: .Height, relatedBy: .Equal, toItem: containerView, attribute: .Height, multiplier: 1.0, constant: 0.0)
+        
+        webViewYpos = NSLayoutConstraint(item: myWebView!, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1.0, constant: 64.0)
+        
+        self.view.addConstraint(webViewWidth)
+        self.view.addConstraint(webViewHeight)
+        self.view.addConstraint(webViewYpos)
         
         tableView.hidden = true
         sechWidthConstraint.constant = 0
@@ -97,19 +114,19 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         containerView.addSubview(myWebView!)
         myWebView?.navigationDelegate = myWebViewDelegate
         
-        changeWebViewSize()
+//        changeWebViewSize()
     }
     
-    func changeWebViewSize(){
-        
-        let width = containerView.frame.width
-        let height = containerView.frame.height
-        
-        self.myWebView?.frame.size.width = width
-        self.myWebView?.frame.size.height = height
-        self.view.setNeedsDisplay()
-       
-    }
+//    func changeWebViewSize(){
+//        
+//        let width = containerView.frame.width
+//        let height = containerView.frame.height
+//        
+//        self.myWebView?.frame.size.width = width
+//        self.myWebView?.frame.size.height = height
+//        self.view.setNeedsDisplay()
+//       
+//    }
     
     override func viewWillAppear(animated: Bool)
     {
@@ -275,7 +292,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             countSechAnimation()
             self.tableView.hidden = true
         }
-        changeWebViewSize()
+//        changeWebViewSize()
         }
     
     func countSechAnimation(){
