@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-<<<<<<< HEAD
-   LastUpgradeVersion = "0710"
-=======
-   LastUpgradeVersion = "0720"
->>>>>>> best-ui
+   LastUpgradeVersion = "0700"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -18,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8D43CB481BCE689E00EEBB7B"
-               BuildableName = "Browser.app"
-               BlueprintName = "Browser"
-               ReferencedContainer = "container:Browser.xcodeproj">
+               BlueprintIdentifier = "0C2D85061C22BA370040A020"
+               BuildableName = "Panic.app"
+               BlueprintName = "Panic"
+               ReferencedContainer = "container:Panic.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -36,30 +32,30 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8D43CB5C1BCE689E00EEBB7B"
-               BuildableName = "BrowserTests.xctest"
-               BlueprintName = "BrowserTests"
-               ReferencedContainer = "container:Browser.xcodeproj">
+               BlueprintIdentifier = "0C2D851A1C22BA370040A020"
+               BuildableName = "PanicTests.xctest"
+               BlueprintName = "PanicTests"
+               ReferencedContainer = "container:Panic.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "8D43CB671BCE689F00EEBB7B"
-               BuildableName = "BrowserUITests.xctest"
-               BlueprintName = "BrowserUITests"
-               ReferencedContainer = "container:Browser.xcodeproj">
+               BlueprintIdentifier = "0C2D85251C22BA370040A020"
+               BuildableName = "PanicUITests.xctest"
+               BlueprintName = "PanicUITests"
+               ReferencedContainer = "container:Panic.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8D43CB481BCE689E00EEBB7B"
-            BuildableName = "Browser.app"
-            BlueprintName = "Browser"
-            ReferencedContainer = "container:Browser.xcodeproj">
+            BlueprintIdentifier = "0C2D85061C22BA370040A020"
+            BuildableName = "Panic.app"
+            BlueprintName = "Panic"
+            ReferencedContainer = "container:Panic.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -79,10 +75,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8D43CB481BCE689E00EEBB7B"
-            BuildableName = "Browser.app"
-            BlueprintName = "Browser"
-            ReferencedContainer = "container:Browser.xcodeproj">
+            BlueprintIdentifier = "0C2D85061C22BA370040A020"
+            BuildableName = "Panic.app"
+            BlueprintName = "Panic"
+            ReferencedContainer = "container:Panic.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -98,10 +94,10 @@
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "8D43CB481BCE689E00EEBB7B"
-            BuildableName = "Browser.app"
-            BlueprintName = "Browser"
-            ReferencedContainer = "container:Browser.xcodeproj">
+            BlueprintIdentifier = "0C2D85061C22BA370040A020"
+            BuildableName = "Panic.app"
+            BlueprintName = "Panic"
+            ReferencedContainer = "container:Panic.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

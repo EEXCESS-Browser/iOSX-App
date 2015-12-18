@@ -7,10 +7,21 @@
 //
 
 import UIKit
+import WebKit
 
-class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate, UITableViewDelegate, BackDelegate
+class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresentationControllerDelegate, UITableViewDelegate, BackDelegate
 {
-    let myWebViewDelegate = WebViewDelegate()
+    
+    var myWebView: WKWebView?
+    
+//    override func loadView() {
+//        super.loadView()
+//        
+//        self.myWebView = WKWebView(frame: containerView.bounds)
+//        containerView.addSubview(myWebView!)
+//    }
+    
+    var myWebViewDelegate : WebViewDelegate!
     let myAdressBar: AddressBar = AddressBar()
 
     let p : DataObjectPersistency = DataObjectPersistency()
@@ -24,38 +35,89 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     var eexcessAllResponses: [EEXCESSAllResponses]!
     var headLine : String!
     
-    
+    @IBOutlet weak var sechWidthConstraint: NSLayoutConstraint!
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBOutlet weak var forwardButton: UIBarButtonItem!
     @IBOutlet weak var addressBarTxt: UITextField!
     @IBOutlet weak var reloadButton: UIBarButtonItem!
-    @IBOutlet weak var myWebView: UIWebView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var containerView: UIView! = nil
+    @IBOutlet weak var countSechsLabel: UILabel!
     
+    
+    var webViewWidth: NSLayoutConstraint!
+    var webViewHeight: NSLayoutConstraint!
     var favourites = [FavouritesModel]()
     
+
+    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
+        changeWebViewSize()
+    }
     override func viewDidLoad()
     {
         super.viewDidLoad()
+        myWebViewDelegate = WebViewDelegate()
         myWebViewDelegate.viewCtrl = self
-        myWebView.delegate = myWebViewDelegate
+        
+        countSechsLabel.hidden = true
+       
         activityIndicator.hidden = true
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
         tableView.dataSource = tableViewDataSource
         
+        
         //p = DataObjectPersistency()
         settings = settingsPers.loadDataObject()
         
         //Test()
+
+        
+        
+        let config = WKWebViewConfiguration()
+        let scriptURL = NSBundle.mainBundle().pathForResource("main", ofType: "js")
+        let scriptContent = try! String( contentsOfFile: scriptURL!, encoding:NSUTF8StringEncoding)
+        let script = WKUserScript(source: scriptContent, injectionTime: .AtDocumentStart, forMainFrameOnly: true)
+        config.userContentController.addUserScript(script)
+        
+        config.userContentController.addScriptMessageHandler(self, name: "onclick")
+        
+        //Constrains erzeugen
+        self.myWebView = WKWebView(frame: containerView.bounds , configuration: config)
+        
+        tableView.hidden = true
+        sechWidthConstraint.constant = 0
+      
+        print(myWebView?.bounds)
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        //Constrains setzen
+        
+        containerView.addSubview(myWebView!)
+        myWebView?.navigationDelegate = myWebViewDelegate
+        
+        changeWebViewSize()
+    }
+    
+    func changeWebViewSize(){
+        
+        let width = containerView.frame.width
+        let height = containerView.frame.height
+        
+        self.myWebView?.frame.size.width = width
+        self.myWebView?.frame.size.height = height
+        self.view.setNeedsDisplay()
+       
+>>>>>>> best-ui
     }
     
     override func viewWillAppear(animated: Bool)
     {
         navigationController?.setNavigationBarHidden(true, animated: true)
         favourites = p.loadDataObject()
-
     }
     
     override func didReceiveMemoryWarning()
@@ -70,7 +132,6 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
         ctrl.navigationController?.popToRootViewControllerAnimated(true)
     }
 
-
     //Adressbar
     @IBAction func addressBar(sender: UITextField) {
         let url = myAdressBar.checkURL(sender.text!)
@@ -84,15 +145,12 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     }
     
     func loadURL(requestURL : String){
-
         let url = NSURL(string: requestURL)
         let request = NSURLRequest (URL: url!)
-        myWebView.loadRequest(request)
-        myWebView.scalesPageToFit = true
+        myWebView?.loadRequest(request)
     }
     
     //Adressbar Ende
-
     @IBAction func favouriteButton(sender: AnyObject)
     {
         let alertSheetController = UIAlertController(title: "Favoriten hinzufügen", message: "Geben Sie den Titel ein", preferredStyle: .Alert)
@@ -155,7 +213,6 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
 
         }
 
-        
 //        if segue.identifier == "PopoverViewController"{
 //            let destVC = segue.destinationViewController as! PopViewController
 //            destVC.title = "This is From Segue"
@@ -194,27 +251,44 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
     
     @IBAction func reloadButton(sender: AnyObject)
     {
-         myWebView.reload()
+         myWebView!.reload()
     }
     
     @IBAction func forwardButton(sender: AnyObject)
     {
-        myWebView.goForward()
+        myWebView!.goForward()
     }
 
     @IBAction func backButton(sender: AnyObject)
     {
-        myWebView.goBack()
+        myWebView!.goBack()
     }
 
     @IBAction func doPopover(sender: AnyObject) {
-//        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
-//        vc.modalPresentationStyle = UIModalPresentationStyle.Popover
-//        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
-//        popover.barButtonItem = sender as? UIBarButtonItem
-//        popover.delegate = self
-//        presentViewController(vc, animated: true, completion:nil)
+
+        //Wenn Sech ausgeblendet
+        if (tableView.hidden == true){
+            UIView.animateWithDuration(0.4, animations: { () -> Void in
+                self.sechWidthConstraint.constant = 160;
+                self.tableView.hidden = false
+                self.view.layoutIfNeeded()
+            })
+            
+        //Wenn Sech eingeblendet
+        }else{
+            countSechAnimation()
+            self.tableView.hidden = true
+        }
+        changeWebViewSize()
+        }
+    
+    func countSechAnimation(){
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            self.sechWidthConstraint.constant = 0;
+            self.view.layoutIfNeeded()
+        })
+        
+        self.tableView.hidden = true
     }
     
     
@@ -274,37 +348,17 @@ class ViewController: UIViewController,  UIPopoverPresentationControllerDelegate
         return indexPath
     }
     
-    //Load Sechtag that was clicked
-//    
-//    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
-//    {
-//        tableView.deselectRowAtIndexPath(indexPath, animated: true)
-//        
-//        
-//        let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
-//        
-//        headLine = (currentCell.textLabel?.text!)! as String
-//        print("\n\n\n\n\n\n\n")
-//        print(headLine)
-//        
-//        let storyboard : UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-//        let vc = storyboard.instantiateViewControllerWithIdentifier("PopoverViewController")
-//        vc.modalPresentationStyle = UIModalPresentationStyle.Popover
-//        
-//
-//        let popover: UIPopoverPresentationController = vc.popoverPresentationController!
-//        popover.sourceView = tableView.cellForRowAtIndexPath(indexPath)
-//        popover.sourceRect = (tableView.cellForRowAtIndexPath(indexPath)?.bounds)!
-//        popover.delegate = self
-//        
-//        
-//        
-//        
-//        presentViewController(vc, animated: true, completion:nil)
-//
-//        
-//  //    print("Sech Tag:   \(sechTags[row]) ")
-//    }
+    func userContentController(userContentController: WKUserContentController,
+        didReceiveScriptMessage message: WKScriptMessage) {
+            print("JavaScript is sending a message \(message.body)")
+            self.headLine = message.body as! String
+            performSegueWithIdentifier("showPopView", sender: self)
+            
+            
+            
+    }
+
     
+
 }
 

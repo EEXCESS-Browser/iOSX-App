@@ -12,7 +12,9 @@ class RegexForSech {
     
     func findSechTags(inString string : String) -> [String]{
         
+
         let pattern = "</?search([a-z0-9äöüÄÖÜ]*)\\b[^>]*>"
+
         let regex = makeRegEx(withPattern: pattern)
         return getStringArrayWithRegex(string, regex: regex)
 

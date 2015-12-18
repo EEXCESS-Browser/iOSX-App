@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8187.4" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Mpt-TD-A4y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15B42" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Mpt-TD-A4y">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8151.3"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Navigation items with more than one left or right bar item" minToolsVersion="7.0"/>
     </dependencies>
@@ -22,7 +22,7 @@
                                 <rect key="frame" x="440" y="64" width="160" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="160" id="eGv-Sz-1Od"/>
+                                    <constraint firstAttribute="width" constant="160" id="u3R-Zm-QUu"/>
                                 </constraints>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="SechCell" id="ccN-Aw-kEi">
@@ -40,15 +40,26 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+<<<<<<< HEAD
                             <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yX6-OZ-Z82">
                                 <rect key="frame" x="0.0" y="64" width="439" height="492"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </webView>
                             <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="v8s-Hh-AmL">
+=======
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="v8s-Hh-AmL">
+>>>>>>> best-ui
                                 <rect key="frame" x="382" y="32" width="20" height="20"/>
                             </activityIndicatorView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fEm-7N-dur">
                                 <rect key="frame" x="0.0" y="20" width="600" height="44"/>
+<<<<<<< HEAD
+=======
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="4lW-Fi-xwG"/>
+                                </constraints>
+>>>>>>> best-ui
                                 <items>
                                     <navigationItem id="s3j-WL-J5c">
                                         <nil key="title"/>
@@ -79,8 +90,13 @@
                                                 </connections>
                                             </barButtonItem>
                                         </leftBarButtonItems>
+<<<<<<< HEAD
                                         <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="fill" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="aq5-DT-Mlq">
                                             <rect key="frame" x="271" y="7" width="136" height="30"/>
+=======
+                                        <textField key="titleView" opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" id="aq5-DT-Mlq">
+                                            <rect key="frame" x="271" y="7" width="137" height="30"/>
+>>>>>>> best-ui
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="URL"/>
@@ -108,21 +124,37 @@
                                     </navigationItem>
                                 </items>
                             </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gys-E9-frD">
+                                <rect key="frame" x="0.0" y="64" width="440" height="492"/>
+                                <animations/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                            </view>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUl-EI-q04">
+                                <rect key="frame" x="494" y="20" width="21" height="21"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="QTp-sD-z64"/>
+                                    <constraint firstAttribute="width" constant="21" id="hq3-fX-WeJ"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="fEm-7N-dur" firstAttribute="leading" secondItem="yX6-OZ-Z82" secondAttribute="leading" id="5Kh-g2-tgL"/>
-                            <constraint firstItem="fEm-7N-dur" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="80D-ME-Uwy"/>
-                            <constraint firstAttribute="trailing" secondItem="v8s-Hh-AmL" secondAttribute="trailing" constant="198" id="9yX-aX-sAg"/>
-                            <constraint firstItem="SJJ-Tl-9qC" firstAttribute="leading" secondItem="yX6-OZ-Z82" secondAttribute="trailing" constant="1" id="HF0-j7-SLA"/>
-                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="top" secondItem="SJJ-Tl-9qC" secondAttribute="top" id="JVR-rM-j9i"/>
-                            <constraint firstItem="fEm-7N-dur" firstAttribute="trailing" secondItem="SJJ-Tl-9qC" secondAttribute="trailing" id="O8n-cF-tfn"/>
-                            <constraint firstItem="fEm-7N-dur" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="20" id="PjB-6d-vOb"/>
-                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="top" secondItem="fEm-7N-dur" secondAttribute="bottom" id="Q6I-Iu-qvQ"/>
-                            <constraint firstItem="yX6-OZ-Z82" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="SGU-QX-Xe8"/>
-                            <constraint firstItem="SJJ-Tl-9qC" firstAttribute="bottom" secondItem="wfy-db-euE" secondAttribute="top" id="Spl-Xo-NKC"/>
-                            <constraint firstAttribute="trailing" secondItem="fEm-7N-dur" secondAttribute="trailing" id="Zyp-jA-vu5"/>
-                            <constraint firstItem="v8s-Hh-AmL" firstAttribute="centerY" secondItem="fEm-7N-dur" secondAttribute="centerY" id="xU6-q8-6RJ"/>
+                            <constraint firstItem="fEm-7N-dur" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="05c-XL-pzw"/>
+                            <constraint firstItem="gys-E9-frD" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-20" id="1yU-Sc-gYx"/>
+                            <constraint firstItem="gys-E9-frD" firstAttribute="top" secondItem="fEm-7N-dur" secondAttribute="bottom" id="B5u-T1-9Sj"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="gys-E9-frD" secondAttribute="bottom" id="Enq-f3-jKz"/>
+                            <constraint firstItem="SJJ-Tl-9qC" firstAttribute="leading" secondItem="gys-E9-frD" secondAttribute="trailing" id="H9R-QS-WFx"/>
+                            <constraint firstItem="rUl-EI-q04" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="Haa-A8-GK1"/>
+                            <constraint firstItem="fEm-7N-dur" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="QDI-KP-dzx"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="SJJ-Tl-9qC" secondAttribute="trailing" constant="-20" id="cfi-aW-iIc"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="rUl-EI-q04" secondAttribute="trailing" constant="65" id="mwj-lw-aFi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="fEm-7N-dur" secondAttribute="trailing" constant="-20" id="rwB-kt-paz"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="SJJ-Tl-9qC" secondAttribute="bottom" id="uA5-Fr-cqV"/>
+                            <constraint firstItem="SJJ-Tl-9qC" firstAttribute="top" secondItem="fEm-7N-dur" secondAttribute="bottom" id="ueX-hQ-b2b"/>
                         </constraints>
                     </view>
                     <toolbarItems/>
@@ -132,9 +164,11 @@
                         <outlet property="activityIndicator" destination="v8s-Hh-AmL" id="b4k-FM-Lod"/>
                         <outlet property="addressBarTxt" destination="aq5-DT-Mlq" id="G0T-Gq-wr6"/>
                         <outlet property="backButton" destination="5Yo-GX-MbL" id="muK-VC-c7A"/>
+                        <outlet property="containerView" destination="gys-E9-frD" id="Nr2-pP-waM"/>
+                        <outlet property="countSechsLabel" destination="rUl-EI-q04" id="3Zv-eA-f5r"/>
                         <outlet property="forwardButton" destination="Jt3-Ps-8LQ" id="gHd-51-hAm"/>
-                        <outlet property="myWebView" destination="yX6-OZ-Z82" id="iax-MG-RPM"/>
                         <outlet property="reloadButton" destination="ELU-wd-HGf" id="o6q-PL-1q6"/>
+                        <outlet property="sechWidthConstraint" destination="u3R-Zm-QUu" id="nHD-jb-REN"/>
                         <outlet property="tableView" destination="SJJ-Tl-9qC" id="MKS-l0-H2X"/>
                         <segue destination="7mh-u1-fGA" kind="show" identifier="editBookmarks" id="7wa-tz-Hzk"/>
                     </connections>
