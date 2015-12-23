@@ -14,6 +14,7 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
     let regex = RegexForSech()
     let sechManager = SechManager()
     var mURL : String = ""
+//    var viewCtrl: ViewController!
     var viewCtrl: ViewController!
     var htmlHead : String = ""
     var htmlBody : String = ""
@@ -34,16 +35,13 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
      //   mURL = (webView.request?.URL?.absoluteString)!
      //   viewCtrl.addressBarTxt.text = mURL
         
-        viewCtrl.activityIndicator.stopAnimating()
-        viewCtrl.activityIndicator.hidden = true
-        
         
         // Ineinander verschachtelt, weil completionHandler wartet bis ausgeführt wurde
         
         webView.evaluateJavaScript("document.head.innerHTML", completionHandler: { (object, error) -> Void in
             if error == nil && object != nil{
                 self.htmlHead = (object as? String)!
-            print("We are in eveluateJavascript")
+            print("We are in eveluate Javascript")
             
             webView .evaluateJavaScript("document.body.innerHTML", completionHandler: { (object, error) -> Void in
                  if error == nil && object != nil{
@@ -75,10 +73,11 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
                     }else{
                         self.viewCtrl.eexcessAllResponses = []
                     }
-
-                    // TODO: To be redesigned! 8
-                    self.viewCtrl.tableView.reloadData()
-            
+                    
+                    dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                        // TODO: To be redesigned! 8
+                        self.viewCtrl.tableView.reloadData()
+                    })
                 })
                 
 

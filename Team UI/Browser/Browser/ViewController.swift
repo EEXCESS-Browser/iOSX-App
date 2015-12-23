@@ -41,8 +41,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     @IBOutlet weak var addressBarTxt: UITextField!
     @IBOutlet weak var reloadButton: UIBarButtonItem!
     @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var containerView: UIView! = nil
+    @IBOutlet weak var containerView: UIView!
     @IBOutlet weak var countSechsLabel: UILabel!
     
     
@@ -52,10 +51,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     
     var favourites = [FavouritesModel]()
     
-
-    override func didRotateFromInterfaceOrientation(fromInterfaceOrientation: UIInterfaceOrientation) {
-//        changeWebViewSize()
-    }
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -64,7 +59,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         
         countSechsLabel.hidden = true
        
-        activityIndicator.hidden = true
         // Do any additional setup after loading the view, typically from a nib.
         tableView.delegate = self
         tableView.dataSource = tableViewDataSource
@@ -72,8 +66,6 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         
         //p = DataObjectPersistency()
         settings = settingsPers.loadDataObject()
-        
-        
         
         let config = WKWebViewConfiguration()
         let scriptURL = NSBundle.mainBundle().pathForResource("main", ofType: "js")
@@ -83,61 +75,45 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         
         config.userContentController.addScriptMessageHandler(self, name: "onclick")
         
-        //Constrains erzeugen
+        //WebView erzeugen
         self.myWebView = WKWebView(frame: containerView.bounds, configuration: config)
-        
-        // WebView mit Constrains erzeugen
-        //        self.myWebView = WKWebView(frame: CGRectZero)
         self.containerView.addSubview(myWebView!)
+
         myWebView!.translatesAutoresizingMaskIntoConstraints = false // Neu seit iOS 9
-        
+
         webViewWidth = NSLayoutConstraint(item: myWebView!, attribute: .Width, relatedBy: .Equal, toItem: containerView, attribute: .Width, multiplier: 1.0, constant: 0.0)
         
         webViewHeight = NSLayoutConstraint(item: myWebView!, attribute: .Height, relatedBy: .Equal, toItem: containerView, attribute: .Height, multiplier: 1.0, constant: 0.0)
-        
+
         webViewYpos = NSLayoutConstraint(item: myWebView!, attribute: .Top, relatedBy: .Equal, toItem: self.view, attribute: .Top, multiplier: 1.0, constant: 64.0)
-        
+
         self.view.addConstraint(webViewWidth)
         self.view.addConstraint(webViewHeight)
         self.view.addConstraint(webViewYpos)
         
         tableView.hidden = true
         sechWidthConstraint.constant = 0
-      
+        
+        print(containerView.bounds)
         print(myWebView?.bounds)
         
     }
     
     override func viewDidAppear(animated: Bool) {
         //Constrains setzen
-        
         containerView.addSubview(myWebView!)
         myWebView?.navigationDelegate = myWebViewDelegate
-        
-//        changeWebViewSize()
     }
-    
-//    func changeWebViewSize(){
-//        
-//        let width = containerView.frame.width
-//        let height = containerView.frame.height
-//        
-//        self.myWebView?.frame.size.width = width
-//        self.myWebView?.frame.size.height = height
-//        self.view.setNeedsDisplay()
-//       
-//    }
     
     override func viewWillAppear(animated: Bool)
     {
-        navigationController?.setNavigationBarHidden(true, animated: true)
         favourites = p.loadDataObject()
     }
     
     override func didReceiveMemoryWarning()
     {
         super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        //Dispose of any resources that can be recreated.
     }
     
     func receiveInfo(ctrl: FavouriteTableViewController, info: FavouritesModel)
@@ -292,8 +268,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             countSechAnimation()
             self.tableView.hidden = true
         }
-//        changeWebViewSize()
-        }
+    }
     
     func countSechAnimation(){
         UIView.animateWithDuration(0.4, animations: { () -> Void in
@@ -366,12 +341,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             print("JavaScript is sending a message \(message.body)")
             self.headLine = message.body as! String
             performSegueWithIdentifier("showPopView", sender: self)
-            
-            
-            
+   
     }
-
-    
 
 }
 

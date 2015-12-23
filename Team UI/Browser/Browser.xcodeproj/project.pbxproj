@@ -11,31 +11,31 @@
 		187387311BE61DE000EDDC31 /* FavouriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187387301BE61DE000EDDC31 /* FavouriteTableViewController.swift */; };
 		187387531BE64CA400EDDC31 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187387521BE64CA400EDDC31 /* FavouriteCell.swift */; };
 		1875A0471BE4D58C00DD94CD /* FavouritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875A0461BE4D58C00DD94CD /* FavouritesModel.swift */; };
+		50D67A951C2ACA8100B864FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB4E1BCE689E00EEBB7B /* ViewController.swift */; };
 		8D07B7941BD0F79A00031D8B /* WebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D07B7931BD0F79A00031D8B /* WebViewDelegate.swift */; };
 		8D1385FD1BF3623D009E5F46 /* AdressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1385FC1BF3623D009E5F46 /* AdressBar.swift */; };
 		8D1386021BF381DE009E5F46 /* SettingsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1386011BF381DE009E5F46 /* SettingsController.swift */; };
 		8D43CB4D1BCE689E00EEBB7B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB4C1BCE689E00EEBB7B /* AppDelegate.swift */; };
-		8D43CB4F1BCE689E00EEBB7B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB4E1BCE689E00EEBB7B /* ViewController.swift */; };
 		8D43CB521BCE689E00EEBB7B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D43CB501BCE689E00EEBB7B /* Main.storyboard */; };
 		8D43CB541BCE689E00EEBB7B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D43CB531BCE689E00EEBB7B /* Assets.xcassets */; };
 		8D43CB571BCE689E00EEBB7B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D43CB551BCE689E00EEBB7B /* LaunchScreen.storyboard */; };
 		8D43CB621BCE689F00EEBB7B /* BrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB611BCE689F00EEBB7B /* BrowserTests.swift */; };
 		8D43CB6D1BCE689F00EEBB7B /* BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB6C1BCE689F00EEBB7B /* BrowserUITests.swift */; };
 		8DA1FB561BF5E44700732F5E /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA1FB551BF5E44700732F5E /* SettingsModel.swift */; };
-		961D15C11C2410AA00D2EF46 /* RankingDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C01C2410AA00D2EF46 /* RankingDataObject.swift */; settings = {ASSET_TAGS = (); }; };
-		961D15C31C2410B200D2EF46 /* RankingDataObjectPersistency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C21C2410B200D2EF46 /* RankingDataObjectPersistency.swift */; settings = {ASSET_TAGS = (); }; };
-		961D15C51C2410B900D2EF46 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C41C2410B900D2EF46 /* PersistenceController.swift */; settings = {ASSET_TAGS = (); }; };
-		961D15C71C24111F00D2EF46 /* TaskCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C61C24111F00D2EF46 /* TaskCtrl.swift */; settings = {ASSET_TAGS = (); }; };
-		961D15CA1C24114400D2EF46 /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C91C24114400D2EF46 /* JSONData.swift */; settings = {ASSET_TAGS = (); }; };
-		961D15CD1C24118100D2EF46 /* SEACHModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15CC1C24118100D2EF46 /* SEACHModel.swift */; settings = {ASSET_TAGS = (); }; };
-		961D15D11C24119900D2EF46 /* EEXCESSSingleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15CE1C24119900D2EF46 /* EEXCESSSingleResponse.swift */; settings = {ASSET_TAGS = (); }; };
-		961D15D21C24119900D2EF46 /* EEXCESSAllResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15CF1C24119900D2EF46 /* EEXCESSAllResponses.swift */; settings = {ASSET_TAGS = (); }; };
-		961D15D31C24119900D2EF46 /* EEXCESSOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D01C24119900D2EF46 /* EEXCESSOrigin.swift */; settings = {ASSET_TAGS = (); }; };
-		961D15D81C24122E00D2EF46 /* ConnectionCtrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D41C24122E00D2EF46 /* ConnectionCtrls.swift */; settings = {ASSET_TAGS = (); }; };
-		961D15D91C24122E00D2EF46 /* EEXCESSQueryCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D51C24122E00D2EF46 /* EEXCESSQueryCtrl.swift */; settings = {ASSET_TAGS = (); }; };
-		961D15DA1C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D61C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift */; settings = {ASSET_TAGS = (); }; };
-		961D15DB1C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D71C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift */; settings = {ASSET_TAGS = (); }; };
-		961D15DD1C2412CF00D2EF46 /* SechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15DC1C2412CF00D2EF46 /* SechManager.swift */; settings = {ASSET_TAGS = (); }; };
+		961D15C11C2410AA00D2EF46 /* RankingDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C01C2410AA00D2EF46 /* RankingDataObject.swift */; };
+		961D15C31C2410B200D2EF46 /* RankingDataObjectPersistency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C21C2410B200D2EF46 /* RankingDataObjectPersistency.swift */; };
+		961D15C51C2410B900D2EF46 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C41C2410B900D2EF46 /* PersistenceController.swift */; };
+		961D15C71C24111F00D2EF46 /* TaskCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C61C24111F00D2EF46 /* TaskCtrl.swift */; };
+		961D15CA1C24114400D2EF46 /* JSONData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C91C24114400D2EF46 /* JSONData.swift */; };
+		961D15CD1C24118100D2EF46 /* SEACHModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15CC1C24118100D2EF46 /* SEACHModel.swift */; };
+		961D15D11C24119900D2EF46 /* EEXCESSSingleResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15CE1C24119900D2EF46 /* EEXCESSSingleResponse.swift */; };
+		961D15D21C24119900D2EF46 /* EEXCESSAllResponses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15CF1C24119900D2EF46 /* EEXCESSAllResponses.swift */; };
+		961D15D31C24119900D2EF46 /* EEXCESSOrigin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D01C24119900D2EF46 /* EEXCESSOrigin.swift */; };
+		961D15D81C24122E00D2EF46 /* ConnectionCtrls.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D41C24122E00D2EF46 /* ConnectionCtrls.swift */; };
+		961D15D91C24122E00D2EF46 /* EEXCESSQueryCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D51C24122E00D2EF46 /* EEXCESSQueryCtrl.swift */; };
+		961D15DA1C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D61C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift */; };
+		961D15DB1C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D71C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift */; };
+		961D15DD1C2412CF00D2EF46 /* SechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15DC1C2412CF00D2EF46 /* SechManager.swift */; };
 		96F405741C0335B50013E66F /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F405731C0335B50013E66F /* Rules.swift */; };
 		A9767A101C1B215100D6FF10 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = A9767A0F1C1B215100D6FF10 /* main.js */; };
 		A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F615751BEA37CF003A3878 /* PopViewController.swift */; };
@@ -450,7 +450,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FEFDD4EF1BFCE6FE005C95EC /* SechTableDataSource.swift in Sources */,
-				8D43CB4F1BCE689E00EEBB7B /* ViewController.swift in Sources */,
 				FE14E3B21BE9F860008FC4ED /* HtmlManager.swift in Sources */,
 				961D15D21C24119900D2EF46 /* EEXCESSAllResponses.swift in Sources */,
 				A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */,
@@ -468,6 +467,7 @@
 				96F405741C0335B50013E66F /* Rules.swift in Sources */,
 				961D15DB1C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift in Sources */,
 				961D15DA1C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift in Sources */,
+				50D67A951C2ACA8100B864FC /* ViewController.swift in Sources */,
 				961D15D11C24119900D2EF46 /* EEXCESSSingleResponse.swift in Sources */,
 				961D15CD1C24118100D2EF46 /* SEACHModel.swift in Sources */,
 				961D15C31C2410B200D2EF46 /* RankingDataObjectPersistency.swift in Sources */,
