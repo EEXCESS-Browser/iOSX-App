@@ -105,6 +105,16 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         myWebView?.navigationDelegate = myWebViewDelegate
     }
     
+    override func viewWillLayoutSubviews() {
+        
+        var frame = addressBarTxt.frame
+        frame.size.width = 42000
+        
+        super.viewWillLayoutSubviews()
+        addressBarTxt.frame = frame
+        
+    }
+
     override func viewWillAppear(animated: Bool)
     {
         favourites = p.loadDataObject()
