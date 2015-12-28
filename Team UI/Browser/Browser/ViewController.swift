@@ -100,6 +100,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     }
     
     override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
         //Constrains setzen
         containerView.addSubview(myWebView!)
         myWebView?.navigationDelegate = myWebViewDelegate
@@ -117,6 +119,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
 
     override func viewWillAppear(animated: Bool)
     {
+        super.viewWillAppear(animated)
         favourites = p.loadDataObject()
     }
     
