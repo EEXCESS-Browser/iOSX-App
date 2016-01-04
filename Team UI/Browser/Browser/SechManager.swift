@@ -101,8 +101,14 @@ class SechManager {
         let tmpTag = Tag()
         
         tmpTag.isMainTopic = isMainTopic
-        tmpTag.topic = attributes["topic"]!
-        tmpTag.type = attributes["type"]!
+        
+        if (attributes["topic"] != nil){
+            tmpTag.topic = (attributes["topic"])!
+        }
+        
+        if (attributes["type"] != nil){
+            tmpTag.type = attributes["type"]!
+        }
         
         return tmpTag
     }
@@ -111,10 +117,18 @@ class SechManager {
         let attributes = regex.getAttributes(inString: newFilter)
         let tmpFilter = Filter()
         
-        tmpFilter.mediaType = attributes["mediaType"]!
-        tmpFilter.provider = attributes["provider"]!
-        tmpFilter.licence = attributes["licence"]!
+        // Get new Filter Attributes
+        if (attributes["mediaType"] != nil){
+            tmpFilter.mediaType = attributes["mediaType"]!
+        }
+        if (attributes["provider"] != nil){
+            tmpFilter.provider = attributes["provider"]!
+        }
+        if (attributes["licence"] != nil){
+            tmpFilter.licence = attributes["licence"]!
+        }
         
+        // If Attributes are not empty -> make new Filter
         if tmpFilter.mediaType.isEmpty{
             tmpFilter.mediaType = oldFilter.mediaType
         }
