@@ -62,7 +62,7 @@ class RegexForSech {
             
             if regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil {
                 
-                let regexAttribute = makeRegEx(withPattern: "(?<=\(attributeName)=\")([a-zA-Z0-9]*)(?=\")")
+                let regexAttribute = makeRegEx(withPattern: "(?<=\(attributeName)=\")([a-zA-Z0-9äöüÄÖÜ ]*)(?=\")")
                 let match = getStringArrayWithRegex(string, regex: regexAttribute)
                 
                 if (match.isEmpty != true){
