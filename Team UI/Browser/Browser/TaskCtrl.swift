@@ -17,7 +17,7 @@ class TaskCtrl {
         let c = JSONConnectionCtrl()
         let rec = EEXCESSRecommendationJSONCtrl(seachData: seachData)
         //let url = Preferences().url + "/recommend"
-        
+        print(rec.jsonObject)
         c.post(rec.jsonObject, url: QUERY_URL){ (succeeded: Bool, msg: NSData) -> () in
             if (succeeded) {
                 guard let recommJson = EEXCESSRecommendationCtrl(data: msg) else

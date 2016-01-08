@@ -20,6 +20,9 @@ class EEXCESSRecommendationCtrl {
     init? (data : NSData)
     {
         let jsonT = try? NSJSONSerialization.JSONObjectWithData(data, options: []) as AnyObject
+        
+        print(jsonT)
+        
         guard let json = jsonT else {
 
             return nil
@@ -40,10 +43,13 @@ class EEXCESSRecommendationCtrl {
         }
         
         pRecommendations = []
-        let allResponses = EEXCESSAllResponses()
+        
+        
         
         for i in allResults
         {
+            
+            let allResponses = EEXCESSAllResponses()
             let result = i.object!["result"]?.array
             
             for res in result!{
@@ -58,9 +64,9 @@ class EEXCESSRecommendationCtrl {
                 allResponses.appendSingleResponse(newRecommendation)
             }
             
-
+            pRecommendations?.append(allResponses)
             
         }
-        pRecommendations?.append(allResponses)
+        
     }
 }

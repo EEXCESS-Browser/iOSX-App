@@ -17,6 +17,8 @@ class JSONConnectionCtrl:ConnectionCtrl {
         request.addValue("application/json", forHTTPHeaderField: "Accept")
         let data =  try! NSJSONSerialization.dataWithJSONObject(params, options: [NSJSONWritingOptions()])
         
+        print(data)
+        
         self.post(data, request: request, postCompleted: postCompleted)
     }
 }
