@@ -14,7 +14,7 @@ import UIKit
 class PopViewController : UIViewController{
     
     
-    @IBOutlet weak var sechText: UITextView!
+//    @IBOutlet weak var sechText: UITextView!
     
     @IBOutlet weak var sechHeadline: UILabel!
     @IBOutlet weak var sechImage: UIImageView!
@@ -31,7 +31,8 @@ class PopViewController : UIViewController{
         let request = NSURLRequest(URL: requesturl!)
 
         sechHeadline.text = headLine
-            sechText.text = jsonText
+//            sechText.text = jsonText
+
         sechWebView.loadRequest(request)
     }
     
