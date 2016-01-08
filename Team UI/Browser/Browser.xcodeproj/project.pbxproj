@@ -22,6 +22,7 @@
 		8D43CB621BCE689F00EEBB7B /* BrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB611BCE689F00EEBB7B /* BrowserTests.swift */; };
 		8D43CB6D1BCE689F00EEBB7B /* BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB6C1BCE689F00EEBB7B /* BrowserUITests.swift */; };
 		8DA1FB561BF5E44700732F5E /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA1FB551BF5E44700732F5E /* SettingsModel.swift */; };
+		9617645C1C3FB6B400C4169B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9617645B1C3FB6B400C4169B /* Settings.bundle */; settings = {ASSET_TAGS = (); }; };
 		961D15C11C2410AA00D2EF46 /* RankingDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C01C2410AA00D2EF46 /* RankingDataObject.swift */; };
 		961D15C31C2410B200D2EF46 /* RankingDataObjectPersistency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C21C2410B200D2EF46 /* RankingDataObjectPersistency.swift */; };
 		961D15C51C2410B900D2EF46 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C41C2410B900D2EF46 /* PersistenceController.swift */; };
@@ -82,6 +83,7 @@
 		8D43CB6C1BCE689F00EEBB7B /* BrowserUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BrowserUITests.swift; sourceTree = "<group>"; };
 		8D43CB6E1BCE689F00EEBB7B /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DA1FB551BF5E44700732F5E /* SettingsModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsModel.swift; sourceTree = "<group>"; };
+		9617645B1C3FB6B400C4169B /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		961D15C01C2410AA00D2EF46 /* RankingDataObject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingDataObject.swift; sourceTree = "<group>"; };
 		961D15C21C2410B200D2EF46 /* RankingDataObjectPersistency.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RankingDataObjectPersistency.swift; sourceTree = "<group>"; };
 		961D15C41C2410B900D2EF46 /* PersistenceController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 		8D43CB4B1BCE689E00EEBB7B /* Browser */ = {
 			isa = PBXGroup;
 			children = (
+				9617645B1C3FB6B400C4169B /* Settings.bundle */,
 				FEB9DC401BFC8D0700EB1729 /* View */,
 				FEB9DC411BFC8D0D00EB1729 /* Controller */,
 				FEB9DC421BFC8D1900EB1729 /* Model */,
@@ -423,6 +426,7 @@
 			files = (
 				8D43CB571BCE689E00EEBB7B /* LaunchScreen.storyboard in Resources */,
 				8D43CB541BCE689E00EEBB7B /* Assets.xcassets in Resources */,
+				9617645C1C3FB6B400C4169B /* Settings.bundle in Resources */,
 				8D43CB521BCE689E00EEBB7B /* Main.storyboard in Resources */,
 				A9767A101C1B215100D6FF10 /* main.js in Resources */,
 			);
