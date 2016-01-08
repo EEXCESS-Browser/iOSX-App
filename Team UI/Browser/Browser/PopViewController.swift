@@ -55,16 +55,23 @@ class PopViewController : UIViewController{
     var headLine : String!
     var jsonText : String!
     var url : String!
+    var searchTags : [EEXCESSSingleResponse]!
     
     override func viewDidLoad() {
         
-        let requesturl = NSURL(string: url)
-        let request = NSURLRequest(URL: requesturl!)
+        for var i = 0  ; i < searchTags.count ; i++ {
+            print(searchTags[i].uri)
+            }
+        
+//        let requesturl = NSURL(string: url)
+//        let request = NSURLRequest(URL: requesturl!)
 
         sechHeadline.text = headLine
 //            sechText.text = jsonText
 
-        sechWebView.loadRequest(request)
+//        sechWebView.loadRequest(request)
+        
+        
     }
     
     

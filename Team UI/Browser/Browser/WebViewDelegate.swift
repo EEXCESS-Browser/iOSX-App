@@ -65,7 +65,9 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
                     
                     dispatch_async(dispatch_get_main_queue(), { () -> Void in
                         // TODO: To be redesigned! 8
+//                        self.viewCtrl.applyRules(data)
                         self.viewCtrl.tableView.reloadData()
+                        
                     })
                 })
                 

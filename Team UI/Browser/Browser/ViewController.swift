@@ -237,8 +237,9 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
 //                popViewController.jsonText = "NO RESULTS"
 //                popViewController.url = "https://www.google.de/"
 //            }
-            if let response = eexcessAllResponses.first?.responses.first?.uri{
-                popViewController.url = response
+            if let response = eexcessAllResponses.first{
+                popViewController.searchTags = response.responses
+//                popViewController.url = response
             }else{
                 popViewController.jsonText = "NO RESULTS"
                 popViewController.url = "https://www.google.de/?gws_rd=ssl#q=Mein+Name+ist+Hase"
@@ -356,6 +357,19 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             self.headLine = message.body as! String
             performSegueWithIdentifier("showPopView", sender: self)
    
+    }
+    
+    func applyRules(eexcessAllResponses: [EEXCESSAllResponses]!){
+        print("Before Rules \(eexcessAllResponses)")
+        var rule : Rules = Rules()
+        var mendeley : Mendeley = Mendeley(expectedResult: "Mendeley")
+        rule.addRule(mendeley)
+//        rule.addRule(rules[1])
+//        rule.addRule(rules[2])
+        
+        rule.applyRulesToAllResponses(eexcessAllResponses)
+        print("After Rules \(eexcessAllResponses)")
+
     }
 
 }
