@@ -151,6 +151,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         let url = NSURL(string: requestURL)
         let request = NSURLRequest (URL: url!)
         myWebView?.loadRequest(request)
+        addressBarTxt.text = requestURL
     }
     
     //Adressbar Ende
