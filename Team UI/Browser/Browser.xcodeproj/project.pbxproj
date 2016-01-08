@@ -10,6 +10,7 @@
 		187387311BE61DE000EDDC31 /* FavouriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187387301BE61DE000EDDC31 /* FavouriteTableViewController.swift */; };
 		187387531BE64CA400EDDC31 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187387521BE64CA400EDDC31 /* FavouriteCell.swift */; };
 		1875A0471BE4D58C00DD94CD /* FavouritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875A0461BE4D58C00DD94CD /* FavouritesModel.swift */; };
+		4B5FEA061C3FBE94004795F8 /* SearchTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B5FEA051C3FBE94004795F8 /* SearchTableViewController.swift */; };
 		50D67A951C2ACA8100B864FC /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB4E1BCE689E00EEBB7B /* ViewController.swift */; };
 		8D07B7941BD0F79A00031D8B /* WebViewDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D07B7931BD0F79A00031D8B /* WebViewDelegate.swift */; };
 		8D1385FD1BF3623D009E5F46 /* AdressBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D1385FC1BF3623D009E5F46 /* AdressBar.swift */; };
@@ -21,7 +22,7 @@
 		8D43CB621BCE689F00EEBB7B /* BrowserTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB611BCE689F00EEBB7B /* BrowserTests.swift */; };
 		8D43CB6D1BCE689F00EEBB7B /* BrowserUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D43CB6C1BCE689F00EEBB7B /* BrowserUITests.swift */; };
 		8DA1FB561BF5E44700732F5E /* SettingsModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DA1FB551BF5E44700732F5E /* SettingsModel.swift */; };
-		9617645C1C3FB6B400C4169B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9617645B1C3FB6B400C4169B /* Settings.bundle */; settings = {ASSET_TAGS = (); }; };
+		9617645C1C3FB6B400C4169B /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 9617645B1C3FB6B400C4169B /* Settings.bundle */; };
 		961D15C11C2410AA00D2EF46 /* RankingDataObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C01C2410AA00D2EF46 /* RankingDataObject.swift */; };
 		961D15C31C2410B200D2EF46 /* RankingDataObjectPersistency.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C21C2410B200D2EF46 /* RankingDataObjectPersistency.swift */; };
 		961D15C51C2410B900D2EF46 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15C41C2410B900D2EF46 /* PersistenceController.swift */; };
@@ -64,6 +65,7 @@
 		187387301BE61DE000EDDC31 /* FavouriteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewController.swift; sourceTree = "<group>"; };
 		187387521BE64CA400EDDC31 /* FavouriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
 		1875A0461BE4D58C00DD94CD /* FavouritesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesModel.swift; sourceTree = "<group>"; };
+		4B5FEA051C3FBE94004795F8 /* SearchTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchTableViewController.swift; sourceTree = "<group>"; };
 		8D07B7931BD0F79A00031D8B /* WebViewDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewDelegate.swift; sourceTree = "<group>"; };
 		8D1385FC1BF3623D009E5F46 /* AdressBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdressBar.swift; sourceTree = "<group>"; };
 		8D1386011BF381DE009E5F46 /* SettingsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsController.swift; sourceTree = "<group>"; };
@@ -276,6 +278,7 @@
 		FEB9DC441BFC8D5500EB1729 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				4B5FEA051C3FBE94004795F8 /* SearchTableViewController.swift */,
 				A9767A0F1C1B215100D6FF10 /* main.js */,
 				8D43CB4E1BCE689E00EEBB7B /* ViewController.swift */,
 				A9F615751BEA37CF003A3878 /* PopViewController.swift */,
@@ -453,6 +456,7 @@
 				FEFDD4EF1BFCE6FE005C95EC /* SechTableDataSource.swift in Sources */,
 				FE14E3B21BE9F860008FC4ED /* HtmlManager.swift in Sources */,
 				961D15D21C24119900D2EF46 /* EEXCESSAllResponses.swift in Sources */,
+				4B5FEA061C3FBE94004795F8 /* SearchTableViewController.swift in Sources */,
 				A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */,
 				961D15D91C24122E00D2EF46 /* EEXCESSQueryCtrl.swift in Sources */,
 				961D15DD1C2412CF00D2EF46 /* SechManager.swift in Sources */,
