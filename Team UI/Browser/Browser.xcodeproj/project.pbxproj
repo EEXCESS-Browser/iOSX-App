@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12BB70F91BFC9DA30073A55D /* SettingsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12BB70F81BFC9DA30073A55D /* SettingsManager.swift */; };
 		187387311BE61DE000EDDC31 /* FavouriteTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187387301BE61DE000EDDC31 /* FavouriteTableViewController.swift */; };
 		187387531BE64CA400EDDC31 /* FavouriteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 187387521BE64CA400EDDC31 /* FavouriteCell.swift */; };
 		1875A0471BE4D58C00DD94CD /* FavouritesModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1875A0461BE4D58C00DD94CD /* FavouritesModel.swift */; };
@@ -62,7 +61,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		12BB70F81BFC9DA30073A55D /* SettingsManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsManager.swift; sourceTree = "<group>"; };
 		187387301BE61DE000EDDC31 /* FavouriteTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteTableViewController.swift; sourceTree = "<group>"; };
 		187387521BE64CA400EDDC31 /* FavouriteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouriteCell.swift; sourceTree = "<group>"; };
 		1875A0461BE4D58C00DD94CD /* FavouritesModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavouritesModel.swift; sourceTree = "<group>"; };
@@ -300,7 +298,6 @@
 			isa = PBXGroup;
 			children = (
 				FE14E3B11BE9F860008FC4ED /* HtmlManager.swift */,
-				12BB70F81BFC9DA30073A55D /* SettingsManager.swift */,
 			);
 			name = Manager;
 			sourceTree = "<group>";
@@ -459,7 +456,6 @@
 				A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */,
 				961D15D91C24122E00D2EF46 /* EEXCESSQueryCtrl.swift in Sources */,
 				961D15DD1C2412CF00D2EF46 /* SechManager.swift in Sources */,
-				12BB70F91BFC9DA30073A55D /* SettingsManager.swift in Sources */,
 				961D15C51C2410B900D2EF46 /* PersistenceController.swift in Sources */,
 				187387311BE61DE000EDDC31 /* FavouriteTableViewController.swift in Sources */,
 				961D15D81C24122E00D2EF46 /* ConnectionCtrls.swift in Sources */,

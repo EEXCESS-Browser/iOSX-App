@@ -160,3 +160,20 @@ class SettingsPersistency {
     }
 
 }
+
+
+//<Settings.bundle> ----------------------------------------------------------------------------------------
+
+class SettingsManager {
+    
+    func getPreferencesValues(){
+        let a = NSUserDefaults.standardUserDefaults().floatForKey("slider_preference")
+        print("slider_preference: \(a)")
+    }
+}
+
+
+
+
+
+
