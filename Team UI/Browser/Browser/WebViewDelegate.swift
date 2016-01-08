@@ -14,26 +14,16 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
     let regex = RegexForSech()
     let sechManager = SechManager()
     var mURL : String = ""
-//    var viewCtrl: ViewController!
     var viewCtrl: ViewController!
     var htmlHead : String = ""
     var htmlBody : String = ""
 
     
-//    func webView(webView: WKWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: WKNavigation) -> Bool {
-//        return true
-//    }
-//    
-//    func webViewDidStartLoad(webView: WKWebView) {
-//        viewCtrl.activityIndicator.hidden = false
-//        viewCtrl.activityIndicator.startAnimating()
-//    }
-    
     func webView(webView: WKWebView, didFinishNavigation navigation: WKNavigation!) {
         
         
-     //   mURL = (webView.request?.URL?.absoluteString)!
-     //   viewCtrl.addressBarTxt.text = mURL
+        mURL = (webView.URL?.absoluteString)!
+        viewCtrl.addressBarTxt.text = mURL
         
         
         // Ineinander verschachtelt, weil completionHandler wartet bis ausgeführt wurde
@@ -41,7 +31,6 @@ class WebViewDelegate: NSObject, WKNavigationDelegate {
         webView.evaluateJavaScript("document.head.innerHTML", completionHandler: { (object, error) -> Void in
             if error == nil && object != nil{
                 self.htmlHead = (object as? String)!
-            print("We are in eveluate Javascript")
             
             webView .evaluateJavaScript("document.body.innerHTML", completionHandler: { (object, error) -> Void in
                  if error == nil && object != nil{
