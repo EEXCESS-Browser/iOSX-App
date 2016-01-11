@@ -59,13 +59,17 @@ class PopViewController : UIViewController{
         
         sechHeadline.text = headLine
         
-        let requesturl = NSURL(string: searchTags[0].uri!)
+        guard let sTags = searchTags else{
+            return
+        }
+        
+        let requesturl = NSURL(string: sTags[0].uri!)
         let request = NSURLRequest(URL: requesturl!)
         sechWebView.loadRequest(request)
         
         self.popoverContent = (self.storyboard?.instantiateViewControllerWithIdentifier("SearchTableViewController"))! as! SearchTableViewController
         
-        popoverContent.searchLists = searchTags
+        popoverContent.searchLists = sTags
         popoverContent.sechWebView = sechWebView
         
         popoverContent.modalPresentationStyle = .Popover

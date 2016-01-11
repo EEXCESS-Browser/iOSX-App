@@ -16,14 +16,14 @@ protocol Rule{
 
 
 class Rules {
-    var storedRules: [Rule]
+    var storedRules: [SeachRules]
     private var allResponses: [EEXCESSAllResponses]!
     
     init(){
         storedRules = []
     }
     
-    func addRule(rule: Rule){
+    func addRule(rule: SeachRules){
         storedRules.append(rule)
     }
     
@@ -63,11 +63,15 @@ class Rules {
         var ruleValues: [Double] = []
         var sum: Double = 0
         
-        for rule in storedRules{
-            let val = rule.applyRule(getRuleParameters(rule, response: res))
-            let v = Double(val.simpleDescription()) * rule.weighting
-            ruleValues.append(v)
-            sum = sum + v
+        for seachrule in storedRules{
+            for rules in seachrule.seachRules{
+                for rule in rules{
+                    let val = rule.applyRule(getRuleParameters(rule, response: res))
+                    let v = Double(val.simpleDescription()) * rule.weighting
+                    ruleValues.append(v)
+                    sum = sum + v
+                }
+            }
         }
         
         sum = sum / Double(ruleValues.count)
@@ -271,7 +275,7 @@ extension String{
 }
 
 
-class Test{
+/*class Test{
     var allResponses: [EEXCESSAllResponses]
     var singleResponses: [EEXCESSSingleResponse]
     var rules: [Rule]
@@ -308,9 +312,8 @@ class Test{
             }
         }
         
-    }
+    }*/
     
     
     
     
-}

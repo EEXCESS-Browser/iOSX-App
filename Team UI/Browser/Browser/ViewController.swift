@@ -372,23 +372,38 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
    
     }
     
-    func applyRules(eexcessAllResponses: [EEXCESSAllResponses]!){
+    func rankThatShit(eexcessAllResponses: [EEXCESSAllResponses]!){
         print("Before Rules \(eexcessAllResponses)")
-        var rule : Rules = Rules()
         
-        for(var i = 0; i < eexcessAllResponses.count; i++){
-            var mendeley : Mendeley = Mendeley(expectedResult: "Mendeley")
-            var language: Language = Language(expectedResult: LanguageType.German, title: eexcessAllResponses[i].responses[i].title)
-            var mediaType: MediaType = MediaType(expectedResult: MediaTypes.image)
-            rule.addRule(mendeley)
+        guard let allResponses = eexcessAllResponses else{
+            return
         }
         
-
-
-//        rule.addRule(rules[1])
-//        rule.addRule(rules[2])
+        let rule : Rules = Rules()
         
-        rule.applyRulesToAllResponses(eexcessAllResponses)
+        for(var i = 0; i < allResponses.count; i++){
+            
+             let seachRule: SeachRules = SeachRules()
+            
+            for(var j = 0; j < allResponses[i].responses.count; j++){
+                var rules: [Rule] = []
+                let mendeley : Mendeley = Mendeley(expectedResult: "Mendeley")
+                let language: Language = Language(expectedResult: LanguageType.German, title: allResponses[i].responses[j].title)
+                let mediaType: MediaType = MediaType(expectedResult: MediaTypes.image)
+                rules.append(mendeley)
+                rules.append(language)
+                rules.append(mediaType)
+                
+               
+                seachRule.appendSeachRules(rules)
+            }
+            
+            rule.addRule(seachRule)
+            
+        }
+        
+        
+        rule.applyRulesToAllResponses(allResponses)
         print("After Rules \(eexcessAllResponses)")
 
     }
