@@ -20,6 +20,8 @@ class PopViewController : UIViewController{
     @IBOutlet weak var sechImage: UIImageView!
     @IBOutlet weak var sechWebView: UIWebView!
     
+    private var popoverContent: SearchTableViewController!
+    
     @IBAction func openTable(sender: AnyObject) {
 //        var popoverContent = (self.storyboard?.instantiateViewControllerWithIdentifier("SearchTableViewController"))! as UIViewController
 //        var nav = UINavigationController(rootViewController: popoverContent)
@@ -31,10 +33,6 @@ class PopViewController : UIViewController{
 //        popover!.sourceRect = CGRectMake(100,100,0,0)
 //        
 //        self.presentViewController(nav, animated: true, completion: nil)
-        let popoverContent = (self.storyboard?.instantiateViewControllerWithIdentifier("SearchTableViewController"))! as UIViewController
-        
-        popoverContent.modalPresentationStyle = .Popover
-        var popover = popoverContent.popoverPresentationController
         
         if let popover = popoverContent.popoverPresentationController {
             
@@ -45,8 +43,8 @@ class PopViewController : UIViewController{
             popover.sourceRect = viewForSource.bounds
             
             // the size you want to display
-            popoverContent.preferredContentSize = CGSizeMake(200,500)
-//            popover.delegate = self.view
+            popoverContent.preferredContentSize = CGSizeMake(400,500)
+            //            popover.delegate = self.view
         }
         
         self.presentViewController(popoverContent, animated: true, completion: nil)
@@ -59,17 +57,19 @@ class PopViewController : UIViewController{
     
     override func viewDidLoad() {
         
-        for var i = 0  ; i < searchTags.count ; i++ {
-            print(searchTags[i].uri)
-            }
-        
-//        let requesturl = NSURL(string: url)
-//        let request = NSURLRequest(URL: requesturl!)
-
         sechHeadline.text = headLine
-//            sechText.text = jsonText
-
-//        sechWebView.loadRequest(request)
+        
+        let requesturl = NSURL(string: searchTags[0].uri!)
+        let request = NSURLRequest(URL: requesturl!)
+        sechWebView.loadRequest(request)
+        
+        self.popoverContent = (self.storyboard?.instantiateViewControllerWithIdentifier("SearchTableViewController"))! as! SearchTableViewController
+        
+        popoverContent.searchLists = searchTags
+        popoverContent.sechWebView = sechWebView
+        
+        popoverContent.modalPresentationStyle = .Popover
+     
         
         
     }
@@ -78,9 +78,11 @@ class PopViewController : UIViewController{
     @IBOutlet weak var SechTitle: UILabel!
     
 
-    func setDetailsInSechView(){
+    func setDetailsInSechView(url: String){
         
     }
+    
+    
     
 
 }

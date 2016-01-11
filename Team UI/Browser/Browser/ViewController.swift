@@ -12,6 +12,8 @@ import WebKit
 class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresentationControllerDelegate, UITableViewDelegate, BackDelegate
 {
     
+    private var indexPathForSelectedSearchTag: Int!
+    
     var myWebView: WKWebView?
     
 //    override func loadView() {
@@ -237,8 +239,8 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
 //                popViewController.jsonText = "NO RESULTS"
 //                popViewController.url = "https://www.google.de/"
 //            }
-            if let response = eexcessAllResponses.first{
-                popViewController.searchTags = response.responses
+            if eexcessAllResponses != nil{
+                popViewController.searchTags = eexcessAllResponses[indexPathForSelectedSearchTag].responses
 //                popViewController.url = response
             }else{
                 popViewController.jsonText = "NO RESULTS"
@@ -325,6 +327,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
 //        presentViewController(vc, animated: true, completion:nil)
 //        
 //
+        self.indexPathForSelectedSearchTag = indexPath.row
 
         let currentCell = tableView.cellForRowAtIndexPath(indexPath)! as UITableViewCell
         
@@ -355,6 +358,16 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         didReceiveScriptMessage message: WKScriptMessage) {
             print("JavaScript is sending a message \(message.body)")
             self.headLine = message.body as! String
+            
+            let sechTags = tableViewDataSource.sechTags
+            
+            for(var i = 0; i < sechTags.count; i++){
+                if(sechTags[i] == self.headLine){
+                    self.indexPathForSelectedSearchTag = i
+                }
+            }
+            
+            
             performSegueWithIdentifier("showPopView", sender: self)
    
     }
@@ -362,8 +375,16 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
     func applyRules(eexcessAllResponses: [EEXCESSAllResponses]!){
         print("Before Rules \(eexcessAllResponses)")
         var rule : Rules = Rules()
-        var mendeley : Mendeley = Mendeley(expectedResult: "Mendeley")
-        rule.addRule(mendeley)
+        
+        for(var i = 0; i < eexcessAllResponses.count; i++){
+            var mendeley : Mendeley = Mendeley(expectedResult: "Mendeley")
+            var language: Language = Language(expectedResult: LanguageType.German, title: eexcessAllResponses[i].responses[i].title)
+            var mediaType: MediaType = MediaType(expectedResult: MediaTypes.image)
+            rule.addRule(mendeley)
+        }
+        
+
+
 //        rule.addRule(rules[1])
 //        rule.addRule(rules[2])
         

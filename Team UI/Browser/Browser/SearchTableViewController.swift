@@ -10,7 +10,11 @@ import UIKit
 
 class SearchTableViewController: UITableViewController {
     
-    var searchLists : [String] = ["Ergebnis 1 ","Ergebnis 2"]
+    var searchLists : [EEXCESSSingleResponse] = [EEXCESSSingleResponse(title: "Test", provider: "unknown", uri: "http://www.google.de", language: "de", mediaType: "text")]
+    
+    var sechWebView: UIWebView!
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -34,10 +38,19 @@ class SearchTableViewController: UITableViewController {
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("listCell", forIndexPath: indexPath) as UITableViewCell
         
-        cell.textLabel!.text = searchLists[indexPath.row]
+        cell.textLabel!.text = searchLists[indexPath.row].title
         
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let requesturl = NSURL(string: searchLists[indexPath.row].uri!)
+        let request = NSURLRequest(URL: requesturl!)
+               
+        sechWebView.loadRequest(request)
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
     }
 
 

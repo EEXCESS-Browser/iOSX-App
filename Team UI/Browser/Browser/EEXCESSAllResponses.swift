@@ -18,4 +18,8 @@ class EEXCESSAllResponses {
     func appendSingleResponse(response: EEXCESSSingleResponse){
         responses.append(response)
     }
+    
+    func getSingleResponsesForSearchTag(indexPath: Int)->EEXCESSSingleResponse?{
+        return responses[indexPath]
+    }
 }
