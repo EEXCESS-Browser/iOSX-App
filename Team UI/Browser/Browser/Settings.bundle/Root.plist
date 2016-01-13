@@ -10,7 +10,7 @@
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>
-			<string>Group</string>
+			<string>Nutzerprofil</string>
 		</dict>
 		<dict>
 			<key>Type</key>
@@ -20,7 +20,7 @@
 			<key>Key</key>
 			<string>name_preference</string>
 			<key>DefaultValue</key>
-			<string></string>
+			<string>Mustermann</string>
 			<key>IsSecure</key>
 			<false/>
 			<key>KeyboardType</key>
@@ -28,33 +28,89 @@
 			<key>AutocapitalizationType</key>
 			<string>None</string>
 			<key>AutocorrectionType</key>
-			<string>No</string>
+			<string>Default</string>
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSToggleSwitchSpecifier</string>
+			<string>PSTextFieldSpecifier</string>
 			<key>Title</key>
-			<string>Enabled</string>
+			<string>Alter</string>
 			<key>Key</key>
-			<string>enabled_preference</string>
+			<string>age_preference</string>
+			<key>AutocorrectionType</key>
+			<string>Default</string>
+			<key>KeyboardType</key>
+			<string>NumberPad</string>
 			<key>DefaultValue</key>
-			<true/>
+			<string>0</string>
 		</dict>
 		<dict>
 			<key>Type</key>
-			<string>PSSliderSpecifier</string>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Stadt</string>
 			<key>Key</key>
-			<string>slider_preference</string>
+			<string>city_preference</string>
+			<key>AutocorrectionType</key>
+			<string>Default</string>
 			<key>DefaultValue</key>
-			<real>0.5</real>
-			<key>MinimumValue</key>
+			<string>Musterstadt</string>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Land</string>
+			<key>Key</key>
+			<string>country_preference</string>
+			<key>KeyboardType</key>
+			<string>Alphabet</string>
+			<key>AutocorrectionType</key>
+			<string>Default</string>
+			<key>DefaultValue</key>
+			<string>Deutschland</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Sprache</string>
+			<key>Key</key>
+			<string>language_preference</string>
+			<key>DefaultValue</key>
 			<integer>0</integer>
-			<key>MaximumValue</key>
-			<integer>1</integer>
-			<key>MinimumValueImage</key>
-			<string></string>
-			<key>MaximumValueImage</key>
-			<string></string>
+			<key>Values</key>
+			<array>
+				<integer>0</integer>
+				<integer>1</integer>
+			</array>
+			<key>Titles</key>
+			<array>
+				<string>de</string>
+				<string>en</string>
+			</array>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Browsereintellungen</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSTextFieldSpecifier</string>
+			<key>Title</key>
+			<string>Startseite</string>
+			<key>Key</key>
+			<string>startpage_preference</string>
+			<key>AutocorrectionType</key>
+			<string>Yes</string>
+			<key>KeyboardType</key>
+			<string>URL</string>
+			<key>DefaultValue</key>
+			<string>http://www.google.de</string>
 		</dict>
 	</array>
 </dict>
