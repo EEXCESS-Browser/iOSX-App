@@ -83,14 +83,12 @@ class SechManager {
             // Check if Element is Link
             if regex.isSechLink(inString: sechBodyArray[i]){
                 if sectionIsAvailable == true{
-                    tmpFilter = setFilter(tmpFilter, newFilter: sechBodyArray[i])
                     let link = makeTagObject(sechBodyArray[i], isMainTopic: true)
-                    makeSechObject(head, section: tmpSection, link: link, filter: tmpFilter)
+                    makeSechObject(head, section: tmpSection, link: link, filter: setFilter(tmpFilter, newFilter: sechBodyArray[i]))
                 }
                 if sectionIsAvailable == false{
-                    tmpFilter = setFilter(headFilter, newFilter: sechBodyArray[i])
                     let link = makeTagObject(sechBodyArray[i], isMainTopic: true)
-                    makeSechObject(head, section: Tag(), link: link, filter: tmpFilter)
+                    makeSechObject(head, section: Tag(), link: link, filter: setFilter(headFilter, newFilter: sechBodyArray[i]))
                 }
             }
         }
