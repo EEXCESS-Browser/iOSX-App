@@ -228,7 +228,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         {
             let popViewController = segue.destinationViewController as! PopViewController
             popViewController.modalPresentationStyle = UIModalPresentationStyle.Popover
-            print("Segue"+self.headLine)
+            print("Segue "+self.headLine)
             popViewController.headLine = self.headLine
 //            popViewController.jsonText = SechModel.instance.sechs[self.headLine]?.response.convertToString()
 //            popViewController.url = SechModel.instance.sechs[self.headLine]?.responseObject.documentBadge.uri

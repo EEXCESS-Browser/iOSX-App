@@ -12,7 +12,7 @@ class RegexForSech {
     
     func findSechTags(inString string : String) -> [String]{
         
-        let pattern = "</?search([a-z0-9äöüÄÖÜ]*)\\b[^>]*>"
+        let pattern = "</?search-s[^>]*>"
         let regex = makeRegEx(withPattern: pattern)
         return getStringArrayWithRegex(string, regex: regex)
         
@@ -62,7 +62,7 @@ class RegexForSech {
             
             if regex.firstMatchInString(string, options: NSMatchingOptions(), range: range) != nil {
                 
-                let regexAttribute = makeRegEx(withPattern: "(?<=\(attributeName)=\")([a-zA-Z0-9äöüÄÖÜ ]*)(?=\")")
+                let regexAttribute = makeRegEx(withPattern: "(?<=\(attributeName)=\")([#-~ !§°`´äöüÄÖÜ]*)(?=\")")
                 let match = getStringArrayWithRegex(string, regex: regexAttribute)
                 
                 if (match.isEmpty != true){
