@@ -34,6 +34,7 @@ class PopViewController : UIViewController{
 //        
 //        self.presentViewController(nav, animated: true, completion: nil)
         
+
         if let popover = popoverContent.popoverPresentationController {
             
             let viewForSource = sender as! UIView
@@ -63,9 +64,12 @@ class PopViewController : UIViewController{
             return
         }
         
+        if(sTags.count > 0){
+        
         let requesturl = NSURL(string: sTags[0].uri!)
         let request = NSURLRequest(URL: requesturl!)
         sechWebView.loadRequest(request)
+              }
         
         self.popoverContent = (self.storyboard?.instantiateViewControllerWithIdentifier("SearchTableViewController"))! as! SearchTableViewController
         
@@ -73,6 +77,7 @@ class PopViewController : UIViewController{
         popoverContent.sechWebView = sechWebView
         
         popoverContent.modalPresentationStyle = .Popover
+      
      
         
         

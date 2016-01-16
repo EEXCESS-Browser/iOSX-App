@@ -56,7 +56,7 @@ class EEXCESSRecommendationCtrl {
                 
                 let u = (res.object!["documentBadge"]?["uri"]?.string)!
                 let p = (res.object!["documentBadge"]?["provider"]?.string)!
-                let t = (res.object!["title"]?.string!)!
+                let t = (res.object!["title"]?.string)!
                 let l = (res.object!["language"]?.string)!
                 let m = (res.object!["mediaType"]?.string)!
                 

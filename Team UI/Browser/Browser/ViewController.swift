@@ -239,7 +239,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
 //                popViewController.jsonText = "NO RESULTS"
 //                popViewController.url = "https://www.google.de/"
 //            }
-            if eexcessAllResponses != nil{
+            if eexcessAllResponses != nil && eexcessAllResponses.count > 0{
                 popViewController.searchTags = eexcessAllResponses[indexPathForSelectedSearchTag].responses
 //                popViewController.url = response
             }else{
