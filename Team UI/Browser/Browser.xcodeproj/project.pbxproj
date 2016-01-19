@@ -36,7 +36,7 @@
 		961D15DA1C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D61C24122E00D2EF46 /* EEXCESSRecommendationCtrl.swift */; };
 		961D15DB1C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15D71C24122E00D2EF46 /* EEXCESSRecommendationJSONCtrl.swift */; };
 		961D15DD1C2412CF00D2EF46 /* SechManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 961D15DC1C2412CF00D2EF46 /* SechManager.swift */; };
-		96D622B81C43E6720090C438 /* SeachRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D622B71C43E6720090C438 /* SeachRules.swift */; settings = {ASSET_TAGS = (); }; };
+		96D622B81C43E6720090C438 /* SeachRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96D622B71C43E6720090C438 /* SeachRules.swift */; };
 		96F405741C0335B50013E66F /* Rules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96F405731C0335B50013E66F /* Rules.swift */; };
 		A9767A101C1B215100D6FF10 /* main.js in Resources */ = {isa = PBXBuildFile; fileRef = A9767A0F1C1B215100D6FF10 /* main.js */; };
 		A9F615761BEA37CF003A3878 /* PopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F615751BEA37CF003A3878 /* PopViewController.swift */; };
@@ -388,6 +388,7 @@
 				TargetAttributes = {
 					8D43CB481BCE689E00EEBB7B = {
 						CreatedOnToolsVersion = 7.0;
+						DevelopmentTeam = C75C8K6ET9;
 					};
 					8D43CB5C1BCE689E00EEBB7B = {
 						CreatedOnToolsVersion = 7.0;
@@ -622,10 +623,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Browser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.hof-university.Browser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Debug;
@@ -634,10 +638,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = Browser/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "de.hof-university.Browser";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = 2;
 			};
 			name = Release;

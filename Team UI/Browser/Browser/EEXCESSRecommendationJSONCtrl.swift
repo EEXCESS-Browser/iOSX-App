@@ -44,15 +44,15 @@ class EEXCESSRecommendationJSONCtrl {
             
             newEntry[0]["text"] = seachData[i].tags["link"]?.topic
             newEntry[0]["isMainTopic"] = seachData[i].tags["link"]?.isMainTopic
-            newEntry[0]["type"] = seachData[i].tags["link"]?.type
+            newEntry[0]["type"] = createCorrectTypeString((seachData[i].tags["link"]?.type)!)
             
             newEntry[1]["text"] = seachData[i].tags["section"]?.topic
             newEntry[1]["isMainTopic"] = seachData[i].tags["section"]?.isMainTopic
-            newEntry[1]["type"] = seachData[i].tags["section"]?.type
+            newEntry[1]["type"] = createCorrectTypeString((seachData[i].tags["section"]?.type)!)
             
             newEntry[2]["text"] = seachData[i].tags["head"]?.topic
             newEntry[2]["isMainTopic"] = seachData[i].tags["head"]?.isMainTopic
-            newEntry[2]["type"] = seachData[i].tags["head"]?.type
+            newEntry[2]["type"] = createCorrectTypeString((seachData[i].tags["head"]?.type)!)
 
             allKWS.append(newEntry)
         }
@@ -64,6 +64,21 @@ class EEXCESSRecommendationJSONCtrl {
         addOrigin()
         //addMetaInfo()
         addKontextKeywords(seachData)
+    }
+    
+    private func createCorrectTypeString(type : String) -> String
+    {
+        let lower = type.lowercaseString
+        switch lower {
+            case "misc":
+                return "Misc"
+            case "persom":
+                return "Person"
+            case "location":
+                return "Location"
+        default:
+            return "Organization"
+        }
     }
 }
 
