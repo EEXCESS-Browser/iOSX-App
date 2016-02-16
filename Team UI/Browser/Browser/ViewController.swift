@@ -361,7 +361,7 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
             
             let sechTags = tableViewDataSource.sechTags
             
-            for(var i = 0; i < sechTags.count; i++){
+            for i in 0 ..< sechTags.count {
                 if(sechTags[i] == self.headLine){
                     self.indexPathForSelectedSearchTag = i
                 }
@@ -381,11 +381,11 @@ class ViewController: UIViewController ,WKScriptMessageHandler,  UIPopoverPresen
         
         let rule : Rules = Rules()
         
-        for(var i = 0; i < allResponses.count; i++){
+        for i in 0 ..< allResponses.count {
             
              let seachRule: SeachRules = SeachRules()
             
-            for(var j = 0; j < allResponses[i].responses.count; j++){
+            for j in 0 ..< allResponses[i].responses.count {
                 var rules: [Rule] = []
                 let mendeley : Mendeley = Mendeley(expectedResult: "Mendeley")
                 let language: Language = Language(expectedResult: LanguageType.German, title: allResponses[i].responses[j].title)

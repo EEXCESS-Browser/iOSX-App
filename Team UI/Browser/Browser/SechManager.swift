@@ -60,7 +60,7 @@ class SechManager {
         var tmpFilter = headFilter
         var sectionIsAvailable = false
         
-        for (var i = 0; i < sechBodyArray.count-1; i++){
+        for i in 0 ..< sechBodyArray.count-1 {
             
             //Check for Closingtags
             if regex.isSechSectionClosing(inString: sechBodyArray[i]){

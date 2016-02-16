@@ -37,7 +37,7 @@ class EEXCESSRecommendationJSONCtrl {
         print("seachData \(seachData.first?.tags)")
         var allKWS : [AnyObject] = []
         
-        for (var i=0; i<seachData.count; i++)
+        for i in 0 ..< seachData.count
         {
             var newEntry : [[String : AnyObject]] = [[:], [:], [:]]
             
