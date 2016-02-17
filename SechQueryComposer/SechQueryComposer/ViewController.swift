@@ -64,7 +64,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         while((kwf.enabled) && (kwf.stringValue != "") && (validKWS < cntKWS-1))
         {
             keyWords.append(kwf.stringValue)
-            validKWS++
+            validKWS += 1
             kwf = self.valueForKey("kw0\(validKWS)") as! NSTextField
         }
         
@@ -90,7 +90,7 @@ class ViewController: NSViewController, NSTextFieldDelegate {
         kw00.enabled =  true
         kw00.selectable = true
         kw00.delegate = self
-        for (var i=1; i<cntKWS; i++)
+        for i in 1 ..< cntKWS
         {
             let kwf = self.valueForKey("kw0\(i)") as? NSTextField
             kwf!.enabled = false
@@ -143,17 +143,18 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     }
     override func controlTextDidChange(notification: NSNotification)
     {
-        var firstEmpty : Int
-        for (firstEmpty = 1; firstEmpty<cntKWS; firstEmpty++)
+        var firstEmpty = 1
+        while (firstEmpty < cntKWS)
         {
             let kwf = self.valueForKey("kw0\(firstEmpty)") as? NSTextField
             if (kwf!.stringValue == "")
             {
                 break
             }
+            firstEmpty += 1
         }
 
-        for (var i=0; i<cntKWS; i++)
+        for i in 0 ..< cntKWS
         {
             let kwf = self.valueForKey("kw0\(i)") as? NSTextField
             kwf!.enabled = (i <= firstEmpty)
@@ -174,9 +175,9 @@ class ViewController: NSViewController, NSTextFieldDelegate {
     // TBDs
     func checkForURL() -> Bool
     {
-        let defaults = NSUserDefaults.standardUserDefaults()
-        let urlStr = defaults.valueForKey("url") as! String?
-        let url = NSURL(string: urlStr!)
+        let p = Preferences()
+        let urlStr = p.url
+        let url = NSURL(string: urlStr)
         
         if (url == nil) {return false}
         let req = NSURLRequest(URL: url!)

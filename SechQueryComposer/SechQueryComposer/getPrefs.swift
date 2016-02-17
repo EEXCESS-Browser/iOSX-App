@@ -50,7 +50,7 @@ class PreferencesR {
         get {
             let v = defaults.valueForKey(URL_ID)
             if (v == nil) {
-                return "https://eexcess.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer"
+                return "https://eexcess-dev.joanneum.at/eexcess-privacy-proxy-issuer-1.0-SNAPSHOT/issuer"
             }
             return v as! String
         }

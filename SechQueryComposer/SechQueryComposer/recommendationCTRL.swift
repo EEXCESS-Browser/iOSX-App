@@ -67,7 +67,7 @@ class RecommendationJSON {
     {
         var allKWS : [AnyObject] = []
         
-        for (var i=0; i<keywordInfo.kw.count; i++)
+        for i in 0 ..< keywordInfo.kw.count
         {
             var newEntry : [String : AnyObject] = [:]
             
